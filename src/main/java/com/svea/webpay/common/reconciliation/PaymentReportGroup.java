@@ -679,7 +679,7 @@ public class PaymentReportGroup {
 	/**
 	 * 
 	 * @param totalOtherFees				The other fees to be considered.
-	 * @param invoiceFeeType				The fee type to be reduced
+	 * @param invoiceFeeTypes				The fee type to be reduced
 	 * @param invoiceFeesIncludedInTotal	If invoice fees are included in otherFees, the other fees are to be
 	 * 										reduced with the invoice fees.
 	 */

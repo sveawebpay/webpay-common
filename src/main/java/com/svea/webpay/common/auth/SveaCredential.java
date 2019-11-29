@@ -674,7 +674,7 @@ s	 * @return	The password for this credential
 	/**
 	 * Loads credentials from json file
 	 * 
-	 * @param filename		The file name to read
+	 * @param configfile		The file name to read
 	 * @return	A list of credentials
 	 * @throws Exception	if file can't be found or read
 	 */
