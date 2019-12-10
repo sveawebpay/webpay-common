@@ -601,6 +601,10 @@ s	 * @return	The password for this credential
 			if (ignoreFees!=null) {
 				cre.setIgnoreFees(Boolean.parseBoolean(ignoreFees));
 			}
+			String countryCodeTmp = path.evaluate("countryCode", clist);
+			if (countryCodeTmp!=null) {
+				cre.setCountryCode(countryCodeTmp);
+			}
 			
 			String enrichFromInvoice = path.evaluate("enrichFromInvoice", clist);
 			if (enrichFromInvoice!=null) {
