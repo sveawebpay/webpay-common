@@ -35,6 +35,7 @@ import com.svea.webpayws.ServiceSoap;
 /**
  * Example class that uses the CXF-generated classes in package com.svea.webpayws
  * 
+ * NOTE: Work in progress. The example is not yet completed.
  * 
  * @author Daniel Tamm
  *
