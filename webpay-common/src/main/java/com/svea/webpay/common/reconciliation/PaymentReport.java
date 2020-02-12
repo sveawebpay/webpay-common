@@ -26,6 +26,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.svea.webpay.common.conv.InvalidTaxIdFormatException;
+import com.svea.webpay.common.conv.TaxIdFormatter;
+import com.svea.webpay.common.conv.TaxIdStructure;
+import com.svea.webpay.common.conv.UnknownTaxIdFormatException;
+
 /**
  * The top structure of a report. 
  * 
@@ -52,6 +57,31 @@ public class PaymentReport {
 
 	public void setTaxId(String taxId) {
 		this.taxId = taxId;
+	}
+	
+	/**
+	 * Returns tax id in specified destination format (if possible).
+	 * 
+	 * @param dstFormat		See TaxIdStructure.FMT_* for possible formats.
+	 * 
+	 * @return	The tax id formatted in specified format. If the source format can't
+	 * 			be determined, the unformatted tax id is returned.
+	 * 
+	 * @throws InvalidTaxIdFormatException  If the tax id doesn't conform to the specified formats or
+     * 										the source and destinations formats are incompatible.	 
+	 * @throws UnknownTaxIdFormatException  If the tax id specified is not recognized.
+	 */
+	public String getTaxIdInFormat(String dstFormat) throws UnknownTaxIdFormatException, InvalidTaxIdFormatException {
+
+		if (taxId == null) return null;
+		
+		String srcFormat = TaxIdFormatter.determineFormat(null, taxId);
+		if (TaxIdStructure.FMT_UNKNOWN.equalsIgnoreCase(srcFormat)) {
+			return taxId;
+		}
+		String dstTaxId = TaxIdFormatter.printTaxId(srcFormat, taxId, dstFormat);
+		
+		return dstTaxId;
 	}
 	
 	/**

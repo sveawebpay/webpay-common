@@ -6,7 +6,10 @@ import java.util.regex.Pattern;
 /**
  * Utility class to parse and print tax id:s in different formats.
  * 
- * At the moment only Swedish tax id's are supported. 
+ * At the moment the following countries are supported
+ * - Sweden
+ * - Finland
+ * - Norway 
  * 
  * @author Daniel Tamm
  *
@@ -43,6 +46,12 @@ public class TaxIdFormatter {
 		return(buf.toString());
 	}
 
+	/**
+	 * Checks if a sting contains only digits.
+	 * 
+	 * @param ref		The string to check
+	 * @return			True if only digits are contained in this string.
+	 */
     public static boolean hasDigitsOnly(String ref) {
         if (ref==null || ref.trim().length()==0) return(false);
         char c;
@@ -81,9 +90,10 @@ public class TaxIdFormatter {
      * 						Note, this can be lengthy.
      * @param taxId			The actual tax id.
      * @param dstFormat		The destination format.
-     * @return
-     * @throws UnknownTaxIdFormatException 
-     * @throws InvalidTaxIdFormatException 
+     * @return				The tax id formatted in the specified dstFormat.
+     * @throws UnknownTaxIdFormatException 	If that tax id specified is not recognized.
+     * @throws InvalidTaxIdFormatException  If the tax id doesn't conform to the specified formats or
+     * 										the source and destinations formats are incompatible.
      */
     public static String printTaxId(String srcFormat, String taxId, String dstFormat) throws UnknownTaxIdFormatException, InvalidTaxIdFormatException {
     	
@@ -137,8 +147,9 @@ public class TaxIdFormatter {
     
     /**
      * Reads the groups from a matching matcher into a tax id structure.
-     * @param m
-     * @return
+     * @param m				The matcher to use
+     * @param taxIdFormat	The tax id format.
+     * @return	A tax id structure.
      */
     private static TaxIdStructure createTaxIdStructureFromMatcher(Matcher m, String taxIdFormat) {
 
@@ -220,7 +231,6 @@ public class TaxIdFormatter {
     	
     	return TaxIdStructure.FMT_UNKNOWN;
     }
-    
     
 	
 }
