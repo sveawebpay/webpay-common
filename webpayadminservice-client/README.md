@@ -1,5 +1,6 @@
-# webpayadminservice-client
-Low level client for accessing SveaWebPay Administration Service API.
+# webpayadminservice-client - Admin Service API
+
+This API is for managing orders created using webpayws - Webpay EU Webservice API
 
 The WSDL-itself is located on https://webpayadminservice.svea.com/AdminService.svc?wsdl
 

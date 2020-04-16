@@ -1,4 +1,6 @@
-# webpayws
+# webpayws - EU Webservice API
+
+The purpose of this webservice is to create invoices, paymentplans and account service orders.
 
 This is a maven module that generates java classes to access the webservice located 
 at https://webpayws.svea.com/SveaWebPay.asmx?WSDL using the [cxf-codegen-plugin](http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html).
