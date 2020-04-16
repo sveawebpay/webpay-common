@@ -1,0 +1,7 @@
+/target/
+/bin/
+/*.TXT
+/.project
+/.classpath
+/.settings
+/reconciliation-report.xlsx

@@ -1,0 +1,57 @@
+<!--
+
+ Use Apache CXF (http://cxf.apache.org/).
+ Last used version 3.2.6
+ 
+ cd src\main\resources
+ 
+ wsdl2java.bat -frontend jaxws21 
+-p com.svea.webpayadminservice.client
+-d ..\java
+-b bindings.xml -autoNameResolution 
+-client AdminService.wsdl
+
+https://webpayadminservice.svea.com/AdminService.svc?wsdl
+
+Instructions to regenerate. 
+1. Save AdminService.wsdl locally.
+2. Change references to xsd-s to local xsds.
+3. If any of the xsds have changed, download new versions.
+4. Delete the old files in java/com/svea/webpayadminservice/client using system explorer (not from Eclipse).
+5. Regenerate from the modified AdminService.svc.wsdl.
+6. Update the WSDL-location to relative in AdminService.java 
+
+For OSGI-compatiblility it's important to load the WSDL-files using the class'
+classloader
+
+       URL url = AdminService.class.getResource(WSDL_FILE);
+       if (url == null) {
+	      	url = AdminService.class.getClassLoader().getResource(WSDL_FILE);
+
+-->
+
+<jaxb:bindings version="2.1" 
+xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+   <jaxb:globalBindings generateElementProperty="false"/> 
+   
+   <jaxb:bindings schemaLocation="AdminService.xsd8.xsd">
+   	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
+   		<jaxb:factoryMethod name="SearchInvoice"/>
+   	</jaxb:bindings>
+   </jaxb:bindings>
+   
+   <jaxb:bindings schemaLocation="AdminService.xsd9.xsd">
+   	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
+   		<jaxb:factoryMethod name="SearchPaymentPlan"/>
+   	</jaxb:bindings>
+   </jaxb:bindings>
+
+   <jaxb:bindings schemaLocation="AdminService.xsd14.xsd">
+   	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
+   		<jaxb:factoryMethod name="SearchAccountCredit"/>
+   	</jaxb:bindings>
+   </jaxb:bindings>
+   
+</jaxb:bindings>

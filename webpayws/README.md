@@ -10,3 +10,18 @@ The generated classes are placed in the package `com.svea.webpayws`
 
 See class `com.svea.webpayws.client.WebpayWsClient` for example on how to use the API.
 
+## Installation
+
+The parent project must first be built.
+
+## Usage
+
+Include the following dependency in your pom.xml
+
+```
+<dependency>
+  <groupId>com.svea</groupId>
+  <artifactId>webpayws</artifactId>
+  <version>0.0.3-SNAPSHOT</version>
+</dependency>
+```
