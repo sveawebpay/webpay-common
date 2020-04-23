@@ -19,6 +19,7 @@
 		<module>webpayws</module>
 		<module>webpayadminservice-client</module>
 		<module>webpay-report-converters</module>
+		<module>webpay-payment-gw</module>
 	</modules>
 
 	<dependencies>
