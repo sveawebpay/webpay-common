@@ -10,16 +10,27 @@ This is a maven project with the following modules
 
 Library with classes common for other libraries for Svea Webpay
 
-## webpayws - EU Webservice API
+## webpay-report-converters
 
-The purpose of this webservice is to create invoices, paymentplans and account service orders.
+Converts webpay reports between different formats.
 
-A module that generates API-code to communicate with https://webpayws.svea.com/SveaWebPay.asmx?WSDL
+## webpay-payment-gw - Payment Gateway API
+
+The Payment Gateway API deals primarily with card and direct-bank payments.
+
+https://webpaypaymentgateway.svea.com/webpay/payment
 
 ## webpayadminservice-client - Admin Service API
 
 For managing orders created using webpayws - Webpay EU Webservice API
 
-## webpay-report-converters
+https://webpayadminservice.svea.com/AdminService.svc?wsdl
 
-Converts webpay reports between different formats.
+## webpayws - EU Webservice API
+
+The purpose of this webservice is to create invoices, paymentplans and account service orders.
+
+A module that generates API-code to communicate with 
+
+https://webpayws.svea.com/SveaWebPay.asmx?WSDL
+
