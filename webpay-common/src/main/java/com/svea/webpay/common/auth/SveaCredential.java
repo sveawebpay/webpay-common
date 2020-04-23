@@ -83,9 +83,10 @@ public class SveaCredential {
 	private String	accountType;
 	// merchantId is a 6 digit number
 	private String	merchantId;
+	private String	secretWord;
 	// cardMerchantId is a 4 digit number
 	private String	cardMerchantId;			
-	private String	secretWord;
+	private String	cardSecretWord;
 	private String	orgNo;
 	private String	orgName;
 	private String	vatNo;
@@ -499,6 +500,14 @@ s	 * @return	The password for this credential
 	public void setSkipEmail(boolean skipEmail) {
 		this.skipEmail = skipEmail;
 	}
+	
+	public String getCardSecretWord() {
+		return cardSecretWord;
+	}
+
+	public void setCardSecretWord(String cardSecretWord) {
+		this.cardSecretWord = cardSecretWord;
+	}
 
 	/**
 	 * Returns account for given AccountType. If remapped, the remapped account is returned.
@@ -627,6 +636,7 @@ s	 * @return	The password for this credential
 			cre.setServer(path.evaluate("server", clist));
 			cre.setMerchantId(path.evaluate("merchantId", clist));
 			cre.setCardMerchantId(path.evaluate("cardMerchantId", clist));
+			cre.setCardSecretWord(path.evaluate("cardSecretWord", clist));
 			
 			Node aNode = (Node)path.evaluate("accountMappings", clist, XPathConstants.NODE);
 
