@@ -5,14 +5,20 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+/**
+ * Utility class for communicating with the Payment Gateway API.
+ * 
+ * @author Daniel Tamm
+ *
+ */
 public class PaymentGwUtil {
 
 	/**
-	 * Creates a mac from given message and secret word
+	 * Creates a mac from given message encoded in Base64 and secret word
 	 * 
-	 * @param xmlMessage
-	 * @param secretWord
-	 * @return
+	 * @param message		The base64 encoded message to use for MAC-creation.
+	 * @param secretWord	The secret word to apply.
+	 * @return		A mac.
 	 */
 	public static String createMacFromBase64Msg(String message, String secretWord) {
 		
@@ -60,11 +66,11 @@ public class PaymentGwUtil {
 	
 	
 	/**
-	 * Creates a mac from given message and secret word
+	 * Creates a mac from given xml/text message and secret word.
 	 * 
-	 * @param xmlMessage
-	 * @param secretWord
-	 * @return
+	 * @param xmlMessage		The message to be used for mac creation.
+	 * @param secretWord		The secret word to apply.
+	 * @return					The mac
 	 */
 	public static String createMac(String xmlMessage, String secretWord) {
 		

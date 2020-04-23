@@ -82,8 +82,8 @@ public class PaymentGwClient {
 	/**
 	 * Queries for a transaction by transaction ID
 	 * 
-	 * @param transactionId
-	 * @return	
+	 * @param transactionId		The transaction ID to query.
+	 * @return	A transaction. Null if not found.
 	 */
 	public Transaction queryByTransactionId(Long transactionId) {
 		
