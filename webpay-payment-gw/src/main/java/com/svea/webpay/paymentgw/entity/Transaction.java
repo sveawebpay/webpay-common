@@ -1,6 +1,8 @@
 package com.svea.webpay.paymentgw.entity;
 
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -12,6 +14,8 @@ import com.svea.webpay.paymentgw.xmladapter.PaymentGwDateAdapter;
 @XmlRootElement(name="transaction")
 public class Transaction {
 
+	private static Pattern checkoutOrderIdPattern = Pattern.compile(".*?/(\\d+)$");
+	
 	private Long	id;
 	private String 	customerRefNo;
 	private Integer	merchantId;
@@ -41,6 +45,7 @@ public class Transaction {
 	private Integer	authCode;
 	private OrderRows	orderRows;
 
+	private	Long	checkoutOrderId;
 	
 	@XmlAttribute(name="id")	
 	public Long getId() {
@@ -254,6 +259,20 @@ public class Transaction {
 	public void setMaskedCardNo(String maskedCardNo) {
 		this.maskedCardNo = maskedCardNo;
 	}
+	
+	public Long getCheckoutOrderId() {
+		if (checkoutOrderId==null && callbackUrl!=null) {
+			Matcher m = checkoutOrderIdPattern.matcher(callbackUrl);
+			if (m.matches()) {
+				checkoutOrderId = Long.parseLong(m.group(1));
+			}
+		}
+		return checkoutOrderId;
+	}
+	public void setCheckoutOrderId(Long checkoutOrderId) {
+		this.checkoutOrderId = checkoutOrderId;
+	}
+	
 	
 	
 	
