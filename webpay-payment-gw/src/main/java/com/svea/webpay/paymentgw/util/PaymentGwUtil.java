@@ -53,7 +53,7 @@ public class PaymentGwUtil {
 	
 	/**
 	 * Returns xmlMessage encoded in base64
-	 * @param xmlMessage	The message to be encoded
+	 * @param base64Message	The message to be encoded
 	 * @return	The base64 encoded message
 	 */
 	public static String decodeBase64Message(String base64Message) {
