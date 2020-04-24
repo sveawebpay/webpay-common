@@ -1,9 +1,11 @@
 package com.svea.webpay.paymentgw.entity;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 public class Row {
 
+	private String	id;
 	private String	name;
 	private String	description;
 	private Long	amount;
@@ -12,6 +14,13 @@ public class Row {
 	private String	SKU;
 	private	String	unit;
 	
+	@XmlAttribute(name="id")
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

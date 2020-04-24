@@ -28,7 +28,7 @@ public class TestQueryTransactionId {
 		if (TestConfig.transactionId!=null && TestConfig.transactionId>0) {
 			Transaction tr = cl.queryByTransactionId(TestConfig.transactionId);
 			if (tr!=null) {
-				TestConfig.testLogger.info("Successfully retrieved transaction: " + tr.getId());
+				TestConfig.testLogger.info("Successfully retrieved transaction: " + tr.getId() + " - " + tr.getCustomer().getFullName());
 			}
 		}
 		
