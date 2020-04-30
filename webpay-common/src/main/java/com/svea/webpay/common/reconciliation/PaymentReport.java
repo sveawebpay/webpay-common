@@ -23,9 +23,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
+import com.svea.webpay.common.auth.SveaCredential;
 import com.svea.webpay.common.conv.InvalidTaxIdFormatException;
 import com.svea.webpay.common.conv.TaxIdFormatter;
 import com.svea.webpay.common.conv.TaxIdStructure;
@@ -250,6 +253,86 @@ public class PaymentReport {
 			}
 		}
 		
+	}
+	
+	/**
+	 * Retrives payout information in a condensed format.
+	 * 
+	 * @return		A list of payout lines for this report
+	 */
+	public List<PayoutLine> retrievePayoutLines() {
+		
+		List<PayoutLine> result = new ArrayList<PayoutLine>();
+		
+		PayoutLine pl = null;
+		
+		if (getPaymentReportGroup()!=null) {
+			
+			// Find credit card groups and direct debit groups
+			Map<String, PaymentReportGroup> creditCardGroups = new TreeMap<String,PaymentReportGroup>();
+			Map<String, PaymentReportGroup> directDebitGroups = new TreeMap<String,PaymentReportGroup>();
+			
+			for (PaymentReportGroup gr : getPaymentReportGroup()) {
+				if (SveaCredential.ACCOUNTTYPE_CREDITCARD.equalsIgnoreCase(gr.getPaymentType())) {
+					creditCardGroups.put(gr.getPaymentTypeReference(), gr);
+					continue;
+				}
+				if (SveaCredential.ACCOUNTTYPE_DIRECT_BANK.equalsIgnoreCase(gr.getPaymentType())) {
+					directDebitGroups.put(gr.getPaymentTypeReference(), gr);
+				}
+			}
+
+			double totalPaidAmount = 0, totalReceivedAmount = 0, feeAmount = 0, feeAmountCard = 0;
+			PaymentReportGroup ccGroup;
+			PaymentReportGroup debitGroup;
+			boolean isCardOrDebit = false;
+			
+			for (PaymentReportGroup gr : getPaymentReportGroup()) {
+				
+				totalPaidAmount = gr.getTotalPaidAmt();
+				totalReceivedAmount = gr.getTotalReceivedAmt();
+				feeAmountCard = 0;
+				
+				if (gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_INVOICE)) {
+					
+					ccGroup = creditCardGroups.get(gr.getPaymentTypeReference());
+					debitGroup = directDebitGroups.get(gr.getPaymentTypeReference());
+					if (ccGroup!=null) {
+						totalPaidAmount += ccGroup.getTotalPaidAmt();
+						feeAmountCard += ccGroup.getTotalPaidAmt()-ccGroup.getTotalVatAmt()-ccGroup.getTotalReceivedAmt();
+					}
+					if (debitGroup!=null) {
+						totalPaidAmount += debitGroup!=null ? debitGroup.getTotalPaidAmt() : 0;
+						feeAmountCard += debitGroup.getTotalPaidAmt()-debitGroup.getTotalVatAmt()-debitGroup.getTotalReceivedAmt();
+					}
+				} 
+				// Calculate fee amount
+				feeAmount = totalPaidAmount-gr.getTotalVatAmt()-gr.getTotalReceivedAmt() - feeAmountCard;
+				
+				isCardOrDebit = gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_CREDITCARD) ||
+						gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_DIRECT_BANK);
+
+				if (isCardOrDebit) {
+					totalReceivedAmount = 0;
+					feeAmount = gr.getTotalPaidAmt()-gr.getTotalVatAmt()-gr.getTotalReceivedAmt();
+				}
+				
+				pl = new PayoutLine();
+				
+				pl.setPaymentType(gr.getPaymentType());
+				pl.setPaymentTypeReference(gr.getPaymentTypeReference());
+				pl.setTrxCount(gr.getPaymentReportDetail()!=null ?  gr.getPaymentReportDetail().size() : 0);
+				pl.setIncludedInOtherPayout(isCardOrDebit);
+				pl.setFeeAmount(feeAmount);
+				pl.setTaxAmount(gr.getTotalVatAmt());
+				pl.setPaidByCustomer(totalPaidAmount);
+				pl.setPaidOut(totalReceivedAmount);
+
+				result.add(pl);
+			}	
+		} 
+		
+		return result;
 	}
 	
 }
