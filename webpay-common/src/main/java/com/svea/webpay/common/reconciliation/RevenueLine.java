@@ -10,6 +10,7 @@ public class RevenueLine {
 	private Double	taxRate;
 	private Double	taxBase;
 	private Double	taxAmount;
+	private String	paymentType;
 	private String	description;
 	
 	private List<RevenueLineDetail> details;
@@ -49,6 +50,12 @@ public class RevenueLine {
 	}
 	public void setTaxAmount(Double taxAmount) {
 		this.taxAmount = taxAmount;
+	}
+	public String getPaymentType() {
+		return paymentType;
+	}
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
 	}
 	public String getDescription() {
 		return description;

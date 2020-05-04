@@ -49,6 +49,7 @@ public class PaymentReport {
 	private String taxId;
 	private String orgName;
 	private String taxIdFormat;
+	private AccountingReport	accountingReport;
 	
 	/**
 	 * Tax id of the organization that this report belongs to.
@@ -255,6 +256,18 @@ public class PaymentReport {
 		
 	}
 	
+	/**
+	 * 
+	 * @return	Returns an accounting report if an accounting report has been generated / supplied
+	 */
+	public AccountingReport getAccountingReport() {
+		return accountingReport;
+	}
+
+	public void setAccountingReport(AccountingReport accountingReport) {
+		this.accountingReport = accountingReport;
+	}
+
 	/**
 	 * Retrives payout information in a condensed format.
 	 * 
