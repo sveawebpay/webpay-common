@@ -270,10 +270,12 @@ public class PaymentReport {
 
 	/**
 	 * Retrives payout information in a condensed format.
+	 * @param	paymentReference	If non-null, only with this payment reference
+	 * @param  	paymentType			If non-null, only with this payment type
 	 * 
 	 * @return		A list of payout lines for this report
 	 */
-	public List<PayoutLine> retrievePayoutLines() {
+	public List<PayoutLine> retrievePayoutLines(String paymentReference, String paymentType) {
 		
 		List<PayoutLine> result = new ArrayList<PayoutLine>();
 		
@@ -281,9 +283,12 @@ public class PaymentReport {
 		
 		if (getPaymentReportGroup()!=null) {
 			
-			// Find credit card groups and direct debit groups
+			// Find credit card groups, direct debit groups and admin groups
+			// since they can be included in invoice groups
 			Map<String, PaymentReportGroup> creditCardGroups = new TreeMap<String,PaymentReportGroup>();
 			Map<String, PaymentReportGroup> directDebitGroups = new TreeMap<String,PaymentReportGroup>();
+			Map<String, PaymentReportGroup> adminGroups = new TreeMap<String, PaymentReportGroup>();
+			Map<String, PaymentReportGroup> invoiceGroups = new TreeMap<String, PaymentReportGroup>();
 			
 			for (PaymentReportGroup gr : getPaymentReportGroup()) {
 				if (SveaCredential.ACCOUNTTYPE_CREDITCARD.equalsIgnoreCase(gr.getPaymentType())) {
@@ -292,13 +297,22 @@ public class PaymentReport {
 				}
 				if (SveaCredential.ACCOUNTTYPE_DIRECT_BANK.equalsIgnoreCase(gr.getPaymentType())) {
 					directDebitGroups.put(gr.getPaymentTypeReference(), gr);
+					continue;
+				}
+				if (SveaCredential.ACCOUNTTYPE_ADMIN.equalsIgnoreCase(gr.getPaymentType())) {
+					adminGroups.put(gr.getPaymentTypeReference(), gr);
+					continue;
+				}
+				if (SveaCredential.ACCOUNTTYPE_INVOICE.equalsIgnoreCase(gr.getPaymentType())) {
+					invoiceGroups.put(gr.getPaymentTypeReference(), gr);
 				}
 			}
 
 			double totalPaidAmount = 0, totalReceivedAmount = 0, feeAmount = 0, feeAmountCard = 0;
 			PaymentReportGroup ccGroup;
 			PaymentReportGroup debitGroup;
-			boolean isCardOrDebit = false;
+			PaymentReportGroup adminGroup;
+			boolean includedInOtherPayout = false;
 			
 			for (PaymentReportGroup gr : getPaymentReportGroup()) {
 				
@@ -310,38 +324,53 @@ public class PaymentReport {
 					
 					ccGroup = creditCardGroups.get(gr.getPaymentTypeReference());
 					debitGroup = directDebitGroups.get(gr.getPaymentTypeReference());
+					adminGroup = adminGroups.get(gr.getPaymentTypeReference());
+					
 					if (ccGroup!=null) {
 						totalPaidAmount += ccGroup.getTotalPaidAmt();
 						feeAmountCard += ccGroup.getTotalPaidAmt()-ccGroup.getTotalVatAmt()-ccGroup.getTotalReceivedAmt();
 					}
 					if (debitGroup!=null) {
-						totalPaidAmount += debitGroup!=null ? debitGroup.getTotalPaidAmt() : 0;
+						totalPaidAmount += debitGroup.getTotalPaidAmt();
 						feeAmountCard += debitGroup.getTotalPaidAmt()-debitGroup.getTotalVatAmt()-debitGroup.getTotalReceivedAmt();
 					}
+					if (adminGroup!=null) {
+						totalPaidAmount += adminGroup.getTotalPaidAmt();
+						feeAmountCard += adminGroup.getTotalPaidAmt()-adminGroup.getTotalVatAmt()-adminGroup.getTotalReceivedAmt();
+					}
+					
 				} 
 				// Calculate fee amount
-				feeAmount = totalPaidAmount-gr.getTotalVatAmt()-gr.getTotalReceivedAmt() - feeAmountCard;
+				feeAmount = totalPaidAmount-gr.getTotalVatAmt()- gr.getTotalReceivedAmt() + gr.getOpeningBalance() - feeAmountCard;
 				
-				isCardOrDebit = gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_CREDITCARD) ||
-						gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_DIRECT_BANK);
-
-				if (isCardOrDebit) {
+				// If payment type is not invoice but a reference exists as invoice payout, this
+				// is included in another payout.
+				includedInOtherPayout = (!gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_INVOICE)) &&
+						 invoiceGroups.containsKey(gr.getPaymentTypeReference());
+				
+				if (includedInOtherPayout) {
 					totalReceivedAmount = 0;
 					feeAmount = gr.getTotalPaidAmt()-gr.getTotalVatAmt()-gr.getTotalReceivedAmt();
 				}
-				
-				pl = new PayoutLine();
-				
-				pl.setPaymentType(gr.getPaymentType());
-				pl.setPaymentTypeReference(gr.getPaymentTypeReference());
-				pl.setTrxCount(gr.getPaymentReportDetail()!=null ?  gr.getPaymentReportDetail().size() : 0);
-				pl.setIncludedInOtherPayout(isCardOrDebit);
-				pl.setFeeAmount(feeAmount);
-				pl.setTaxAmount(gr.getTotalVatAmt());
-				pl.setPaidByCustomer(totalPaidAmount);
-				pl.setPaidOut(totalReceivedAmount);
 
-				result.add(pl);
+				if ((paymentReference==null || paymentReference.equalsIgnoreCase(gr.getPaymentTypeReference()))
+					&& 
+					(paymentType==null || paymentType.equalsIgnoreCase(gr.getPaymentType()))) {
+						pl = new PayoutLine();
+						
+						pl.setPaymentType(gr.getPaymentType());
+						pl.setPaymentTypeReference(gr.getPaymentTypeReference());
+						pl.setTrxCount(gr.getPaymentReportDetail()!=null ?  gr.getPaymentReportDetail().size() : 0);
+						pl.setIncludedInOtherPayout(includedInOtherPayout);
+						pl.setFeeAmount(feeAmount);
+						pl.setTaxAmount(gr.getTotalVatAmt());
+						pl.setPaidByCustomer(totalPaidAmount);
+						pl.setPaidOut(totalReceivedAmount);
+						pl.setOpeningBalance(gr.getOpeningBalance());
+						pl.setEndingBalance(gr.getEndingBalance());
+		
+						result.add(pl);
+				}
 			}	
 		} 
 		

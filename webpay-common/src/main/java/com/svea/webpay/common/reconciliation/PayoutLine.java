@@ -21,6 +21,8 @@ public class PayoutLine {
 	private String	taxKey;
 	private Double	taxRate;
 	private Double	paidOut;
+	private Double	openingBalance;
+	private Double	endingBalance;
 
 	private String	taxAcctNo;
 	private String	feeAcctNo;
@@ -120,6 +122,19 @@ public class PayoutLine {
 	}
 	public void setPaidOutAcctNo(String paidOutAcctNo) {
 		this.paidOutAcctNo = paidOutAcctNo;
+	}
+	
+	public Double getOpeningBalance() {
+		return openingBalance;
+	}
+	public void setOpeningBalance(Double openingBalance) {
+		this.openingBalance = openingBalance;
+	}
+	public Double getEndingBalance() {
+		return endingBalance;
+	}
+	public void setEndingBalance(Double endingBalance) {
+		this.endingBalance = endingBalance;
 	}
 	public String getDescription() {
 		return description;
