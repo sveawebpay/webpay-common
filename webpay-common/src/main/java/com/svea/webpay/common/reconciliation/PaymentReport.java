@@ -363,6 +363,7 @@ public class PaymentReport {
 						pl.setTrxCount(gr.getPaymentReportDetail()!=null ?  gr.getPaymentReportDetail().size() : 0);
 						pl.setIncludedInOtherPayout(includedInOtherPayout);
 						pl.setFeeAmount(feeAmount);
+						pl.addFeeSpecifications(gr);
 						pl.setTaxAmount(gr.getTotalVatAmt());
 						pl.setPaidByCustomer(totalPaidAmount);
 						pl.setPaidOut(totalReceivedAmount);

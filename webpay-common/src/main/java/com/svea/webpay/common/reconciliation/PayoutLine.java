@@ -1,6 +1,8 @@
 package com.svea.webpay.common.reconciliation;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This line describes a payout and if applicable associated accounting accounts and amounts.
@@ -32,6 +34,9 @@ public class PayoutLine {
 	private boolean	includedInOtherPayout = false;
 	
 	private String	description;
+	
+	private List<FeeDetail>	feeSpecification;
+	
 	
 	public String getPaymentType() {
 		return paymentType;
@@ -142,7 +147,52 @@ public class PayoutLine {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	/**
+	 * Adds fee specifications from given payment report group.
+	 * 	
+	 * @param gr	The group to get fee specifications from.
+	 */
+	public void addFeeSpecifications(PaymentReportGroup gr) {
+		if (gr==null) return;
+		if (feeSpecification==null) {
+			feeSpecification = new ArrayList<FeeDetail>();
+		}
+
+		if (gr.getTotalInvoiceFees()!=null && gr.getTotalInvoiceFees().size()>0) {
+			feeSpecification.addAll(gr.getTotalInvoiceFees());
+		}
+		if (gr.getTotalOtherFees()!=null && gr.getTotalOtherFees().size()>0) {
+			feeSpecification.addAll(gr.getTotalOtherFees());
+		}
+	}
 	
+	/**
+	 * If fees are to be specified in detail, they are specified in this list.
+	 * If this list doesn't sum up to the feeAmount on this payout line, it means that
+	 * the specifications here are to be separated from the feeAmount and explicitly specified.
+	 * 
+	 * @return	A list of feeDetails that compiles to the payout line's feeAmount.
+	 */
+	public List<FeeDetail> getFeeSpecification() {
+		return feeSpecification;
+	}
+	public void setFeeSpecification(List<FeeDetail> feeSpecification) {
+		this.feeSpecification = feeSpecification;
+	}
 	
+	/**
+	 * 
+	 * @return	The fee amounts total of what's specified
+	 */
+	public double getSpecifiedFeeAmount() {
+		
+		if (feeSpecification==null || feeSpecification.size()==0) {
+			return 0;
+		}
+		
+		return FeeDetail.getFeeSum(feeSpecification);
+		
+	}
 	
 }
