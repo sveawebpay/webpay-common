@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class AccountingVoucher {
 
+	private String	paymentType;
 	private String	paymentTypeReference;
 	private LocalDate	acctDate;
 	private String	currency;
@@ -55,6 +56,14 @@ public class AccountingVoucher {
 		payouts.add(pl);
 	}
 	
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+
 	public String getPaymentTypeReference() {
 		return paymentTypeReference;
 	}
