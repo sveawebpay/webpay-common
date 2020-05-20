@@ -150,7 +150,8 @@ public class VatType {
 			throw new UnclearVatRateException("No country code supplied for feeType: " + feeType + ", accountType: " + accountType);
 
 		// No VAT for interest in no countries
-		if (feeType.equals(FeeDetail.REVENUE_INTEREST)) {
+		// No VAT on deposits
+		if (feeType.equals(FeeDetail.REVENUE_INTEREST) || feeType.equals(FeeDetail.ACCTTYPE_DEPOSIT)) {
 			return getVatRate(countryCode, VATTYPE_EXEMPT, rateDate);
 		}
 		
