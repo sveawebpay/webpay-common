@@ -102,6 +102,7 @@ public class SveaCredential {
 	private boolean skipTaxId = true;
 	private boolean skipEmail = true;
 	private boolean	includeCardPayments = false;
+	private boolean includeAdminPayments = false;
 	private boolean	includeKickbacks = true;
 	private boolean	active = true;
 	
@@ -255,7 +256,19 @@ s	 * @return	The password for this credential
 	public void setServer(String server) {
 		this.server = server;
 	}
-	
+
+	/**
+	 * If true, this credential is used also for reconciliation of admin invoices (not a separate account no).
+	 * @return	True if admin payments are included here.
+	 */
+	public boolean isIncludeAdminPayments() {
+		return includeAdminPayments;
+	}
+
+	public void setIncludeAdminPayments(boolean includeAdminPayments) {
+		this.includeAdminPayments = includeAdminPayments;
+	}
+
 	/*
 	 * If true, this credential is used also for reconciliation of card payments
 	 */
