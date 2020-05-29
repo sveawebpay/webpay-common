@@ -19,6 +19,7 @@ limitations under the License.
 */
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -30,6 +31,7 @@ import java.util.TreeSet;
 
 import com.svea.webpay.common.auth.SveaCredential;
 import com.svea.webpay.common.conv.InvalidTaxIdFormatException;
+import com.svea.webpay.common.conv.LocalDateUtils;
 import com.svea.webpay.common.conv.TaxIdFormatter;
 import com.svea.webpay.common.conv.TaxIdStructure;
 import com.svea.webpay.common.conv.UnknownTaxIdFormatException;
@@ -274,8 +276,9 @@ public class PaymentReport {
 	 * @param  	paymentType			If non-null, only with this payment type
 	 * 
 	 * @return		A list of payout lines for this report
+	 * @throws ParseException If dates can't be parsed.
 	 */
-	public List<PayoutLine> retrievePayoutLines(String paymentReference, String paymentType) {
+	public List<PayoutLine> retrievePayoutLines(String paymentReference, String paymentType) throws ParseException {
 		
 		List<PayoutLine> result = new ArrayList<PayoutLine>();
 		
@@ -283,97 +286,115 @@ public class PaymentReport {
 		
 		if (getPaymentReportGroup()!=null) {
 			
-			// Find credit card groups, direct debit groups and admin groups
-			// since they can be included in invoice groups
-			Map<String, PaymentReportGroup> creditCardGroups = new TreeMap<String,PaymentReportGroup>();
-			Map<String, PaymentReportGroup> directDebitGroups = new TreeMap<String,PaymentReportGroup>();
-			Map<String, PaymentReportGroup> adminGroups = new TreeMap<String, PaymentReportGroup>();
-			Map<String, PaymentReportGroup> invoiceGroups = new TreeMap<String, PaymentReportGroup>();
+			// Map groups by date
+			Map<LocalDate, List<PaymentReportGroup>> dateGroups = new TreeMap<LocalDate, List<PaymentReportGroup>>();
+			List<PaymentReportGroup> groups;
 			
-			for (PaymentReportGroup gr : getPaymentReportGroup()) {
-				if (SveaCredential.ACCOUNTTYPE_CREDITCARD.equalsIgnoreCase(gr.getPaymentType())) {
-					creditCardGroups.put(gr.getPaymentTypeReference(), gr);
-					continue;
+			for (PaymentReportGroup g : getPaymentReportGroup()) {
+				groups = dateGroups.get(LocalDateUtils.asLocalDate(g.getReconciliationDateAsDate()));
+				if (groups==null) {
+					groups = new ArrayList<PaymentReportGroup>();
+					dateGroups.put(LocalDateUtils.asLocalDate(g.getReconciliationDateAsDate()), groups);
 				}
-				if (SveaCredential.ACCOUNTTYPE_DIRECT_BANK.equalsIgnoreCase(gr.getPaymentType())) {
-					directDebitGroups.put(gr.getPaymentTypeReference(), gr);
-					continue;
-				}
-				if (SveaCredential.ACCOUNTTYPE_ADMIN.equalsIgnoreCase(gr.getPaymentType())) {
-					adminGroups.put(gr.getPaymentTypeReference(), gr);
-					continue;
-				}
-				if (SveaCredential.ACCOUNTTYPE_INVOICE.equalsIgnoreCase(gr.getPaymentType())) {
-					invoiceGroups.put(gr.getPaymentTypeReference(), gr);
-				}
+				groups.add(g);
 			}
-
-			double totalPaidAmount = 0, totalReceivedAmount = 0, feeAmount = 0, feeAmountCard = 0;
-			PaymentReportGroup ccGroup;
-			PaymentReportGroup debitGroup;
-			PaymentReportGroup adminGroup;
-			boolean includedInOtherPayout = false;
 			
-			for (PaymentReportGroup gr : getPaymentReportGroup()) {
+			for (List<PaymentReportGroup> grs : dateGroups.values()) {
+			
+				// Find credit card groups, direct debit groups and admin groups
+				// since they can be included in invoice groups
+				Map<String, PaymentReportGroup> creditCardGroups = new TreeMap<String,PaymentReportGroup>();
+				Map<String, PaymentReportGroup> directDebitGroups = new TreeMap<String,PaymentReportGroup>();
+				Map<String, PaymentReportGroup> adminGroups = new TreeMap<String, PaymentReportGroup>();
+				Map<String, PaymentReportGroup> invoiceGroups = new TreeMap<String, PaymentReportGroup>();
 				
-				totalPaidAmount = gr.getTotalPaidAmt();
-				totalReceivedAmount = gr.getTotalReceivedAmt();
-				feeAmountCard = 0;
-				
-				if (gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_INVOICE)) {
-					
-					ccGroup = creditCardGroups.get(gr.getPaymentTypeReference());
-					debitGroup = directDebitGroups.get(gr.getPaymentTypeReference());
-					adminGroup = adminGroups.get(gr.getPaymentTypeReference());
-					
-					if (ccGroup!=null) {
-						totalPaidAmount += ccGroup.getTotalPaidAmt();
-						feeAmountCard += ccGroup.getTotalPaidAmt()-ccGroup.getTotalVatAmt()-ccGroup.getTotalReceivedAmt();
+				for (PaymentReportGroup gr : grs) {
+					if (SveaCredential.ACCOUNTTYPE_CREDITCARD.equalsIgnoreCase(gr.getPaymentType())) {
+						creditCardGroups.put(gr.getPaymentTypeReference(), gr);
+						continue;
 					}
-					if (debitGroup!=null) {
-						totalPaidAmount += debitGroup.getTotalPaidAmt();
-						feeAmountCard += debitGroup.getTotalPaidAmt()-debitGroup.getTotalVatAmt()-debitGroup.getTotalReceivedAmt();
+					if (SveaCredential.ACCOUNTTYPE_DIRECT_BANK.equalsIgnoreCase(gr.getPaymentType())) {
+						directDebitGroups.put(gr.getPaymentTypeReference(), gr);
+						continue;
 					}
-					if (adminGroup!=null) {
-						totalPaidAmount += adminGroup.getTotalPaidAmt();
-						feeAmountCard += adminGroup.getTotalPaidAmt()-adminGroup.getTotalVatAmt()-adminGroup.getTotalReceivedAmt();
+					if (SveaCredential.ACCOUNTTYPE_ADMIN.equalsIgnoreCase(gr.getPaymentType())) {
+						adminGroups.put(gr.getPaymentTypeReference(), gr);
+						continue;
 					}
-					
-				} 
-				// Calculate fee amount
-				feeAmount = totalPaidAmount-gr.getTotalVatAmt()- gr.getTotalReceivedAmt() + gr.getOpeningBalance() - feeAmountCard;
-				
-				// If payment type is not invoice but a reference exists as invoice payout, this
-				// is included in another payout.
-				includedInOtherPayout = (!gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_INVOICE)) &&
-						 invoiceGroups.containsKey(gr.getPaymentTypeReference());
-				
-				if (includedInOtherPayout) {
-					totalReceivedAmount = 0;
-					feeAmount = gr.getTotalPaidAmt()-gr.getTotalVatAmt()-gr.getTotalReceivedAmt();
+					if (SveaCredential.ACCOUNTTYPE_INVOICE.equalsIgnoreCase(gr.getPaymentType())) {
+						invoiceGroups.put(gr.getPaymentTypeReference(), gr);
+					}
 				}
-
-				if ((paymentReference==null || paymentReference.equalsIgnoreCase(gr.getPaymentTypeReference()))
-					&& 
-					(paymentType==null || paymentType.equalsIgnoreCase(gr.getPaymentType()))) {
-						pl = new PayoutLine();
+	
+				double totalPaidAmount = 0, totalReceivedAmount = 0, feeAmount = 0, feeAmountCard = 0;
+				PaymentReportGroup ccGroup;
+				PaymentReportGroup debitGroup;
+				PaymentReportGroup adminGroup;
+				boolean includedInOtherPayout = false;
+				
+				for (PaymentReportGroup gr : grs) {
+					
+					totalPaidAmount = gr.getTotalPaidAmt();
+					totalReceivedAmount = gr.getTotalReceivedAmt();
+					feeAmountCard = 0;
+					
+					if (gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_INVOICE)) {
 						
-						pl.setPaymentType(gr.getPaymentType());
-						pl.setPaymentTypeReference(gr.getPaymentTypeReference());
-						pl.setTrxCount(gr.getPaymentReportDetail()!=null ?  gr.getPaymentReportDetail().size() : 0);
-						pl.setIncludedInOtherPayout(includedInOtherPayout);
-						pl.setFeeAmount(feeAmount);
-						pl.addFeeSpecifications(gr);
-						pl.setTaxAmount(gr.getTotalVatAmt());
-						pl.setPaidByCustomer(totalPaidAmount);
-						pl.setPaidOut(totalReceivedAmount);
-						pl.setOpeningBalance(gr.getOpeningBalance());
-						pl.setEndingBalance(gr.getEndingBalance());
-		
-						result.add(pl);
-				}
-			}	
-		} 
+						ccGroup = creditCardGroups.get(gr.getPaymentTypeReference());
+						debitGroup = directDebitGroups.get(gr.getPaymentTypeReference());
+						adminGroup = adminGroups.get(gr.getPaymentTypeReference());
+						
+						if (ccGroup!=null) {
+							totalPaidAmount += ccGroup.getTotalPaidAmt();
+							feeAmountCard += ccGroup.getTotalPaidAmt()-ccGroup.getTotalVatAmt()-ccGroup.getTotalReceivedAmt();
+						}
+						if (debitGroup!=null) {
+							totalPaidAmount += debitGroup.getTotalPaidAmt();
+							feeAmountCard += debitGroup.getTotalPaidAmt()-debitGroup.getTotalVatAmt()-debitGroup.getTotalReceivedAmt();
+						}
+						if (adminGroup!=null) {
+							totalPaidAmount += adminGroup.getTotalPaidAmt();
+							feeAmountCard += adminGroup.getTotalPaidAmt()-adminGroup.getTotalVatAmt()-adminGroup.getTotalReceivedAmt();
+						}
+						
+					} 
+					// Calculate fee amount
+					feeAmount = totalPaidAmount-gr.getTotalVatAmt()- gr.getTotalReceivedAmt() + gr.getOpeningBalance() - feeAmountCard;
+					
+					// If payment type is not invoice but a reference exists as invoice payout, this
+					// is included in another payout.
+					includedInOtherPayout = (!gr.getPaymentType().equalsIgnoreCase(SveaCredential.ACCOUNTTYPE_INVOICE)) &&
+							 invoiceGroups.containsKey(gr.getPaymentTypeReference());
+					
+					if (includedInOtherPayout) {
+						totalReceivedAmount = 0;
+						feeAmount = gr.getTotalPaidAmt()-gr.getTotalVatAmt()-gr.getTotalReceivedAmt();
+					}
+	
+					if ((paymentReference==null || paymentReference.equalsIgnoreCase(gr.getPaymentTypeReference()))
+						&& 
+						(paymentType==null || paymentType.equalsIgnoreCase(gr.getPaymentType()))) {
+							pl = new PayoutLine();
+							
+							pl.setAcctDate(LocalDateUtils.asLocalDate(gr.getReconciliationDateAsDate()));
+							pl.setPaymentType(gr.getPaymentType());
+							pl.setPaymentTypeReference(gr.getPaymentTypeReference());
+							pl.setTrxCount(gr.getPaymentReportDetail()!=null ?  gr.getPaymentReportDetail().size() : 0);
+							pl.setIncludedInOtherPayout(includedInOtherPayout);
+							pl.setFeeAmount(FeeDetail.roundFee(feeAmount, FeeDetail.DEFAULT_ROUNDING_DECIMALS));
+							pl.addFeeSpecifications(gr);
+							pl.setTaxAmount(gr.getTotalVatAmt());
+							pl.setCurrency(gr.getCurrency());
+							pl.setPaidByCustomer(FeeDetail.roundFee(totalPaidAmount, FeeDetail.DEFAULT_ROUNDING_DECIMALS));
+							pl.setPaidOut(FeeDetail.roundFee(totalReceivedAmount, FeeDetail.DEFAULT_ROUNDING_DECIMALS));
+							pl.setOpeningBalance(gr.getOpeningBalance());
+							pl.setEndingBalance(gr.getEndingBalance());
+			
+							result.add(pl);
+					}
+				}	
+			}
+		}
 		
 		return result;
 	}

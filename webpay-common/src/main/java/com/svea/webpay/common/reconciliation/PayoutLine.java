@@ -31,6 +31,8 @@ public class PayoutLine {
 	private String	receivablesAcctNo;
 	private String	paidOutAcctNo;
 	
+	private String	currency;
+	
 	private boolean	includedInOtherPayout = false;
 	
 	private String	description;
@@ -147,7 +149,13 @@ public class PayoutLine {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 	/**
 	 * Adds fee specifications from given payment report group.
 	 * 	
