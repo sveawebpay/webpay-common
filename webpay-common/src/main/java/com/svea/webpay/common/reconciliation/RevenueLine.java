@@ -1,9 +1,11 @@
 package com.svea.webpay.common.reconciliation;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class RevenueLine {
 
+	private LocalDate	acctDate;
 	private String	revenueAcctNo;
 	private String	taxAcctNo;
 	private String	taxKey;
@@ -11,10 +13,18 @@ public class RevenueLine {
 	private Double	taxBase;
 	private Double	taxAmount;
 	private String	paymentType;
+	private String	paymentTypeReference;
 	private String	description;
+	private String	currency;	
 	
 	private List<RevenueLineDetail> details;
 	
+	public LocalDate getAcctDate() {
+		return acctDate;
+	}
+	public void setAcctDate(LocalDate acctDate) {
+		this.acctDate = acctDate;
+	}
 	public String getRevenueAcctNo() {
 		return revenueAcctNo;
 	}
@@ -57,6 +67,13 @@ public class RevenueLine {
 	public void setPaymentType(String paymentType) {
 		this.paymentType = paymentType;
 	}
+	
+	public String getPaymentTypeReference() {
+		return paymentTypeReference;
+	}
+	public void setPaymentTypeReference(String paymentTypeReference) {
+		this.paymentTypeReference = paymentTypeReference;
+	}
 	public String getDescription() {
 		return description;
 	}
@@ -69,7 +86,30 @@ public class RevenueLine {
 	public void setDetails(List<RevenueLineDetail> details) {
 		this.details = details;
 	}
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 	
-	
+	/**
+	 * Adds revenue and tax amount to this revenue line.
+	 * 
+	 * @param taxBase
+	 * @param taxAmount
+	 * @return		The new total (taxbase + taxamount)
+	 */
+	public Double addRevenue(double taxBase, double taxAmount) {
+		
+		if (this.taxBase==null) this.taxBase = 0D;
+		if (this.taxAmount == null) this.taxAmount = 0D;
+		
+		this.taxBase += taxBase;
+		this.taxAmount += taxAmount;
+
+		return this.taxBase + this.taxAmount;
+		
+	}
 	
 }

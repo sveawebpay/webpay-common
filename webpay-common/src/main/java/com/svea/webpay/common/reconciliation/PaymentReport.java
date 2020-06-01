@@ -271,6 +271,90 @@ public class PaymentReport {
 	}
 
 	/**
+	 * 
+	 * Retrieves a total of customer paid without calculating any VAT.
+	 * 
+	 * @param	paymentReference		If only this payment reference should be processed.
+	 * @param 	paymentType				If only this payment type should be processed.
+	 * 
+	 * @return 	A list of revenue lines, one per day and payment reference.
+	 * 
+	 */
+	public List<RevenueLine> retrieveUnspecifiedRevenueLines(String paymentReference, String paymentType) throws ParseException {
+		
+		List<RevenueLine> result = new ArrayList<RevenueLine>();
+		RevenueLine rl = null;
+		
+		Map<LocalDate, List<RevenueLine>> revenueMap = new TreeMap<LocalDate, List<RevenueLine>>();
+		List<RevenueLine> revenueList;
+		
+		if (getPaymentReportGroup()!=null) {
+			
+			// Map groups by date
+			Map<LocalDate, List<PaymentReportGroup>> dateGroups = new TreeMap<LocalDate, List<PaymentReportGroup>>();
+			List<PaymentReportGroup> groups;
+			
+			for (PaymentReportGroup g : getPaymentReportGroup()) {
+				groups = dateGroups.get(LocalDateUtils.asLocalDate(g.getReconciliationDateAsDate()));
+				if (groups==null) {
+					groups = new ArrayList<PaymentReportGroup>();
+					dateGroups.put(LocalDateUtils.asLocalDate(g.getReconciliationDateAsDate()), groups);
+				}
+				groups.add(g);
+			}
+			
+			List<PaymentReportGroup> grs;
+			for (LocalDate groupDate : dateGroups.keySet()) {
+
+				grs = dateGroups.get(groupDate);
+				
+				revenueList = revenueMap.get(groupDate);
+				if (revenueList==null) {
+					revenueList = new ArrayList<RevenueLine>();
+					revenueMap.put(groupDate, revenueList);
+				}
+				
+				for (PaymentReportGroup gr : grs) {
+					
+					if ((paymentReference==null || paymentReference.equalsIgnoreCase(gr.getPaymentTypeReference()))
+							&& 
+							(paymentType==null || paymentType.equalsIgnoreCase(gr.getPaymentType()))) {
+
+						if (gr.getPaymentReportDetail()!=null) {
+							
+							rl = new RevenueLine();
+							
+							rl.setAcctDate(LocalDateUtils.asLocalDate(gr.getReconciliationDateAsDate()));
+							rl.setPaymentType(gr.getPaymentType());
+							rl.setPaymentTypeReference(gr.getPaymentTypeReference());
+							rl.setCurrency(gr.getCurrency());
+							
+							for (PaymentReportDetail d : gr.getPaymentReportDetail()) {
+								rl.addRevenue(d.getPaidAmt(), 0D);
+							}
+							
+							revenueList.add(rl);
+							
+						}
+					
+						
+					}
+				}
+			}
+			
+		}
+		
+		if (!revenueMap.isEmpty()) {
+			for (List<RevenueLine> rlist : revenueMap.values()) {
+				result.addAll(rlist);
+			}
+		}
+		
+		return result;
+		
+	}
+	
+	/**
 	 * Retrives payout information in a condensed format.
 	 * @param	paymentReference	If non-null, only with this payment reference
 	 * @param  	paymentType			If non-null, only with this payment type
@@ -359,7 +443,7 @@ public class PaymentReport {
 						
 					} 
 					// Calculate fee amount
-					feeAmount = totalPaidAmount-gr.getTotalVatAmt()- gr.getTotalReceivedAmt() + gr.getOpeningBalance() - feeAmountCard;
+					feeAmount = totalPaidAmount-gr.getTotalVatAmt()- gr.getTotalReceivedAmt() + gr.getOpeningBalance() - feeAmountCard - gr.getEndingBalance();
 					
 					// If payment type is not invoice but a reference exists as invoice payout, this
 					// is included in another payout.
