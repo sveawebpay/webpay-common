@@ -44,5 +44,58 @@ public class ListOfSveaCredentials {
 	public void clearCredentials() {
 		credentials.clear();
 	}
+
+	/**
+	 * Sets merchant credentials on all credentials in list with type invoice.
+	 * 
+	 * @param merchantId
+	 * @param secret
+	 * @param creds
+	 * @return 		True if the credentials are updated.
+	 */
+	public static boolean setMerchantCredentials(String merchantId, String secret, List<SveaCredential> creds) {
+		
+		if (creds==null) return false;
+		
+		boolean updated = false;
+		
+		for (SveaCredential c : creds) {
+			if (c.getAccountType().equals(SveaCredential.ACCOUNTTYPE_INVOICE)) {
+				c.setMerchantId(merchantId);
+				c.setSecretWord(secret);
+				updated = true;
+			}
+		}
+		
+		return updated;
+		
+	}
+
+	
+	/**
+	 * Sets card merchant credentials on all credentials in list with type invoice.
+	 * Card merchant credentials are used to access the payment gate way.
+	 * 
+	 * @param cardMerchantId
+	 * @param secret
+	 * @param creds
+	 * @return 		True if the credentials are updated.	 
+	 */
+	public static boolean setCardCredentials(String cardMerchantId, String secret, List<SveaCredential> creds) {
+		if (creds == null) return false;
+
+		boolean updated = false;
+		
+		for (SveaCredential c : creds) {
+			if (c.getAccountType().equals(SveaCredential.ACCOUNTTYPE_INVOICE)) {
+				c.setCardMerchantId(cardMerchantId);
+				c.setCardSecretWord(secret);
+				updated = true;
+			}
+		}
+		
+		return updated;
+	}
+	
 	
 }
