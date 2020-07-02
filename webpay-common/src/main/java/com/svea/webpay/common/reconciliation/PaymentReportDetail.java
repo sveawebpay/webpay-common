@@ -323,6 +323,28 @@ public class PaymentReportDetail {
 	
 	
 	/**
+	 * 
+	 * @return		True if this payment report detail is a kickback (and nothing else)
+	 */
+	public boolean isKickbackOnly() {
+		
+		if (fees==null) return false;
+		List<FeeDetail> kickbacks = new ArrayList<FeeDetail>();
+		for (FeeDetail f : fees) {
+			if (FeeDetail.FEETYPE_KICKBACK.equalsIgnoreCase(f.getFeeType())) {
+				kickbacks.add(f);
+			}
+		}
+		
+		double kickBackSum = FeeDetail.getTotalSum(kickbacks);
+		// TODO: Rounding precision should be a setting. 
+		if (FeeDetail.roundFee(kickBackSum, 2) == FeeDetail.roundFee(-receivedAmt, 2))
+			return true;
+		
+		return false;
+	}
+	
+	/**
 	 * Generates payment report detail from supplied parameters
 	 * 
 	 * @param countryCode
