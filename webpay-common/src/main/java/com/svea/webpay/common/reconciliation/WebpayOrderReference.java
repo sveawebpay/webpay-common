@@ -10,6 +10,7 @@ public class WebpayOrderReference {
 
 	private String	orgNo;
 	private String	countryCode;
+	private String	orgName;
 	
 	private String	paymentType;
 	private String	paymentTypeReference;
@@ -20,7 +21,10 @@ public class WebpayOrderReference {
 	private String	customerId;
 	private String	payerOrgNo;
 	private String	payerCountryCode;
+	private String	payerName;
+	
 	private String	clientOrderNo;
+	private String	clientInvoiceNo;
 	
 	
 	public String getOrgNo() {
@@ -34,6 +38,13 @@ public class WebpayOrderReference {
 	}
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
+	}
+	
+	public String getOrgName() {
+		return orgName;
+	}
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
 	}
 	public String getPaymentType() {
 		return paymentType;
@@ -89,13 +100,25 @@ public class WebpayOrderReference {
 	public void setPayerCountryCode(String payerCountryCode) {
 		this.payerCountryCode = payerCountryCode;
 	}
+	
+	public String getPayerName() {
+		return payerName;
+	}
+	public void setPayerName(String payerName) {
+		this.payerName = payerName;
+	}
 	public String getClientOrderNo() {
 		return clientOrderNo;
 	}
 	public void setClientOrderNo(String clientOrderNo) {
 		this.clientOrderNo = clientOrderNo;
 	}
-	
+	public String getClientInvoiceNo() {
+		return clientInvoiceNo;
+	}
+	public void setClientInvoiceNo(String clientInvoiceNo) {
+		this.clientInvoiceNo = clientInvoiceNo;
+	}
 	
 	
 }
