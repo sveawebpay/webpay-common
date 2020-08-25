@@ -8,6 +8,12 @@ package com.svea.webpay.common.reconciliation;
  */
 public class PaymentReference {
 
+	public static final String WEBPAY_REF_CLIENTORDERNO = "clientOrderNo";
+	public static final String WEBPAY_REF_ORDERNO = "orderNo";
+	public static final String WEBPAY_REF_INVOICENO = "invoiceNo";
+	public static final String WEBPAY_REF_CHECKOUTORDERID = "checkoutOrderId";
+	public static final String WEBPAY_REF_TRANSACTIONID = "transactionid";
+	
 	private String	referenceKey;
 	private String	referenceValue;
 	
