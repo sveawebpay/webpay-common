@@ -708,6 +708,8 @@ s	 * @return	The password for this credential
 	 */
 	public static List<SveaCredential> loadCredentialsFromJsonFile(String configfile) throws Exception {
 
+		if (configfile==null) return null;
+		
 		URL url;
 		// Try absolute path first
 		File cf = new File(configfile);
@@ -719,8 +721,7 @@ s	 * @return	The password for this credential
 		}
 
 		if (url==null) {
-			System.err.println("Can't find configfile: " + configfile);
-			System.exit(-1);
+			return null;
 		}
 		
 		FileReader fr = new FileReader(url.getFile());
