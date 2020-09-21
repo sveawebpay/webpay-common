@@ -544,13 +544,15 @@ s	 * @return	The password for this credential
 	 * Loads credentials from an XML-file containing credentials.
 	 * 
 	 * @param configfile		The file to read from
-	 * @return	A list of credentials.
+	 * @return	A list of credentials or null if the file doesn't exist.
 	 * @throws MalformedURLException	when file can't be found
 	 * @throws XPathExpressionException		if xml-file can't be parsed
 	 * @throws org.apache.commons.configuration2.ex.ConfigurationException	if xml-file can't be parsed
 	 */
 	public static List<SveaCredential> loadCredentialsFromXmlFile(String configfile) throws MalformedURLException, XPathExpressionException, org.apache.commons.configuration2.ex.ConfigurationException {
 
+		if (configfile == null) return null;
+		
 		Configurations configs = new Configurations();
 		List<SveaCredential> result = new ArrayList<SveaCredential>();
 		
@@ -566,8 +568,7 @@ s	 * @return	The password for this credential
 		}
 
 		if (url==null) {
-			System.err.println("Can't find configfile: " + configfile);
-			System.exit(-1);
+			return null;
 		}
 		
 		XMLConfiguration fc = configs.xml(url);
