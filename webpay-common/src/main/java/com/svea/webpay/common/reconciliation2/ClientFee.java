@@ -4,6 +4,21 @@ import java.math.BigInteger;
 
 public class ClientFee {
 
+	public static final String FEETYPE_Admin = "Admin";
+	public static final String FEETYPE_Credit = "Credit";
+	public static final String FEETYPE_Reminder = "Reminder";
+	public static final String FEETYPE_Collection = "Collection";
+	public static final String FEETYPE_Interest = "Interest";
+	public static final String FEETYPE_Postage = "Postage";
+	public static final String FEETYPE_Deviation = "Deviation";
+	public static final String FEETYPE_DueDate = "DueDate";
+	public static final String FEETYPE_LegalAction = "LegalAction";
+	public static final String FEETYPE_Kickback = "Kickback";
+	public static final String FEETYPE_Deposit = "Deposit";
+	public static final String FEETYPE_Service = "Service";
+	public static final String FEETYPE_Dismissed = "Dismissed";
+	public static final String FEETYPE_Correction = "Correction";
+	
 	private BigInteger	sveaPaidAmount;
 	private BigInteger	amountExcludingVat;
 	private String	type;

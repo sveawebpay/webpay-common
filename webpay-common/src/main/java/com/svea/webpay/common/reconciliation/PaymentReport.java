@@ -124,12 +124,26 @@ public class PaymentReport {
 		this.paymentReportGroup = paymentReportGroup;
 	}
 	
+	/**
+	 * Adds a payment report group to this report.
+	 * The total fees in the group are updated.
+	 * 
+	 * If the report doesn't have a tax ID set and there's a tax id in the group,
+	 * the report gets the tax id of the group.
+	 * 
+	 * @param gr		The group to be added to the report.
+	 */
 	public void addPaymentReportGroup(PaymentReportGroup gr) {
 		if (paymentReportGroup==null) {
 			paymentReportGroup = new ArrayList<PaymentReportGroup>();
 		}
 		paymentReportGroup.add(gr);
 		gr.updateTotalFees();
+		if (taxId==null || taxId.trim().length()==0) {
+			if (gr.getTaxId()!=null && gr.getTaxId().trim().length()>0) {
+				taxId = gr.getTaxId();
+			}
+		}
 	}
 	
 	public String toString() {

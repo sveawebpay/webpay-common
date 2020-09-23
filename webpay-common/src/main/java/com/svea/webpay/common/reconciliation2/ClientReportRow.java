@@ -1,6 +1,5 @@
 package com.svea.webpay.common.reconciliation2;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,11 +7,28 @@ import java.util.List;
 
 public class ClientReportRow {
 
+	public static final String ROWTYPE_ClosingBalanceDebt = "ClosingBalanceDebt";
+	public static final String ROWTYPE_Cost = "Cost";
+	public static final String ROWTYPE_Credit = "Credit";
+	public static final String ROWTYPE_Deposit = "Deposit";
+	public static final String ROWTYPE_Kickback = "Kickback";
+	public static final String ROWTYPE_Manual = "Manual";
+	public static final String ROWTYPE_OpeningBalanceDebt = "OpeningBalanceDebt";
+	public static final String ROWTYPE_Order = "Order";
+	public static final String ROWTYPE_Regression = "Regression";
+	
+	public static final String PAYMENTTYPE_AccountCredit = "AccountCredit";
+	public static final String PAYMENTTYPE_Card = "Card";
+	public static final String PAYMENTTYPE_DirectBank = "DirectBank";
+	public static final String PAYMENTTYPE_Invoice = "Invoice";
+	public static final String PAYMENTTYPE_PaymentPlan = "PaymentPlan";
+	
 	private Long	sveaCustomerId;
 	private String	customerName;
 	private String	externalOrderNo;
 	private Date	orderDate;
 	
+	private BigInteger	sveaInvoiceNo;
 	private BigInteger	sveaOrderNo;
 	private BigInteger	sveaCheckoutId;
 	private BigInteger	nominalAmount;
@@ -23,6 +39,7 @@ public class ClientReportRow {
 	private String		currency;
 	private String		destinationCurrency;
 	private Double		exchangeRate;
+	private String		comment;
 	private BigInteger	deliveryId;
 	private String		rowType;
 	private List<ClientFee> fees;
@@ -44,6 +61,13 @@ public class ClientReportRow {
 	}
 	public void setExternalOrderNo(String externalOrderNo) {
 		this.externalOrderNo = externalOrderNo;
+	}
+	
+	public BigInteger getSveaInvoiceNo() {
+		return sveaInvoiceNo;
+	}
+	public void setSveaInvoiceNo(BigInteger sveaInvoiceNo) {
+		this.sveaInvoiceNo = sveaInvoiceNo;
 	}
 	public Date getOrderDate() {
 		return orderDate;
@@ -110,6 +134,13 @@ public class ClientReportRow {
 	}
 	public void setExchangeRate(Double exchangeRate) {
 		this.exchangeRate = exchangeRate;
+	}
+	
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 	public BigInteger getDeliveryId() {
 		return deliveryId;
