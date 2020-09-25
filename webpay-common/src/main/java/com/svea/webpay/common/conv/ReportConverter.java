@@ -237,6 +237,7 @@ public class ReportConverter {
 						}
 						
 					}
+					// Add detail to group
 					gr.addDetail(d);
 					
 				}
