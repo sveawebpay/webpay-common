@@ -174,9 +174,6 @@ public class ReportConverter {
 			gr.setDstBankAcct(cr.getRecipientBankAccountNo());
 			gr.setDstBankAcctType(cr.getRecipientBankAccountType());
 			
-			gr.setTotalPaidAmt(bigIntegerW2ToDouble(cpr.getNominalAmount()));
-			gr.setTotalReceivedAmt(bigIntegerW2ToDouble(cpr.getSveaPaidAmountIncludingWithholding()));
-			gr.setTotalVatAmt(bigIntegerW2ToDouble(cpr.getFeeVatAmount()));
 
 			if (cr.getRows()!=null && cr.getRows().size()>0) {
 				
@@ -243,6 +240,11 @@ public class ReportConverter {
 				}
 				
 			}
+
+			// Set totals from file (not calculated)
+			gr.setTotalPaidAmt(bigIntegerW2ToDouble(cpr.getNominalAmount()));
+			gr.setTotalReceivedAmt(bigIntegerW2ToDouble(cpr.getSveaPaidAmountIncludingWithholding()));
+			gr.setTotalVatAmt(bigIntegerW2ToDouble(cpr.getFeeVatAmount()));
 			
 			// Add the group
 			dst.addPaymentReportGroup(gr);
