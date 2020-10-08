@@ -68,6 +68,9 @@ public class ReportConverter {
 		case ClientFee.FEETYPE_Deviation:
 			result = FeeDetail.FEETYPE_DEVIATIONS;
 			break;
+		case ClientFee.FEETYPE_Deposit:
+			result = FeeDetail.ACCTTYPE_DEPOSIT;
+			break;
 		case ClientFee.FEETYPE_DueDate:
 			result = FeeDetail.FEETYPE_DUEDATE;
 			break;
