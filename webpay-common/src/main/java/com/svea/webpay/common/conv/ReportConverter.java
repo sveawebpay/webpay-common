@@ -230,6 +230,11 @@ public class ReportConverter {
 						
 						FeeDetail f;
 						for (ClientFee cf : crr.getFees()) {
+							if (ClientFee.FEETYPE_Dismissed.equalsIgnoreCase(cf.getType())) {
+								// An invoice transferred back / dismissed is not a fee in
+								// report type 1.
+								continue;
+							}
 							f = fromClientFee(cf);
 							if (f!=null) {
 								d.addFee(f);
