@@ -20,6 +20,8 @@ limitations under the License.
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 /**
  * 
  * Class to represent a list of credentials.
@@ -45,6 +47,32 @@ public class ListOfSveaCredentials {
 		credentials.clear();
 	}
 
+	/**
+	 * Lists all external accounting dimensions in this list of Svea Credentials
+	 * 
+	 * @return		A list of external accounting dimensions. If none, an empty list is returned.
+	 */
+	public List<String> listExternalAccountingDimensions() {
+		
+		List<String> dims = new ArrayList<String>();
+		if (credentials==null) return dims;
+		
+		Set<String> uniqueDims = new TreeSet<String>();
+		String dim;
+		
+		for (SveaCredential cr : credentials) {
+			dim = cr.getExternalAccountingDimension();
+			if (dim!=null && dim.trim().length()>0) {
+				if (!uniqueDims.contains(dim)) {
+					dims.add(dim);
+					uniqueDims.add(dim);
+				}
+			}
+		}
+		return dims;
+		
+	}
+	
 	/**
 	 * Sets merchant credentials on all credentials in list with type invoice.
 	 * 
