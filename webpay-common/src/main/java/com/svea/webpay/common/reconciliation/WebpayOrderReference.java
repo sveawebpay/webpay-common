@@ -1,5 +1,7 @@
 package com.svea.webpay.common.reconciliation;
 
+import java.time.LocalDate;
+
 /**
  * A structure to keep an unambigous reference to a webpay order
  * 
@@ -22,6 +24,7 @@ public class WebpayOrderReference {
 	private String	payerOrgNo;
 	private String	payerCountryCode;
 	private String	payerName;
+	private LocalDate	orderDate;
 	
 	private String	clientOrderNo;
 	private String	clientInvoiceNo;
@@ -118,6 +121,12 @@ public class WebpayOrderReference {
 	}
 	public void setClientInvoiceNo(String clientInvoiceNo) {
 		this.clientInvoiceNo = clientInvoiceNo;
+	}
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
 	}
 	
 	
