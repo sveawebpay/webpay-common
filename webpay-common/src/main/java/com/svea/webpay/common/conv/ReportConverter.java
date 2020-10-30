@@ -170,8 +170,8 @@ public class ReportConverter {
 			ClientPaymentReport cpr = cr.getPaymentReport();
 			gr.setOpeningBalance(bigIntegerW2ToDouble(cpr.getOpeningBalanceDebt()));
 
-			// TODO: Must be calculated (now it's the negated opening balance)
-			gr.setEndingBalance(bigIntegerW2ToDouble(cpr.getClosingBalanceDebt()));
+			// TODO: Should perhaps be calculated? Can we trust this number?
+			gr.setEndingBalance(bigIntegerW2ToDouble(cpr.getClosingBalanceDebt().negate()));
 
 			gr.setCurrency(cpr.getCurrency());
 			gr.setDstBankAcct(cr.getRecipientBankAccountNo());
