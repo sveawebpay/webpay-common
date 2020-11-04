@@ -68,6 +68,9 @@ public class ReportConverter {
 		case ClientFee.FEETYPE_Deviation:
 			result = FeeDetail.FEETYPE_DEVIATIONS;
 			break;
+		case ClientFee.FEETYPE_Deposit:
+			result = FeeDetail.ACCTTYPE_DEPOSIT;
+			break;
 		case ClientFee.FEETYPE_DueDate:
 			result = FeeDetail.FEETYPE_DUEDATE;
 			break;
@@ -167,16 +170,13 @@ public class ReportConverter {
 			ClientPaymentReport cpr = cr.getPaymentReport();
 			gr.setOpeningBalance(bigIntegerW2ToDouble(cpr.getOpeningBalanceDebt()));
 
-			// TODO: Must be calculated (now it's the negated opening balance)
-			gr.setEndingBalance(bigIntegerW2ToDouble(cpr.getClosingBalanceDebt()));
+			// TODO: Should perhaps be calculated? Can we trust this number?
+			gr.setEndingBalance(bigIntegerW2ToDouble(cpr.getClosingBalanceDebt().negate()));
 
 			gr.setCurrency(cpr.getCurrency());
 			gr.setDstBankAcct(cr.getRecipientBankAccountNo());
 			gr.setDstBankAcctType(cr.getRecipientBankAccountType());
 			
-			gr.setTotalPaidAmt(bigIntegerW2ToDouble(cpr.getNominalAmount()));
-			gr.setTotalReceivedAmt(bigIntegerW2ToDouble(cpr.getSveaPaidAmountIncludingWithholding()));
-			gr.setTotalVatAmt(bigIntegerW2ToDouble(cpr.getFeeVatAmount()));
 
 			if (cr.getRows()!=null && cr.getRows().size()>0) {
 				
@@ -230,6 +230,11 @@ public class ReportConverter {
 						
 						FeeDetail f;
 						for (ClientFee cf : crr.getFees()) {
+							if (ClientFee.FEETYPE_Dismissed.equalsIgnoreCase(cf.getType())) {
+								// An invoice transferred back / dismissed is not a fee in
+								// report type 1.
+								continue;
+							}
 							f = fromClientFee(cf);
 							if (f!=null) {
 								d.addFee(f);
@@ -243,6 +248,11 @@ public class ReportConverter {
 				}
 				
 			}
+
+			// Set totals from file (not calculated)
+			gr.setTotalPaidAmt(bigIntegerW2ToDouble(cpr.getNominalAmount()));
+			gr.setTotalReceivedAmt(bigIntegerW2ToDouble(cpr.getSveaPaidAmountIncludingWithholding()));
+			gr.setTotalVatAmt(bigIntegerW2ToDouble(cpr.getFeeVatAmount()));
 			
 			// Add the group
 			dst.addPaymentReportGroup(gr);

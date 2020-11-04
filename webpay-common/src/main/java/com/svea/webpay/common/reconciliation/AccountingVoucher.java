@@ -17,6 +17,8 @@ public class AccountingVoucher {
 	private String	paymentTypeReference;
 	private LocalDate	acctDate;
 	private String	currency;
+	private String	costCenter;
+	private String	projectCode;
 
 	private List<RevenueLine> revenues;
 	private List<PayoutLine> payouts;
@@ -94,6 +96,21 @@ public class AccountingVoucher {
 	public void setPayouts(List<PayoutLine> payouts) {
 		this.payouts = payouts;
 	}
-	
+
+	public String getCostCenter() {
+		return costCenter;
+	}
+
+	public void setCostCenter(String costCenter) {
+		this.costCenter = costCenter;
+	}
+
+	public String getProjectCode() {
+		return projectCode;
+	}
+
+	public void setProjectCode(String projectCode) {
+		this.projectCode = projectCode;
+	}
 	
 }

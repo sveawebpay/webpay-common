@@ -105,6 +105,8 @@ public class SveaCredential {
 	private boolean includeAdminPayments = false;
 	private boolean	includeKickbacks = true;
 	private boolean	active = true;
+	// External accounting dimension for this account / credential
+	private String  externalAccountingDimension;
 	
 	/**
 	 * If true, the fees on this account are ignored when accounting information is created.
@@ -541,6 +543,18 @@ s	 * @return	The password for this credential
 	}
 	
 	/**
+	 * External accounting dimension (a.k.a CostCenter).
+	 * @return		The external accounting dimension.
+	 */
+	public String getExternalAccountingDimension() {
+		return externalAccountingDimension;
+	}
+
+	public void setExternalAccountingDimension(String externalAccountingDimension) {
+		this.externalAccountingDimension = externalAccountingDimension;
+	}
+
+	/**
 	 * Loads credentials from an XML-file containing credentials.
 	 * 
 	 * @param configfile		The file to read from
@@ -651,6 +665,7 @@ s	 * @return	The password for this credential
 			cre.setMerchantId(path.evaluate("merchantId", clist));
 			cre.setCardMerchantId(path.evaluate("cardMerchantId", clist));
 			cre.setCardSecretWord(path.evaluate("cardSecretWord", clist));
+			cre.setExternalAccountingDimension(path.evaluate("externalAccountingDimension", clist));
 			
 			Node aNode = (Node)path.evaluate("accountMappings", clist, XPathConstants.NODE);
 
