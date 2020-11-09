@@ -2,6 +2,7 @@ package com.svea.webpay.common.conv;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -15,7 +16,7 @@ import com.svea.webpay.common.reconciliation.PaymentReport;
  *
  */
 public class JsonUtil {
-
+	
 	public static Gson gson;
 	public static final String dfmtStr = "yyyy-MM-dd";
 	public static final DateFormat dfmt;
@@ -25,6 +26,7 @@ public class JsonUtil {
 		GsonBuilder builder = new GsonBuilder().setPrettyPrinting().setDateFormat(dfmtStr);
 		builder.setFieldNamingPolicy(FieldNamingPolicy.IDENTITY);
 		builder.setLenient();
+		builder.registerTypeAdapter(LocalDate.class, new JsonLocalDateAdapter());
 		gson = builder.create();
 		dfmt = new SimpleDateFormat(dfmtStr);
 		
