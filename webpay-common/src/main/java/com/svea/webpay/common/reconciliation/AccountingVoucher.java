@@ -45,6 +45,16 @@ public class AccountingVoucher {
 		
 	}
 	
+	/**
+	 * Returns the first (and normally only Payoutline)
+	 * 
+	 * @return
+	 */
+	public PayoutLine getFirstPayoutLine() {
+		if (payouts==null || payouts.size()==0) return null;
+		return (payouts.get(0));
+	}
+	
 	public void addRevenueLine(RevenueLine rl) {
 		if (revenues==null)
 			revenues = new ArrayList<RevenueLine>();
