@@ -39,10 +39,46 @@ public class AccountingVoucher {
 		if (payouts==null) return 0;
 		double totalPaidByCustomer = 0;
 		for (PayoutLine pl : payouts) {
-			totalPaidByCustomer += pl.getPaidByCustomer();
+			if (!pl.isIncludedInOtherPayout())
+				totalPaidByCustomer += pl.getPaidByCustomer();
 		}
 		return totalPaidByCustomer;
 		
+	}
+	
+	
+	public double calculateTotalPaidOut() {
+
+		if (payouts==null) return 0;
+		double totalPaidOut = 0;
+		for (PayoutLine pl : payouts) {
+			if (!pl.isIncludedInOtherPayout()) {
+				totalPaidOut += pl.getPaidOut();
+			}
+		}
+		return totalPaidOut;
+		
+	}
+	
+	public double calculateTotalFees() {
+
+		if (payouts==null) return 0;
+		double totalFees = 0;
+		for (PayoutLine pl : payouts) {
+			totalFees += pl.getFeeAmount();
+		}
+		return totalFees;
+		
+	}
+	
+	public double calculateTotalFeeVAT() {
+
+		if (payouts==null) return 0;
+		double totalFeeVAT = 0;
+		for (PayoutLine pl : payouts) {
+			totalFeeVAT += pl.getTaxAmount();
+		}
+		return totalFeeVAT;
 	}
 	
 	/**
