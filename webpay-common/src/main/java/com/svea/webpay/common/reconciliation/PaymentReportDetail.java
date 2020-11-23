@@ -44,6 +44,7 @@ public class PaymentReportDetail {
 	public static final String REF_DELIVERY_ID = "delivery_id";
 	
 	private String	paymentId;
+	private String	paymentType;
 	private String	invoiceId;
 	private String	orderId;
 	private String	checkoutOrderId;
@@ -293,6 +294,19 @@ public class PaymentReportDetail {
 
 	public void setRetry(Boolean retry) {
 		this.retry = retry;
+	}
+
+	
+	/**
+	 * Payment type (if different from group).
+	 * @return		The payment type (if different from the group's payment type).
+	 */
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
 	}
 
 	/**
