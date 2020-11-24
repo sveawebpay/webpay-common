@@ -80,6 +80,10 @@ public class ReportConverter {
 		case ClientFee.FEETYPE_Kickback:
 			result = FeeDetail.FEETYPE_KICKBACK;
 			break;
+		case ClientFee.FEETYPE_Correction:
+			// TODO: Have a better handling of this.
+			result = FeeDetail.FEETYPE_DEVIATIONS;
+			break;
 		}
 		
 		return result;
