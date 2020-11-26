@@ -20,6 +20,8 @@ public class JsonUtil {
 	public static Gson gson;
 	public static final String dfmtStr = "yyyy-MM-dd";
 	public static final DateFormat dfmt;
+	public static final String shortdfmtStr = "yyMMdd";
+	public static final DateFormat shortdfmt;
 	
 	static {
 		
@@ -29,6 +31,7 @@ public class JsonUtil {
 		builder.registerTypeAdapter(LocalDate.class, new JsonLocalDateAdapter());
 		gson = builder.create();
 		dfmt = new SimpleDateFormat(dfmtStr);
+		shortdfmt = new SimpleDateFormat(shortdfmtStr);
 		
 	}
 	

@@ -1,6 +1,9 @@
 package com.svea.webpay.common.test;
 
-// import static org.junit.Assert.fail;
+import java.text.ParseException;
+import java.util.Date;
+
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -47,5 +50,25 @@ public class TestPaymentReport {
 		
 		// fail("Not yet implemented");
 	}
+
+	@Test
+	public void testReportDate() {
+		PaymentReport report = new PaymentReport();
+		
+		String file1 = "CLIENT-2020-11-25.json";
+		String file2 = "NNNNNN-NNNN_CLIENT_201126.json";
+		
+		try {
+		
+			Date date1 = report.reportDate(file1);
+			System.out.println(JsonUtil.dfmt.format(date1));
+			Date date2 = report.reportDate(file2);
+			System.out.println(JsonUtil.shortdfmt.format(date2));
+		} catch (ParseException pe) {
+			fail(pe.getMessage());
+		}
+		
+	}
+	
 
 }

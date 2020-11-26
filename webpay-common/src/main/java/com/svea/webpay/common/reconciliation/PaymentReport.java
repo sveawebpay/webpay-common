@@ -1,5 +1,7 @@
 package com.svea.webpay.common.reconciliation;
 
+import java.beans.Transient;
+
 /*
 
 Copyright 2019 Svea Ekonomi AB
@@ -31,6 +33,7 @@ import java.util.TreeSet;
 
 import com.svea.webpay.common.auth.SveaCredential;
 import com.svea.webpay.common.conv.InvalidTaxIdFormatException;
+import com.svea.webpay.common.conv.JsonUtil;
 import com.svea.webpay.common.conv.LocalDateUtils;
 import com.svea.webpay.common.conv.TaxIdFormatter;
 import com.svea.webpay.common.conv.TaxIdStructure;
@@ -205,6 +208,57 @@ public class PaymentReport {
 		}
 		
 		return earliestDate;
+	}
+
+	/**
+	 * Takes the until date in the report if it exists. 
+	 * If the until date doesn't exist, try to find a date pattern
+	 * in the file name (date should be last, just before the suffix).
+	 * Date formats yyyy-MM-dd and yyMMdd
+	 * 
+	 * @param fileName			The filename to parse
+	 * @return					The date (if found). If not found, null is returned.
+	 * @throws ParseException	If the until date can't be parsed.
+	 */
+	@Transient
+	public Date reportDate(String fileName) throws ParseException {
+		if (untilDate()!=null) 
+			return untilDate();
+		
+		// Try finding a date pattern in the file name
+		if (fileName==null) return null;
+		
+		if (fileName.length()<6) 
+			return null;
+		
+		int dotIdx = fileName.lastIndexOf(".");
+		
+		if (dotIdx<0) {
+			dotIdx = fileName.length()-1;
+		}
+		String dateStr = fileName.substring(dotIdx-6, dotIdx);
+		Date result = null;
+		// Try parsing date
+		if (!dateStr.contains("-")) {
+			try {
+				result = JsonUtil.shortdfmt.parse(dateStr);
+				return result;
+			} catch (ParseException pe1) {
+			}
+		}
+		
+		// Check for longer format
+		if (fileName.length()<10) {
+			return null;
+		}
+		dateStr = fileName.substring(dotIdx-10, dotIdx);
+		try {
+			result = JsonUtil.dfmt.parse(dateStr);
+			return result;
+		} catch (ParseException pe2) {
+			return null;
+		}
+		
 	}
 	
 	/**
