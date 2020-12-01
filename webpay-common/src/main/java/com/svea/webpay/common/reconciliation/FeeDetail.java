@@ -66,6 +66,7 @@ public class FeeDetail {
 	private Double	feeVat = 0D;
 	private String	accountNr;
 	private Integer	vatType;
+	private String	description;
 
 	static {
 		
@@ -357,12 +358,27 @@ public class FeeDetail {
 		this.vatType = vatType;
 	}
 
+	/**
+	 * Description of the fee.
+	 * 
+	 * @return		Description of the fee (if any).
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public void roundAll() {
 		if (fee==null) fee = 0D;
 		fee = roundFee(fee, DEFAULT_ROUNDING_DECIMALS);
 		if (feeVat==null) feeVat = 0D;
 		feeVat = roundFee(feeVat, DEFAULT_ROUNDING_DECIMALS);
 	}
+
+	
 	
 	public String toString() {
 		

@@ -295,12 +295,42 @@ public class PaymentReportGroup {
 		}
 		
 	}
+
+	/**
+	 * Finds first fee-detail in this group with given fee type and amount.
+	 * 
+	 * @param feeType			The fee type to look for
+	 * @param feeAmount			The fee amount to look for.
+	 * @return			A fee detail if found.
+	 */
+	public FeeDetail findFeeDetail(String feeType, Double feeAmount) {
+		
+		if (paymentReportDetail==null) return null;
+		if (feeType==null) return null;
+		FeeDetail result = null;
+		
+		for (PaymentReportDetail d : paymentReportDetail) {
+			if (d.getFees()==null) continue;
+			for (FeeDetail f : d.getFees()) {
+				if (feeType.equals(f.getFeeType()) && feeAmount.equals(f.getFee())) {
+					result = f;
+					break;
+				}
+			}
+			if (result!=null)
+				break;
+			
+		}
+		return result;
+		
+		
+	}
 	
 	/**
 	 * Finds first detail with given amount and fee type
 	 * 
-	 * @param feeType
-	 * @param amount
+	 * @param feeType			A feetype that must exist on this payment detail.
+	 * @param amount			The received amount of the payment detail.
 	 * @return
 	 */
 	public PaymentReportDetail findDetailWithFeeAmount(String feeType, Double amount) {

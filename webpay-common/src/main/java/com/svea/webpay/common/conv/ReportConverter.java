@@ -245,7 +245,28 @@ public class ReportConverter {
 							}
 							f = fromClientFee(cf);
 							if (f!=null) {
+								
+								// If the fee type is correction, put details in the fee description.
+								if (ClientFee.FEETYPE_Correction.equalsIgnoreCase(cf.getType())) {
+									// Set fee description from payment
+									String desc = "";
+									if (crr.getCustomerName()!=null) {
+										desc += crr.getCustomerName();
+									}
+									if (crr.getSveaCheckoutId()!=null) {
+										desc += " CoId: " + crr.getSveaCheckoutId();
+									}
+									if (crr.getExternalOrderNo()!=null) {
+										desc += " ExtOnr: " + crr.getExternalOrderNo();
+									}
+									if (crr.getComment()!=null) {
+										if (desc.length()>0) desc += " : ";
+										desc += crr.getComment();
+									}
+									f.setDescription(desc);
+								}
 								d.addFee(f);
+								
 							}
 						}
 						
