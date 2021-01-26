@@ -181,7 +181,7 @@ public class ReportConverter {
 			gr.setDstBankAcct(cr.getRecipientBankAccountNo());
 			gr.setDstBankAcctType(cr.getRecipientBankAccountType());
 			
-
+			// Iterate through and convert the rows
 			if (cr.getRows()!=null && cr.getRows().size()>0) {
 				
 				PaymentReportDetail d;
@@ -244,6 +244,7 @@ public class ReportConverter {
 								continue;
 							}
 							f = fromClientFee(cf);
+							
 							if (f!=null) {
 								
 								// If the fee type is correction, put details in the fee description.
@@ -264,6 +265,10 @@ public class ReportConverter {
 										desc += crr.getComment();
 									}
 									f.setDescription(desc);
+								}
+								// If the fee type is deviation, get comment from the transaction
+								if (ClientFee.FEETYPE_Deviation.equalsIgnoreCase(cf.getType())) {
+									f.setDescription(crr.getComment());
 								}
 								d.addFee(f);
 								
