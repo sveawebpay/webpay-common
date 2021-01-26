@@ -436,6 +436,7 @@ public class PaymentReport {
 		
 		PayoutLine pl = null;
 		
+		// Make sure we have groups
 		if (getPaymentReportGroup()!=null) {
 			
 			// Map groups by date
@@ -450,7 +451,8 @@ public class PaymentReport {
 				}
 				groups.add(g);
 			}
-			
+
+			// Iterate through the groups, one per date.
 			for (List<PaymentReportGroup> grs : dateGroups.values()) {
 			
 				// Find credit card groups, direct debit groups and admin groups
@@ -483,7 +485,8 @@ public class PaymentReport {
 				PaymentReportGroup debitGroup;
 				PaymentReportGroup adminGroup;
 				boolean includedInOtherPayout = false;
-				
+			
+				// Iterate through the groups for the given date.
 				for (PaymentReportGroup gr : grs) {
 					
 					totalPaidAmount = gr.getTotalPaidAmt();
@@ -523,9 +526,11 @@ public class PaymentReport {
 						feeAmount = gr.getTotalPaidAmt()-gr.getTotalVatAmt()-gr.getTotalReceivedAmt();
 					}
 	
+					// Check if paymentReference / paymentGroup applies
 					if ((paymentReference==null || paymentReference.equalsIgnoreCase(gr.getPaymentTypeReference()))
 						&& 
 						(paymentType==null || paymentType.equalsIgnoreCase(gr.getPaymentType()))) {
+						
 							pl = new PayoutLine();
 							
 							pl.setAcctDate(LocalDateUtils.asLocalDate(gr.getReconciliationDateAsDate()));

@@ -186,6 +186,11 @@ public class ReportConverter {
 				
 				PaymentReportDetail d;
 				String rowType;
+				Long sveaCustomerId;
+				String clientOrderNo;
+				BigInteger sveaInvoiceNo;
+				BigInteger sveaCheckoutId;
+				
 				for (ClientReportRow crr : cr.getRows()) {
 
 					// Check payment type. Assume they are not mixed since they all belong to the same client id
@@ -201,22 +206,48 @@ public class ReportConverter {
 						// Do nothing for this row type
 						continue;
 					}
+				
+					// Get references
+					sveaCustomerId = crr.getSveaCustomerId();
+					clientOrderNo = crr.getExternalOrderNo();
+					sveaInvoiceNo = crr.getSveaInvoiceNo();
+					sveaCheckoutId = crr.getSveaCheckoutId();
+					
+					boolean hasReferences = 
+							sveaCustomerId!=null ||
+							(clientOrderNo!=null && clientOrderNo.trim().length()>0) ||
+							sveaInvoiceNo!=null ||
+							sveaCheckoutId!=null;
+					
+					// If manual and no references, create a deviation as other fee.
+					if (ClientReportRow.ROWTYPE_Manual.equalsIgnoreCase(rowType) && !hasReferences && crr.getNominalAmount().signum()==0) {
+						
+						FeeDetail f = new FeeDetail();
+						
+						f.setFeeType(FeeDetail.FEETYPE_DEVIATIONS);
+						f.setFee(bigIntegerW2ToDouble(crr.getTotalFeeAmountExcludingVat()));
+						f.setFeeVat(bigIntegerW2ToDouble(crr.getTotalFeeVatAmount()));
+						f.setDescription(crr.getComment());
+						gr.addOtherFee(f);
+						continue;
+						
+					}
 					
 					d = new PaymentReportDetail();
 					
-					if (crr.getSveaCustomerId()!=null)
-						d.setCustomerId(crr.getSveaCustomerId().toString());
+					if (sveaCustomerId!=null)
+						d.setCustomerId(sveaCustomerId.toString());
 					
 					d.setPayerName(crr.getCustomerName());
-					d.setClientOrderNo(crr.getExternalOrderNo());
+					d.setClientOrderNo(clientOrderNo);
 					if (crr.getOrderDate()!=null)
 						d.setOrderDate(JsonUtil.dfmt.format(crr.getOrderDate()));
 					
-					if (crr.getSveaInvoiceNo()!=null)
-						d.setInvoiceId(crr.getSveaInvoiceNo().toString());
+					if (sveaInvoiceNo!=null)
+						d.setInvoiceId(sveaInvoiceNo.toString());
 					
-					if (crr.getSveaCheckoutId()!=null)
-						d.setCheckoutOrderId(crr.getSveaCheckoutId().toString());
+					if (sveaCheckoutId!=null)
+						d.setCheckoutOrderId(sveaCheckoutId.toString());
 					
 					d.setPaidAmt(bigIntegerW2ToDouble(crr.getNominalAmount()));
 					d.setReceivedAmt(bigIntegerW2ToDouble(crr.getSveaPaidAmount()));
