@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author daniel
+ *
+ */
 public class ClientReportRow {
 
 	public static final String ROWTYPE_ClosingBalanceDebt = "ClosingBalanceDebt";
@@ -30,6 +34,7 @@ public class ClientReportRow {
 	
 	private BigInteger	sveaInvoiceNo;
 	private BigInteger	sveaOrderNo;
+	private BigInteger  paymentTransactionId;
 	private BigInteger	sveaCheckoutId;
 	private BigInteger	nominalAmount;
 	private BigInteger	sveaPaidAmount;
@@ -80,6 +85,12 @@ public class ClientReportRow {
 	}
 	public void setSveaOrderNo(BigInteger sveaOrderNo) {
 		this.sveaOrderNo = sveaOrderNo;
+	}
+	public BigInteger getPaymentTransactionId() {
+		return paymentTransactionId;
+	}
+	public void setPaymentTransactionId(BigInteger paymentTransactionId) {
+		this.paymentTransactionId = paymentTransactionId;
 	}
 	public BigInteger getSveaCheckoutId() {
 		return sveaCheckoutId;
