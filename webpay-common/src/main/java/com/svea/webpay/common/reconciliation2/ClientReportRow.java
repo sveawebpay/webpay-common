@@ -26,6 +26,7 @@ public class ClientReportRow {
 	public static final String PAYMENTTYPE_DirectBank = "DirectBank";
 	public static final String PAYMENTTYPE_Invoice = "Invoice";
 	public static final String PAYMENTTYPE_PaymentPlan = "PaymentPlan";
+	public static final String PAYMENTTYPE_Admin = "Admin";
 	
 	private Long	sveaCustomerId;
 	private String	customerName;

@@ -124,6 +124,9 @@ public class ReportConverter {
 				result = SveaCredential.ACCOUNTTYPE_PAYMENTPLAN;
 				break;
 			
+			case ClientReportRow.PAYMENTTYPE_Admin:
+				result = SveaCredential.ACCOUNTTYPE_ADMIN;
+				
 		}
 		
 		return result;
