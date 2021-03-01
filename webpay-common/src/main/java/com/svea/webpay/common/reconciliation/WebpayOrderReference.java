@@ -1,5 +1,6 @@
 package com.svea.webpay.common.reconciliation;
 
+import java.beans.Transient;
 import java.time.LocalDate;
 
 /**
@@ -128,6 +129,32 @@ public class WebpayOrderReference {
 	public void setOrderDate(LocalDate orderDate) {
 		this.orderDate = orderDate;
 	}
-	
+
+	/**
+	 * Method to check is a reference is possibly a checkout order ID.
+	 * 
+	 * @param ref
+	 * @return
+	 */
+	@Transient
+	public static boolean isPossiblyCheckoutOrderId(String ref) {
+		
+		if (ref==null) return false;
+		
+		// Check that it's only digits
+        char c;
+        for (int i=0; i<ref.length(); i++) {
+            c = ref.charAt(i);
+            if (!(c>='0' && c<='9')) {
+                return(false);
+            }
+        }
+		
+		if (ref.length()<6) return false;
+        
+        return true;
+		
+		
+	}
 	
 }
