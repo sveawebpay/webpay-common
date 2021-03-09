@@ -263,7 +263,7 @@ public class ReportConverter {
 					d.setReceivedAmt(bigIntegerW2ToDouble(crr.getSveaPaidAmount()));
 					
 					if (crr.getPaymentType()!=null && crr.getPaymentType().trim().length()>0) {
-						d.setPaymentType(crr.getPaymentType());
+						d.setPaymentType(mapPaymentReportPaymentType(crr.getPaymentType()));
 					}
 					
 					if (crr.getDeliveryId()!=null && crr.getDeliveryId().longValue()!=0) {
