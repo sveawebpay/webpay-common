@@ -76,19 +76,18 @@ public class SveaTranslator {
 		
 		// Locate the bundle
 		ResourceBundle b = bundles.get(lang);
+		if(b == null) {
+			if(defaultBundle == null){
+				return label;
+			}else{
+				b = defaultBundle;
+			}
+		}
 		String translation = null;
-		if (b==null) {
-			if (defaultBundle!=null) {
-				translation = defaultBundle.getString(label);
-			} else {
-				translation = label;
-			}
-		} else {
-			try {
-				translation = b.getString(label);
-			} catch (MissingResourceException me) {
-				translation = label;
-			}
+		try {
+			translation = b.getString(label);
+		} catch (MissingResourceException me) {
+			translation = label;
 		}
 		if (capitalizeFirstLetter) {
 			translation = capitalizeFirstLetter(translation);
