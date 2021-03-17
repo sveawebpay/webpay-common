@@ -6,6 +6,9 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Class used to translate different terms and other labels / etc.
  * 
@@ -13,6 +16,8 @@ import java.util.TreeMap;
  *
  */
 public class SveaTranslator {
+		
+	private static Logger log = LoggerFactory.getLogger(SveaTranslator.class);
 	
 	public static final String SVEA_TRANSLATIONS_LABEL = "SveaTranslations";
 	
@@ -87,6 +92,7 @@ public class SveaTranslator {
 		try {
 			translation = b.getString(label);
 		} catch (MissingResourceException me) {
+			log.warn(String.format("Resource %s could not be found", label), me);
 			translation = label;
 		}
 		if (capitalizeFirstLetter) {
