@@ -1,5 +1,6 @@
 package com.svea.webpay.common.conv;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 import java.util.Map;
 import java.util.MissingResourceException;
@@ -17,7 +18,7 @@ import org.slf4j.LoggerFactory;
  */
 public class SveaTranslator {
 		
-	private static Logger log = LoggerFactory.getLogger(SveaTranslator.class);
+	private Logger log = LoggerFactory.getLogger(SveaTranslator.class);
 	
 	public static final String SVEA_TRANSLATIONS_LABEL = "SveaTranslations";
 	
@@ -26,17 +27,19 @@ public class SveaTranslator {
 			new Locale("sv")
 	};
 
-	private static Map<String, ResourceBundle> bundles;
-	private static ResourceBundle defaultBundle;
-	
-	static {
+	private Map<String, ResourceBundle> bundles;
+	private ResourceBundle defaultBundle;
+
+	public static SveaTranslator defaultTranslator = new SveaTranslator(SveaTranslator.class);
+
+	public SveaTranslator(Class clazz) {
 		
 		bundles = new TreeMap<String, ResourceBundle>();
 		ResourceBundle b;
 		for (Locale loc : supportedLocales) {
 			
 			try {
-				b = ResourceBundle.getBundle(SVEA_TRANSLATIONS_LABEL, loc);
+				b = ResourceBundle.getBundle(SVEA_TRANSLATIONS_LABEL, loc, clazz.getClassLoader());
 				if (b!=null && b.getLocale().getLanguage().equals(loc.getLanguage())) {
 					bundles.put(loc.getISO3Language(), b);
 				}
@@ -47,22 +50,21 @@ public class SveaTranslator {
 		}
 
 		try {
-			defaultBundle = ResourceBundle.getBundle(SVEA_TRANSLATIONS_LABEL);
+			defaultBundle = ResourceBundle.getBundle(SVEA_TRANSLATIONS_LABEL, Locale.getDefault(), clazz.getClassLoader());
 		} catch (MissingResourceException mre) {
 			System.out.println(mre.getClassName());
 		}
 		
 	}
 
-
 	/**
 	 * Returns a translation of the given label (key).
 	 * 
 	 * @param label		The label to translate
-	 * @param lang		The language to translate to
+	 * @param lang		The language to translate to in ISO3 format (e.g. 'eng')
 	 * @return			A translation. If no translation is available the label itself is returned.
 	 */
-	public static String getTranslation(String label, String lang) {
+	public String getTranslation(String label, String lang) {
 
 		return getTranslation(label, lang, false);
 		
@@ -72,12 +74,12 @@ public class SveaTranslator {
 	 * Returns a translation of the given label (key).
 	 * 
 	 * @param label		The label to translate
-	 * @param lang		The language to translate to
+	 * @param lang		The language to translate to in ISO3 format (e.g. 'eng')
 	 * @param capitalizeFirstLetter	Capitalize first letter.
 	 * 
 	 * @return			A translation. If no translation is available the label itself is returned.
 	 */
-	public static String getTranslation(String label, String lang, boolean capitalizeFirstLetter) {
+	public String getTranslation(String label, String lang, boolean capitalizeFirstLetter) {
 		
 		// Locate the bundle
 		ResourceBundle b = bundles.get(lang);
@@ -90,9 +92,13 @@ public class SveaTranslator {
 		}
 		String translation = null;
 		try {
-			translation = b.getString(label);
+			// Workaround since ResourceBundle in Java 8 doesn't support UTF-8
+			translation = new String(b.getString(label).getBytes("ISO-8859-1"), "UTF-8");
 		} catch (MissingResourceException me) {
 			log.warn(String.format("Resource %s could not be found", label), me);
+			translation = label;
+		} catch (UnsupportedEncodingException e) {
+			log.error("Unsupported encoding", e);
 			translation = label;
 		}
 		if (capitalizeFirstLetter) {
@@ -109,7 +115,7 @@ public class SveaTranslator {
 	 * @param text		The text.
 	 * @return			The text with the first letter as a capital letter.
 	 */
-	public static String capitalizeFirstLetter(String text) {
+	public String capitalizeFirstLetter(String text) {
 		if (text==null) return null;
 		StringBuffer sb = new StringBuffer(text);
 		sb.replace(0, 1, text.substring(0, 1).toUpperCase());
