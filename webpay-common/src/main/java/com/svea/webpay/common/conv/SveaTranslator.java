@@ -44,7 +44,7 @@ public class SveaTranslator {
 					bundles.put(loc.getISO3Language(), b);
 				}
 			} catch (MissingResourceException mre) {
-				System.out.println(mre.getClassName());
+				log.warn("Resource not found", mre);
 			}
 			
 		}
@@ -52,7 +52,7 @@ public class SveaTranslator {
 		try {
 			defaultBundle = ResourceBundle.getBundle(SVEA_TRANSLATIONS_LABEL, Locale.getDefault(), clazz.getClassLoader());
 		} catch (MissingResourceException mre) {
-			System.out.println(mre.getClassName());
+			log.warn("No default resource found", mre);
 		}
 		
 	}
