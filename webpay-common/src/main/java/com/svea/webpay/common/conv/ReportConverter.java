@@ -193,6 +193,7 @@ public class ReportConverter {
 				String clientOrderNo;
 				BigInteger sveaInvoiceNo;
 				BigInteger sveaCheckoutId;
+				BigInteger orderId;
 				BigInteger paymentTransactionId;
 				
 				for (ClientReportRow crr : cr.getRows()) {
@@ -216,6 +217,7 @@ public class ReportConverter {
 					clientOrderNo = crr.getExternalOrderNo();
 					sveaInvoiceNo = crr.getSveaInvoiceNo();
 					sveaCheckoutId = crr.getSveaCheckoutId();
+					orderId = crr.getSveaOrderNo();
 					paymentTransactionId = crr.getPaymentTransactionId();
 					
 					boolean hasReferences = 
@@ -223,6 +225,7 @@ public class ReportConverter {
 							(clientOrderNo!=null && clientOrderNo.trim().length()>0) ||
 							sveaInvoiceNo!=null ||
 							sveaCheckoutId!=null ||
+							orderId!=null ||
 							paymentTransactionId!=null;
 					
 					// If manual and no references, create a deviation as other fee.
@@ -251,6 +254,10 @@ public class ReportConverter {
 					
 					if (sveaInvoiceNo!=null)
 						d.setInvoiceId(sveaInvoiceNo.toString());
+					
+					if (orderId!=null && orderId.signum()>0) {
+						d.setOrderId(orderId.toString());
+					}
 					
 					if (sveaCheckoutId!=null)
 						d.setCheckoutOrderId(sveaCheckoutId.toString());
