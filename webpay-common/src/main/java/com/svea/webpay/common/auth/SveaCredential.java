@@ -133,6 +133,45 @@ public class SveaCredential {
 	}
 	
 	/**
+	 * For the credential to be valid, it needs to express some useable credentials.
+	 * 
+	 * @return
+	 */
+	public boolean isValid() {
+		return hasUsernameAndPassword() || hasMerchantIdAndSecretWord() || hasCardMerchantIdAndSecret();
+	}
+	
+	private boolean hasUsernameAndPassword() {
+		return username!=null && username.trim().length()>0 
+				&& password!=null && password.trim().length()>0;
+	}
+
+	private boolean hasCardMerchantIdAndSecret() {
+		return hasValidCardMerchantId() && hasValidCardSecretWord();
+	}
+	
+	private boolean hasValidCardMerchantId() {
+		return cardMerchantId!=null && cardMerchantId.trim().length()==4;
+	}
+	
+	private boolean hasValidCardSecretWord() {
+		return cardSecretWord!=null && cardSecretWord.trim().length()>10;
+	}
+	
+	private boolean hasMerchantIdAndSecretWord() {
+		return hasValidMerchantId() && hasValidSecretWord();
+	}
+	
+	private boolean hasValidMerchantId() {
+		// TODO: Can be improved to include checking for digits only
+		return merchantId!=null && merchantId.trim().length()==6;
+	}
+	
+	private boolean hasValidSecretWord() {
+		return secretWord!=null && secretWord.trim().length()>10;
+	}
+	
+	/**
 	 * 
 	 * @return	The account no for this credential
 	 */
