@@ -141,28 +141,28 @@ public class SveaCredential {
 		return hasUsernameAndPassword() || hasMerchantIdAndSecretWord() || hasCardMerchantIdAndSecret();
 	}
 	
-	private boolean hasUsernameAndPassword() {
+	public boolean hasUsernameAndPassword() {
 		return username!=null && username.trim().length()>0 
 				&& password!=null && password.trim().length()>0;
 	}
 
-	private boolean hasCardMerchantIdAndSecret() {
+	public boolean hasCardMerchantIdAndSecret() {
 		return hasValidCardMerchantId() && hasValidCardSecretWord();
 	}
 	
-	private boolean hasValidCardMerchantId() {
+	public boolean hasValidCardMerchantId() {
 		return cardMerchantId!=null && cardMerchantId.trim().length()==4;
 	}
 	
-	private boolean hasValidCardSecretWord() {
+	public boolean hasValidCardSecretWord() {
 		return cardSecretWord!=null && cardSecretWord.trim().length()>10;
 	}
 	
-	private boolean hasMerchantIdAndSecretWord() {
+	public boolean hasMerchantIdAndSecretWord() {
 		return hasValidMerchantId() && hasValidSecretWord();
 	}
 	
-	private boolean hasValidMerchantId() {
+	public boolean hasValidMerchantId() {
 		// TODO: Can be improved to include checking for digits only
 		return merchantId!=null && merchantId.trim().length()==6;
 	}
