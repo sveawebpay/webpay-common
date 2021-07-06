@@ -19,6 +19,7 @@ limitations under the License.
 */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -46,7 +47,22 @@ public class ListOfSveaCredentials {
 	public void clearCredentials() {
 		credentials.clear();
 	}
-
+	
+	public List<String> getMerchantIds() {
+		List<String> result = new ArrayList<String>();
+		if (credentials==null || credentials.size()==0) {
+			return result;
+		}
+		Set<String> merchantIdSet = new TreeSet<String>();
+		for (SveaCredential sc : credentials) {
+			if (sc.hasValidMerchantId()) {
+				merchantIdSet.add(sc.getMerchantId());
+			}
+		}
+		result = Arrays.asList(merchantIdSet.toArray(new String[0]));
+		return result;
+	}
+	
 	/**
 	 * Lists all external accounting dimensions in this list of Svea Credentials
 	 * 
