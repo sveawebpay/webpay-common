@@ -250,7 +250,7 @@ public class ReportConverter {
 					d.setPayerName(crr.getCustomerName());
 					d.setClientOrderNo(clientOrderNo);
 					if (crr.getOrderDate()!=null)
-						d.setOrderDate(JsonUtil.dfmt.format(crr.getOrderDate()));
+						d.setOrderDate(JsonUtil.getDateFormat().format(crr.getOrderDate()));
 					
 					if (sveaInvoiceNo!=null)
 						d.setInvoiceId(sveaInvoiceNo.toString());

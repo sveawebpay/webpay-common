@@ -138,7 +138,7 @@ public class PaymentReportGroup {
 	
 	public void setReconciliationDate(java.util.Date date) {
 		if (date!=null)
-			reconciliationDate = JsonUtil.dfmt.format(date);
+			reconciliationDate = JsonUtil.getDateFormat().format(date);
 		else 
 			reconciliationDate = null;
 	}
@@ -146,7 +146,7 @@ public class PaymentReportGroup {
 	@Transient
 	public Date getReconciliationDateAsDate() throws ParseException {
 		if (reconciliationDate==null) return null;
-		return JsonUtil.dfmt.parse(reconciliationDate);
+		return JsonUtil.getDateFormat().parse(reconciliationDate);
 	}
 	
 	public void setReconciliationDate(String reconciliationDate) {
@@ -773,7 +773,7 @@ public class PaymentReportGroup {
 				if (str.length()>1) str.append(", ");
 				String dateStr = null;
 				try {
-					dateStr = JsonUtil.dfmt.format(reconciliationDate);
+					dateStr = JsonUtil.getDateFormat().format(reconciliationDate);
 				} catch (Exception e) {
 					dateStr = reconciliationDate;
 				}

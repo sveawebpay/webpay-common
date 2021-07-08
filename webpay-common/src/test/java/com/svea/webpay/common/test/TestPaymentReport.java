@@ -61,9 +61,9 @@ public class TestPaymentReport {
 		try {
 		
 			Date date1 = report.reportDate(file1);
-			System.out.println(JsonUtil.dfmt.format(date1));
+			System.out.println(JsonUtil.getDateFormat().format(date1));
 			Date date2 = report.reportDate(file2);
-			System.out.println(JsonUtil.shortdfmt.format(date2));
+			System.out.println(JsonUtil.getShortDateFormat().format(date2));
 		} catch (ParseException pe) {
 			fail(pe.getMessage());
 		}

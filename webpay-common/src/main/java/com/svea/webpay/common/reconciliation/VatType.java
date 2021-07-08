@@ -45,7 +45,7 @@ public class VatType {
 	
 	static {
 		try {
-			vatSEcardChangeDate = JsonUtil.dfmt.parse(vatSEcardChangeDateStr);
+			vatSEcardChangeDate = JsonUtil.getDateFormat().parse(vatSEcardChangeDateStr);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

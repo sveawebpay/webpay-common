@@ -151,7 +151,7 @@ public class PaymentReportDetail {
 	@Transient
 	public Date getOrderDateAsDate() throws ParseException {
 		if (orderDate==null) return null;
-		return JsonUtil.dfmt.parse(orderDate);
+		return JsonUtil.getDateFormat().parse(orderDate);
 	}
 	
 	public Double getOrderTotalAmt() {

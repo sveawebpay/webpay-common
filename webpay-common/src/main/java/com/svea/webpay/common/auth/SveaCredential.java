@@ -780,7 +780,7 @@ s	 * @return	The password for this credential
 		
 		FileReader fr = new FileReader(url.getFile());
 		
-		ListOfSveaCredentials result = JsonUtil.gson.fromJson(fr, ListOfSveaCredentials.class);
+		ListOfSveaCredentials result = JsonUtil.buildGson().fromJson(fr, ListOfSveaCredentials.class);
 		
 		if (result!=null)
 			return result.getCredentials();
@@ -805,7 +805,7 @@ s	 * @return	The password for this credential
 		
 		FileWriter fr = new FileWriter(filename);
 		fr.write("{ \"credentials\": \n");
-		fr.write(JsonUtil.gson.toJson(credentials));
+		fr.write(JsonUtil.buildGson().toJson(credentials));
 		fr.write("}\n");
 		fr.close();
 		

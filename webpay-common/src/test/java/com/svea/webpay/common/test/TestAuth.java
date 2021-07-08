@@ -22,7 +22,7 @@ public class TestAuth {
 		cr2.setMerchantId("11111111");
 		list.addCredential(cr2);
 		
-		System.out.println(JsonUtil.gson.toJson(list));
+		System.out.println(JsonUtil.buildGson().toJson(list));
 		
 		// fail("Not yet implemented");
 	}

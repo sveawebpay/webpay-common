@@ -67,7 +67,7 @@ public class TestReconToFlatFormat {
 
 				for (int i=0; i<f.length; i++) {
 					if (f[i] instanceof java.util.Date) {
-						column = JsonUtil.dfmt.format((java.util.Date)f[i]);
+						column = JsonUtil.getDateFormat().format((java.util.Date)f[i]);
 					} else {
 						column = f[i]!=null ? f[i].toString() : "";
 					}

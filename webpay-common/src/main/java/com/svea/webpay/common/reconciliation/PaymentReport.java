@@ -241,7 +241,7 @@ public class PaymentReport {
 		// Try parsing date
 		if (!dateStr.contains("-")) {
 			try {
-				result = JsonUtil.shortdfmt.parse(dateStr);
+				result = JsonUtil.getShortDateFormat().parse(dateStr);
 				return result;
 			} catch (ParseException pe1) {
 			}
@@ -253,7 +253,7 @@ public class PaymentReport {
 		}
 		dateStr = fileName.substring(dotIdx-10, dotIdx);
 		try {
-			result = JsonUtil.dfmt.parse(dateStr);
+			result = JsonUtil.getDateFormat().parse(dateStr);
 			return result;
 		} catch (ParseException pe2) {
 			return null;
