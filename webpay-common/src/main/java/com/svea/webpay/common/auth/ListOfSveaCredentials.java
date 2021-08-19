@@ -1,5 +1,13 @@
 package com.svea.webpay.common.auth;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /*
 
 Copyright 2019 Svea Ekonomi AB
@@ -23,6 +31,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
+import com.svea.webpay.common.conv.JsonUtil;
 /**
  * 
  * Class to represent a list of credentials.
@@ -31,12 +41,72 @@ import java.util.TreeSet;
 public class ListOfSveaCredentials {
 
 	private List<SveaCredential> credentials = new ArrayList<SveaCredential>();
+
+	public static ListOfSveaCredentials readFromJsonFilename(String configfile) throws Exception {
+		
+		URL credentialsFileUrl = getUrlForFile(configfile);
+		return readFromJsonFile(new File(credentialsFileUrl.getFile()));
+		
+	}
+	
+	public static ListOfSveaCredentials readFromJsonFile(File credentialsFile) throws IOException {
+		FileReader fr = new FileReader(credentialsFile);
+		ListOfSveaCredentials result = JsonUtil.buildGson().fromJson(fr, ListOfSveaCredentials.class);
+		fr.close();
+		return result;
+	}
+	
+	public static ListOfSveaCredentials buildFromMerchantIdAndSecret(String merchantId, String secretWord) {
+		ListOfSveaCredentials creds = new ListOfSveaCredentials();
+		SveaCredential sc = new SveaCredential();
+		sc.setMerchantId(merchantId);
+		sc.setSecretWord(secretWord);
+		creds.addCredential(sc);
+		return creds;
+	}
+	
+	public static ListOfSveaCredentials buildFromUsernameAndPassword(String username, String password) {
+		ListOfSveaCredentials creds = new ListOfSveaCredentials();
+		SveaCredential sc = new SveaCredential(username, password);
+		creds.addCredential(sc);
+		return creds;
+	}
+	
+	public void saveToJsonFile(String filename) throws IOException {
+		FileWriter fw = new FileWriter(filename);
+		JsonUtil.buildGson().toJson(this, fw);
+		fw.flush();
+		fw.close();
+	}
+
+	public void setOrgNameForAllCredentials(String orgName) {
+		for (SveaCredential sc : credentials) {
+			sc.setOrgName(orgName);
+		}
+	}
+	
+	public void setOrgNoForAllCredentials(String orgNo) {
+		for (SveaCredential sc : credentials) {
+			sc.setOrgNo(orgNo);
+		}
+	}
+	
+	public void setUsernameAndPasswordForAllCredentials(String username, String password) {
+		for (SveaCredential sc : credentials) {
+			sc.setUsername(username);
+			sc.setPassword(password);
+		}
+	}
 	
 	public List<SveaCredential> getCredentials() {
 		return credentials;
 	}
 
 	public void setCredentials(List<SveaCredential> credentials) {
+		if (credentials==null) {
+			this.credentials.clear();
+			return;
+		}
 		this.credentials = credentials;
 	}
 
@@ -114,7 +184,6 @@ public class ListOfSveaCredentials {
 		return updated;
 		
 	}
-
 	
 	/**
 	 * Sets card merchant credentials on all credentials in list with type invoice.
@@ -140,6 +209,25 @@ public class ListOfSveaCredentials {
 		
 		return updated;
 	}
+
+	private static URL getUrlForFile(String configfile) throws FileNotFoundException, MalformedURLException {
+		
+		URL url;
+		File cf = new File(configfile);
+		if (!cf.exists()) {
+			// Try read as resource
+			url = ClassLoader.getSystemResource(configfile);
+		} else {
+			url = new URL("file://" + cf.getAbsolutePath());
+		}
+
+		if (url==null) {
+			throw new FileNotFoundException(configfile);
+		}
+
+		return url;
+	}
+	
 	
 	
 }
