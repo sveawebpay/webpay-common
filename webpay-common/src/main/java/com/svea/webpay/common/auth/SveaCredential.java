@@ -117,6 +117,11 @@ public class SveaCredential {
 	
 	public SveaCredential() {}
 	
+	public SveaCredential(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+	
 	/**
 	 * Creates a new credential
 	 * 
@@ -759,6 +764,7 @@ s	 * @return	The password for this credential
 	 * @param configfile		The file name to read
 	 * @return	A list of credentials
 	 * @throws Exception	if file can't be found or read
+	 * @deprecated		Use ListOfSveaCredentials.readFromJsonFilename
 	 */
 	public static List<SveaCredential> loadCredentialsFromJsonFile(String configfile) throws Exception {
 
@@ -794,6 +800,7 @@ s	 * @return	The password for this credential
 	 * @param credentials		The credentials to save
 	 * @param filename			The file name to save the credentials in
 	 * @throws Exception		If save operation fails.
+	 * @deprecated		Use ListOfSveaCredentials.saveToJsonFile(String) instead.
 	 */
 	public static void saveCredentialsAsJson(List<SveaCredential> credentials, String filename) throws Exception {
 
