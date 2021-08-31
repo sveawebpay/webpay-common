@@ -69,6 +69,14 @@
 					<include>*.properties</include>
 				</includes>
 			</resource>
+			
+			<resource>
+				<directory>src/test/resources</directory>
+				<excludes>
+					<exclude>user_credentials*</exclude>
+					<exclude>user-config*</exclude>
+				</excludes>
+			</resource>
 		</resources>
 	
 		<plugins>
