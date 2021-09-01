@@ -120,17 +120,12 @@
 	<dependencies>
 	
 		<dependency>
-			<groupId>jakarta.jws</groupId>
-			<artifactId>jakarta.jws-api</artifactId>
-			<version>2.1.0</version>
-		</dependency>
-	
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>  
 	
 	<inceptionYear>2017</inceptionYear>

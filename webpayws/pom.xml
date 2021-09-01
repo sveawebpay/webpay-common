@@ -26,7 +26,11 @@
 		<plugin>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-codegen-plugin</artifactId>
+		    <!--  JDK >=9 dep -->
+		    <!-- 
 		    <version>3.3.11</version>
+		     -->
+		    <version>3.1.18</version>
 		    <executions>
 		        <execution>
 		            <id>generate-sources</id>
@@ -52,13 +56,5 @@
 		</plugin>  		
   	</plugins>
   </build>
-  
-  <dependencies>
-  		<dependency>
-			<groupId>jakarta.jws</groupId>
-			<artifactId>jakarta.jws-api</artifactId>
-			<version>2.1.0</version>
-		</dependency>
-  </dependencies>
   
 </project>
