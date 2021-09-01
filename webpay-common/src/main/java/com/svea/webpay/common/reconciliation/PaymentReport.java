@@ -126,6 +126,10 @@ public class PaymentReport {
 	public void setPaymentReportGroup(List<PaymentReportGroup> paymentReportGroup) {
 		this.paymentReportGroup = paymentReportGroup;
 	}
+
+	public boolean isEmpty() {
+		return paymentReportGroup==null || paymentReportGroup.size()==0;
+	}
 	
 	/**
 	 * Adds a payment report group to this report.
