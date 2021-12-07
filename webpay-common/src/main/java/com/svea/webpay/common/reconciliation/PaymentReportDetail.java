@@ -37,6 +37,7 @@ public class PaymentReportDetail {
 	public static final String REF_EMAIL = "email";
 	public static final String REF_ZIPCODE = "zipcode";
 	public static final String REF_CLIENT_INVOICE_NO = "client_invoice_no";
+	public static final String REF_CLIENT_INVOICE_ADDITIONAL_MATCHES = "client_invoice_additional_matches";
 	public static final String REF_CLIENT_CUST_NO = "client_cust_no";
 	public static final String REF_CLIENT_REF = "client_ref";
 	public static final String REF_COMMENT = "comment";
