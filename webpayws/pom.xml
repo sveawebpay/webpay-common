@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.svea</groupId>
     <artifactId>webpay-common-pom</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
   </parent>
   <artifactId>webpayws</artifactId>
   <name>Webpay WS client library</name>
