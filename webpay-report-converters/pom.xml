@@ -89,7 +89,7 @@
 		<dependency>
 			<groupId>com.svea</groupId>
 			<artifactId>webpay-common</artifactId>
-			<version>${version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>

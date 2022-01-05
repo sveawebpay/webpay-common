@@ -1,5 +1,11 @@
 # webpay-common
 
+## Building
+
+This is a maven project with submodules. It's build using below command.
+
+    mvn install
+
 This is a maven project with the following modules
 
 * webpay-common
