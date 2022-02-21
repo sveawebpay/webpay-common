@@ -127,6 +127,31 @@ public class PaymentReport {
 		this.paymentReportGroup = paymentReportGroup;
 	}
 
+	/**
+	 * Return only groups that match the given criteria. 
+	 * 
+	 * @param paymentType				null means all of this paymentType.
+	 * @param paymentTypeReference		null means all of this paymentTypeReference.
+	 * @return		Filtered groups.
+	 */
+	public List<PaymentReportGroup> filterGroups(String paymentType, String paymentTypeReference) {
+		
+		List<PaymentReportGroup> groups = new ArrayList<PaymentReportGroup>();
+
+		// Pick out specific groups of paymentType and paymentType reference are specified.
+		for (PaymentReportGroup gr : this.getPaymentReportGroup()) {
+			if (paymentTypeReference==null && paymentType==null) {
+				groups.add(gr);
+			} else if (paymentTypeReference!=null && gr.getPaymentTypeReference().equalsIgnoreCase(paymentTypeReference) && (paymentType==null || gr.getPaymentType().equalsIgnoreCase(paymentType))) {
+				groups.add(gr);
+			} else if (paymentType!=null && gr.getPaymentType().equals(paymentType)) {
+				groups.add(gr);
+			}
+		}
+		
+		return groups;
+	}
+	
 	public boolean isEmpty() {
 		return paymentReportGroup==null || paymentReportGroup.size()==0;
 	}
