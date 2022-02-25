@@ -511,15 +511,13 @@ public class PaymentReportGroup {
 	}
 
 	/**
+	 * Make sure to first run updateTotalFees.
+	 * 
 	 * @see updateTotalFees
 	 * @return		A list of total invoice fees
 	 */
 	public List<FeeDetail> getTotalInvoiceFees() {
 		return totalInvoiceFees;
-	}
-	
-	public void setTotalInvoiceFees(List<FeeDetail> totalFees) {
-		this.totalInvoiceFees = totalFees;
 	}
 	
 	public Double getTotalVatAmt() {
