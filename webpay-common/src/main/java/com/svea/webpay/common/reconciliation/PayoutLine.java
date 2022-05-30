@@ -3,6 +3,7 @@ package com.svea.webpay.common.reconciliation;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * This line describes a payout and if applicable associated accounting accounts and amounts.
@@ -159,20 +160,17 @@ public class PayoutLine {
 	/**
 	 * Adds fee specifications from given payment report group.
 	 * 	
-	 * @param gr	The group to get fee specifications from.
+	 * @param gr					The group to get fee specifications from.
+	 * @param detailedFeeTypes		A list of fees to specify in detail.
 	 */
-	public void addFeeSpecifications(PaymentReportGroup gr) {
+	public void addFeeSpecifications(PaymentReportGroup gr, Set<String> detailedFeeTypes) {
 		if (gr==null) return;
 		if (feeSpecification==null) {
 			feeSpecification = new ArrayList<FeeDetail>();
 		}
 
-		if (gr.getTotalInvoiceFees()!=null && gr.getTotalInvoiceFees().size()>0) {
-			feeSpecification.addAll(gr.getTotalInvoiceFees());
-		}
-		if (gr.getTotalOtherFees()!=null && gr.getTotalOtherFees().size()>0) {
-			feeSpecification.addAll(gr.getTotalOtherFees());
-		}
+		feeSpecification.addAll(gr.getAllFeesAndDetailedFromList(detailedFeeTypes));
+		
 	}
 	
 	/**

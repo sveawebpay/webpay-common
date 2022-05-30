@@ -455,11 +455,12 @@ public class PaymentReport {
 	 * Retrives payout information in a condensed format.
 	 * @param	paymentReference	If non-null, only with this payment reference
 	 * @param  	paymentType			If non-null, only with this payment type
+	 * @param   detailedFeeTypes	Fee types to specify in detail.
 	 * 
 	 * @return		A list of payout lines for this report
 	 * @throws ParseException If dates can't be parsed.
 	 */
-	public List<PayoutLine> retrievePayoutLines(String paymentReference, String paymentType) throws ParseException {
+	public List<PayoutLine> retrievePayoutLines(String paymentReference, String paymentType, Set<String> detailedFeeTypes) throws ParseException {
 		
 		List<PayoutLine> result = new ArrayList<PayoutLine>();
 		
@@ -568,7 +569,7 @@ public class PaymentReport {
 							pl.setTrxCount(gr.getPaymentReportDetail()!=null ?  gr.getPaymentReportDetail().size() : 0);
 							pl.setIncludedInOtherPayout(includedInOtherPayout);
 							pl.setFeeAmount(FeeDetail.roundFee(feeAmount, FeeDetail.DEFAULT_ROUNDING_DECIMALS));
-							pl.addFeeSpecifications(gr);
+							pl.addFeeSpecifications(gr, detailedFeeTypes);
 							pl.setTaxAmount(gr.getTotalVatAmt());
 							pl.setCurrency(gr.getCurrency());
 							pl.setPaidByCustomer(FeeDetail.roundFee(totalPaidAmount, FeeDetail.DEFAULT_ROUNDING_DECIMALS));

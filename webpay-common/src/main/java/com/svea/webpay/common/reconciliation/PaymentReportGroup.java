@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 import com.svea.webpay.common.conv.JsonUtil;
@@ -57,8 +58,12 @@ public class PaymentReportGroup {
 	private List<PaymentReportDetail> paymentReportDetail;
 	private List<FeeDetail> totalInvoiceFees;
 	private List<FeeDetail> totalOtherFees;
-	private transient Map<String,FeeDetail> invoiceFeeMap;
-	private transient Map<String,FeeDetail> otherFeeMap;
+	private transient Map<String,FeeDetail> invoiceFeeSummaryMap;
+	private transient Map<String,FeeDetail> otherFeeSummaryMap;
+	private transient Map<String,List<FeeDetail>> invoiceFeeDetailMap;
+	private transient Map<String,List<FeeDetail>> otherFeeDetailMap;
+	
+	private transient boolean	mapsDirty = true;
 	
 	/**
 	 * Destination account for this statement. Free text, should mean something to 
@@ -278,6 +283,39 @@ public class PaymentReportGroup {
 		this.processRetryPaymentsOnly = processRetryPaymentsOnly;
 	}
 	
+	private void refreshMaps() {
+		if (!mapsDirty)
+			return;
+		
+		invoiceFeeDetailMap = null;
+		invoiceFeeSummaryMap = null;
+		otherFeeDetailMap = null;
+		otherFeeSummaryMap = null;
+		
+		if (hasPaymentReportDetails()) {
+			
+			for (PaymentReportDetail d : paymentReportDetail) {
+				if (d.hasFees()) {
+					for (FeeDetail fee : d.getFees()) {
+						addInvoiceFeeToMaps(fee);
+					}
+				}
+			}
+			
+		}
+		
+		if (hasOtherFees()) {
+			
+			for (FeeDetail fee : this.getTotalOtherFees()) {
+				addOtherFeeToMaps(fee);
+			}
+			
+		}
+		
+		mapsDirty = false;
+		
+	}
+	
 	public void addDetail(PaymentReportDetail d) {
 		if (paymentReportDetail==null)
 			paymentReportDetail = new ArrayList<PaymentReportDetail>();
@@ -290,7 +328,7 @@ public class PaymentReportGroup {
 		// Summarize fees
 		if (d.getFees()!=null) {
 			for (FeeDetail f : d.getFees()) {
-				addInvoiceFee(f);
+				addInvoiceFeeToMaps(f);
 			}
 		}
 		
@@ -386,44 +424,67 @@ public class PaymentReportGroup {
 	public FeeDetail getRoundingRecord() {
 		
 		FeeDetail roundingFee = null;
-		if (otherFeeMap!=null) {
-			roundingFee = otherFeeMap.get(FeeDetail.FEETYPE_ROUNDING);
+		if (otherFeeSummaryMap!=null) {
+			roundingFee = otherFeeSummaryMap.get(FeeDetail.FEETYPE_ROUNDING);
 		}
 		return roundingFee;
 	}
-	
 
 	/**
 	 * Adds fee detail to total fees
 	 * 
 	 * @param f		The invoice fee to be added
 	 */
-	private void addInvoiceFee(FeeDetail f) {
-		if (f==null) return;
-		if (invoiceFeeMap==null) {
-			invoiceFeeMap = new TreeMap<String,FeeDetail>();
+	private void addInvoiceFeeToMaps(FeeDetail f) {
+		if (f==null || f.getFeeType()==null) return;
+		if (invoiceFeeSummaryMap==null) {
+			invoiceFeeSummaryMap = new TreeMap<String,FeeDetail>();
 		}
-		FeeDetail src = invoiceFeeMap.get(f.getFeeType());
+		FeeDetail src = invoiceFeeSummaryMap.get(f.getFeeType());
 		if (src==null) {
-			invoiceFeeMap.put(f.getFeeType(), new FeeDetail(f));
+			invoiceFeeSummaryMap.put(f.getFeeType(), new FeeDetail(f));
 		} else {
 			src.add(f);
 		}
+		addInvoiceFeeDetail(f);
+	}
+	
+	private void addInvoiceFeeDetail(FeeDetail f) {
+		
+		if (invoiceFeeDetailMap==null) {
+			invoiceFeeDetailMap = new TreeMap<String, List<FeeDetail>>();
+		}
+		List<FeeDetail> feeList = invoiceFeeDetailMap.get(f.getFeeType());
+		if (feeList==null) {
+			feeList = new ArrayList<FeeDetail>();
+			invoiceFeeDetailMap.put(f.getFeeType(), feeList);
+		}
+		feeList.add(f);
 	}
 	
 	
 	private void removeInvoiceFee(FeeDetail f) {
-		if (f==null) return;
-		if (invoiceFeeMap==null) return;
-		FeeDetail src = invoiceFeeMap.get(f.getFeeType());
+		if (f==null || f.getFeeType()==null) return;
+		if (invoiceFeeSummaryMap==null) return;
+		FeeDetail src = invoiceFeeSummaryMap.get(f.getFeeType());
 		if (src==null) return;
 		src.subtract(f);
+		removeInvoiceFeeDetail(f);
+	}
+	
+	private void removeInvoiceFeeDetail(FeeDetail f) {
+
+		List<FeeDetail> feeList = invoiceFeeDetailMap.get(f.getFeeType());
+		if (feeList!=null) {
+			feeList.remove(f);
+		}
+		
 	}
 	
 	private void removeOtherFee(FeeDetail f) {
 		if (f==null) return;
-		if (otherFeeMap==null) return;
-		FeeDetail src = otherFeeMap.get(f.getFeeType());
+		if (otherFeeSummaryMap==null) return;
+		FeeDetail src = otherFeeSummaryMap.get(f.getFeeType());
 		if (src==null) return;
 		src.subtract(f);
 	}
@@ -447,9 +508,17 @@ public class PaymentReportGroup {
 		
 		totalInvoiceFees = null;
 		totalOtherFees = null;
-		invoiceFeeMap = null;
-		otherFeeMap = null;
+		invoiceFeeSummaryMap = null;
+		otherFeeSummaryMap = null;
 		
+	}
+	
+	public void addOtherFee(FeeDetail f) {
+		if (totalOtherFees==null) {
+			totalOtherFees = new ArrayList<FeeDetail>();
+		}
+		totalOtherFees.add(f);
+		addOtherFeeToMaps(f);
 	}
 	
 	/**
@@ -458,17 +527,17 @@ public class PaymentReportGroup {
 	 * 
 	 * @param f			The other fee to be added
 	 */
-	public void addOtherFee(FeeDetail f) {
+	private void addOtherFeeToMaps(FeeDetail f) {
 		if (f==null) return;
-		if (otherFeeMap==null) {
-			otherFeeMap = new TreeMap<String,FeeDetail>();
+		if (otherFeeSummaryMap==null) {
+			otherFeeSummaryMap = new TreeMap<String,FeeDetail>();
 		}
 		if (f.getFeeType()==null) {
 			f.setFeeType(FeeDetail.FEETYPE_DEVIATIONS);
 		}
-		FeeDetail src = otherFeeMap.get(f.getFeeType());
+		FeeDetail src = otherFeeSummaryMap.get(f.getFeeType());
 		if (src==null) {
-			otherFeeMap.put(f.getFeeType(), f);
+			otherFeeSummaryMap.put(f.getFeeType(), f);
 		} else {
 			src.add(f);
 		}
@@ -481,8 +550,8 @@ public class PaymentReportGroup {
 	 */
 	public void updateTotalFees() {
 		List<FeeDetail> zeroFees = new ArrayList<FeeDetail>();
-		if (invoiceFeeMap!=null) {
-			totalInvoiceFees = new ArrayList<FeeDetail>(invoiceFeeMap.values());
+		if (invoiceFeeSummaryMap!=null) {
+			totalInvoiceFees = new ArrayList<FeeDetail>(invoiceFeeSummaryMap.values());
 			for (FeeDetail f : totalInvoiceFees) {
 				f.roundAll();
 				if (f.getFeeTotal()==0) {
@@ -491,12 +560,12 @@ public class PaymentReportGroup {
 			}
 			for (FeeDetail f : zeroFees) {
 				totalInvoiceFees.remove(f);
-				invoiceFeeMap.remove(f.getFeeType());
+				invoiceFeeSummaryMap.remove(f.getFeeType());
 			}
 		}
-		if (otherFeeMap!=null) {
+		if (otherFeeSummaryMap!=null) {
 			zeroFees.clear();
-			totalOtherFees = new ArrayList<FeeDetail>(otherFeeMap.values());
+			totalOtherFees = new ArrayList<FeeDetail>(otherFeeSummaryMap.values());
 			for (FeeDetail f : totalOtherFees) {
 				f.roundAll();
 				if (f.getFeeTotal()==0) {
@@ -505,11 +574,74 @@ public class PaymentReportGroup {
 			}
 			for (FeeDetail f : zeroFees) {
 				totalOtherFees.remove(f);
-				otherFeeMap.remove(f.getFeeType());
+				otherFeeSummaryMap.remove(f.getFeeType());
 			}
 		}
 	}
 
+	/**
+	 * Return a list of fee details for the whole group.
+	 * 
+	 * @param feeTypesToSpecify		Fee types in this set are specified in detail.
+	 * @return
+	 */
+	public List<FeeDetail> getAllFeesAndDetailedFromList(Set<String> feeTypesToSpecify) {
+		
+		List<FeeDetail> result = new ArrayList<FeeDetail>();
+		
+		refreshMaps();
+		
+		result.addAll(getFromInvoiceFees(feeTypesToSpecify));
+		result.addAll(getFromOtherFees(feeTypesToSpecify));
+		
+		return result;
+		
+	}
+	
+	private List<FeeDetail> getFromInvoiceFees(Set<String> feeTypesToSpecify) {
+		List<FeeDetail> result = new ArrayList<FeeDetail>();
+		
+		if (!hasInvoiceFees())
+			return result;
+		
+		if (feeTypesToSpecify==null || feeTypesToSpecify.isEmpty()) {
+			return(this.getTotalInvoiceFees()!=null ? getTotalInvoiceFees() : result);
+		} else {
+			for (String feeType : invoiceFeeSummaryMap.keySet()) {
+				if (feeTypesToSpecify.contains(feeType)) {
+					result.addAll(invoiceFeeDetailMap.get(feeType));
+				} else {
+					result.add(invoiceFeeSummaryMap.get(feeType));
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	private List<FeeDetail> getFromOtherFees(Set<String> feeTypesToSpecify) {
+		List<FeeDetail> result = new ArrayList<FeeDetail>();
+		
+		if (!hasOtherFees())
+			return result;
+		
+		if (feeTypesToSpecify==null || feeTypesToSpecify.isEmpty()) {
+			return(this.getTotalOtherFees()!=null ? getTotalOtherFees() : result);
+		} else {
+			for (String feeType : otherFeeSummaryMap.keySet()) {
+				if (feeTypesToSpecify.contains(feeType)) {
+					result.addAll(otherFeeDetailMap.get(feeType));
+				} else {
+					result.add(otherFeeSummaryMap.get(feeType));
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	
+	
 	/**
 	 * Make sure to first run updateTotalFees.
 	 * 
@@ -531,6 +663,19 @@ public class PaymentReportGroup {
 	public List<FeeDetail> getTotalOtherFees() {
 		return totalOtherFees;
 	}
+
+	public boolean hasOtherFees() {
+		return totalOtherFees!=null && totalOtherFees.size()>0;
+	}
+	
+	public boolean hasInvoiceFees() {
+		return totalInvoiceFees!=null && totalInvoiceFees.size()>0;
+	}
+	
+	public boolean hasPaymentReportDetails() {
+		return paymentReportDetail!=null && paymentReportDetail.size()>0;
+	}
+	
 	
 	/**
 	 * Calculates a rounding fee.
@@ -601,14 +746,14 @@ public class PaymentReportGroup {
 	 */
 	public void cancelOtherFees(String feeType, String[] cancelCandidates) {
 		
-		if (otherFeeMap==null) return;
-		FeeDetail src = otherFeeMap.get(feeType);
+		if (otherFeeSummaryMap==null) return;
+		FeeDetail src = otherFeeSummaryMap.get(feeType);
 		if (src==null) return;
 
 		FeeDetail candidate;
 		for (String c : cancelCandidates) {
 			
-			candidate = otherFeeMap.get(c);
+			candidate = otherFeeSummaryMap.get(c);
 			if (candidate==null)
 				continue;
 		
@@ -621,14 +766,14 @@ public class PaymentReportGroup {
 					&& Math.abs(diff) <= 0.25)
 				|| ("EUR".equalsIgnoreCase(currency) && Math.abs(diff) <= 0.025)
 					) {
-				otherFeeMap.remove(src.getFeeType());
-				otherFeeMap.remove(candidate.getFeeType());
+				otherFeeSummaryMap.remove(src.getFeeType());
+				otherFeeSummaryMap.remove(candidate.getFeeType());
 				if (diff!=0) {
 					FeeDetail f = new FeeDetail();
 					f.setFee(diff);
 					f.setFeeType(FeeDetail.FEETYPE_ROUNDING);
 					f.roundAll();
-					addOtherFee(f);
+					addOtherFeeToMaps(f);
 				}
 				updateTotalFees();
 			}
@@ -642,10 +787,10 @@ public class PaymentReportGroup {
 	 */
 	public void replaceDeviationsAsRounding() {
 		
-		if (otherFeeMap==null) return;
-		FeeDetail existingRounding = otherFeeMap.get(FeeDetail.FEETYPE_ROUNDING);
+		if (otherFeeSummaryMap==null) return;
+		FeeDetail existingRounding = otherFeeSummaryMap.get(FeeDetail.FEETYPE_ROUNDING);
 		// Check for deviation
-		FeeDetail deviation = otherFeeMap.get(FeeDetail.FEETYPE_DEVIATIONS);
+		FeeDetail deviation = otherFeeSummaryMap.get(FeeDetail.FEETYPE_DEVIATIONS);
 		if (deviation==null) return;
 		
 		if (("EUR".equalsIgnoreCase(getCurrency()) && Math.abs(deviation.getFeeTotal())<0.5) || 
@@ -653,14 +798,14 @@ public class PaymentReportGroup {
 					&& Math.abs(deviation.getFeeTotal())<2)) {
 
 			// Remove the deviation from the feeMap
-			otherFeeMap.remove(FeeDetail.FEETYPE_DEVIATIONS);
+			otherFeeSummaryMap.remove(FeeDetail.FEETYPE_DEVIATIONS);
 			
 			if (existingRounding!=null) {
 				// Add the value to rounding.
 				existingRounding.add(deviation);
 			} else {
 				deviation.setFeeType(FeeDetail.FEETYPE_ROUNDING);
-				otherFeeMap.put(FeeDetail.FEETYPE_ROUNDING, deviation);
+				otherFeeSummaryMap.put(FeeDetail.FEETYPE_ROUNDING, deviation);
 			}
 			updateTotalFees();
 			
@@ -697,7 +842,7 @@ public class PaymentReportGroup {
 			roundingFee.setFeeVat(roundingFee.getFeeVat()-diff);
 			roundingFee.setFee(roundingFee.getFee()+diff);
 			if (newFee) {
-				this.addOtherFee(roundingFee);
+				this.addOtherFeeToMaps(roundingFee);
 			}
 			updateTotalFees();
 		}
@@ -722,11 +867,11 @@ public class PaymentReportGroup {
 			}
 		}
 		
-		if (invoiceFeesIncludedInTotal && invoiceFeeMap!=null && invoiceFeeTypes!=null) {
+		if (invoiceFeesIncludedInTotal && invoiceFeeSummaryMap!=null && invoiceFeeTypes!=null) {
 			
 			for (String invoiceFeeType : invoiceFeeTypes) {
 			
-				FeeDetail f = invoiceFeeMap.get(invoiceFeeType);
+				FeeDetail f = invoiceFeeSummaryMap.get(invoiceFeeType);
 				if (f!=null) {
 					FeeDetail.subtract(this.totalOtherFees, invoiceFeeTypes, false, f);
 					// Round all
@@ -740,10 +885,10 @@ public class PaymentReportGroup {
 		}
 		
 		// Update total otherfees map
-		if (otherFeeMap!=null) otherFeeMap.clear();
+		if (otherFeeSummaryMap!=null) otherFeeSummaryMap.clear();
 		
 		for (FeeDetail f : this.totalOtherFees) {
-			addOtherFee(f);
+			addOtherFeeToMaps(f);
 		}
 		
 	}

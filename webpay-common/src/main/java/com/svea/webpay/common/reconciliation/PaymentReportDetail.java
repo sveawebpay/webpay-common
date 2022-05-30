@@ -234,6 +234,10 @@ public class PaymentReportDetail {
 		return null;
 	}
 		
+	public boolean hasFees() {
+		return fees!=null && fees.size()>0;
+	}
+	
 	public List<FeeDetail> getFees() {
 		return fees;
 	}
