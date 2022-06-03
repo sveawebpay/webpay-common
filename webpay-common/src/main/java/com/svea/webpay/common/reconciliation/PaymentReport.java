@@ -239,6 +239,21 @@ public class PaymentReport {
 		return earliestDate;
 	}
 
+	@Transient
+	public Date getEarliestOrderDate() throws ParseException {
+		if (isEmpty()) return null;
+		
+		Date earliestDate = new Date(Long.MAX_VALUE);
+		Date groupDate;
+		for (PaymentReportGroup gr : paymentReportGroup) {
+			groupDate = gr.getEarliestOrderDate();
+			if (groupDate!=null && groupDate.before(earliestDate)) {
+				earliestDate = groupDate;
+			}
+		}
+		return earliestDate;
+	}
+	
 	/**
 	 * Takes the until date in the report if it exists. 
 	 * If the until date doesn't exist, try to find a date pattern

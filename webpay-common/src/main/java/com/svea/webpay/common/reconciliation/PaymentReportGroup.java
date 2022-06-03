@@ -235,6 +235,21 @@ public class PaymentReportGroup {
 		this.openingBalance = openingBalance;
 	}
 	
+	@Transient
+	public Date getEarliestOrderDate() throws ParseException {
+		Date earliestDate = null;
+		if (this.isEmpty()) return null;
+		earliestDate = new Date(Long.MAX_VALUE);
+		
+		for (PaymentReportDetail d : paymentReportDetail) {
+			if (d.getOrderDateAsDate()!=null && earliestDate.after(d.getOrderDateAsDate())) {
+				earliestDate = d.getOrderDateAsDate();
+			}
+		}
+		return earliestDate;
+		
+	}
+	
 	/**
 	 * The ending balance for this account for this date.
 	 * @return	Ending balance
