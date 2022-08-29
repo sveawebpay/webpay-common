@@ -238,6 +238,47 @@ public class PaymentReportDetail {
 		return fees!=null && fees.size()>0;
 	}
 	
+	@Transient
+	public boolean hasComments() {
+		return getReference(REF_COMMENT)!=null;
+	}
+
+	/**
+	 * 
+	 * @return	A list of comments. An empty list is returned if there are no comments.
+	 */
+	public List<String> listComments() {
+		List<String> comments = new ArrayList<String>();
+		if (references == null)
+			return comments;
+		for (PaymentReference r : references) {
+			if (REF_COMMENT.equals(r.getReferenceKey())) {
+				comments.add(r.getReferenceValue());
+			}
+		}
+		return comments;
+	}
+
+	@Transient
+	public boolean hasDeviations() {
+		return listDeviations().size()>0;
+	}
+	
+	/**
+	 * 
+	 * @return	A list of deviations. An empty list is returned if there are no deviations.
+	 */
+	public List<FeeDetail> listDeviations() {
+		List<FeeDetail> deviations = new ArrayList<FeeDetail>();
+		if (fees==null) return deviations;
+		for (FeeDetail fee : fees) {
+			if (FeeDetail.FEETYPE_DEVIATIONS.equals(fee.getFeeType())) {
+				deviations.add(fee);
+			}
+		}
+		return deviations;
+	}
+	
 	public List<FeeDetail> getFees() {
 		return fees;
 	}
