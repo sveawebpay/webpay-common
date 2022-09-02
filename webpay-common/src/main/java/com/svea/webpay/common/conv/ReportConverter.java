@@ -333,8 +333,7 @@ public class ReportConverter {
 
 			// Set totals from file (not calculated)
 			gr.setTotalPaidAmt(bigIntegerW2ToDouble(cpr.getNominalAmount()));
-			// The total received amount should be the value not counting any previous debt.
-			gr.setTotalReceivedAmt(bigIntegerW2ToDouble(cpr.getSveaPaidAmountExcludingWithholding()));
+			gr.setTotalReceivedAmt(bigIntegerW2ToDouble(cpr.getSveaPaidAmountIncludingWithholding()));
 			gr.setTotalVatAmt(bigIntegerW2ToDouble(cpr.getFeeVatAmount()));
 			
 			// Add the group
