@@ -141,9 +141,22 @@ public class PayoutLine {
 	public Double getEndingBalance() {
 		return endingBalance;
 	}
+	
 	public void setEndingBalance(Double endingBalance) {
 		this.endingBalance = endingBalance;
 	}
+	
+	/**
+	 * If nothing is paid out / recieved, there might still be change of balance. 
+	 * 
+	 * @return	This method returns the change of balance.
+	 */
+	public Double getChangeOfBalance() {
+		if (endingBalance==null) endingBalance = 0d;
+		if (openingBalance==null) openingBalance = 0d;
+		return (endingBalance - openingBalance);
+	}
+	
 	public String getDescription() {
 		return description;
 	}
@@ -157,6 +170,7 @@ public class PayoutLine {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
+	
 	/**
 	 * Adds fee specifications from given payment report group.
 	 * 	
