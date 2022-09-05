@@ -559,7 +559,7 @@ public class PaymentReport {
 						
 					} 
 					// Calculate fee amount
-					feeAmount = totalPaidAmount-gr.getTotalVatAmt()- gr.getTotalReceivedAmt() + gr.getOpeningBalance() - feeAmountCard - gr.getEndingBalance();
+					feeAmount = FeeDetail.getFeeSum(gr.getAllFeesAndDetailedFromList(null)) - feeAmountCard; 
 					
 					// If payment type is not invoice but a reference exists as invoice payout, this
 					// is included in another payout.
