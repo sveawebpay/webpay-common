@@ -237,6 +237,18 @@ public class PaymentReportDetail {
 	public boolean hasFees() {
 		return fees!=null && fees.size()>0;
 	}
+
+	/**
+	 * If this payment detail only describes fees, this method returns true.
+	 * @return
+	 */
+	public boolean hasOnlyFees() {
+		if (hasFees() && getPaidAmt()==0d) {
+			if (getReceivedAmt()!=0) return true;
+		}
+		return false;
+	}
+	
 	
 	@Transient
 	public boolean hasComments() {
@@ -287,6 +299,7 @@ public class PaymentReportDetail {
 	}
 
 	public Double getPaidAmt() {
+		if (paidAmt==null) paidAmt = new Double(0);
 		return paidAmt;
 	}
 
@@ -295,6 +308,7 @@ public class PaymentReportDetail {
 	}
 
 	public Double getReceivedAmt() {
+		if (receivedAmt==null) receivedAmt = new Double(0);
 		return receivedAmt;
 	}
 
