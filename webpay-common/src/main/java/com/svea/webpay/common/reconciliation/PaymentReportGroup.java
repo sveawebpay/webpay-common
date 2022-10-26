@@ -644,7 +644,7 @@ public class PaymentReportGroup {
 			return(this.getTotalOtherFees()!=null ? getTotalOtherFees() : result);
 		} else {
 			for (String feeType : otherFeeSummaryMap.keySet()) {
-				if (feeTypesToSpecify.contains(feeType)) {
+				if (feeTypesToSpecify.contains(feeType) && otherFeeDetailMap!=null && otherFeeDetailMap.get(feeType)!=null) {
 					result.addAll(otherFeeDetailMap.get(feeType));
 				} else {
 					result.add(otherFeeSummaryMap.get(feeType));
