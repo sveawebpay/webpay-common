@@ -109,6 +109,8 @@ public class SveaCredential {
 	private boolean	active = true;
 	// External accounting dimension for this account / credential
 	private String  externalAccountingDimension;
+	// Where this credential is stored
+	private SveaCredentialSource	credentialSource;
 	
 	/**
 	 * If true, the fees on this account are ignored when accounting information is created.
@@ -197,6 +199,15 @@ public class SveaCredential {
 		
 		return SveaCredentialType.UNKNOWN;
 		
+	}
+
+	@Transient
+	public SveaCredentialSource getCredentialSource() {
+		return credentialSource;
+	}
+	
+	public void setCredentialSource(SveaCredentialSource src) {
+		credentialSource = src;
 	}
 	
 	/**
