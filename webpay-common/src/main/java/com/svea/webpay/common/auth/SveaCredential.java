@@ -1,5 +1,7 @@
 package com.svea.webpay.common.auth;
 
+import java.beans.Transient;
+
 /*
 
 Copyright 2019 Svea Ekonomi AB
@@ -174,6 +176,27 @@ public class SveaCredential {
 	
 	private boolean hasValidSecretWord() {
 		return secretWord!=null && secretWord.trim().length()>10;
+	}
+
+	@Transient
+	public SveaCredentialType getCredentialType() {
+		
+		if (hasUsernameAndPassword() && (hasValidMerchantId() || hasValidCardMerchantId())) {
+			return SveaCredentialType.COMBINED;
+		}
+		
+		if (hasUsernameAndPassword())
+			return SveaCredentialType.USERNAME;
+		
+		if (hasMerchantIdAndSecretWord()) {
+			return SveaCredentialType.MERCHANTID;
+		}
+		
+		if (hasCardMerchantIdAndSecret())
+			return SveaCredentialType.CARDMERCHANTID;
+		
+		return SveaCredentialType.UNKNOWN;
+		
 	}
 	
 	/**
