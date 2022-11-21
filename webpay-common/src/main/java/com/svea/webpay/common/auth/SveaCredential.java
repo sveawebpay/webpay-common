@@ -109,6 +109,10 @@ public class SveaCredential {
 	private boolean	active = true;
 	// External accounting dimension for this account / credential
 	private String  externalAccountingDimension;
+
+	// Description of the credential
+	private String	description;
+	
 	// Where this credential is stored
 	private SveaCredentialSource	credentialSource;
 	
@@ -254,6 +258,14 @@ s	 * @return	The password for this credential
 		this.accountType = accountType;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	/**
 	 * 
 	 * @return	The merchant id for this credential. Used when authenticating to the checkout.
