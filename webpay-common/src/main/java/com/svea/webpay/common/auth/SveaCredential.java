@@ -288,6 +288,36 @@ s	 * @return	The password for this credential
 	}
 
 	/**
+	 * If this credential represents many accounts (account, merchantId and cardMerchantId) this gives
+	 * a string representation of that.
+	 * 
+	 * @return
+	 */
+	@Transient
+	public String getCombinedIdentifiers() {
+		StringBuffer buf = new StringBuffer();
+		if (accountNo!=null) {
+			buf.append(accountNo);
+		}
+		appendColonIfNecessary(buf);
+		if (hasValidMerchantId()) {
+			buf.append(merchantId);
+		}
+		appendColonIfNecessary(buf);
+		if (hasValidCardMerchantId()) {
+			buf.append(cardMerchantId);
+		}
+		return buf.toString();
+	}
+	
+	private void appendColonIfNecessary(StringBuffer buf) {
+		if (buf==null) return;
+		if (buf.length()>0) {
+			buf.append(" : ");
+		}
+	}
+	
+	/**
 	 * 
 	 * @return	The secret word used for authentication to the checkout.
 	 */
