@@ -287,6 +287,24 @@ s	 * @return	The password for this credential
 		this.cardMerchantId = cardMerchantId;
 	}
 
+
+	@Transient
+	public String getIdentifier() {
+		
+		SveaCredentialType sct = getCredentialType();
+		
+		switch(sct) {
+		
+			case COMBINED: return getCombinedIdentifiers();
+			case USERNAME: return getUsername();
+			case MERCHANTID: return getMerchantId();
+			case CARDMERCHANTID: return getCardMerchantId();
+			default: return "Unknown";
+			
+		}
+		
+	}
+	
 	/**
 	 * If this credential represents many accounts (account, merchantId and cardMerchantId) this gives
 	 * a string representation of that.
