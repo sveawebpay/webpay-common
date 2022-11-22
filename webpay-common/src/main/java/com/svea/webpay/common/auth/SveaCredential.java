@@ -98,7 +98,10 @@ public class SveaCredential {
 	private String	sveaCustomerNumber;
 	private String	server;
 	private String	currency;
+	// The country code of the organization that this credential belongs to.
 	private String	countryCode;
+	// The country code where this credential applies.
+	private String  countryOfCredential;
 	private boolean	company;
 	private boolean enrichFromInvoice = false;
 	private boolean skipTaxId = true;
@@ -586,12 +589,30 @@ s	 * @return	The password for this credential
 		this.currency = currency;
 	}
 	
+	/**
+	 * The country code of the organisation that this credential belongs to.
+	 * 
+	 * @return
+	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
+	}
+	
+	/**
+	 * The country code that this credential belongs to (where the payments are collected)
+	 * 
+	 * @return
+	 */
+	public String getCountryOfCredential() {
+		return countryOfCredential;
+	}
+
+	public void setCountryOfCredential(String countryOfCredential) {
+		this.countryOfCredential = countryOfCredential;
 	}
 
 	public void addAccountRemap(String src, String dst) {
