@@ -104,6 +104,10 @@ public class ReportConverter {
 		
 		switch (clientReportPaymentType) {
 		
+			case ClientReportRow.PAYMENTTYPE_Swish:
+				result = SveaCredential.ACCOUNTTYPE_SWISH;
+				break;
+		
 			case ClientReportRow.PAYMENTTYPE_AccountCredit:
 				result = SveaCredential.ACCOUNTTYPE_ACCOUNT_CREDIT;
 				break;

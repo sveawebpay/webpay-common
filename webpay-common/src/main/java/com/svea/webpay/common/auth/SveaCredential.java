@@ -60,6 +60,7 @@ public class SveaCredential {
 	public static final String ACCOUNTTYPE_PAYMENTPLAN = "paymentplan";
 	public static final String ACCOUNTTYPE_CREDITCARD = "creditcard";
 	public static final String ACCOUNTTYPE_LOAN = "loan";
+	public static final String ACCOUNTTYPE_SWISH = "swish";
 	public static final String ACCOUNTTYPE_ACCOUNT_CREDIT = "account-credit";
 	public static final String ACCOUNTTYPE_DIRECT_BANK = "direct-bank";
 	
