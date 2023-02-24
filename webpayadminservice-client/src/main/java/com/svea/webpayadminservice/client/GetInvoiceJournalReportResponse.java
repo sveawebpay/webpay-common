@@ -4,23 +4,22 @@ package com.svea.webpayadminservice.client;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for GetInvoiceJournalReportResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="GetInvoiceJournalReportResponse"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="GetInvoiceJournalReportResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}GetInvoiceJournalReportResponse" minOccurs="0"/&gt;
+ *         &lt;element name="ReportRows" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfInvoiceJournalReportRow" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -28,37 +27,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "getInvoiceJournalReportResult"
+@XmlType(name = "GetInvoiceJournalReportResponse", propOrder = {
+    "reportRows"
 })
-@XmlRootElement(name = "GetInvoiceJournalReportResponse", namespace = "http://tempuri.org/")
-public class GetInvoiceJournalReportResponse {
+public class GetInvoiceJournalReportResponse
+    extends BasicResponse
+{
 
-    @XmlElement(name = "GetInvoiceJournalReportResult", namespace = "http://tempuri.org/", nillable = true)
-    protected GetInvoiceJournalReportResponse2 getInvoiceJournalReportResult;
+    @XmlElement(name = "ReportRows", nillable = true)
+    protected ArrayOfInvoiceJournalReportRow reportRows;
 
     /**
-     * Gets the value of the getInvoiceJournalReportResult property.
+     * Gets the value of the reportRows property.
      * 
      * @return
      *     possible object is
-     *     {@link GetInvoiceJournalReportResponse2 }
+     *     {@link ArrayOfInvoiceJournalReportRow }
      *     
      */
-    public GetInvoiceJournalReportResponse2 getGetInvoiceJournalReportResult() {
-        return getInvoiceJournalReportResult;
+    public ArrayOfInvoiceJournalReportRow getReportRows() {
+        return reportRows;
     }
 
     /**
-     * Sets the value of the getInvoiceJournalReportResult property.
+     * Sets the value of the reportRows property.
      * 
      * @param value
      *     allowed object is
-     *     {@link GetInvoiceJournalReportResponse2 }
+     *     {@link ArrayOfInvoiceJournalReportRow }
      *     
      */
-    public void setGetInvoiceJournalReportResult(GetInvoiceJournalReportResponse2 value) {
-        this.getInvoiceJournalReportResult = value;
+    public void setReportRows(ArrayOfInvoiceJournalReportRow value) {
+        this.reportRows = value;
     }
 
 }

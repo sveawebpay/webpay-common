@@ -4,7 +4,7 @@
   <parent>  
 	<groupId>com.svea</groupId>
 	<artifactId>webpay-common-pom</artifactId>
-	<version>0.0.6</version>
+	<version>0.0.7-SNAPSHOT</version>
   </parent>
 
   <artifactId>webpayadminservice-client</artifactId>
@@ -28,15 +28,42 @@
 				</configuration>
 			</plugin>
 
-			<!-- Problems with mapping of type TextMatchType makes wsdl2java fail. 
-				<plugin> <groupId>org.apache.cxf</groupId> <artifactId>cxf-codegen-plugin</artifactId> 
-				<version>3.1.11</version> <executions> <execution> <id>generate-sources</id> 
-				<phase>generate-sources</phase> <configuration> <sourceRoot>${project.build.directory}/generated/cxf</sourceRoot> 
-				<wsdlOptions> <wsdlOption> <wsdl>${basedir}/src/main/resources/AdminService.svc.1.29.wsdl</wsdl> 
-				<extraargs> <extraarg>-autoNameResolution</extraarg> </extraargs> <bindingFiles> 
-				<bindingFile>${basedir}/src/main/resources/bindings.xml</bindingFile> </bindingFiles> 
-				</wsdlOption> </wsdlOptions> </configuration> <goals> <goal>wsdl2java</goal> 
-				</goals> </execution> </executions> </plugin> -->
+			<!-- Uncomment below to regenerate the code -->
+			<!-- 
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>3.2.6</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/AdminService-230224.wsdl</wsdl>
+									<packagenames>
+									<packagename>com.svea.webpayadminservice.client</packagename>
+									</packagenames>
+									<extraargs>
+										<extraarg>-autoNameResolution</extraarg>
+									</extraargs>
+									<bindingFiles>
+										<bindingFile>${basedir}/src/main/resources/bindings.xml</bindingFile>
+									</bindingFiles>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			 --> 
+				
+			<!--  -->
 
 
 			<plugin>

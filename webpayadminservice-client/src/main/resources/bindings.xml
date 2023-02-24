@@ -11,6 +11,8 @@
 -b bindings.xml -autoNameResolution 
 -client AdminService.wsdl
 
+or use the maven plugin.
+
 https://webpayadminservice.svea.com/AdminService.svc?wsdl
 
 Instructions to regenerate. 
@@ -28,6 +30,36 @@ classloader
        if (url == null) {
 	      	url = AdminService.class.getClassLoader().getResource(WSDL_FILE);
 
+
+Example code:
+
+@WebServiceClient(name = "AdminService",
+                  wsdlLocation = "AdminService-190401.wsdl",
+                  targetNamespace = "http://tempuri.org/")
+public class AdminService extends Service {
+
+    public final static URL WSDL_LOCATION;
+    
+    public final static String WSDL_FILE = "AdminService-190401.wsdl";
+
+    public final static QName SERVICE = new QName("http://tempuri.org/", "AdminService");
+    public final static QName AdminSoapService = new QName("http://tempuri.org/", "AdminSoapService");
+    public final static QName WcfAdminSoapService = new QName("http://tempuri.org/", "WcfAdminSoapService");
+    static {
+        URL url = AdminService.class.getResource(WSDL_FILE);
+        if (url == null) {
+        	url = AdminService.class.getClassLoader().getResource(WSDL_FILE);
+        }
+        if (url == null) {
+            java.util.logging.Logger.getLogger(AdminService.class.getName())
+            .log(java.util.logging.Level.INFO, 
+                 "Can not initialize the default wsdl from {0}", WSDL_FILE);
+        }
+        WSDL_LOCATION = url;
+    }
+
+
+
 -->
 
 <jaxb:bindings version="2.1" 
@@ -36,22 +68,30 @@ xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
 xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
    <jaxb:globalBindings generateElementProperty="false"/> 
    
-   <jaxb:bindings schemaLocation="AdminService.xsd8.xsd">
+   <jaxb:bindings schemaLocation="AdminService.xsd11.xsd">
+   	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
+   		<jaxb:factoryMethod name="SearchOrder"/>
+   	</jaxb:bindings>
+   </jaxb:bindings>
+   
+   <jaxb:bindings schemaLocation="AdminService.xsd12.xsd">
    	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
    		<jaxb:factoryMethod name="SearchInvoice"/>
    	</jaxb:bindings>
    </jaxb:bindings>
-   
-   <jaxb:bindings schemaLocation="AdminService.xsd9.xsd">
+
+
+   <jaxb:bindings schemaLocation="AdminService.xsd13.xsd">
    	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
    		<jaxb:factoryMethod name="SearchPaymentPlan"/>
    	</jaxb:bindings>
    </jaxb:bindings>
-
-   <jaxb:bindings schemaLocation="AdminService.xsd14.xsd">
+   
+   <jaxb:bindings schemaLocation="AdminService.xsd15.xsd">
    	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
    		<jaxb:factoryMethod name="SearchAccountCredit"/>
    	</jaxb:bindings>
    </jaxb:bindings>
+   
    
 </jaxb:bindings>

@@ -25,10 +25,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="CreatePaymentPlanDetails" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder}CreatePaymentPlanDetails" minOccurs="0"/&gt;
  *         &lt;element name="CustomerIdentity" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}CustomerIdentity"/&gt;
  *         &lt;element name="CustomerReference" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="GroupReference" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="OrderDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
  *         &lt;element name="OrderDeliveryAddress" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}Address" minOccurs="0"/&gt;
  *         &lt;element name="OrderRows" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}ArrayOfOrderRow"/&gt;
  *         &lt;element name="OrderType" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}OrderType"/&gt;
+ *         &lt;element name="PeppolId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -45,10 +47,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "createPaymentPlanDetails",
     "customerIdentity",
     "customerReference",
+    "groupReference",
     "orderDate",
     "orderDeliveryAddress",
     "orderRows",
-    "orderType"
+    "orderType",
+    "peppolId"
 })
 public class CreateOrderInformation {
 
@@ -64,6 +68,8 @@ public class CreateOrderInformation {
     protected CustomerIdentity customerIdentity;
     @XmlElement(name = "CustomerReference", nillable = true)
     protected String customerReference;
+    @XmlElement(name = "GroupReference", nillable = true)
+    protected String groupReference;
     @XmlElement(name = "OrderDate", required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar orderDate;
@@ -74,6 +80,8 @@ public class CreateOrderInformation {
     @XmlElement(name = "OrderType", required = true)
     @XmlSchemaType(name = "string")
     protected OrderType orderType;
+    @XmlElement(name = "PeppolId", nillable = true)
+    protected String peppolId;
 
     /**
      * Gets the value of the addressSelector property.
@@ -220,6 +228,30 @@ public class CreateOrderInformation {
     }
 
     /**
+     * Gets the value of the groupReference property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getGroupReference() {
+        return groupReference;
+    }
+
+    /**
+     * Sets the value of the groupReference property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setGroupReference(String value) {
+        this.groupReference = value;
+    }
+
+    /**
      * Gets the value of the orderDate property.
      * 
      * @return
@@ -313,6 +345,30 @@ public class CreateOrderInformation {
      */
     public void setOrderType(OrderType value) {
         this.orderType = value;
+    }
+
+    /**
+     * Gets the value of the peppolId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPeppolId() {
+        return peppolId;
+    }
+
+    /**
+     * Sets the value of the peppolId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPeppolId(String value) {
+        this.peppolId = value;
     }
 
 }

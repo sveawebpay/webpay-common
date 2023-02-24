@@ -20,6 +20,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="AccountCreditDetails" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account}AccountCreditDetails" minOccurs="0"/&gt;
+ *         &lt;element name="BillingEmailAddress" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="ChangedDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="ClientId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="ClientOrderId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
@@ -52,6 +53,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Order", propOrder = {
     "accountCreditDetails",
+    "billingEmailAddress",
     "changedDate",
     "clientId",
     "clientOrderId",
@@ -78,6 +80,8 @@ public class Order {
 
     @XmlElement(name = "AccountCreditDetails", nillable = true)
     protected AccountCreditDetails accountCreditDetails;
+    @XmlElement(name = "BillingEmailAddress", nillable = true)
+    protected String billingEmailAddress;
     @XmlElement(name = "ChangedDate", nillable = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar changedDate;
@@ -145,6 +149,30 @@ public class Order {
      */
     public void setAccountCreditDetails(AccountCreditDetails value) {
         this.accountCreditDetails = value;
+    }
+
+    /**
+     * Gets the value of the billingEmailAddress property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getBillingEmailAddress() {
+        return billingEmailAddress;
+    }
+
+    /**
+     * Sets the value of the billingEmailAddress property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setBillingEmailAddress(String value) {
+        this.billingEmailAddress = value;
     }
 
     /**

@@ -20,7 +20,9 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="ClientUsername" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="CustomerInformation" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}CustomerInformation"/&gt;
  *         &lt;element name="DeliveryAddress" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}DeliveryAddress" minOccurs="0"/&gt;
- *         &lt;element name="InvoiceAddress" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}InvoiceAddress"/&gt;
+ *         &lt;element name="DeliveryAddressSelector" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="InvoiceAddress" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}InvoiceAddress" minOccurs="0"/&gt;
+ *         &lt;element name="InvoiceAddressSelector" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="OrderInformation" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}OrderInformation"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
@@ -35,7 +37,9 @@ import javax.xml.bind.annotation.XmlType;
     "clientUsername",
     "customerInformation",
     "deliveryAddress",
+    "deliveryAddressSelector",
     "invoiceAddress",
+    "invoiceAddressSelector",
     "orderInformation"
 })
 public class CreateApprovedOrderRequest
@@ -48,8 +52,12 @@ public class CreateApprovedOrderRequest
     protected CustomerInformation customerInformation;
     @XmlElement(name = "DeliveryAddress", nillable = true)
     protected DeliveryAddress deliveryAddress;
-    @XmlElement(name = "InvoiceAddress", required = true, nillable = true)
+    @XmlElement(name = "DeliveryAddressSelector", nillable = true)
+    protected String deliveryAddressSelector;
+    @XmlElement(name = "InvoiceAddress", nillable = true)
     protected InvoiceAddress invoiceAddress;
+    @XmlElement(name = "InvoiceAddressSelector", nillable = true)
+    protected String invoiceAddressSelector;
     @XmlElement(name = "OrderInformation", required = true, nillable = true)
     protected OrderInformation orderInformation;
 
@@ -126,6 +134,30 @@ public class CreateApprovedOrderRequest
     }
 
     /**
+     * Gets the value of the deliveryAddressSelector property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDeliveryAddressSelector() {
+        return deliveryAddressSelector;
+    }
+
+    /**
+     * Sets the value of the deliveryAddressSelector property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDeliveryAddressSelector(String value) {
+        this.deliveryAddressSelector = value;
+    }
+
+    /**
      * Gets the value of the invoiceAddress property.
      * 
      * @return
@@ -147,6 +179,30 @@ public class CreateApprovedOrderRequest
      */
     public void setInvoiceAddress(InvoiceAddress value) {
         this.invoiceAddress = value;
+    }
+
+    /**
+     * Gets the value of the invoiceAddressSelector property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getInvoiceAddressSelector() {
+        return invoiceAddressSelector;
+    }
+
+    /**
+     * Sets the value of the invoiceAddressSelector property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setInvoiceAddressSelector(String value) {
+        this.invoiceAddressSelector = value;
     }
 
     /**

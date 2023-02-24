@@ -20,6 +20,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
+ *         &lt;element name="AdjustmentAmount" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
  *         &lt;element name="AdministrationFee" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
  *         &lt;element name="Amount" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
  *         &lt;element name="CheckoutOrderId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
@@ -39,6 +40,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InvoicePaidToClientRow", namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", propOrder = {
+    "adjustmentAmount",
     "administrationFee",
     "amount",
     "checkoutOrderId",
@@ -51,6 +53,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class InvoicePaidToClientRow {
 
+    @XmlElement(name = "AdjustmentAmount", nillable = true)
+    protected BigDecimal adjustmentAmount;
     @XmlElement(name = "AdministrationFee", nillable = true)
     protected BigDecimal administrationFee;
     @XmlElement(name = "Amount")
@@ -71,6 +75,30 @@ public class InvoicePaidToClientRow {
     protected XMLGregorianCalendar sveaOrderCreationDate;
     @XmlElement(name = "SveaOrderId", nillable = true)
     protected Long sveaOrderId;
+
+    /**
+     * Gets the value of the adjustmentAmount property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigDecimal }
+     *     
+     */
+    public BigDecimal getAdjustmentAmount() {
+        return adjustmentAmount;
+    }
+
+    /**
+     * Sets the value of the adjustmentAmount property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigDecimal }
+     *     
+     */
+    public void setAdjustmentAmount(BigDecimal value) {
+        this.adjustmentAmount = value;
+    }
 
     /**
      * Gets the value of the administrationFee property.

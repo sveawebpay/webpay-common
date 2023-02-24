@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="PartlyPaid"/&gt;
  *     &lt;enumeration value="Credited"/&gt;
  *     &lt;enumeration value="CreditLoss"/&gt;
+ *     &lt;enumeration value="Refund"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -52,7 +53,9 @@ public enum InvoicePaymentStatus {
     @XmlEnumValue("Credited")
     CREDITED("Credited"),
     @XmlEnumValue("CreditLoss")
-    CREDIT_LOSS("CreditLoss");
+    CREDIT_LOSS("CreditLoss"),
+    @XmlEnumValue("Refund")
+    REFUND("Refund");
     private final String value;
 
     InvoicePaymentStatus(String v) {

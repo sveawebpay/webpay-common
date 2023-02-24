@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="DistributionType" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice.DeliverOrder}InvoiceDistributionType" minOccurs="0"/&gt;
+ *         &lt;element name="BillingReferences" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfBillingReference" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,13 +30,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InvoiceInformation", propOrder = {
-    "distributionType"
+    "distributionType",
+    "billingReferences"
 })
 public class InvoiceInformation {
 
     @XmlElement(name = "DistributionType", nillable = true)
     @XmlSchemaType(name = "string")
     protected InvoiceDistributionType distributionType;
+    @XmlElement(name = "BillingReferences", nillable = true)
+    protected ArrayOfBillingReference billingReferences;
 
     /**
      * Gets the value of the distributionType property.
@@ -59,6 +63,30 @@ public class InvoiceInformation {
      */
     public void setDistributionType(InvoiceDistributionType value) {
         this.distributionType = value;
+    }
+
+    /**
+     * Gets the value of the billingReferences property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ArrayOfBillingReference }
+     *     
+     */
+    public ArrayOfBillingReference getBillingReferences() {
+        return billingReferences;
+    }
+
+    /**
+     * Sets the value of the billingReferences property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ArrayOfBillingReference }
+     *     
+     */
+    public void setBillingReferences(ArrayOfBillingReference value) {
+        this.billingReferences = value;
     }
 
 }

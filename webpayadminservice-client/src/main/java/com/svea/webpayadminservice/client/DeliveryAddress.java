@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="HouseNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="LastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="Locality" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="Salutation" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="SignedWithNationalId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="StreetAddress" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="ZipCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
@@ -47,6 +48,7 @@ import javax.xml.bind.annotation.XmlType;
     "houseNumber",
     "lastName",
     "locality",
+    "salutation",
     "signedWithNationalId",
     "streetAddress",
     "zipCode"
@@ -70,6 +72,8 @@ public class DeliveryAddress {
     protected String lastName;
     @XmlElement(name = "Locality", nillable = true)
     protected String locality;
+    @XmlElement(name = "Salutation", nillable = true)
+    protected String salutation;
     @XmlElement(name = "SignedWithNationalId", nillable = true)
     protected String signedWithNationalId;
     @XmlElement(name = "StreetAddress", nillable = true)
@@ -267,6 +271,30 @@ public class DeliveryAddress {
      */
     public void setLocality(String value) {
         this.locality = value;
+    }
+
+    /**
+     * Gets the value of the salutation property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSalutation() {
+        return salutation;
+    }
+
+    /**
+     * Sets the value of the salutation property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSalutation(String value) {
+        this.salutation = value;
     }
 
     /**

@@ -1,61 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account" 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:tns="http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account">
-    <xs:import schemaLocation="AdminService.xsd2.xsd" namespace="http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service"/>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataObjects.Enums"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://schemas.datacontract.org/2004/07/DataObjects.Enums">
     <xs:import schemaLocation="AdminService.xsd1.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
-    <xs:complexType name="AccountCreditDetails">
-        <xs:sequence>
-            <xs:element minOccurs="0" name="CampaignCode" type="xs:decimal"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:element name="AccountCreditDetails" nillable="true" type="tns:AccountCreditDetails"/>
-    <xs:complexType name="SearchAccountCreditSorting">
-        <xs:sequence>
-            <xs:element minOccurs="0" name="SortAccountCreditProperty" type="tns:SortAccountCreditProperty"/>
-            <xs:element minOccurs="0" name="SortDirection" type="q1:SortDirection" 
-                xmlns:q1="http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:element name="SearchAccountCreditSorting" nillable="true" type="tns:SearchAccountCreditSorting"/>
-    <xs:simpleType name="SortAccountCreditProperty">
+    <xs:simpleType name="RowType">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Amount">
+            <xs:enumeration value="Default"/>
+            <xs:enumeration value="AdjustmentRow"/>
+            <xs:enumeration value="GiftCard"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="RowType" nillable="true" type="tns:RowType"/>
+    <xs:simpleType name="AddressSource">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="External">
                 <xs:annotation>
                     <xs:appinfo>
                         <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="CreationDate">
+            <xs:enumeration value="EndCustomerProvided">
                 <xs:annotation>
                     <xs:appinfo>
                         <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="ContractNumber">
+            <xs:enumeration value="Internal">
                 <xs:annotation>
                     <xs:appinfo>
                         <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="ClientId">
+            <xs:enumeration value="Migrated">
                 <xs:annotation>
                     <xs:appinfo>
                         <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="OrderId">
+            <xs:enumeration value="BankIdSigned">
                 <xs:annotation>
                     <xs:appinfo>
                         <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="ClientAccountCreditId">
+            <xs:enumeration value="ClientProvided">
                 <xs:annotation>
                     <xs:appinfo>
                         <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
@@ -64,18 +57,18 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:element name="SortAccountCreditProperty" nillable="true" type="tns:SortAccountCreditProperty"/>
-    <xs:complexType name="ArrayOfGetAccountCreditInformation">
-        <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="GetAccountCreditInformation" nillable="true" type="tns:GetAccountCreditInformation"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:element name="ArrayOfGetAccountCreditInformation" nillable="true" type="tns:ArrayOfGetAccountCreditInformation"/>
-    <xs:complexType name="GetAccountCreditInformation">
-        <xs:sequence>
-            <xs:element name="ClientAccountCreditId" type="xs:long"/>
-            <xs:element name="ClientId" type="xs:long"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:element name="GetAccountCreditInformation" nillable="true" type="tns:GetAccountCreditInformation"/>
+    <xs:element name="AddressSource" nillable="true" type="tns:AddressSource"/>
+    <xs:simpleType name="BillingReferenceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Undefined"/>
+            <xs:enumeration value="Purchase"/>
+            <xs:enumeration value="ContactPerson"/>
+            <xs:enumeration value="InvoiceReference"/>
+            <xs:enumeration value="CostCenter"/>
+            <xs:enumeration value="InvoiceRecipient"/>
+            <xs:enumeration value="LetterNumber"/>
+            <xs:enumeration value="AccountingNumber"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="BillingReferenceType" nillable="true" type="tns:BillingReferenceType"/>
 </xs:schema>

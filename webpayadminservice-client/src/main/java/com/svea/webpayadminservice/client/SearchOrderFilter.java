@@ -62,7 +62,7 @@ public class SearchOrderFilter {
     protected String textMatch;
     @XmlElement(name = "TextMatchType", nillable = true)
     @XmlSchemaType(name = "string")
-    protected TextMatchType3 textMatchType;
+    protected TextMatchType textMatchType;
 
     /**
      * Gets the value of the acceptedDeliveryStatus property.
@@ -213,10 +213,10 @@ public class SearchOrderFilter {
      * 
      * @return
      *     possible object is
-     *     {@link TextMatchType3 }
+     *     {@link TextMatchType }
      *     
      */
-    public TextMatchType3 getTextMatchType() {
+    public TextMatchType getTextMatchType() {
         return textMatchType;
     }
 
@@ -225,10 +225,10 @@ public class SearchOrderFilter {
      * 
      * @param value
      *     allowed object is
-     *     {@link TextMatchType3 }
+     *     {@link TextMatchType }
      *     
      */
-    public void setTextMatchType(TextMatchType3 value) {
+    public void setTextMatchType(TextMatchType value) {
         this.textMatchType = value;
     }
 

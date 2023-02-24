@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="InvoiceDistributionType" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice.DeliverOrder}InvoiceDistributionType" minOccurs="0"/&gt;
  *         &lt;element name="InvoiceId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="NewCreditInvoiceRows" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}ArrayOfOrderRow" minOccurs="0"/&gt;
+ *         &lt;element name="RowCreditingOptions" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfRowCreditingOption" minOccurs="0"/&gt;
  *         &lt;element name="RowNumbers" type="{http://schemas.microsoft.com/2003/10/Serialization/Arrays}ArrayOflong" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
@@ -37,6 +38,7 @@ import javax.xml.bind.annotation.XmlType;
     "invoiceDistributionType",
     "invoiceId",
     "newCreditInvoiceRows",
+    "rowCreditingOptions",
     "rowNumbers"
 })
 public class CreditInvoiceRequest
@@ -52,6 +54,8 @@ public class CreditInvoiceRequest
     protected Long invoiceId;
     @XmlElement(name = "NewCreditInvoiceRows", nillable = true)
     protected ArrayOfOrderRow newCreditInvoiceRows;
+    @XmlElement(name = "RowCreditingOptions", nillable = true)
+    protected ArrayOfRowCreditingOption rowCreditingOptions;
     @XmlElement(name = "RowNumbers", nillable = true)
     protected ArrayOflong rowNumbers;
 
@@ -149,6 +153,30 @@ public class CreditInvoiceRequest
      */
     public void setNewCreditInvoiceRows(ArrayOfOrderRow value) {
         this.newCreditInvoiceRows = value;
+    }
+
+    /**
+     * Gets the value of the rowCreditingOptions property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ArrayOfRowCreditingOption }
+     *     
+     */
+    public ArrayOfRowCreditingOption getRowCreditingOptions() {
+        return rowCreditingOptions;
+    }
+
+    /**
+     * Sets the value of the rowCreditingOptions property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ArrayOfRowCreditingOption }
+     *     
+     */
+    public void setRowCreditingOptions(ArrayOfRowCreditingOption value) {
+        this.rowCreditingOptions = value;
     }
 
     /**

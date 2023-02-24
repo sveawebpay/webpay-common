@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="IndustryCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="NationalIdNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="PhoneNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="VatNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -41,7 +42,8 @@ import javax.xml.bind.annotation.XmlType;
     "externalCustomerId",
     "industryCode",
     "nationalIdNumber",
-    "phoneNumber"
+    "phoneNumber",
+    "vatNumber"
 })
 public class CustomerInformation {
 
@@ -60,6 +62,8 @@ public class CustomerInformation {
     protected String nationalIdNumber;
     @XmlElement(name = "PhoneNumber", nillable = true)
     protected String phoneNumber;
+    @XmlElement(name = "VatNumber", nillable = true)
+    protected String vatNumber;
 
     /**
      * Gets the value of the birthDate property.
@@ -227,6 +231,30 @@ public class CustomerInformation {
      */
     public void setPhoneNumber(String value) {
         this.phoneNumber = value;
+    }
+
+    /**
+     * Gets the value of the vatNumber property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getVatNumber() {
+        return vatNumber;
+    }
+
+    /**
+     * Sets the value of the vatNumber property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setVatNumber(String value) {
+        this.vatNumber = value;
     }
 
 }

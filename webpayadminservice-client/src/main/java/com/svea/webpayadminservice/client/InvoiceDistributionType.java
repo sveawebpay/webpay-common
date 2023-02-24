@@ -18,6 +18,13 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="Post"/&gt;
  *     &lt;enumeration value="Email"/&gt;
  *     &lt;enumeration value="EInvoiceB2B"/&gt;
+ *     &lt;enumeration value="Peppol"/&gt;
+ *     &lt;enumeration value="Omni"/&gt;
+ *     &lt;enumeration value="Omni20"/&gt;
+ *     &lt;enumeration value="Omni21"/&gt;
+ *     &lt;enumeration value="Omni22"/&gt;
+ *     &lt;enumeration value="Omni23"/&gt;
+ *     &lt;enumeration value="Omni24"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -34,7 +41,21 @@ public enum InvoiceDistributionType {
     @XmlEnumValue("Email")
     EMAIL("Email"),
     @XmlEnumValue("EInvoiceB2B")
-    E_INVOICE_B_2_B("EInvoiceB2B");
+    E_INVOICE_B_2_B("EInvoiceB2B"),
+    @XmlEnumValue("Peppol")
+    PEPPOL("Peppol"),
+    @XmlEnumValue("Omni")
+    OMNI("Omni"),
+    @XmlEnumValue("Omni20")
+    OMNI_20("Omni20"),
+    @XmlEnumValue("Omni21")
+    OMNI_21("Omni21"),
+    @XmlEnumValue("Omni22")
+    OMNI_22("Omni22"),
+    @XmlEnumValue("Omni23")
+    OMNI_23("Omni23"),
+    @XmlEnumValue("Omni24")
+    OMNI_24("Omni24");
     private final String value;
 
     InvoiceDistributionType(String v) {

@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="Internal"/&gt;
  *     &lt;enumeration value="Migrated"/&gt;
  *     &lt;enumeration value="BankIdSigned"/&gt;
+ *     &lt;enumeration value="ClientProvided"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -37,7 +38,9 @@ public enum AddressSource {
     @XmlEnumValue("Migrated")
     MIGRATED("Migrated"),
     @XmlEnumValue("BankIdSigned")
-    BANK_ID_SIGNED("BankIdSigned");
+    BANK_ID_SIGNED("BankIdSigned"),
+    @XmlEnumValue("ClientProvided")
+    CLIENT_PROVIDED("ClientProvided");
     private final String value;
 
     AddressSource(String v) {

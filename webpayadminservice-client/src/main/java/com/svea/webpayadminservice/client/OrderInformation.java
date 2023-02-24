@@ -22,6 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence&gt;
  *         &lt;element name="AccountCreditInformation" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}AccountCreditInformation" minOccurs="0"/&gt;
  *         &lt;element name="Amount" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/&gt;
+ *         &lt;element name="BillingEmailAddress" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="CheckoutOrderId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="ClientId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="ClientOrderId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
@@ -34,6 +35,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="OrderRows" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}ArrayOfOrderRow"/&gt;
  *         &lt;element name="OrderType" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}OrderType"/&gt;
  *         &lt;element name="PaymentPlanInformation" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}PaymentPlanInformation" minOccurs="0"/&gt;
+ *         &lt;element name="PeppolId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="ScoringId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="WillBuy" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *       &lt;/sequence&gt;
@@ -48,6 +50,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "OrderInformation", propOrder = {
     "accountCreditInformation",
     "amount",
+    "billingEmailAddress",
     "checkoutOrderId",
     "clientId",
     "clientOrderId",
@@ -60,6 +63,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "orderRows",
     "orderType",
     "paymentPlanInformation",
+    "peppolId",
     "scoringId",
     "willBuy"
 })
@@ -69,6 +73,8 @@ public class OrderInformation {
     protected AccountCreditInformation accountCreditInformation;
     @XmlElement(name = "Amount")
     protected BigDecimal amount;
+    @XmlElement(name = "BillingEmailAddress", nillable = true)
+    protected String billingEmailAddress;
     @XmlElement(name = "CheckoutOrderId", nillable = true)
     protected Long checkoutOrderId;
     @XmlElement(name = "ClientId")
@@ -95,6 +101,8 @@ public class OrderInformation {
     protected OrderType orderType;
     @XmlElement(name = "PaymentPlanInformation", nillable = true)
     protected PaymentPlanInformation paymentPlanInformation;
+    @XmlElement(name = "PeppolId", nillable = true)
+    protected String peppolId;
     @XmlElement(name = "ScoringId", nillable = true)
     protected Long scoringId;
     @XmlElement(name = "WillBuy")
@@ -146,6 +154,30 @@ public class OrderInformation {
      */
     public void setAmount(BigDecimal value) {
         this.amount = value;
+    }
+
+    /**
+     * Gets the value of the billingEmailAddress property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getBillingEmailAddress() {
+        return billingEmailAddress;
+    }
+
+    /**
+     * Sets the value of the billingEmailAddress property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setBillingEmailAddress(String value) {
+        this.billingEmailAddress = value;
     }
 
     /**
@@ -426,6 +458,30 @@ public class OrderInformation {
      */
     public void setPaymentPlanInformation(PaymentPlanInformation value) {
         this.paymentPlanInformation = value;
+    }
+
+    /**
+     * Gets the value of the peppolId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPeppolId() {
+        return peppolId;
+    }
+
+    /**
+     * Sets the value of the peppolId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPeppolId(String value) {
+        this.peppolId = value;
     }
 
     /**

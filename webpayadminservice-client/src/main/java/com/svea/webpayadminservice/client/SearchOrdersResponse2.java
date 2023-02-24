@@ -4,23 +4,23 @@ package com.svea.webpayadminservice.client;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for SearchOrdersResponse complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="SearchOrdersResponse"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="OrderListItems" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfOrderListItem"/&gt;
- *         &lt;element name="ResultCount" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="SearchOrdersResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}SearchOrdersResponse" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
+ *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -28,57 +28,37 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SearchOrdersResponse", propOrder = {
-    "orderListItems",
-    "resultCount"
+@XmlType(name = "", propOrder = {
+    "searchOrdersResult"
 })
-public class SearchOrdersResponse2
-    extends BasicResponse
-{
+@XmlRootElement(name = "SearchOrdersResponse", namespace = "http://tempuri.org/")
+public class SearchOrdersResponse2 {
 
-    @XmlElement(name = "OrderListItems", required = true, nillable = true)
-    protected ArrayOfOrderListItem orderListItems;
-    @XmlElement(name = "ResultCount")
-    protected int resultCount;
+    @XmlElement(name = "SearchOrdersResult", namespace = "http://tempuri.org/", nillable = true)
+    protected SearchOrdersResponse searchOrdersResult;
 
     /**
-     * Gets the value of the orderListItems property.
+     * Gets the value of the searchOrdersResult property.
      * 
      * @return
      *     possible object is
-     *     {@link ArrayOfOrderListItem }
+     *     {@link SearchOrdersResponse }
      *     
      */
-    public ArrayOfOrderListItem getOrderListItems() {
-        return orderListItems;
+    public SearchOrdersResponse getSearchOrdersResult() {
+        return searchOrdersResult;
     }
 
     /**
-     * Sets the value of the orderListItems property.
+     * Sets the value of the searchOrdersResult property.
      * 
      * @param value
      *     allowed object is
-     *     {@link ArrayOfOrderListItem }
+     *     {@link SearchOrdersResponse }
      *     
      */
-    public void setOrderListItems(ArrayOfOrderListItem value) {
-        this.orderListItems = value;
-    }
-
-    /**
-     * Gets the value of the resultCount property.
-     * 
-     */
-    public int getResultCount() {
-        return resultCount;
-    }
-
-    /**
-     * Sets the value of the resultCount property.
-     * 
-     */
-    public void setResultCount(int value) {
-        this.resultCount = value;
+    public void setSearchOrdersResult(SearchOrdersResponse value) {
+        this.searchOrdersResult = value;
     }
 
 }
