@@ -22,6 +22,7 @@ Instructions to regenerate.
 4. Delete the old files in java/com/svea/webpayadminservice/client using system explorer (not from Eclipse).
 5. Regenerate from the modified AdminService.svc.wsdl.
 6. Update the WSDL-location to relative in AdminService.java 
+7. Remember to change the WSDL to point to https (wdsl:service at the end of the WSDL-file)
 
 For OSGI-compatiblility it's important to load the WSDL-files using the class'
 classloader

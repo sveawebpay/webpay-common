@@ -1956,16 +1956,16 @@
 		<wsdl:port name="WcfAdminSoapService"
 			binding="tns:WcfAdminSoapService">
 			<soap12:address
-				location="http://webpayadminservice.svea.com/AdminService.svc/secure" />
+				location="https://webpayadminservice.svea.com/AdminService.svc/secure" />
 			<wsa10:EndpointReference>
-				<wsa10:Address>http://webpayadminservice.svea.com/AdminService.svc/secure
+				<wsa10:Address>https://webpayadminservice.svea.com/AdminService.svc/secure
 				</wsa10:Address>
 			</wsa10:EndpointReference>
 		</wsdl:port>
 		<wsdl:port name="AdminSoapService"
 			binding="tns:AdminSoapService">
 			<soap:address
-				location="http://webpayadminservice.svea.com/AdminService.svc/backward" />
+				location="https://webpayadminservice.svea.com/AdminService.svc/backward" />
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
