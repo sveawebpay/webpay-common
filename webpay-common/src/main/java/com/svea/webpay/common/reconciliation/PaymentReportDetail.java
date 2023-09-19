@@ -179,6 +179,36 @@ public class PaymentReportDetail {
 		this.references = references;
 	}
 
+	@Transient
+	public void addReference(PaymentReference reference) {
+		
+		if (reference.getReferenceKey()==null) return;
+		if (references==null && reference.getReferenceValue()==null) return;
+
+		if (references==null)
+			references = new ArrayList<PaymentReference>();
+		
+		PaymentReference existing = null;
+		
+		// Check for existing reference of the key
+		for (PaymentReference r : references) {
+			if (reference.getReferenceKey().equalsIgnoreCase(r.getReferenceKey())) {
+				existing = r;
+				break;
+			}
+		}
+
+		if (existing!=null) {
+			existing.setReferenceValue(reference.getReferenceValue());
+			existing.setCurrency(reference.getCurrency());
+			existing.setOpenAmount(reference.getOpenAmount());
+		} else {
+			references.add(reference);
+		}
+		
+		
+	}
+	
 	/**
 	 * Adds a reference. If an existing reference with the same key exists,
 	 * it's replaced.
@@ -190,28 +220,9 @@ public class PaymentReportDetail {
 	 */
 	@Transient
 	public void addReference(String key, String value) {
-		
-		if (key==null) return;
-		if (references==null && value==null) return;
 
-		if (references==null)
-			references = new ArrayList<PaymentReference>();
-		
-		PaymentReference existing = null;
-		
-		// Check for existing reference of the key
-		for (PaymentReference r : references) {
-			if (key.equalsIgnoreCase(r.getReferenceKey())) {
-				existing = r;
-				break;
-			}
-		}
-
-		if (existing!=null) {
-			existing.setReferenceValue(value);
-		} else {
-			references.add(new PaymentReference(key, value));
-		}
+		PaymentReference reference = new PaymentReference(key, value);
+		addReference(reference);
 		
 	}
 	
@@ -223,17 +234,35 @@ public class PaymentReportDetail {
 	@Transient
 	public String getReference(String key) {
 
-		if (references==null || key==null) return null;
-		
-		for (PaymentReference r : references) {
-			if (key.equalsIgnoreCase(r.getReferenceKey())) {
-				return r.getReferenceValue();
-			}
+		PaymentReference r = getFirstReference(key);
+		if (r!=null) {
+			return r.getReferenceValue();
 		}
 
 		return null;
 	}
+
+	/**
+	 * Gets a given payment reference record with key.
+	 * 
+	 * @param key
+	 * @return
+	 */
+	@Transient
+	public PaymentReference getFirstReference(String key) {
+
+		if (references==null || key==null) return null;
 		
+		for (PaymentReference r : references) {
+			if (key.equalsIgnoreCase(r.getReferenceKey())) {
+				return r;
+			}
+		}
+
+		return null;
+		
+	}
+	
 	public boolean hasFees() {
 		return fees!=null && fees.size()>0;
 	}

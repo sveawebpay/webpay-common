@@ -16,12 +16,24 @@ public class PaymentReference {
 	
 	private String	referenceKey;
 	private String	referenceValue;
+	private Double	openAmount;
+	private String	currency;
 	
 	public PaymentReference() {}
 	
 	public PaymentReference(String key, String value) {
 		referenceKey = key;
 		referenceValue = value;
+	}
+	
+	public PaymentReference(String key, String value, Double openAmount, String currency) {
+		referenceKey = key;
+		referenceValue = value;
+		if (openAmount==null)
+			this.openAmount = new Double(0);
+		else
+			this.openAmount = openAmount;
+		this.currency = currency;
 	}
 	
 	public String getReferenceKey() {
@@ -36,5 +48,23 @@ public class PaymentReference {
 	public void setReferenceValue(String referenceValue) {
 		this.referenceValue = referenceValue;
 	}
+
+	public Double getOpenAmount() {
+		return openAmount;
+	}
+
+	public void setOpenAmount(Double openAmount) {
+		this.openAmount = openAmount;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	
+	
 	
 }
