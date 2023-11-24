@@ -42,6 +42,10 @@ public class ListOfSveaCredentials {
 
 	private List<SveaCredential> credentials = new ArrayList<SveaCredential>();
 
+	private transient Set<String> merchantIdSet = new TreeSet<String>();
+	
+	private transient Set<String> storeIdSet = new TreeSet<String>();
+	
 	public static ListOfSveaCredentials readFromJsonFilename(String configfile) throws Exception {
 		
 		URL credentialsFileUrl = getUrlForFile(configfile);
@@ -118,20 +122,48 @@ public class ListOfSveaCredentials {
 		credentials.clear();
 	}
 	
+	public boolean hasMerchantId(String merchantId) {
+		if (merchantId==null) return false;
+		refreshMerchantIdSet();
+		return merchantIdSet.contains(merchantId);
+	}
+	
 	public List<String> getMerchantIds() {
-		List<String> result = new ArrayList<String>();
+		refreshMerchantIdSet();
+		List<String> result = Arrays.asList(merchantIdSet.toArray(new String[0]));
+		return result;
+	}
+	
+	private void refreshMerchantIdSet() {
+		merchantIdSet.clear();;
 		if (credentials==null || credentials.size()==0) {
-			return result;
+			return;
 		}
-		Set<String> merchantIdSet = new TreeSet<String>();
 		for (SveaCredential sc : credentials) {
 			if (sc.hasValidMerchantId()) {
 				merchantIdSet.add(sc.getMerchantId());
 			}
 		}
-		result = Arrays.asList(merchantIdSet.toArray(new String[0]));
-		return result;
 	}
+	
+	public boolean hasStoreId(String storeId) {
+		if (storeId==null) return false;
+		refreshStoreIdSet();
+		return storeIdSet.contains(storeId);
+	}
+	
+	private void refreshStoreIdSet() {
+		storeIdSet.clear();
+		if (credentials==null || credentials.size()==0) {
+			return;
+		}
+		for (SveaCredential sc : credentials) {
+			if (sc.getAccountNo()!=null) {
+				storeIdSet.add(sc.getAccountNo());
+			}
+		}
+	}
+	
 	
 	/**
 	 * Lists all external accounting dimensions in this list of Svea Credentials
