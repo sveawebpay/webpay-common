@@ -26,11 +26,15 @@
 		<plugin>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-codegen-plugin</artifactId>
+		    <!--  JDK 8 dep -->
+		    <!-- 
+		    <version>3.1.18</version>
+		     -->
 		    <!--  JDK >=9 dep -->
 		    <!-- 
 		    <version>3.3.11</version>
 		     -->
-		    <version>3.1.18</version>
+		    <version>3.3.11</version>
 		    <executions>
 		        <execution>
 		            <id>generate-sources</id>
