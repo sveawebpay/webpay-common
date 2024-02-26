@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.svea.webpay.paymentgw.entity.Query;
+import com.svea.webpay.paymentgw.entity.ReconciliationReport;
 import com.svea.webpay.paymentgw.entity.Response;
 import com.svea.webpay.paymentgw.entity.Transaction;
 import com.svea.webpay.paymentgw.util.PaymentGwUtil;
@@ -116,6 +118,12 @@ public class PaymentGwClient {
 		}
 		
 		return tr;
+	}
+	
+	public ReconciliationReport getReconciliationReport(LocalDate date) {
+		
+		return null;
+		
 	}
 	
 	/**

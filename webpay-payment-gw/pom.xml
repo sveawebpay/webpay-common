@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.svea</groupId>
     <artifactId>webpay-common-pom</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8-SNAPSHOT</version>
   </parent>
   <artifactId>webpay-payment-gw</artifactId>
   <packaging>bundle</packaging>
