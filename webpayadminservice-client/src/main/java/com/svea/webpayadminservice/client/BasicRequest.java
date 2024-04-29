@@ -74,7 +74,6 @@ import javax.xml.bind.annotation.XmlType;
     CancelAccountCreditRowsRequest.class,
     AccountCreditRegressReportRequest.class,
     AccountingAgreementType25ReportRequest.class,
-    GetClientsByIdentityAccountRequest.class,
     GetDebtInvoicesPaidToClientForReportRequest.class,
     GetInvoicesPaidToClientForReportRequest.class,
     GetKickbackReportRequest.class,

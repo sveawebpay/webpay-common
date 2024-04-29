@@ -38,6 +38,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="PeppolId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="ScoringId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="WillBuy" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
+ *         &lt;element name="KycProductId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="KycRiskClassification" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}KycRiskClassification" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -65,7 +67,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "paymentPlanInformation",
     "peppolId",
     "scoringId",
-    "willBuy"
+    "willBuy",
+    "kycProductId",
+    "kycRiskClassification"
 })
 public class OrderInformation {
 
@@ -107,6 +111,11 @@ public class OrderInformation {
     protected Long scoringId;
     @XmlElement(name = "WillBuy")
     protected boolean willBuy;
+    @XmlElement(name = "KycProductId", nillable = true)
+    protected String kycProductId;
+    @XmlElement(name = "KycRiskClassification", nillable = true)
+    @XmlSchemaType(name = "string")
+    protected KycRiskClassification kycRiskClassification;
 
     /**
      * Gets the value of the accountCreditInformation property.
@@ -522,6 +531,54 @@ public class OrderInformation {
      */
     public void setWillBuy(boolean value) {
         this.willBuy = value;
+    }
+
+    /**
+     * Gets the value of the kycProductId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getKycProductId() {
+        return kycProductId;
+    }
+
+    /**
+     * Sets the value of the kycProductId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setKycProductId(String value) {
+        this.kycProductId = value;
+    }
+
+    /**
+     * Gets the value of the kycRiskClassification property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link KycRiskClassification }
+     *     
+     */
+    public KycRiskClassification getKycRiskClassification() {
+        return kycRiskClassification;
+    }
+
+    /**
+     * Sets the value of the kycRiskClassification property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link KycRiskClassification }
+     *     
+     */
+    public void setKycRiskClassification(KycRiskClassification value) {
+        this.kycRiskClassification = value;
     }
 
 }

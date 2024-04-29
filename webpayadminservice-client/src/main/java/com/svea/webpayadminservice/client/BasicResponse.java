@@ -67,7 +67,6 @@ import javax.xml.bind.annotation.XmlType;
     ExtendOrderResponse2 .class,
     AccountCreditRegressReportResponse.class,
     AccountingAgreementType25ReportResponse.class,
-    GetClientsByIdentityAccountResponse2 .class,
     GetDebtInvoicesPaidToClientForReportResponse2 .class,
     GetInvoicesPaidToClientForReportResponse2 .class,
     GetKickbackReportResponse2 .class,

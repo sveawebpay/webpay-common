@@ -2,16 +2,13 @@ package com.svea.webpayadminservice.test;
 
 import static org.junit.Assert.fail;
 
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import com.svea.webpayadminservice.client.AdminService;
 import com.svea.webpayadminservice.client.Authentication;
-import com.svea.webpayadminservice.client.ClientData;
-import com.svea.webpayadminservice.client.GetClientsByIdentityAccountRequest;
-import com.svea.webpayadminservice.client.GetClientsByIdentityAccountResponse2;
+import com.svea.webpayadminservice.client.GetClientIdRequest;
+import com.svea.webpayadminservice.client.GetClientIdResponse2;
 import com.svea.webpayadminservice.client.IAdminService;
 
 public class TestGetClientsByIdentityAccount {
@@ -31,26 +28,23 @@ public class TestGetClientsByIdentityAccount {
 		
 		try {
 			
-			GetClientsByIdentityAccountRequest req = new GetClientsByIdentityAccountRequest();
+			GetClientIdRequest req = new GetClientIdRequest();
+			req.setSveaOrderId(new Long(0));
 			Authentication auth = new Authentication();
 			auth.setUsername(TestConfig.clientUsername);
 			auth.setPassword(TestConfig.clientPassword);
 			req.setAuthentication(auth);
 			
-			GetClientsByIdentityAccountResponse2 result = client.getClientsByIdentityAccount(req);
+			GetClientIdResponse2 result = client.getClientId(req);
 			
 			if (result.getErrorMessage()!=null && result.getErrorMessage().trim().length()>0) {
 				fail(result.getErrorMessage());
 			}
 			
-			if (result.getClients()!=null && result.getClients().getClientData()!=null) {
-				List<ClientData> clients = result.getClients().getClientData();
-				TestConfig.testLogger.info("The following clients were found:");
-				for (ClientData cl : clients) {
-					TestConfig.testLogger.info(cl.getClientId().toString());
-				}
+			if (result.getClientId()!=null) {
+				TestConfig.testLogger.info("Client ID : " + result.getClientId());
 			} else {
-				TestConfig.testLogger.info("No clients found by identity account");
+				TestConfig.testLogger.info("No client found by identity account");
 			}
 			
 		} catch (Exception e) {

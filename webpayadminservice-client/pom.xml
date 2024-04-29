@@ -29,7 +29,7 @@
 			</plugin>
 
 			<!-- Uncomment below to regenerate the code -->
-			<!-- 
+			<!--
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-codegen-plugin</artifactId>
@@ -42,7 +42,7 @@
 							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
-									<wsdl>${basedir}/src/main/resources/AdminService-230224.wsdl</wsdl>
+									<wsdl>${basedir}/src/main/resources/AdminService-240429.wsdl</wsdl>
 									<packagenames>
 									<packagename>com.svea.webpayadminservice.client</packagename>
 									</packagenames>
@@ -61,10 +61,8 @@
 					</execution>
 				</executions>
 			</plugin>
-			 --> 
 				
-			<!--  -->
-
+			-->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
