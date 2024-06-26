@@ -42,6 +42,7 @@ public class PaymentReportGroup {
 	private String	reconcileAcct;
 	private String	paymentType;
 	private String	paymentTypeReference;
+	private String	merchantId;
 	private String	taxId;
 	private String	reconciliationDate;
 	private String	currency;
@@ -119,6 +120,16 @@ public class PaymentReportGroup {
 		this.paymentTypeReference = paymentTypeReference;
 	}
 	
+	/**
+	 * 
+	 * @return	The merchant ID this transaction belongs to (if applicable).
+	 */
+	public String getMerchantId() {
+		return merchantId;
+	}
+	public void setMerchantId(String merchantId) {
+		this.merchantId = merchantId;
+	}
 	/**
 	 * If this group belongs to a different tax id than the report itself, this 
 	 * attribute is set.

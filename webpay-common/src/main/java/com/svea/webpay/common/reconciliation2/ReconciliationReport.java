@@ -5,6 +5,11 @@ import java.util.List;
 
 public class ReconciliationReport {
 
+	/**
+	 * MerchantId used to generate this report.
+	 */
+	private String	merchantId;
+	
 	private Long totalNrOfRows;
 	
 	private List<ClientReport> clientReports;
@@ -47,7 +52,13 @@ public class ReconciliationReport {
 	public void setClientReports(List<ClientReport> clientReports) {
 		this.clientReports = clientReports;
 	}
-	
-	
+
+	public String getMerchantId() {
+		return merchantId;
+	}
+
+	public void setMerchantId(String merchantId) {
+		this.merchantId = merchantId;
+	}
 	
 }

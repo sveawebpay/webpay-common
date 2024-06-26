@@ -174,6 +174,7 @@ public class ReportConverter {
 			
 			gr = new PaymentReportGroup();
 			gr.setPaymentTypeReference(cr.getClientId().toString());
+			gr.setMerchantId(src.getMerchantId());
 			try {
 				gr.setTaxId(TaxIdFormatter.printTaxId(null, cr.getRecipientTaxId(), TaxIdStructure.FMT_SE11));
 			} catch (Exception e) {
