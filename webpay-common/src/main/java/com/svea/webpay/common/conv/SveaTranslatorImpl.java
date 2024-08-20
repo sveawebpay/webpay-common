@@ -21,6 +21,8 @@ public class SveaTranslatorImpl implements SveaTranslator {
 	private Logger log = LoggerFactory.getLogger(SveaTranslatorImpl.class);
 	
 	private ClassLoader	classLoader;
+
+	private boolean translated = false;
 	
 	public static final String SVEA_TRANSLATIONS_LABEL = "SveaTranslations";
 	
@@ -95,6 +97,7 @@ public class SveaTranslatorImpl implements SveaTranslator {
 	@Override
 	public String getTranslation(String label, String lang) {
 
+		translated = false;
 		// Locate the bundle
 		ResourceBundle b = bundles.get(lang);
 		if(b == null) {
@@ -107,18 +110,35 @@ public class SveaTranslatorImpl implements SveaTranslator {
 		String translation = null;
 		try {
 			// Workaround since ResourceBundle in Java 8 doesn't support UTF-8
-			translation = new String(b.getString(label).getBytes("ISO-8859-1"), "UTF-8");
+			// translation = new String(b.getString(label).getBytes("ISO-8859-1"), "UTF-8");
+			translation = b.getString(label);
+			translated = true;
 		} catch (MissingResourceException me) {
 			log.warn(String.format("Resource %s could not be found", label), me);
 			translation = label;
-		} catch (UnsupportedEncodingException e) {
+		} 
+		/* catch (UnsupportedEncodingException e) {
 			log.error("Unsupported encoding", e);
 			translation = label;
-		}
+		} */
 
 		return translation;
 		
 	}
+
+	/**
+	 * Returns true if there's a translation of the given label (key).
+	 * 
+	 * @param label		The label to translate
+	 * @param lang		The language to translate to
+	 * @return			True if a translation exists
+	 */
+	@Override
+	public boolean hasTranslation(String label, String lang) {
+		getTranslation(label, lang);
+		return translated;
+	}
+	
 	
 	/**
 	 * Returns a translation of the given label (key).

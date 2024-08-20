@@ -21,4 +21,13 @@ public interface SveaTranslator {
 	 */
 	String getTranslationAndCapitalizeFirstLetter(String label, String lang);
 
+	/**
+	 * Returns true if there's a translation of the given label (key).
+	 * 
+	 * @param label		The label to translate
+	 * @param lang		The language to translate to
+	 * @return			True if a translation exists
+	 */
+	public boolean hasTranslation(String label, String lang);	
+	
 }
