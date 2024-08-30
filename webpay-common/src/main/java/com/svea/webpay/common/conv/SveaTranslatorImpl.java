@@ -114,7 +114,7 @@ public class SveaTranslatorImpl implements SveaTranslator {
 			translation = b.getString(label);
 			translated = true;
 		} catch (MissingResourceException me) {
-			log.warn(String.format("Resource %s could not be found", label), me);
+			log.debug(String.format("Resource %s could not be found", label));
 			translation = label;
 		} 
 		/* catch (UnsupportedEncodingException e) {
