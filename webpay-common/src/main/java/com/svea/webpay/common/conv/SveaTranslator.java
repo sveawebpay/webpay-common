@@ -22,6 +22,14 @@ public interface SveaTranslator {
 	String getTranslationAndCapitalizeFirstLetter(String label, String lang);
 
 	/**
+	 * Adds an existing resource bundle to the translator.
+	 * 
+	 * @param bundleName			The name where the resource will be found.
+	 * @param loader				The classloader that will find the bundle.
+	 */
+	public void addBundle(String bundleName, ClassLoader loader);	
+	
+	/**
 	 * Returns true if there's a translation of the given label (key).
 	 * 
 	 * @param label		The label to translate

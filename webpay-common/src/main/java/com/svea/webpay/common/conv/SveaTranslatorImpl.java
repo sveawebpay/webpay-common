@@ -1,6 +1,8 @@
 package com.svea.webpay.common.conv;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.MissingResourceException;
@@ -31,7 +33,7 @@ public class SveaTranslatorImpl implements SveaTranslator {
 			new Locale("sv")
 	};
 
-	private Map<String, ResourceBundle> bundles;
+	private Map<String, List<ResourceBundle>> bundles;
 	private ResourceBundle defaultBundle;
 
 	public static SveaTranslator createDefaultTranslator() {
@@ -49,6 +51,38 @@ public class SveaTranslatorImpl implements SveaTranslator {
 	public SveaTranslatorImpl() {
 	}
 	
+	/**
+	 * Adds an existing resource bundle to the translator.
+	 * 
+	 * @param bundleName			The name where the resource will be found.
+	 * @param loader				The classloader that will find the bundle.
+	 */
+	public void addBundle(String bundleName, ClassLoader loader) {
+		
+		List<ResourceBundle> blist;
+		ResourceBundle b;
+		
+		for (Locale loc : supportedLocales) {
+			
+			try {
+				b = ResourceBundle.getBundle(bundleName, loc, loader);
+				if (b!=null && b.getLocale().getLanguage().equals(loc.getLanguage())) {
+					blist = bundles.get(loc.getISO3Language());
+					if (blist==null) {
+						blist = new ArrayList<ResourceBundle>();
+						bundles.put(loc.getISO3Language(), blist);
+					}
+					blist.add(b);
+				}
+			} catch (MissingResourceException mre) {
+				logMissingResourceBundle(mre);
+			}
+			
+		}
+		
+		
+	}
+	
 	private void setClassLoader(ClassLoader classLoaderToUseForBundles) {
 
 		if (classLoaderToUseForBundles==null) {
@@ -56,14 +90,21 @@ public class SveaTranslatorImpl implements SveaTranslator {
 		}
 		classLoader = classLoaderToUseForBundles;
 		
-		bundles = new TreeMap<String, ResourceBundle>();
+		bundles = new TreeMap<String, List<ResourceBundle>>();
+		List<ResourceBundle> blist;
 		ResourceBundle b;
+		
 		for (Locale loc : supportedLocales) {
 			
 			try {
 				b = ResourceBundle.getBundle(SVEA_TRANSLATIONS_LABEL, loc, classLoaderToUseForBundles);
 				if (b!=null && b.getLocale().getLanguage().equals(loc.getLanguage())) {
-					bundles.put(loc.getISO3Language(), b);
+					blist = bundles.get(loc.getISO3Language());
+					if (blist==null) {
+						blist = new ArrayList<ResourceBundle>();
+						bundles.put(loc.getISO3Language(), blist);
+					}
+					blist.add(b);
 				}
 			} catch (MissingResourceException mre) {
 				logMissingResourceBundle(mre);
@@ -99,19 +140,20 @@ public class SveaTranslatorImpl implements SveaTranslator {
 
 		translated = false;
 		// Locate the bundle
-		ResourceBundle b = bundles.get(lang);
-		if(b == null) {
+		List<ResourceBundle> blist = bundles.get(lang);
+		if(blist == null) {
 			if(defaultBundle == null){
 				return label;
 			}else{
-				b = defaultBundle;
+				blist = new ArrayList<ResourceBundle>();
+				blist.add(defaultBundle);
 			}
 		}
 		String translation = null;
 		try {
 			// Workaround since ResourceBundle in Java 8 doesn't support UTF-8
 			// translation = new String(b.getString(label).getBytes("ISO-8859-1"), "UTF-8");
-			translation = b.getString(label);
+			translation = getTranslationFromListOfBundles(blist, label);
 			translated = true;
 		} catch (MissingResourceException me) {
 			log.debug(String.format("Resource %s could not be found", label));
@@ -126,6 +168,21 @@ public class SveaTranslatorImpl implements SveaTranslator {
 		
 	}
 
+	private String getTranslationFromListOfBundles(List<ResourceBundle> blist, String label) {
+		if (blist==null || blist.size()==0) throw new MissingResourceException(label, label, label);
+		String translated = null;
+		for (ResourceBundle b : blist) {
+			try {
+				translated = b.getString(label);
+				break;
+			} catch (MissingResourceException me) {}
+		}
+		if (translated==null) {
+			throw new MissingResourceException(label, label, label);
+		}
+		return translated;
+	}
+	
 	/**
 	 * Returns true if there's a translation of the given label (key).
 	 * 
