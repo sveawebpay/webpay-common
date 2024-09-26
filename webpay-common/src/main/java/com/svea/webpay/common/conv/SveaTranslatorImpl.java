@@ -1,6 +1,5 @@
 package com.svea.webpay.common.conv;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -21,8 +20,6 @@ import org.slf4j.LoggerFactory;
 public class SveaTranslatorImpl implements SveaTranslator {
 		
 	private Logger log = LoggerFactory.getLogger(SveaTranslatorImpl.class);
-	
-	private ClassLoader	classLoader;
 
 	private boolean translated = false;
 	
@@ -75,7 +72,7 @@ public class SveaTranslatorImpl implements SveaTranslator {
 					blist.add(b);
 				}
 			} catch (MissingResourceException mre) {
-				logMissingResourceBundle(mre);
+				logMissingResourceBundle(mre, loader);
 			}
 			
 		}
@@ -88,7 +85,6 @@ public class SveaTranslatorImpl implements SveaTranslator {
 		if (classLoaderToUseForBundles==null) {
 			classLoaderToUseForBundles = this.getClass().getClassLoader();
 		}
-		classLoader = classLoaderToUseForBundles;
 		
 		bundles = new TreeMap<String, List<ResourceBundle>>();
 		List<ResourceBundle> blist;
@@ -107,7 +103,7 @@ public class SveaTranslatorImpl implements SveaTranslator {
 					blist.add(b);
 				}
 			} catch (MissingResourceException mre) {
-				logMissingResourceBundle(mre);
+				logMissingResourceBundle(mre, classLoaderToUseForBundles);
 			}
 			
 		}
@@ -115,14 +111,14 @@ public class SveaTranslatorImpl implements SveaTranslator {
 		try {
 			defaultBundle = ResourceBundle.getBundle(SVEA_TRANSLATIONS_LABEL, Locale.getDefault(), classLoaderToUseForBundles);
 		} catch (MissingResourceException mre) {
-			logMissingResourceBundle(mre);
+			logMissingResourceBundle(mre, classLoaderToUseForBundles);
 		}
 		
 	}
 
-	private void logMissingResourceBundle(MissingResourceException mre) {
+	private void logMissingResourceBundle(MissingResourceException mre, ClassLoader loader) {
 		
-		String logMessage = "SveaTranslatorImpl: Missing resourcebundle for " + mre.getClassName() + " with classloader " + classLoader.toString();
+		String logMessage = "SveaTranslatorImpl: Missing resourcebundle for " + mre.getClassName() + " with classloader " + loader.toString();
 		log.warn(logMessage);
 		System.err.println(logMessage);
 		
@@ -138,6 +134,12 @@ public class SveaTranslatorImpl implements SveaTranslator {
 	@Override
 	public String getTranslation(String label, String lang) {
 
+		if ("sv".equals(lang)) {
+			lang = "swe";
+		} else if ("en".equals(lang)) {
+			lang = "eng";
+		}
+		
 		translated = false;
 		// Locate the bundle
 		List<ResourceBundle> blist = bundles.get(lang);
