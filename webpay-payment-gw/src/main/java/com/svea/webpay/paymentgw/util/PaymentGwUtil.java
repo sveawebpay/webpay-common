@@ -31,7 +31,7 @@ public class PaymentGwUtil {
 			digest = MessageDigest.getInstance("SHA-512");
 			digest.reset();
 			byte[] hashBytes = digest.digest(inputString.getBytes());
-			result = javax.xml.bind.DatatypeConverter.printHexBinary(hashBytes).toLowerCase();
+			result = jakarta.xml.bind.DatatypeConverter.printHexBinary(hashBytes).toLowerCase();
 		} catch (NoSuchAlgorithmException e) {
 			
 		}

@@ -1,11 +1,11 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
@@ -36,6 +36,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlSeeAlso({
     AddOrderRowsRequest.class,
     ApproveInvoiceRequest.class,
+    CancelAccountCreditAmountRequest.class,
+    CancelAccountCreditRowsRequest.class,
     CancelOrderRequest.class,
     CancelOrderRowsRequest.class,
     CancelPaymentPlanAmountRequest.class,
@@ -43,16 +45,23 @@ import javax.xml.bind.annotation.XmlType;
     CreditInvoiceRequest.class,
     PartialDeliveryRequest.class,
     ExtendOrderRequest.class,
+    AccountCreditRegressReportRequest.class,
+    AccountingAgreementType25ReportRequest.class,
     GetAccountingReportRequest.class,
+    GetDebtInvoicesPaidToClientForReportRequest.class,
     GetFinancialReportRequest.class,
     GetInvoiceJournalReportRequest.class,
     GetInvoicePdfLinkRequest.class,
     GetInvoiceReportRequest.class,
+    GetInvoicesPaidToClientForReportRequest.class,
     GetInvoicesWithChangedDueDateRequest.class,
+    GetKickbackReportRequest.class,
     GetOrderEventsRequest.class,
     GetOrderPdfLinkRequest.class,
     GetPaymentPlanReportRequest.class,
+    GetPendingReasonsRequest.class,
     GetRegressionReportRequest.class,
+    GetSpecificationReportRequest.class,
     ReleasePendingRequest.class,
     UpdateOrderRequest.class,
     UpdateOrderRowsRequest.class,
@@ -70,15 +79,6 @@ import javax.xml.bind.annotation.XmlType;
     CreateApprovedOrderRequest.class,
     SearchAccountCreditsRequest.class,
     GetAccountCreditsRequest.class,
-    CancelAccountCreditAmountRequest.class,
-    CancelAccountCreditRowsRequest.class,
-    AccountCreditRegressReportRequest.class,
-    AccountingAgreementType25ReportRequest.class,
-    GetDebtInvoicesPaidToClientForReportRequest.class,
-    GetInvoicesPaidToClientForReportRequest.class,
-    GetKickbackReportRequest.class,
-    GetPendingReasonsRequest.class,
-    GetSpecificationReportRequest.class,
     GetClientIdRequest.class
 })
 public class BasicRequest {

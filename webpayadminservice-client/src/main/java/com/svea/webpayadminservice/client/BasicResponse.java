@@ -1,11 +1,11 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
@@ -34,44 +34,44 @@ import javax.xml.bind.annotation.XmlType;
     "resultCode"
 })
 @XmlSeeAlso({
-    AddOrderRowsResponse.class,
-    ApproveInvoiceResponse.class,
-    CancelOrderResponse.class,
-    CancelOrderRowsResponse.class,
-    CancelPaymentPlanAmountResponse.class,
-    CancelPaymentPlanRowsResponse.class,
-    DeliveryResponse.class,
-    GetAccountingReportResponse.class,
-    GetFinancialReportResponse.class,
-    GetInvoiceJournalReportResponse.class,
-    PdfLinkResponse.class,
-    GetInvoiceReportResponse.class,
-    GetInvoicesWithChangedDueDateResponse.class,
-    GetOrderEventsResponse.class,
-    GetPaymentPlanReportResponse.class,
-    GetRegressionReportResponse.class,
-    ReleasePendingResponse.class,
-    UpdateOrderResponse.class,
-    UpdateOrderRowsResponse.class,
-    GetOrdersResponse.class,
-    SearchOrdersResponse.class,
-    SearchInvoicesResponse.class,
-    GetInvoicesResponse.class,
-    SearchPaymentPlansResponse.class,
-    SumOfAmountResponse.class,
-    CreateOrderResponse.class,
-    ChangeInvoiceDueDateResponse.class,
-    CreateApprovedOrderResponse.class,
+    AddOrderRowsResponse2 .class,
+    ApproveInvoiceResponse2 .class,
     CancelAccountCreditAmountResponse2 .class,
     CancelAccountCreditRowsResponse2 .class,
+    CancelOrderResponse2 .class,
+    CancelOrderRowsResponse2 .class,
+    CancelPaymentPlanAmountResponse2 .class,
+    CancelPaymentPlanRowsResponse2 .class,
+    DeliveryResponse.class,
     ExtendOrderResponse2 .class,
     AccountCreditRegressReportResponse.class,
     AccountingAgreementType25ReportResponse.class,
+    GetAccountingReportResponse2 .class,
     GetDebtInvoicesPaidToClientForReportResponse2 .class,
+    GetFinancialReportResponse2 .class,
+    GetInvoiceJournalReportResponse2 .class,
+    PdfLinkResponse.class,
+    GetInvoiceReportResponse2 .class,
     GetInvoicesPaidToClientForReportResponse2 .class,
+    GetInvoicesWithChangedDueDateResponse2 .class,
     GetKickbackReportResponse2 .class,
+    GetOrderEventsResponse2 .class,
+    GetPaymentPlanReportResponse2 .class,
     GetPendingReasonsResponse2 .class,
+    GetRegressionReportResponse2 .class,
     GetSpecificationReportResponse2 .class,
+    ReleasePendingResponse.class,
+    UpdateOrderResponse2 .class,
+    UpdateOrderRowsResponse2 .class,
+    GetOrdersResponse2 .class,
+    SearchOrdersResponse2 .class,
+    SearchInvoicesResponse2 .class,
+    GetInvoicesResponse2 .class,
+    SearchPaymentPlansResponse2 .class,
+    SumOfAmountResponse.class,
+    CreateOrderResponse2 .class,
+    ChangeInvoiceDueDateResponse2 .class,
+    CreateApprovedOrderResponse2 .class,
     SearchAccountCreditsResponse2 .class,
     GetAccountCreditsResponse2 .class,
     GetClientIdResponse2 .class

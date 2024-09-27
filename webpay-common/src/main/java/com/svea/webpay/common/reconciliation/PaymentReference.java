@@ -30,7 +30,7 @@ public class PaymentReference {
 		referenceKey = key;
 		referenceValue = value;
 		if (openAmount==null)
-			this.openAmount = new Double(0);
+			this.openAmount = Double.valueOf(0);
 		else
 			this.openAmount = openAmount;
 		this.currency = currency;

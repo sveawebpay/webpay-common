@@ -1,26 +1,25 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for GetInvoicesWithChangedDueDateResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="GetInvoicesWithChangedDueDateResponse"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="GetInvoicesWithChangedDueDateResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}GetInvoicesWithChangedDueDateResponse" minOccurs="0"/&gt;
+ *         &lt;element name="ReportRows" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfInvoiceWithChangedDueDate" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -28,37 +27,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "getInvoicesWithChangedDueDateResult"
+@XmlType(name = "GetInvoicesWithChangedDueDateResponse", propOrder = {
+    "reportRows"
 })
-@XmlRootElement(name = "GetInvoicesWithChangedDueDateResponse", namespace = "http://tempuri.org/")
-public class GetInvoicesWithChangedDueDateResponse2 {
+public class GetInvoicesWithChangedDueDateResponse2
+    extends BasicResponse
+{
 
-    @XmlElement(name = "GetInvoicesWithChangedDueDateResult", namespace = "http://tempuri.org/", nillable = true)
-    protected GetInvoicesWithChangedDueDateResponse getInvoicesWithChangedDueDateResult;
+    @XmlElement(name = "ReportRows", nillable = true)
+    protected ArrayOfInvoiceWithChangedDueDate reportRows;
 
     /**
-     * Gets the value of the getInvoicesWithChangedDueDateResult property.
+     * Gets the value of the reportRows property.
      * 
      * @return
      *     possible object is
-     *     {@link GetInvoicesWithChangedDueDateResponse }
+     *     {@link ArrayOfInvoiceWithChangedDueDate }
      *     
      */
-    public GetInvoicesWithChangedDueDateResponse getGetInvoicesWithChangedDueDateResult() {
-        return getInvoicesWithChangedDueDateResult;
+    public ArrayOfInvoiceWithChangedDueDate getReportRows() {
+        return reportRows;
     }
 
     /**
-     * Sets the value of the getInvoicesWithChangedDueDateResult property.
+     * Sets the value of the reportRows property.
      * 
      * @param value
      *     allowed object is
-     *     {@link GetInvoicesWithChangedDueDateResponse }
+     *     {@link ArrayOfInvoiceWithChangedDueDate }
      *     
      */
-    public void setGetInvoicesWithChangedDueDateResult(GetInvoicesWithChangedDueDateResponse value) {
-        this.getInvoicesWithChangedDueDateResult = value;
+    public void setReportRows(ArrayOfInvoiceWithChangedDueDate value) {
+        this.reportRows = value;
     }
 
 }

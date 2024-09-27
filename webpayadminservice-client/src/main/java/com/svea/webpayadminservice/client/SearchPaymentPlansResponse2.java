@@ -1,26 +1,26 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for SearchPaymentPlansResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="SearchPaymentPlansResponse"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="SearchPaymentPlansResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}SearchPaymentPlansResponse" minOccurs="0"/&gt;
+ *         &lt;element name="PaymentPlanListItems" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfPaymentPlanListItem"/&gt;
+ *         &lt;element name="ResultCount" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -28,37 +28,57 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "searchPaymentPlansResult"
+@XmlType(name = "SearchPaymentPlansResponse", propOrder = {
+    "paymentPlanListItems",
+    "resultCount"
 })
-@XmlRootElement(name = "SearchPaymentPlansResponse", namespace = "http://tempuri.org/")
-public class SearchPaymentPlansResponse2 {
+public class SearchPaymentPlansResponse2
+    extends BasicResponse
+{
 
-    @XmlElement(name = "SearchPaymentPlansResult", namespace = "http://tempuri.org/", nillable = true)
-    protected SearchPaymentPlansResponse searchPaymentPlansResult;
+    @XmlElement(name = "PaymentPlanListItems", required = true, nillable = true)
+    protected ArrayOfPaymentPlanListItem paymentPlanListItems;
+    @XmlElement(name = "ResultCount")
+    protected int resultCount;
 
     /**
-     * Gets the value of the searchPaymentPlansResult property.
+     * Gets the value of the paymentPlanListItems property.
      * 
      * @return
      *     possible object is
-     *     {@link SearchPaymentPlansResponse }
+     *     {@link ArrayOfPaymentPlanListItem }
      *     
      */
-    public SearchPaymentPlansResponse getSearchPaymentPlansResult() {
-        return searchPaymentPlansResult;
+    public ArrayOfPaymentPlanListItem getPaymentPlanListItems() {
+        return paymentPlanListItems;
     }
 
     /**
-     * Sets the value of the searchPaymentPlansResult property.
+     * Sets the value of the paymentPlanListItems property.
      * 
      * @param value
      *     allowed object is
-     *     {@link SearchPaymentPlansResponse }
+     *     {@link ArrayOfPaymentPlanListItem }
      *     
      */
-    public void setSearchPaymentPlansResult(SearchPaymentPlansResponse value) {
-        this.searchPaymentPlansResult = value;
+    public void setPaymentPlanListItems(ArrayOfPaymentPlanListItem value) {
+        this.paymentPlanListItems = value;
+    }
+
+    /**
+     * Gets the value of the resultCount property.
+     * 
+     */
+    public int getResultCount() {
+        return resultCount;
+    }
+
+    /**
+     * Sets the value of the resultCount property.
+     * 
+     */
+    public void setResultCount(int value) {
+        this.resultCount = value;
     }
 
 }

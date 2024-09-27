@@ -3,12 +3,12 @@ package com.svea.webpayadminservice.client;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -28,7 +28,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _SearchOrder_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.Order", "TextMatchType");
     private final static QName _AddOrderRowsRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", "AddOrderRowsRequest");
     private final static QName _BasicRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", "BasicRequest");
     private final static QName _Authentication_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", "Authentication");
@@ -192,29 +191,19 @@ public class ObjectFactory {
     private final static QName _GetAccountCreditsRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", "GetAccountCreditsRequest");
     private final static QName _ArrayOfAccountCreditItem_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", "ArrayOfAccountCreditItem");
     private final static QName _AccountCreditItem_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", "AccountCreditItem");
-    private final static QName _AccountCreditDetails_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "AccountCreditDetails");
-    private final static QName _SearchAccountCreditSorting_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "SearchAccountCreditSorting");
-    private final static QName _SortAccountCreditProperty_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "SortAccountCreditProperty");
-    private final static QName _ArrayOfGetAccountCreditInformation_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "ArrayOfGetAccountCreditInformation");
-    private final static QName _GetAccountCreditInformation_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "GetAccountCreditInformation");
-    private final static QName _SearchInvoice_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.Invoice", "TextMatchType");
-    private final static QName _CancelAccountCreditAmountRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "CancelAccountCreditAmountRequest");
-    private final static QName _CancelAccountCreditRowsRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "CancelAccountCreditRowsRequest");
-    private final static QName _AccountCreditRegressReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "AccountCreditRegressReportRequest");
-    private final static QName _AccountingAgreementType25ReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "AccountingAgreementType25ReportRequest");
-    private final static QName _GetDebtInvoicesPaidToClientForReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetDebtInvoicesPaidToClientForReportRequest");
-    private final static QName _GetInvoicesPaidToClientForReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetInvoicesPaidToClientForReportRequest");
-    private final static QName _GetKickbackReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetKickbackReportRequest");
-    private final static QName _GetPendingReasonsRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetPendingReasonsRequest");
-    private final static QName _GetSpecificationReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetSpecificationReportRequest");
-    private final static QName _GetSpecificationReportResponse_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetSpecificationReportResponse");
-    private final static QName _GetClientIdRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetClientIdRequest");
-    private final static QName _SearchPaymentPlan_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.PaymentPlan", "TextMatchType");
-    private final static QName _CreateOrderInformation_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", "CreateOrderInformation");
-    private final static QName _CreateAccountCreditDetails_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", "CreateAccountCreditDetails");
-    private final static QName _CreatePaymentPlanDetails_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", "CreatePaymentPlanDetails");
-    private final static QName _CreateOrderResult_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", "CreateOrderResult");
-    private final static QName _SearchAccountCredit_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.AccountCredit", "TextMatchType");
+    private final static QName _ArrayOfOrderRow_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "ArrayOfOrderRow");
+    private final static QName _OrderRow_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "OrderRow");
+    private final static QName _OrderType_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "OrderType");
+    private final static QName _ArrayOfOrderRowReferenceItem_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "ArrayOfOrderRowReferenceItem");
+    private final static QName _OrderRowReferenceItem_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "OrderRowReferenceItem");
+    private final static QName _Address_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "Address");
+    private final static QName _CustomerIdentity_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "CustomerIdentity");
+    private final static QName _CompanyIdentity_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "CompanyIdentity");
+    private final static QName _CustomerType_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "CustomerType");
+    private final static QName _IndividualIdentity_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "IndividualIdentity");
+    private final static QName _ArrayOfOrderStatus_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "ArrayOfOrderStatus");
+    private final static QName _OrderStatus_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "OrderStatus");
+    private final static QName _KycRiskClassification_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "KycRiskClassification");
     private final static QName _RowType_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Enums", "RowType");
     private final static QName _AddressSource_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Enums", "AddressSource");
     private final static QName _BillingReferenceType_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Enums", "BillingReferenceType");
@@ -239,22 +228,33 @@ public class ObjectFactory {
     private final static QName _Char_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/", "char");
     private final static QName _Duration_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/", "duration");
     private final static QName _Guid_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/", "guid");
-    private final static QName _ArrayOfOrderRow_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "ArrayOfOrderRow");
-    private final static QName _OrderRow_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "OrderRow");
-    private final static QName _OrderType_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "OrderType");
-    private final static QName _ArrayOfOrderRowReferenceItem_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "ArrayOfOrderRowReferenceItem");
-    private final static QName _OrderRowReferenceItem_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "OrderRowReferenceItem");
-    private final static QName _Address_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "Address");
-    private final static QName _CustomerIdentity_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "CustomerIdentity");
-    private final static QName _CompanyIdentity_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "CompanyIdentity");
-    private final static QName _CustomerType_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "CustomerType");
-    private final static QName _IndividualIdentity_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "IndividualIdentity");
-    private final static QName _ArrayOfOrderStatus_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "ArrayOfOrderStatus");
-    private final static QName _OrderStatus_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "OrderStatus");
-    private final static QName _KycRiskClassification_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice", "KycRiskClassification");
+    private final static QName _ArrayOflong_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong");
+    private final static QName _ArrayOfstring_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring");
     private final static QName _InvoiceDistributionType_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.DeliverOrder", "InvoiceDistributionType");
-    private final static QName _ArrayOfInvoicePaidToClientRow_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", "ArrayOfInvoicePaidToClientRow");
-    private final static QName _InvoicePaidToClientRow_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", "InvoicePaidToClientRow");
+    private final static QName _AccountCreditDetails_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "AccountCreditDetails");
+    private final static QName _SearchAccountCreditSorting_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "SearchAccountCreditSorting");
+    private final static QName _SortAccountCreditProperty_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "SortAccountCreditProperty");
+    private final static QName _ArrayOfGetAccountCreditInformation_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "ArrayOfGetAccountCreditInformation");
+    private final static QName _GetAccountCreditInformation_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", "GetAccountCreditInformation");
+    private final static QName _SearchOrder_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.Order", "TextMatchType");
+    private final static QName _SearchInvoice_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.Invoice", "TextMatchType");
+    private final static QName _SearchPaymentPlan_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.PaymentPlan", "TextMatchType");
+    private final static QName _CreateOrderInformation_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", "CreateOrderInformation");
+    private final static QName _CreateAccountCreditDetails_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", "CreateAccountCreditDetails");
+    private final static QName _CreatePaymentPlanDetails_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", "CreatePaymentPlanDetails");
+    private final static QName _CreateOrderResult_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", "CreateOrderResult");
+    private final static QName _SearchAccountCredit_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.AccountCredit", "TextMatchType");
+    private final static QName _CancelAccountCreditAmountRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "CancelAccountCreditAmountRequest");
+    private final static QName _CancelAccountCreditRowsRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "CancelAccountCreditRowsRequest");
+    private final static QName _AccountCreditRegressReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "AccountCreditRegressReportRequest");
+    private final static QName _AccountingAgreementType25ReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "AccountingAgreementType25ReportRequest");
+    private final static QName _GetDebtInvoicesPaidToClientForReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetDebtInvoicesPaidToClientForReportRequest");
+    private final static QName _GetInvoicesPaidToClientForReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetInvoicesPaidToClientForReportRequest");
+    private final static QName _GetKickbackReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetKickbackReportRequest");
+    private final static QName _GetPendingReasonsRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetPendingReasonsRequest");
+    private final static QName _GetSpecificationReportRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetSpecificationReportRequest");
+    private final static QName _GetSpecificationReportResponse_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetSpecificationReportResponse");
+    private final static QName _GetClientIdRequest_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", "GetClientIdRequest");
     private final static QName _CancelAccountCreditAmountResponse_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", "CancelAccountCreditAmountResponse");
     private final static QName _CancelAccountCreditRowsResponse_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", "CancelAccountCreditRowsResponse");
     private final static QName _ExtendOrderResponse_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", "ExtendOrderResponse");
@@ -267,14 +267,22 @@ public class ObjectFactory {
     private final static QName _SearchAccountCreditsResponse_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", "SearchAccountCreditsResponse");
     private final static QName _GetAccountCreditsResponse_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", "GetAccountCreditsResponse");
     private final static QName _GetClientIdResponse_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", "GetClientIdResponse");
-    private final static QName _ArrayOflong_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong");
-    private final static QName _ArrayOfstring_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring");
+    private final static QName _ArrayOfInvoicePaidToClientRow_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", "ArrayOfInvoicePaidToClientRow");
+    private final static QName _InvoicePaidToClientRow_QNAME = new QName("http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", "InvoicePaidToClientRow");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.svea.webpayadminservice.client
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link AddOrderRows }
+     * 
+     */
+    public AddOrderRows createAddOrderRows() {
+        return new AddOrderRows();
     }
 
     /**
@@ -286,1251 +294,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BasicRequest }
-     * 
-     */
-    public BasicRequest createBasicRequest() {
-        return new BasicRequest();
-    }
-
-    /**
-     * Create an instance of {@link Authentication }
-     * 
-     */
-    public Authentication createAuthentication() {
-        return new Authentication();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfSetting }
-     * 
-     */
-    public ArrayOfSetting createArrayOfSetting() {
-        return new ArrayOfSetting();
-    }
-
-    /**
-     * Create an instance of {@link Setting }
-     * 
-     */
-    public Setting createSetting() {
-        return new Setting();
-    }
-
-    /**
      * Create an instance of {@link AddOrderRowsResponse }
      * 
      */
     public AddOrderRowsResponse createAddOrderRowsResponse() {
         return new AddOrderRowsResponse();
-    }
-
-    /**
-     * Create an instance of {@link BasicResponse }
-     * 
-     */
-    public BasicResponse createBasicResponse() {
-        return new BasicResponse();
-    }
-
-    /**
-     * Create an instance of {@link ApproveInvoiceRequest }
-     * 
-     */
-    public ApproveInvoiceRequest createApproveInvoiceRequest() {
-        return new ApproveInvoiceRequest();
-    }
-
-    /**
-     * Create an instance of {@link ApproveInvoiceResponse }
-     * 
-     */
-    public ApproveInvoiceResponse createApproveInvoiceResponse() {
-        return new ApproveInvoiceResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfCancellationRow }
-     * 
-     */
-    public ArrayOfCancellationRow createArrayOfCancellationRow() {
-        return new ArrayOfCancellationRow();
-    }
-
-    /**
-     * Create an instance of {@link CancellationRow }
-     * 
-     */
-    public CancellationRow createCancellationRow() {
-        return new CancellationRow();
-    }
-
-    /**
-     * Create an instance of {@link CancelOrderRequest }
-     * 
-     */
-    public CancelOrderRequest createCancelOrderRequest() {
-        return new CancelOrderRequest();
-    }
-
-    /**
-     * Create an instance of {@link CancelOrderResponse }
-     * 
-     */
-    public CancelOrderResponse createCancelOrderResponse() {
-        return new CancelOrderResponse();
-    }
-
-    /**
-     * Create an instance of {@link CancelOrderRowsRequest }
-     * 
-     */
-    public CancelOrderRowsRequest createCancelOrderRowsRequest() {
-        return new CancelOrderRowsRequest();
-    }
-
-    /**
-     * Create an instance of {@link CancelOrderRowsResponse }
-     * 
-     */
-    public CancelOrderRowsResponse createCancelOrderRowsResponse() {
-        return new CancelOrderRowsResponse();
-    }
-
-    /**
-     * Create an instance of {@link CancelPaymentPlanAmountRequest }
-     * 
-     */
-    public CancelPaymentPlanAmountRequest createCancelPaymentPlanAmountRequest() {
-        return new CancelPaymentPlanAmountRequest();
-    }
-
-    /**
-     * Create an instance of {@link CancelPaymentPlanAmountResponse }
-     * 
-     */
-    public CancelPaymentPlanAmountResponse createCancelPaymentPlanAmountResponse() {
-        return new CancelPaymentPlanAmountResponse();
-    }
-
-    /**
-     * Create an instance of {@link CancelPaymentPlanRowsRequest }
-     * 
-     */
-    public CancelPaymentPlanRowsRequest createCancelPaymentPlanRowsRequest() {
-        return new CancelPaymentPlanRowsRequest();
-    }
-
-    /**
-     * Create an instance of {@link CancelPaymentPlanRowsResponse }
-     * 
-     */
-    public CancelPaymentPlanRowsResponse createCancelPaymentPlanRowsResponse() {
-        return new CancelPaymentPlanRowsResponse();
-    }
-
-    /**
-     * Create an instance of {@link CreditInvoiceRequest }
-     * 
-     */
-    public CreditInvoiceRequest createCreditInvoiceRequest() {
-        return new CreditInvoiceRequest();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfRowCreditingOption }
-     * 
-     */
-    public ArrayOfRowCreditingOption createArrayOfRowCreditingOption() {
-        return new ArrayOfRowCreditingOption();
-    }
-
-    /**
-     * Create an instance of {@link RowCreditingOption }
-     * 
-     */
-    public RowCreditingOption createRowCreditingOption() {
-        return new RowCreditingOption();
-    }
-
-    /**
-     * Create an instance of {@link DeliveryResponse }
-     * 
-     */
-    public DeliveryResponse createDeliveryResponse() {
-        return new DeliveryResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDeliverOrderResult }
-     * 
-     */
-    public ArrayOfDeliverOrderResult createArrayOfDeliverOrderResult() {
-        return new ArrayOfDeliverOrderResult();
-    }
-
-    /**
-     * Create an instance of {@link DeliverOrderResult }
-     * 
-     */
-    public DeliverOrderResult createDeliverOrderResult() {
-        return new DeliverOrderResult();
-    }
-
-    /**
-     * Create an instance of {@link PartialDeliveryRequest }
-     * 
-     */
-    public PartialDeliveryRequest createPartialDeliveryRequest() {
-        return new PartialDeliveryRequest();
-    }
-
-    /**
-     * Create an instance of {@link DeliverOrderInformation }
-     * 
-     */
-    public DeliverOrderInformation createDeliverOrderInformation() {
-        return new DeliverOrderInformation();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfRowDeliveryOption }
-     * 
-     */
-    public ArrayOfRowDeliveryOption createArrayOfRowDeliveryOption() {
-        return new ArrayOfRowDeliveryOption();
-    }
-
-    /**
-     * Create an instance of {@link RowDeliveryOption }
-     * 
-     */
-    public RowDeliveryOption createRowDeliveryOption() {
-        return new RowDeliveryOption();
-    }
-
-    /**
-     * Create an instance of {@link ExtendOrderRequest }
-     * 
-     */
-    public ExtendOrderRequest createExtendOrderRequest() {
-        return new ExtendOrderRequest();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfAccountCreditRegressReportDataRow }
-     * 
-     */
-    public ArrayOfAccountCreditRegressReportDataRow createArrayOfAccountCreditRegressReportDataRow() {
-        return new ArrayOfAccountCreditRegressReportDataRow();
-    }
-
-    /**
-     * Create an instance of {@link AccountCreditRegressReportDataRow }
-     * 
-     */
-    public AccountCreditRegressReportDataRow createAccountCreditRegressReportDataRow() {
-        return new AccountCreditRegressReportDataRow();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfAccountingAgreementType25ReportDataRow }
-     * 
-     */
-    public ArrayOfAccountingAgreementType25ReportDataRow createArrayOfAccountingAgreementType25ReportDataRow() {
-        return new ArrayOfAccountingAgreementType25ReportDataRow();
-    }
-
-    /**
-     * Create an instance of {@link AccountingAgreementType25ReportDataRow }
-     * 
-     */
-    public AccountingAgreementType25ReportDataRow createAccountingAgreementType25ReportDataRow() {
-        return new AccountingAgreementType25ReportDataRow();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfAccountingAgreementType25Summation }
-     * 
-     */
-    public ArrayOfAccountingAgreementType25Summation createArrayOfAccountingAgreementType25Summation() {
-        return new ArrayOfAccountingAgreementType25Summation();
-    }
-
-    /**
-     * Create an instance of {@link AccountingAgreementType25Summation }
-     * 
-     */
-    public AccountingAgreementType25Summation createAccountingAgreementType25Summation() {
-        return new AccountingAgreementType25Summation();
-    }
-
-    /**
-     * Create an instance of {@link GetAccountingReportRequest }
-     * 
-     */
-    public GetAccountingReportRequest createGetAccountingReportRequest() {
-        return new GetAccountingReportRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetAccountingReportResponse }
-     * 
-     */
-    public GetAccountingReportResponse createGetAccountingReportResponse() {
-        return new GetAccountingReportResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfAccountingReportRow }
-     * 
-     */
-    public ArrayOfAccountingReportRow createArrayOfAccountingReportRow() {
-        return new ArrayOfAccountingReportRow();
-    }
-
-    /**
-     * Create an instance of {@link AccountingReportRow }
-     * 
-     */
-    public AccountingReportRow createAccountingReportRow() {
-        return new AccountingReportRow();
-    }
-
-    /**
-     * Create an instance of {@link GetFinancialReportRequest }
-     * 
-     */
-    public GetFinancialReportRequest createGetFinancialReportRequest() {
-        return new GetFinancialReportRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetFinancialReportResponse }
-     * 
-     */
-    public GetFinancialReportResponse createGetFinancialReportResponse() {
-        return new GetFinancialReportResponse();
-    }
-
-    /**
-     * Create an instance of {@link FinancialReportHeader }
-     * 
-     */
-    public FinancialReportHeader createFinancialReportHeader() {
-        return new FinancialReportHeader();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfFinancialReportRow }
-     * 
-     */
-    public ArrayOfFinancialReportRow createArrayOfFinancialReportRow() {
-        return new ArrayOfFinancialReportRow();
-    }
-
-    /**
-     * Create an instance of {@link FinancialReportRow }
-     * 
-     */
-    public FinancialReportRow createFinancialReportRow() {
-        return new FinancialReportRow();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoiceJournalReportRequest }
-     * 
-     */
-    public GetInvoiceJournalReportRequest createGetInvoiceJournalReportRequest() {
-        return new GetInvoiceJournalReportRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoiceJournalReportResponse }
-     * 
-     */
-    public GetInvoiceJournalReportResponse createGetInvoiceJournalReportResponse() {
-        return new GetInvoiceJournalReportResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfInvoiceJournalReportRow }
-     * 
-     */
-    public ArrayOfInvoiceJournalReportRow createArrayOfInvoiceJournalReportRow() {
-        return new ArrayOfInvoiceJournalReportRow();
-    }
-
-    /**
-     * Create an instance of {@link InvoiceJournalReportRow }
-     * 
-     */
-    public InvoiceJournalReportRow createInvoiceJournalReportRow() {
-        return new InvoiceJournalReportRow();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoicePdfLinkRequest }
-     * 
-     */
-    public GetInvoicePdfLinkRequest createGetInvoicePdfLinkRequest() {
-        return new GetInvoicePdfLinkRequest();
-    }
-
-    /**
-     * Create an instance of {@link PdfLinkResponse }
-     * 
-     */
-    public PdfLinkResponse createPdfLinkResponse() {
-        return new PdfLinkResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoiceReportRequest }
-     * 
-     */
-    public GetInvoiceReportRequest createGetInvoiceReportRequest() {
-        return new GetInvoiceReportRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoiceReportResponse }
-     * 
-     */
-    public GetInvoiceReportResponse createGetInvoiceReportResponse() {
-        return new GetInvoiceReportResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfInvoiceReportRow }
-     * 
-     */
-    public ArrayOfInvoiceReportRow createArrayOfInvoiceReportRow() {
-        return new ArrayOfInvoiceReportRow();
-    }
-
-    /**
-     * Create an instance of {@link InvoiceReportRow }
-     * 
-     */
-    public InvoiceReportRow createInvoiceReportRow() {
-        return new InvoiceReportRow();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoicesWithChangedDueDateRequest }
-     * 
-     */
-    public GetInvoicesWithChangedDueDateRequest createGetInvoicesWithChangedDueDateRequest() {
-        return new GetInvoicesWithChangedDueDateRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoicesWithChangedDueDateResponse }
-     * 
-     */
-    public GetInvoicesWithChangedDueDateResponse createGetInvoicesWithChangedDueDateResponse() {
-        return new GetInvoicesWithChangedDueDateResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfInvoiceWithChangedDueDate }
-     * 
-     */
-    public ArrayOfInvoiceWithChangedDueDate createArrayOfInvoiceWithChangedDueDate() {
-        return new ArrayOfInvoiceWithChangedDueDate();
-    }
-
-    /**
-     * Create an instance of {@link InvoiceWithChangedDueDate }
-     * 
-     */
-    public InvoiceWithChangedDueDate createInvoiceWithChangedDueDate() {
-        return new InvoiceWithChangedDueDate();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfKickbackReportRow }
-     * 
-     */
-    public ArrayOfKickbackReportRow createArrayOfKickbackReportRow() {
-        return new ArrayOfKickbackReportRow();
-    }
-
-    /**
-     * Create an instance of {@link KickbackReportRow }
-     * 
-     */
-    public KickbackReportRow createKickbackReportRow() {
-        return new KickbackReportRow();
-    }
-
-    /**
-     * Create an instance of {@link GetOrderEventsRequest }
-     * 
-     */
-    public GetOrderEventsRequest createGetOrderEventsRequest() {
-        return new GetOrderEventsRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetOrderEventsResponse }
-     * 
-     */
-    public GetOrderEventsResponse createGetOrderEventsResponse() {
-        return new GetOrderEventsResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfOrderEvent }
-     * 
-     */
-    public ArrayOfOrderEvent createArrayOfOrderEvent() {
-        return new ArrayOfOrderEvent();
-    }
-
-    /**
-     * Create an instance of {@link OrderEvent }
-     * 
-     */
-    public OrderEvent createOrderEvent() {
-        return new OrderEvent();
-    }
-
-    /**
-     * Create an instance of {@link PendingEvent }
-     * 
-     */
-    public PendingEvent createPendingEvent() {
-        return new PendingEvent();
-    }
-
-    /**
-     * Create an instance of {@link GetOrderPdfLinkRequest }
-     * 
-     */
-    public GetOrderPdfLinkRequest createGetOrderPdfLinkRequest() {
-        return new GetOrderPdfLinkRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetPaymentPlanReportRequest }
-     * 
-     */
-    public GetPaymentPlanReportRequest createGetPaymentPlanReportRequest() {
-        return new GetPaymentPlanReportRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetPaymentPlanReportResponse }
-     * 
-     */
-    public GetPaymentPlanReportResponse createGetPaymentPlanReportResponse() {
-        return new GetPaymentPlanReportResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfPaymentPlanReportRow }
-     * 
-     */
-    public ArrayOfPaymentPlanReportRow createArrayOfPaymentPlanReportRow() {
-        return new ArrayOfPaymentPlanReportRow();
-    }
-
-    /**
-     * Create an instance of {@link PaymentPlanReportRow }
-     * 
-     */
-    public PaymentPlanReportRow createPaymentPlanReportRow() {
-        return new PaymentPlanReportRow();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfPendingReason }
-     * 
-     */
-    public ArrayOfPendingReason createArrayOfPendingReason() {
-        return new ArrayOfPendingReason();
-    }
-
-    /**
-     * Create an instance of {@link PendingReason }
-     * 
-     */
-    public PendingReason createPendingReason() {
-        return new PendingReason();
-    }
-
-    /**
-     * Create an instance of {@link GetRegressionReportRequest }
-     * 
-     */
-    public GetRegressionReportRequest createGetRegressionReportRequest() {
-        return new GetRegressionReportRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetRegressionReportResponse }
-     * 
-     */
-    public GetRegressionReportResponse createGetRegressionReportResponse() {
-        return new GetRegressionReportResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfRegressionReportRow }
-     * 
-     */
-    public ArrayOfRegressionReportRow createArrayOfRegressionReportRow() {
-        return new ArrayOfRegressionReportRow();
-    }
-
-    /**
-     * Create an instance of {@link RegressionReportRow }
-     * 
-     */
-    public RegressionReportRow createRegressionReportRow() {
-        return new RegressionReportRow();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfSpecificationRow }
-     * 
-     */
-    public ArrayOfSpecificationRow createArrayOfSpecificationRow() {
-        return new ArrayOfSpecificationRow();
-    }
-
-    /**
-     * Create an instance of {@link SpecificationRow }
-     * 
-     */
-    public SpecificationRow createSpecificationRow() {
-        return new SpecificationRow();
-    }
-
-    /**
-     * Create an instance of {@link SpecificationSummation }
-     * 
-     */
-    public SpecificationSummation createSpecificationSummation() {
-        return new SpecificationSummation();
-    }
-
-    /**
-     * Create an instance of {@link ReleasePendingRequest }
-     * 
-     */
-    public ReleasePendingRequest createReleasePendingRequest() {
-        return new ReleasePendingRequest();
-    }
-
-    /**
-     * Create an instance of {@link ReleasePendingResponse }
-     * 
-     */
-    public ReleasePendingResponse createReleasePendingResponse() {
-        return new ReleasePendingResponse();
-    }
-
-    /**
-     * Create an instance of {@link UpdateOrderRequest }
-     * 
-     */
-    public UpdateOrderRequest createUpdateOrderRequest() {
-        return new UpdateOrderRequest();
-    }
-
-    /**
-     * Create an instance of {@link UpdateOrderResponse }
-     * 
-     */
-    public UpdateOrderResponse createUpdateOrderResponse() {
-        return new UpdateOrderResponse();
-    }
-
-    /**
-     * Create an instance of {@link UpdateOrderRowsRequest }
-     * 
-     */
-    public UpdateOrderRowsRequest createUpdateOrderRowsRequest() {
-        return new UpdateOrderRowsRequest();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfNumberedOrderRow }
-     * 
-     */
-    public ArrayOfNumberedOrderRow createArrayOfNumberedOrderRow() {
-        return new ArrayOfNumberedOrderRow();
-    }
-
-    /**
-     * Create an instance of {@link NumberedOrderRow }
-     * 
-     */
-    public NumberedOrderRow createNumberedOrderRow() {
-        return new NumberedOrderRow();
-    }
-
-    /**
-     * Create an instance of {@link UpdateOrderRowsResponse }
-     * 
-     */
-    public UpdateOrderRowsResponse createUpdateOrderRowsResponse() {
-        return new UpdateOrderRowsResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetOrdersRequest }
-     * 
-     */
-    public GetOrdersRequest createGetOrdersRequest() {
-        return new GetOrdersRequest();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfGetOrderInformation }
-     * 
-     */
-    public ArrayOfGetOrderInformation createArrayOfGetOrderInformation() {
-        return new ArrayOfGetOrderInformation();
-    }
-
-    /**
-     * Create an instance of {@link GetOrderInformation }
-     * 
-     */
-    public GetOrderInformation createGetOrderInformation() {
-        return new GetOrderInformation();
-    }
-
-    /**
-     * Create an instance of {@link GetOrdersResponse }
-     * 
-     */
-    public GetOrdersResponse createGetOrdersResponse() {
-        return new GetOrdersResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfOrder }
-     * 
-     */
-    public ArrayOfOrder createArrayOfOrder() {
-        return new ArrayOfOrder();
-    }
-
-    /**
-     * Create an instance of {@link Order }
-     * 
-     */
-    public Order createOrder() {
-        return new Order();
-    }
-
-    /**
-     * Create an instance of {@link CreditReportStatus }
-     * 
-     */
-    public CreditReportStatus createCreditReportStatus() {
-        return new CreditReportStatus();
-    }
-
-    /**
-     * Create an instance of {@link PaymentPlanDetails }
-     * 
-     */
-    public PaymentPlanDetails createPaymentPlanDetails() {
-        return new PaymentPlanDetails();
-    }
-
-    /**
-     * Create an instance of {@link DeliveryRequest }
-     * 
-     */
-    public DeliveryRequest createDeliveryRequest() {
-        return new DeliveryRequest();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDeliverOrderInformation }
-     * 
-     */
-    public ArrayOfDeliverOrderInformation createArrayOfDeliverOrderInformation() {
-        return new ArrayOfDeliverOrderInformation();
-    }
-
-    /**
-     * Create an instance of {@link SearchOrdersRequest }
-     * 
-     */
-    public SearchOrdersRequest createSearchOrdersRequest() {
-        return new SearchOrdersRequest();
-    }
-
-    /**
-     * Create an instance of {@link SearchOrderFilter }
-     * 
-     */
-    public SearchOrderFilter createSearchOrderFilter() {
-        return new SearchOrderFilter();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfOrderDeliveryStatus }
-     * 
-     */
-    public ArrayOfOrderDeliveryStatus createArrayOfOrderDeliveryStatus() {
-        return new ArrayOfOrderDeliveryStatus();
-    }
-
-    /**
-     * Create an instance of {@link SearchOrderSorting }
-     * 
-     */
-    public SearchOrderSorting createSearchOrderSorting() {
-        return new SearchOrderSorting();
-    }
-
-    /**
-     * Create an instance of {@link SearchOrdersResponse }
-     * 
-     */
-    public SearchOrdersResponse createSearchOrdersResponse() {
-        return new SearchOrdersResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfOrderListItem }
-     * 
-     */
-    public ArrayOfOrderListItem createArrayOfOrderListItem() {
-        return new ArrayOfOrderListItem();
-    }
-
-    /**
-     * Create an instance of {@link OrderListItem }
-     * 
-     */
-    public OrderListItem createOrderListItem() {
-        return new OrderListItem();
-    }
-
-    /**
-     * Create an instance of {@link SearchInvoicesRequest }
-     * 
-     */
-    public SearchInvoicesRequest createSearchInvoicesRequest() {
-        return new SearchInvoicesRequest();
-    }
-
-    /**
-     * Create an instance of {@link SearchInvoiceFilter }
-     * 
-     */
-    public SearchInvoiceFilter createSearchInvoiceFilter() {
-        return new SearchInvoiceFilter();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfInvoicePaymentStatus }
-     * 
-     */
-    public ArrayOfInvoicePaymentStatus createArrayOfInvoicePaymentStatus() {
-        return new ArrayOfInvoicePaymentStatus();
-    }
-
-    /**
-     * Create an instance of {@link SearchInvoiceSorting }
-     * 
-     */
-    public SearchInvoiceSorting createSearchInvoiceSorting() {
-        return new SearchInvoiceSorting();
-    }
-
-    /**
-     * Create an instance of {@link SearchInvoicesResponse }
-     * 
-     */
-    public SearchInvoicesResponse createSearchInvoicesResponse() {
-        return new SearchInvoicesResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfInvoiceListItem }
-     * 
-     */
-    public ArrayOfInvoiceListItem createArrayOfInvoiceListItem() {
-        return new ArrayOfInvoiceListItem();
-    }
-
-    /**
-     * Create an instance of {@link InvoiceListItem }
-     * 
-     */
-    public InvoiceListItem createInvoiceListItem() {
-        return new InvoiceListItem();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoicesRequest }
-     * 
-     */
-    public GetInvoicesRequest createGetInvoicesRequest() {
-        return new GetInvoicesRequest();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfGetInvoiceInformation }
-     * 
-     */
-    public ArrayOfGetInvoiceInformation createArrayOfGetInvoiceInformation() {
-        return new ArrayOfGetInvoiceInformation();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoiceInformation }
-     * 
-     */
-    public GetInvoiceInformation createGetInvoiceInformation() {
-        return new GetInvoiceInformation();
-    }
-
-    /**
-     * Create an instance of {@link GetInvoicesResponse }
-     * 
-     */
-    public GetInvoicesResponse createGetInvoicesResponse() {
-        return new GetInvoicesResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfInvoice }
-     * 
-     */
-    public ArrayOfInvoice createArrayOfInvoice() {
-        return new ArrayOfInvoice();
-    }
-
-    /**
-     * Create an instance of {@link Invoice }
-     * 
-     */
-    public Invoice createInvoice() {
-        return new Invoice();
-    }
-
-    /**
-     * Create an instance of {@link SearchPaymentPlansRequest }
-     * 
-     */
-    public SearchPaymentPlansRequest createSearchPaymentPlansRequest() {
-        return new SearchPaymentPlansRequest();
-    }
-
-    /**
-     * Create an instance of {@link SearchPaymentPlanFilter }
-     * 
-     */
-    public SearchPaymentPlanFilter createSearchPaymentPlanFilter() {
-        return new SearchPaymentPlanFilter();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfPaymentPlanStatus }
-     * 
-     */
-    public ArrayOfPaymentPlanStatus createArrayOfPaymentPlanStatus() {
-        return new ArrayOfPaymentPlanStatus();
-    }
-
-    /**
-     * Create an instance of {@link SearchPaymentPlanSorting }
-     * 
-     */
-    public SearchPaymentPlanSorting createSearchPaymentPlanSorting() {
-        return new SearchPaymentPlanSorting();
-    }
-
-    /**
-     * Create an instance of {@link SearchPaymentPlansResponse }
-     * 
-     */
-    public SearchPaymentPlansResponse createSearchPaymentPlansResponse() {
-        return new SearchPaymentPlansResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfPaymentPlanListItem }
-     * 
-     */
-    public ArrayOfPaymentPlanListItem createArrayOfPaymentPlanListItem() {
-        return new ArrayOfPaymentPlanListItem();
-    }
-
-    /**
-     * Create an instance of {@link PaymentPlanListItem }
-     * 
-     */
-    public PaymentPlanListItem createPaymentPlanListItem() {
-        return new PaymentPlanListItem();
-    }
-
-    /**
-     * Create an instance of {@link SumOfOrderAmountRequest }
-     * 
-     */
-    public SumOfOrderAmountRequest createSumOfOrderAmountRequest() {
-        return new SumOfOrderAmountRequest();
-    }
-
-    /**
-     * Create an instance of {@link SumOfAmountResponse }
-     * 
-     */
-    public SumOfAmountResponse createSumOfAmountResponse() {
-        return new SumOfAmountResponse();
-    }
-
-    /**
-     * Create an instance of {@link SumOfInvoiceAmountRequest }
-     * 
-     */
-    public SumOfInvoiceAmountRequest createSumOfInvoiceAmountRequest() {
-        return new SumOfInvoiceAmountRequest();
-    }
-
-    /**
-     * Create an instance of {@link SumOfPaymentPlanAmountRequest }
-     * 
-     */
-    public SumOfPaymentPlanAmountRequest createSumOfPaymentPlanAmountRequest() {
-        return new SumOfPaymentPlanAmountRequest();
-    }
-
-    /**
-     * Create an instance of {@link CreateOrderRequest }
-     * 
-     */
-    public CreateOrderRequest createCreateOrderRequest() {
-        return new CreateOrderRequest();
-    }
-
-    /**
-     * Create an instance of {@link CreateOrderResponse }
-     * 
-     */
-    public CreateOrderResponse createCreateOrderResponse() {
-        return new CreateOrderResponse();
-    }
-
-    /**
-     * Create an instance of {@link ChangeInvoiceDueDateRequest }
-     * 
-     */
-    public ChangeInvoiceDueDateRequest createChangeInvoiceDueDateRequest() {
-        return new ChangeInvoiceDueDateRequest();
-    }
-
-    /**
-     * Create an instance of {@link ChangeInvoiceDueDateResponse }
-     * 
-     */
-    public ChangeInvoiceDueDateResponse createChangeInvoiceDueDateResponse() {
-        return new ChangeInvoiceDueDateResponse();
-    }
-
-    /**
-     * Create an instance of {@link CreateApprovedOrderRequest }
-     * 
-     */
-    public CreateApprovedOrderRequest createCreateApprovedOrderRequest() {
-        return new CreateApprovedOrderRequest();
-    }
-
-    /**
-     * Create an instance of {@link CustomerInformation }
-     * 
-     */
-    public CustomerInformation createCustomerInformation() {
-        return new CustomerInformation();
-    }
-
-    /**
-     * Create an instance of {@link DeliveryAddress }
-     * 
-     */
-    public DeliveryAddress createDeliveryAddress() {
-        return new DeliveryAddress();
-    }
-
-    /**
-     * Create an instance of {@link InvoiceAddress }
-     * 
-     */
-    public InvoiceAddress createInvoiceAddress() {
-        return new InvoiceAddress();
-    }
-
-    /**
-     * Create an instance of {@link OrderInformation }
-     * 
-     */
-    public OrderInformation createOrderInformation() {
-        return new OrderInformation();
-    }
-
-    /**
-     * Create an instance of {@link AccountCreditInformation }
-     * 
-     */
-    public AccountCreditInformation createAccountCreditInformation() {
-        return new AccountCreditInformation();
-    }
-
-    /**
-     * Create an instance of {@link InvoiceInformation }
-     * 
-     */
-    public InvoiceInformation createInvoiceInformation() {
-        return new InvoiceInformation();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfBillingReference }
-     * 
-     */
-    public ArrayOfBillingReference createArrayOfBillingReference() {
-        return new ArrayOfBillingReference();
-    }
-
-    /**
-     * Create an instance of {@link BillingReference }
-     * 
-     */
-    public BillingReference createBillingReference() {
-        return new BillingReference();
-    }
-
-    /**
-     * Create an instance of {@link PaymentPlanInformation }
-     * 
-     */
-    public PaymentPlanInformation createPaymentPlanInformation() {
-        return new PaymentPlanInformation();
-    }
-
-    /**
-     * Create an instance of {@link CreateApprovedOrderResponse }
-     * 
-     */
-    public CreateApprovedOrderResponse createCreateApprovedOrderResponse() {
-        return new CreateApprovedOrderResponse();
-    }
-
-    /**
-     * Create an instance of {@link SearchAccountCreditsRequest }
-     * 
-     */
-    public SearchAccountCreditsRequest createSearchAccountCreditsRequest() {
-        return new SearchAccountCreditsRequest();
-    }
-
-    /**
-     * Create an instance of {@link SearchAccountCreditFilter }
-     * 
-     */
-    public SearchAccountCreditFilter createSearchAccountCreditFilter() {
-        return new SearchAccountCreditFilter();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfAccountCreditStatus }
-     * 
-     */
-    public ArrayOfAccountCreditStatus createArrayOfAccountCreditStatus() {
-        return new ArrayOfAccountCreditStatus();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfAccountCreditListItem }
-     * 
-     */
-    public ArrayOfAccountCreditListItem createArrayOfAccountCreditListItem() {
-        return new ArrayOfAccountCreditListItem();
-    }
-
-    /**
-     * Create an instance of {@link AccountCreditListItem }
-     * 
-     */
-    public AccountCreditListItem createAccountCreditListItem() {
-        return new AccountCreditListItem();
-    }
-
-    /**
-     * Create an instance of {@link GetAccountCreditsRequest }
-     * 
-     */
-    public GetAccountCreditsRequest createGetAccountCreditsRequest() {
-        return new GetAccountCreditsRequest();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfAccountCreditItem }
-     * 
-     */
-    public ArrayOfAccountCreditItem createArrayOfAccountCreditItem() {
-        return new ArrayOfAccountCreditItem();
-    }
-
-    /**
-     * Create an instance of {@link AccountCreditItem }
-     * 
-     */
-    public AccountCreditItem createAccountCreditItem() {
-        return new AccountCreditItem();
-    }
-
-    /**
-     * Create an instance of {@link AccountCreditDetails }
-     * 
-     */
-    public AccountCreditDetails createAccountCreditDetails() {
-        return new AccountCreditDetails();
-    }
-
-    /**
-     * Create an instance of {@link SearchAccountCreditSorting }
-     * 
-     */
-    public SearchAccountCreditSorting createSearchAccountCreditSorting() {
-        return new SearchAccountCreditSorting();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfGetAccountCreditInformation }
-     * 
-     */
-    public ArrayOfGetAccountCreditInformation createArrayOfGetAccountCreditInformation() {
-        return new ArrayOfGetAccountCreditInformation();
-    }
-
-    /**
-     * Create an instance of {@link GetAccountCreditInformation }
-     * 
-     */
-    public GetAccountCreditInformation createGetAccountCreditInformation() {
-        return new GetAccountCreditInformation();
-    }
-
-    /**
-     * Create an instance of {@link AddOrderRows }
-     * 
-     */
-    public AddOrderRows createAddOrderRows() {
-        return new AddOrderRows();
     }
 
     /**
@@ -1547,6 +315,22 @@ public class ObjectFactory {
      */
     public ApproveInvoice createApproveInvoice() {
         return new ApproveInvoice();
+    }
+
+    /**
+     * Create an instance of {@link ApproveInvoiceRequest }
+     * 
+     */
+    public ApproveInvoiceRequest createApproveInvoiceRequest() {
+        return new ApproveInvoiceRequest();
+    }
+
+    /**
+     * Create an instance of {@link ApproveInvoiceResponse }
+     * 
+     */
+    public ApproveInvoiceResponse createApproveInvoiceResponse() {
+        return new ApproveInvoiceResponse();
     }
 
     /**
@@ -1630,6 +414,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CancelOrderRequest }
+     * 
+     */
+    public CancelOrderRequest createCancelOrderRequest() {
+        return new CancelOrderRequest();
+    }
+
+    /**
+     * Create an instance of {@link CancelOrderResponse }
+     * 
+     */
+    public CancelOrderResponse createCancelOrderResponse() {
+        return new CancelOrderResponse();
+    }
+
+    /**
      * Create an instance of {@link CancelOrderResponse2 }
      * 
      */
@@ -1643,6 +443,22 @@ public class ObjectFactory {
      */
     public CancelOrderRows createCancelOrderRows() {
         return new CancelOrderRows();
+    }
+
+    /**
+     * Create an instance of {@link CancelOrderRowsRequest }
+     * 
+     */
+    public CancelOrderRowsRequest createCancelOrderRowsRequest() {
+        return new CancelOrderRowsRequest();
+    }
+
+    /**
+     * Create an instance of {@link CancelOrderRowsResponse }
+     * 
+     */
+    public CancelOrderRowsResponse createCancelOrderRowsResponse() {
+        return new CancelOrderRowsResponse();
     }
 
     /**
@@ -1662,6 +478,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CancelPaymentPlanAmountRequest }
+     * 
+     */
+    public CancelPaymentPlanAmountRequest createCancelPaymentPlanAmountRequest() {
+        return new CancelPaymentPlanAmountRequest();
+    }
+
+    /**
+     * Create an instance of {@link CancelPaymentPlanAmountResponse }
+     * 
+     */
+    public CancelPaymentPlanAmountResponse createCancelPaymentPlanAmountResponse() {
+        return new CancelPaymentPlanAmountResponse();
+    }
+
+    /**
      * Create an instance of {@link CancelPaymentPlanAmountResponse2 }
      * 
      */
@@ -1675,6 +507,22 @@ public class ObjectFactory {
      */
     public CancelPaymentPlanRows createCancelPaymentPlanRows() {
         return new CancelPaymentPlanRows();
+    }
+
+    /**
+     * Create an instance of {@link CancelPaymentPlanRowsRequest }
+     * 
+     */
+    public CancelPaymentPlanRowsRequest createCancelPaymentPlanRowsRequest() {
+        return new CancelPaymentPlanRowsRequest();
+    }
+
+    /**
+     * Create an instance of {@link CancelPaymentPlanRowsResponse }
+     * 
+     */
+    public CancelPaymentPlanRowsResponse createCancelPaymentPlanRowsResponse() {
+        return new CancelPaymentPlanRowsResponse();
     }
 
     /**
@@ -1694,6 +542,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CreditInvoiceRequest }
+     * 
+     */
+    public CreditInvoiceRequest createCreditInvoiceRequest() {
+        return new CreditInvoiceRequest();
+    }
+
+    /**
      * Create an instance of {@link CreditInvoiceRowsResponse }
      * 
      */
@@ -1702,11 +558,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeliveryResponse }
+     * 
+     */
+    public DeliveryResponse createDeliveryResponse() {
+        return new DeliveryResponse();
+    }
+
+    /**
      * Create an instance of {@link DeliverPartial }
      * 
      */
     public DeliverPartial createDeliverPartial() {
         return new DeliverPartial();
+    }
+
+    /**
+     * Create an instance of {@link PartialDeliveryRequest }
+     * 
+     */
+    public PartialDeliveryRequest createPartialDeliveryRequest() {
+        return new PartialDeliveryRequest();
     }
 
     /**
@@ -1723,6 +595,14 @@ public class ObjectFactory {
      */
     public ExtendOrder createExtendOrder() {
         return new ExtendOrder();
+    }
+
+    /**
+     * Create an instance of {@link ExtendOrderRequest }
+     * 
+     */
+    public ExtendOrderRequest createExtendOrderRequest() {
+        return new ExtendOrderRequest();
     }
 
     /**
@@ -1814,6 +694,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAccountingReportRequest }
+     * 
+     */
+    public GetAccountingReportRequest createGetAccountingReportRequest() {
+        return new GetAccountingReportRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetAccountingReportResponse }
+     * 
+     */
+    public GetAccountingReportResponse createGetAccountingReportResponse() {
+        return new GetAccountingReportResponse();
+    }
+
+    /**
      * Create an instance of {@link GetAccountingReportResponse2 }
      * 
      */
@@ -1862,6 +758,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetFinancialReportRequest }
+     * 
+     */
+    public GetFinancialReportRequest createGetFinancialReportRequest() {
+        return new GetFinancialReportRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetFinancialReportResponse }
+     * 
+     */
+    public GetFinancialReportResponse createGetFinancialReportResponse() {
+        return new GetFinancialReportResponse();
+    }
+
+    /**
      * Create an instance of {@link GetFinancialReportResponse2 }
      * 
      */
@@ -1875,6 +787,22 @@ public class ObjectFactory {
      */
     public GetInvoiceJournalReport createGetInvoiceJournalReport() {
         return new GetInvoiceJournalReport();
+    }
+
+    /**
+     * Create an instance of {@link GetInvoiceJournalReportRequest }
+     * 
+     */
+    public GetInvoiceJournalReportRequest createGetInvoiceJournalReportRequest() {
+        return new GetInvoiceJournalReportRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetInvoiceJournalReportResponse }
+     * 
+     */
+    public GetInvoiceJournalReportResponse createGetInvoiceJournalReportResponse() {
+        return new GetInvoiceJournalReportResponse();
     }
 
     /**
@@ -1894,6 +822,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetInvoicePdfLinkRequest }
+     * 
+     */
+    public GetInvoicePdfLinkRequest createGetInvoicePdfLinkRequest() {
+        return new GetInvoicePdfLinkRequest();
+    }
+
+    /**
      * Create an instance of {@link GetInvoicePdfLinkResponse }
      * 
      */
@@ -1902,11 +838,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PdfLinkResponse }
+     * 
+     */
+    public PdfLinkResponse createPdfLinkResponse() {
+        return new PdfLinkResponse();
+    }
+
+    /**
      * Create an instance of {@link GetInvoiceReport }
      * 
      */
     public GetInvoiceReport createGetInvoiceReport() {
         return new GetInvoiceReport();
+    }
+
+    /**
+     * Create an instance of {@link GetInvoiceReportRequest }
+     * 
+     */
+    public GetInvoiceReportRequest createGetInvoiceReportRequest() {
+        return new GetInvoiceReportRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetInvoiceReportResponse }
+     * 
+     */
+    public GetInvoiceReportResponse createGetInvoiceReportResponse() {
+        return new GetInvoiceReportResponse();
     }
 
     /**
@@ -1958,6 +918,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetInvoicesWithChangedDueDateRequest }
+     * 
+     */
+    public GetInvoicesWithChangedDueDateRequest createGetInvoicesWithChangedDueDateRequest() {
+        return new GetInvoicesWithChangedDueDateRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetInvoicesWithChangedDueDateResponse }
+     * 
+     */
+    public GetInvoicesWithChangedDueDateResponse createGetInvoicesWithChangedDueDateResponse() {
+        return new GetInvoicesWithChangedDueDateResponse();
+    }
+
+    /**
      * Create an instance of {@link GetInvoicesWithChangedDueDateResponse2 }
      * 
      */
@@ -2006,6 +982,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetOrderEventsRequest }
+     * 
+     */
+    public GetOrderEventsRequest createGetOrderEventsRequest() {
+        return new GetOrderEventsRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetOrderEventsResponse }
+     * 
+     */
+    public GetOrderEventsResponse createGetOrderEventsResponse() {
+        return new GetOrderEventsResponse();
+    }
+
+    /**
      * Create an instance of {@link GetOrderEventsResponse2 }
      * 
      */
@@ -2022,6 +1014,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetOrderPdfLinkRequest }
+     * 
+     */
+    public GetOrderPdfLinkRequest createGetOrderPdfLinkRequest() {
+        return new GetOrderPdfLinkRequest();
+    }
+
+    /**
      * Create an instance of {@link GetOrderPdfLinkResponse }
      * 
      */
@@ -2035,6 +1035,22 @@ public class ObjectFactory {
      */
     public GetPaymentPlanReport createGetPaymentPlanReport() {
         return new GetPaymentPlanReport();
+    }
+
+    /**
+     * Create an instance of {@link GetPaymentPlanReportRequest }
+     * 
+     */
+    public GetPaymentPlanReportRequest createGetPaymentPlanReportRequest() {
+        return new GetPaymentPlanReportRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetPaymentPlanReportResponse }
+     * 
+     */
+    public GetPaymentPlanReportResponse createGetPaymentPlanReportResponse() {
+        return new GetPaymentPlanReportResponse();
     }
 
     /**
@@ -2086,6 +1102,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetRegressionReportRequest }
+     * 
+     */
+    public GetRegressionReportRequest createGetRegressionReportRequest() {
+        return new GetRegressionReportRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetRegressionReportResponse }
+     * 
+     */
+    public GetRegressionReportResponse createGetRegressionReportResponse() {
+        return new GetRegressionReportResponse();
+    }
+
+    /**
      * Create an instance of {@link GetRegressionReportResponse2 }
      * 
      */
@@ -2134,6 +1166,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReleasePendingRequest }
+     * 
+     */
+    public ReleasePendingRequest createReleasePendingRequest() {
+        return new ReleasePendingRequest();
+    }
+
+    /**
      * Create an instance of {@link ReleasePendingOrderResponse }
      * 
      */
@@ -2142,11 +1182,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReleasePendingResponse }
+     * 
+     */
+    public ReleasePendingResponse createReleasePendingResponse() {
+        return new ReleasePendingResponse();
+    }
+
+    /**
      * Create an instance of {@link UpdateOrder }
      * 
      */
     public UpdateOrder createUpdateOrder() {
         return new UpdateOrder();
+    }
+
+    /**
+     * Create an instance of {@link UpdateOrderRequest }
+     * 
+     */
+    public UpdateOrderRequest createUpdateOrderRequest() {
+        return new UpdateOrderRequest();
+    }
+
+    /**
+     * Create an instance of {@link UpdateOrderResponse }
+     * 
+     */
+    public UpdateOrderResponse createUpdateOrderResponse() {
+        return new UpdateOrderResponse();
     }
 
     /**
@@ -2166,6 +1230,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UpdateOrderRowsRequest }
+     * 
+     */
+    public UpdateOrderRowsRequest createUpdateOrderRowsRequest() {
+        return new UpdateOrderRowsRequest();
+    }
+
+    /**
+     * Create an instance of {@link UpdateOrderRowsResponse }
+     * 
+     */
+    public UpdateOrderRowsResponse createUpdateOrderRowsResponse() {
+        return new UpdateOrderRowsResponse();
+    }
+
+    /**
      * Create an instance of {@link UpdateOrderRowsResponse2 }
      * 
      */
@@ -2179,6 +1259,22 @@ public class ObjectFactory {
      */
     public GetOrders createGetOrders() {
         return new GetOrders();
+    }
+
+    /**
+     * Create an instance of {@link GetOrdersRequest }
+     * 
+     */
+    public GetOrdersRequest createGetOrdersRequest() {
+        return new GetOrdersRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetOrdersResponse }
+     * 
+     */
+    public GetOrdersResponse createGetOrdersResponse() {
+        return new GetOrdersResponse();
     }
 
     /**
@@ -2198,6 +1294,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeliveryRequest }
+     * 
+     */
+    public DeliveryRequest createDeliveryRequest() {
+        return new DeliveryRequest();
+    }
+
+    /**
      * Create an instance of {@link DeliverOrdersResponse }
      * 
      */
@@ -2211,6 +1315,22 @@ public class ObjectFactory {
      */
     public SearchOrders createSearchOrders() {
         return new SearchOrders();
+    }
+
+    /**
+     * Create an instance of {@link SearchOrdersRequest }
+     * 
+     */
+    public SearchOrdersRequest createSearchOrdersRequest() {
+        return new SearchOrdersRequest();
+    }
+
+    /**
+     * Create an instance of {@link SearchOrdersResponse }
+     * 
+     */
+    public SearchOrdersResponse createSearchOrdersResponse() {
+        return new SearchOrdersResponse();
     }
 
     /**
@@ -2230,6 +1350,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SearchInvoicesRequest }
+     * 
+     */
+    public SearchInvoicesRequest createSearchInvoicesRequest() {
+        return new SearchInvoicesRequest();
+    }
+
+    /**
+     * Create an instance of {@link SearchInvoicesResponse }
+     * 
+     */
+    public SearchInvoicesResponse createSearchInvoicesResponse() {
+        return new SearchInvoicesResponse();
+    }
+
+    /**
      * Create an instance of {@link SearchInvoicesResponse2 }
      * 
      */
@@ -2243,6 +1379,22 @@ public class ObjectFactory {
      */
     public GetInvoices createGetInvoices() {
         return new GetInvoices();
+    }
+
+    /**
+     * Create an instance of {@link GetInvoicesRequest }
+     * 
+     */
+    public GetInvoicesRequest createGetInvoicesRequest() {
+        return new GetInvoicesRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetInvoicesResponse }
+     * 
+     */
+    public GetInvoicesResponse createGetInvoicesResponse() {
+        return new GetInvoicesResponse();
     }
 
     /**
@@ -2262,6 +1414,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SearchPaymentPlansRequest }
+     * 
+     */
+    public SearchPaymentPlansRequest createSearchPaymentPlansRequest() {
+        return new SearchPaymentPlansRequest();
+    }
+
+    /**
+     * Create an instance of {@link SearchPaymentPlansResponse }
+     * 
+     */
+    public SearchPaymentPlansResponse createSearchPaymentPlansResponse() {
+        return new SearchPaymentPlansResponse();
+    }
+
+    /**
      * Create an instance of {@link SearchPaymentPlansResponse2 }
      * 
      */
@@ -2278,6 +1446,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SumOfOrderAmountRequest }
+     * 
+     */
+    public SumOfOrderAmountRequest createSumOfOrderAmountRequest() {
+        return new SumOfOrderAmountRequest();
+    }
+
+    /**
      * Create an instance of {@link GetSumOfOrderAmountResponse }
      * 
      */
@@ -2286,11 +1462,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SumOfAmountResponse }
+     * 
+     */
+    public SumOfAmountResponse createSumOfAmountResponse() {
+        return new SumOfAmountResponse();
+    }
+
+    /**
      * Create an instance of {@link GetSumOfInvoiceAmount }
      * 
      */
     public GetSumOfInvoiceAmount createGetSumOfInvoiceAmount() {
         return new GetSumOfInvoiceAmount();
+    }
+
+    /**
+     * Create an instance of {@link SumOfInvoiceAmountRequest }
+     * 
+     */
+    public SumOfInvoiceAmountRequest createSumOfInvoiceAmountRequest() {
+        return new SumOfInvoiceAmountRequest();
     }
 
     /**
@@ -2310,6 +1502,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SumOfPaymentPlanAmountRequest }
+     * 
+     */
+    public SumOfPaymentPlanAmountRequest createSumOfPaymentPlanAmountRequest() {
+        return new SumOfPaymentPlanAmountRequest();
+    }
+
+    /**
      * Create an instance of {@link GetSumOfPaymentPlanAmountResponse }
      * 
      */
@@ -2323,6 +1523,22 @@ public class ObjectFactory {
      */
     public CreateOrder createCreateOrder() {
         return new CreateOrder();
+    }
+
+    /**
+     * Create an instance of {@link CreateOrderRequest }
+     * 
+     */
+    public CreateOrderRequest createCreateOrderRequest() {
+        return new CreateOrderRequest();
+    }
+
+    /**
+     * Create an instance of {@link CreateOrderResponse }
+     * 
+     */
+    public CreateOrderResponse createCreateOrderResponse() {
+        return new CreateOrderResponse();
     }
 
     /**
@@ -2342,6 +1558,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ChangeInvoiceDueDateRequest }
+     * 
+     */
+    public ChangeInvoiceDueDateRequest createChangeInvoiceDueDateRequest() {
+        return new ChangeInvoiceDueDateRequest();
+    }
+
+    /**
+     * Create an instance of {@link ChangeInvoiceDueDateResponse }
+     * 
+     */
+    public ChangeInvoiceDueDateResponse createChangeInvoiceDueDateResponse() {
+        return new ChangeInvoiceDueDateResponse();
+    }
+
+    /**
      * Create an instance of {@link ChangeInvoiceDueDateResponse2 }
      * 
      */
@@ -2358,6 +1590,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CreateApprovedOrderRequest }
+     * 
+     */
+    public CreateApprovedOrderRequest createCreateApprovedOrderRequest() {
+        return new CreateApprovedOrderRequest();
+    }
+
+    /**
+     * Create an instance of {@link CreateApprovedOrderResponse }
+     * 
+     */
+    public CreateApprovedOrderResponse createCreateApprovedOrderResponse() {
+        return new CreateApprovedOrderResponse();
+    }
+
+    /**
      * Create an instance of {@link CreateApprovedOrderResponse2 }
      * 
      */
@@ -2371,6 +1619,14 @@ public class ObjectFactory {
      */
     public SearchAccountCredits createSearchAccountCredits() {
         return new SearchAccountCredits();
+    }
+
+    /**
+     * Create an instance of {@link SearchAccountCreditsRequest }
+     * 
+     */
+    public SearchAccountCreditsRequest createSearchAccountCreditsRequest() {
+        return new SearchAccountCreditsRequest();
     }
 
     /**
@@ -2395,6 +1651,14 @@ public class ObjectFactory {
      */
     public GetAccountCredits createGetAccountCredits() {
         return new GetAccountCredits();
+    }
+
+    /**
+     * Create an instance of {@link GetAccountCreditsRequest }
+     * 
+     */
+    public GetAccountCreditsRequest createGetAccountCreditsRequest() {
+        return new GetAccountCreditsRequest();
     }
 
     /**
@@ -2446,35 +1710,707 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CreateOrderInformation }
+     * Create an instance of {@link BasicRequest }
      * 
      */
-    public CreateOrderInformation createCreateOrderInformation() {
-        return new CreateOrderInformation();
+    public BasicRequest createBasicRequest() {
+        return new BasicRequest();
     }
 
     /**
-     * Create an instance of {@link CreateAccountCreditDetails }
+     * Create an instance of {@link Authentication }
      * 
      */
-    public CreateAccountCreditDetails createCreateAccountCreditDetails() {
-        return new CreateAccountCreditDetails();
+    public Authentication createAuthentication() {
+        return new Authentication();
     }
 
     /**
-     * Create an instance of {@link CreatePaymentPlanDetails }
+     * Create an instance of {@link ArrayOfSetting }
      * 
      */
-    public CreatePaymentPlanDetails createCreatePaymentPlanDetails() {
-        return new CreatePaymentPlanDetails();
+    public ArrayOfSetting createArrayOfSetting() {
+        return new ArrayOfSetting();
     }
 
     /**
-     * Create an instance of {@link CreateOrderResult }
+     * Create an instance of {@link Setting }
      * 
      */
-    public CreateOrderResult createCreateOrderResult() {
-        return new CreateOrderResult();
+    public Setting createSetting() {
+        return new Setting();
+    }
+
+    /**
+     * Create an instance of {@link BasicResponse }
+     * 
+     */
+    public BasicResponse createBasicResponse() {
+        return new BasicResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfCancellationRow }
+     * 
+     */
+    public ArrayOfCancellationRow createArrayOfCancellationRow() {
+        return new ArrayOfCancellationRow();
+    }
+
+    /**
+     * Create an instance of {@link CancellationRow }
+     * 
+     */
+    public CancellationRow createCancellationRow() {
+        return new CancellationRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfRowCreditingOption }
+     * 
+     */
+    public ArrayOfRowCreditingOption createArrayOfRowCreditingOption() {
+        return new ArrayOfRowCreditingOption();
+    }
+
+    /**
+     * Create an instance of {@link RowCreditingOption }
+     * 
+     */
+    public RowCreditingOption createRowCreditingOption() {
+        return new RowCreditingOption();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDeliverOrderResult }
+     * 
+     */
+    public ArrayOfDeliverOrderResult createArrayOfDeliverOrderResult() {
+        return new ArrayOfDeliverOrderResult();
+    }
+
+    /**
+     * Create an instance of {@link DeliverOrderResult }
+     * 
+     */
+    public DeliverOrderResult createDeliverOrderResult() {
+        return new DeliverOrderResult();
+    }
+
+    /**
+     * Create an instance of {@link DeliverOrderInformation }
+     * 
+     */
+    public DeliverOrderInformation createDeliverOrderInformation() {
+        return new DeliverOrderInformation();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfRowDeliveryOption }
+     * 
+     */
+    public ArrayOfRowDeliveryOption createArrayOfRowDeliveryOption() {
+        return new ArrayOfRowDeliveryOption();
+    }
+
+    /**
+     * Create an instance of {@link RowDeliveryOption }
+     * 
+     */
+    public RowDeliveryOption createRowDeliveryOption() {
+        return new RowDeliveryOption();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfAccountCreditRegressReportDataRow }
+     * 
+     */
+    public ArrayOfAccountCreditRegressReportDataRow createArrayOfAccountCreditRegressReportDataRow() {
+        return new ArrayOfAccountCreditRegressReportDataRow();
+    }
+
+    /**
+     * Create an instance of {@link AccountCreditRegressReportDataRow }
+     * 
+     */
+    public AccountCreditRegressReportDataRow createAccountCreditRegressReportDataRow() {
+        return new AccountCreditRegressReportDataRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfAccountingAgreementType25ReportDataRow }
+     * 
+     */
+    public ArrayOfAccountingAgreementType25ReportDataRow createArrayOfAccountingAgreementType25ReportDataRow() {
+        return new ArrayOfAccountingAgreementType25ReportDataRow();
+    }
+
+    /**
+     * Create an instance of {@link AccountingAgreementType25ReportDataRow }
+     * 
+     */
+    public AccountingAgreementType25ReportDataRow createAccountingAgreementType25ReportDataRow() {
+        return new AccountingAgreementType25ReportDataRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfAccountingAgreementType25Summation }
+     * 
+     */
+    public ArrayOfAccountingAgreementType25Summation createArrayOfAccountingAgreementType25Summation() {
+        return new ArrayOfAccountingAgreementType25Summation();
+    }
+
+    /**
+     * Create an instance of {@link AccountingAgreementType25Summation }
+     * 
+     */
+    public AccountingAgreementType25Summation createAccountingAgreementType25Summation() {
+        return new AccountingAgreementType25Summation();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfAccountingReportRow }
+     * 
+     */
+    public ArrayOfAccountingReportRow createArrayOfAccountingReportRow() {
+        return new ArrayOfAccountingReportRow();
+    }
+
+    /**
+     * Create an instance of {@link AccountingReportRow }
+     * 
+     */
+    public AccountingReportRow createAccountingReportRow() {
+        return new AccountingReportRow();
+    }
+
+    /**
+     * Create an instance of {@link FinancialReportHeader }
+     * 
+     */
+    public FinancialReportHeader createFinancialReportHeader() {
+        return new FinancialReportHeader();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfFinancialReportRow }
+     * 
+     */
+    public ArrayOfFinancialReportRow createArrayOfFinancialReportRow() {
+        return new ArrayOfFinancialReportRow();
+    }
+
+    /**
+     * Create an instance of {@link FinancialReportRow }
+     * 
+     */
+    public FinancialReportRow createFinancialReportRow() {
+        return new FinancialReportRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfInvoiceJournalReportRow }
+     * 
+     */
+    public ArrayOfInvoiceJournalReportRow createArrayOfInvoiceJournalReportRow() {
+        return new ArrayOfInvoiceJournalReportRow();
+    }
+
+    /**
+     * Create an instance of {@link InvoiceJournalReportRow }
+     * 
+     */
+    public InvoiceJournalReportRow createInvoiceJournalReportRow() {
+        return new InvoiceJournalReportRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfInvoiceReportRow }
+     * 
+     */
+    public ArrayOfInvoiceReportRow createArrayOfInvoiceReportRow() {
+        return new ArrayOfInvoiceReportRow();
+    }
+
+    /**
+     * Create an instance of {@link InvoiceReportRow }
+     * 
+     */
+    public InvoiceReportRow createInvoiceReportRow() {
+        return new InvoiceReportRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfInvoiceWithChangedDueDate }
+     * 
+     */
+    public ArrayOfInvoiceWithChangedDueDate createArrayOfInvoiceWithChangedDueDate() {
+        return new ArrayOfInvoiceWithChangedDueDate();
+    }
+
+    /**
+     * Create an instance of {@link InvoiceWithChangedDueDate }
+     * 
+     */
+    public InvoiceWithChangedDueDate createInvoiceWithChangedDueDate() {
+        return new InvoiceWithChangedDueDate();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfKickbackReportRow }
+     * 
+     */
+    public ArrayOfKickbackReportRow createArrayOfKickbackReportRow() {
+        return new ArrayOfKickbackReportRow();
+    }
+
+    /**
+     * Create an instance of {@link KickbackReportRow }
+     * 
+     */
+    public KickbackReportRow createKickbackReportRow() {
+        return new KickbackReportRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfOrderEvent }
+     * 
+     */
+    public ArrayOfOrderEvent createArrayOfOrderEvent() {
+        return new ArrayOfOrderEvent();
+    }
+
+    /**
+     * Create an instance of {@link OrderEvent }
+     * 
+     */
+    public OrderEvent createOrderEvent() {
+        return new OrderEvent();
+    }
+
+    /**
+     * Create an instance of {@link PendingEvent }
+     * 
+     */
+    public PendingEvent createPendingEvent() {
+        return new PendingEvent();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfPaymentPlanReportRow }
+     * 
+     */
+    public ArrayOfPaymentPlanReportRow createArrayOfPaymentPlanReportRow() {
+        return new ArrayOfPaymentPlanReportRow();
+    }
+
+    /**
+     * Create an instance of {@link PaymentPlanReportRow }
+     * 
+     */
+    public PaymentPlanReportRow createPaymentPlanReportRow() {
+        return new PaymentPlanReportRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfPendingReason }
+     * 
+     */
+    public ArrayOfPendingReason createArrayOfPendingReason() {
+        return new ArrayOfPendingReason();
+    }
+
+    /**
+     * Create an instance of {@link PendingReason }
+     * 
+     */
+    public PendingReason createPendingReason() {
+        return new PendingReason();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfRegressionReportRow }
+     * 
+     */
+    public ArrayOfRegressionReportRow createArrayOfRegressionReportRow() {
+        return new ArrayOfRegressionReportRow();
+    }
+
+    /**
+     * Create an instance of {@link RegressionReportRow }
+     * 
+     */
+    public RegressionReportRow createRegressionReportRow() {
+        return new RegressionReportRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfSpecificationRow }
+     * 
+     */
+    public ArrayOfSpecificationRow createArrayOfSpecificationRow() {
+        return new ArrayOfSpecificationRow();
+    }
+
+    /**
+     * Create an instance of {@link SpecificationRow }
+     * 
+     */
+    public SpecificationRow createSpecificationRow() {
+        return new SpecificationRow();
+    }
+
+    /**
+     * Create an instance of {@link SpecificationSummation }
+     * 
+     */
+    public SpecificationSummation createSpecificationSummation() {
+        return new SpecificationSummation();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfNumberedOrderRow }
+     * 
+     */
+    public ArrayOfNumberedOrderRow createArrayOfNumberedOrderRow() {
+        return new ArrayOfNumberedOrderRow();
+    }
+
+    /**
+     * Create an instance of {@link NumberedOrderRow }
+     * 
+     */
+    public NumberedOrderRow createNumberedOrderRow() {
+        return new NumberedOrderRow();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfGetOrderInformation }
+     * 
+     */
+    public ArrayOfGetOrderInformation createArrayOfGetOrderInformation() {
+        return new ArrayOfGetOrderInformation();
+    }
+
+    /**
+     * Create an instance of {@link GetOrderInformation }
+     * 
+     */
+    public GetOrderInformation createGetOrderInformation() {
+        return new GetOrderInformation();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfOrder }
+     * 
+     */
+    public ArrayOfOrder createArrayOfOrder() {
+        return new ArrayOfOrder();
+    }
+
+    /**
+     * Create an instance of {@link Order }
+     * 
+     */
+    public Order createOrder() {
+        return new Order();
+    }
+
+    /**
+     * Create an instance of {@link CreditReportStatus }
+     * 
+     */
+    public CreditReportStatus createCreditReportStatus() {
+        return new CreditReportStatus();
+    }
+
+    /**
+     * Create an instance of {@link PaymentPlanDetails }
+     * 
+     */
+    public PaymentPlanDetails createPaymentPlanDetails() {
+        return new PaymentPlanDetails();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDeliverOrderInformation }
+     * 
+     */
+    public ArrayOfDeliverOrderInformation createArrayOfDeliverOrderInformation() {
+        return new ArrayOfDeliverOrderInformation();
+    }
+
+    /**
+     * Create an instance of {@link SearchOrderFilter }
+     * 
+     */
+    public SearchOrderFilter createSearchOrderFilter() {
+        return new SearchOrderFilter();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfOrderDeliveryStatus }
+     * 
+     */
+    public ArrayOfOrderDeliveryStatus createArrayOfOrderDeliveryStatus() {
+        return new ArrayOfOrderDeliveryStatus();
+    }
+
+    /**
+     * Create an instance of {@link SearchOrderSorting }
+     * 
+     */
+    public SearchOrderSorting createSearchOrderSorting() {
+        return new SearchOrderSorting();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfOrderListItem }
+     * 
+     */
+    public ArrayOfOrderListItem createArrayOfOrderListItem() {
+        return new ArrayOfOrderListItem();
+    }
+
+    /**
+     * Create an instance of {@link OrderListItem }
+     * 
+     */
+    public OrderListItem createOrderListItem() {
+        return new OrderListItem();
+    }
+
+    /**
+     * Create an instance of {@link SearchInvoiceFilter }
+     * 
+     */
+    public SearchInvoiceFilter createSearchInvoiceFilter() {
+        return new SearchInvoiceFilter();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfInvoicePaymentStatus }
+     * 
+     */
+    public ArrayOfInvoicePaymentStatus createArrayOfInvoicePaymentStatus() {
+        return new ArrayOfInvoicePaymentStatus();
+    }
+
+    /**
+     * Create an instance of {@link SearchInvoiceSorting }
+     * 
+     */
+    public SearchInvoiceSorting createSearchInvoiceSorting() {
+        return new SearchInvoiceSorting();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfInvoiceListItem }
+     * 
+     */
+    public ArrayOfInvoiceListItem createArrayOfInvoiceListItem() {
+        return new ArrayOfInvoiceListItem();
+    }
+
+    /**
+     * Create an instance of {@link InvoiceListItem }
+     * 
+     */
+    public InvoiceListItem createInvoiceListItem() {
+        return new InvoiceListItem();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfGetInvoiceInformation }
+     * 
+     */
+    public ArrayOfGetInvoiceInformation createArrayOfGetInvoiceInformation() {
+        return new ArrayOfGetInvoiceInformation();
+    }
+
+    /**
+     * Create an instance of {@link GetInvoiceInformation }
+     * 
+     */
+    public GetInvoiceInformation createGetInvoiceInformation() {
+        return new GetInvoiceInformation();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfInvoice }
+     * 
+     */
+    public ArrayOfInvoice createArrayOfInvoice() {
+        return new ArrayOfInvoice();
+    }
+
+    /**
+     * Create an instance of {@link Invoice }
+     * 
+     */
+    public Invoice createInvoice() {
+        return new Invoice();
+    }
+
+    /**
+     * Create an instance of {@link SearchPaymentPlanFilter }
+     * 
+     */
+    public SearchPaymentPlanFilter createSearchPaymentPlanFilter() {
+        return new SearchPaymentPlanFilter();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfPaymentPlanStatus }
+     * 
+     */
+    public ArrayOfPaymentPlanStatus createArrayOfPaymentPlanStatus() {
+        return new ArrayOfPaymentPlanStatus();
+    }
+
+    /**
+     * Create an instance of {@link SearchPaymentPlanSorting }
+     * 
+     */
+    public SearchPaymentPlanSorting createSearchPaymentPlanSorting() {
+        return new SearchPaymentPlanSorting();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfPaymentPlanListItem }
+     * 
+     */
+    public ArrayOfPaymentPlanListItem createArrayOfPaymentPlanListItem() {
+        return new ArrayOfPaymentPlanListItem();
+    }
+
+    /**
+     * Create an instance of {@link PaymentPlanListItem }
+     * 
+     */
+    public PaymentPlanListItem createPaymentPlanListItem() {
+        return new PaymentPlanListItem();
+    }
+
+    /**
+     * Create an instance of {@link CustomerInformation }
+     * 
+     */
+    public CustomerInformation createCustomerInformation() {
+        return new CustomerInformation();
+    }
+
+    /**
+     * Create an instance of {@link DeliveryAddress }
+     * 
+     */
+    public DeliveryAddress createDeliveryAddress() {
+        return new DeliveryAddress();
+    }
+
+    /**
+     * Create an instance of {@link InvoiceAddress }
+     * 
+     */
+    public InvoiceAddress createInvoiceAddress() {
+        return new InvoiceAddress();
+    }
+
+    /**
+     * Create an instance of {@link OrderInformation }
+     * 
+     */
+    public OrderInformation createOrderInformation() {
+        return new OrderInformation();
+    }
+
+    /**
+     * Create an instance of {@link AccountCreditInformation }
+     * 
+     */
+    public AccountCreditInformation createAccountCreditInformation() {
+        return new AccountCreditInformation();
+    }
+
+    /**
+     * Create an instance of {@link InvoiceInformation }
+     * 
+     */
+    public InvoiceInformation createInvoiceInformation() {
+        return new InvoiceInformation();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfBillingReference }
+     * 
+     */
+    public ArrayOfBillingReference createArrayOfBillingReference() {
+        return new ArrayOfBillingReference();
+    }
+
+    /**
+     * Create an instance of {@link BillingReference }
+     * 
+     */
+    public BillingReference createBillingReference() {
+        return new BillingReference();
+    }
+
+    /**
+     * Create an instance of {@link PaymentPlanInformation }
+     * 
+     */
+    public PaymentPlanInformation createPaymentPlanInformation() {
+        return new PaymentPlanInformation();
+    }
+
+    /**
+     * Create an instance of {@link SearchAccountCreditFilter }
+     * 
+     */
+    public SearchAccountCreditFilter createSearchAccountCreditFilter() {
+        return new SearchAccountCreditFilter();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfAccountCreditStatus }
+     * 
+     */
+    public ArrayOfAccountCreditStatus createArrayOfAccountCreditStatus() {
+        return new ArrayOfAccountCreditStatus();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfAccountCreditListItem }
+     * 
+     */
+    public ArrayOfAccountCreditListItem createArrayOfAccountCreditListItem() {
+        return new ArrayOfAccountCreditListItem();
+    }
+
+    /**
+     * Create an instance of {@link AccountCreditListItem }
+     * 
+     */
+    public AccountCreditListItem createAccountCreditListItem() {
+        return new AccountCreditListItem();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfAccountCreditItem }
+     * 
+     */
+    public ArrayOfAccountCreditItem createArrayOfAccountCreditItem() {
+        return new ArrayOfAccountCreditItem();
+    }
+
+    /**
+     * Create an instance of {@link AccountCreditItem }
+     * 
+     */
+    public AccountCreditItem createAccountCreditItem() {
+        return new AccountCreditItem();
     }
 
     /**
@@ -2550,22 +2486,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfInvoicePaidToClientRow }
-     * 
-     */
-    public ArrayOfInvoicePaidToClientRow createArrayOfInvoicePaidToClientRow() {
-        return new ArrayOfInvoicePaidToClientRow();
-    }
-
-    /**
-     * Create an instance of {@link InvoicePaidToClientRow }
-     * 
-     */
-    public InvoicePaidToClientRow createInvoicePaidToClientRow() {
-        return new InvoicePaidToClientRow();
-    }
-
-    /**
      * Create an instance of {@link ArrayOflong }
      * 
      */
@@ -2582,17 +2502,92 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TextMatchType }{@code >}}
+     * Create an instance of {@link AccountCreditDetails }
      * 
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.Order", name = "TextMatchType")
-    public JAXBElement<TextMatchType> createSearchOrder(TextMatchType value) {
-        return new JAXBElement<TextMatchType>(_SearchOrder_QNAME, TextMatchType.class, null, value);
+    public AccountCreditDetails createAccountCreditDetails() {
+        return new AccountCreditDetails();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddOrderRowsRequest }{@code >}}
+     * Create an instance of {@link SearchAccountCreditSorting }
      * 
+     */
+    public SearchAccountCreditSorting createSearchAccountCreditSorting() {
+        return new SearchAccountCreditSorting();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfGetAccountCreditInformation }
+     * 
+     */
+    public ArrayOfGetAccountCreditInformation createArrayOfGetAccountCreditInformation() {
+        return new ArrayOfGetAccountCreditInformation();
+    }
+
+    /**
+     * Create an instance of {@link GetAccountCreditInformation }
+     * 
+     */
+    public GetAccountCreditInformation createGetAccountCreditInformation() {
+        return new GetAccountCreditInformation();
+    }
+
+    /**
+     * Create an instance of {@link CreateOrderInformation }
+     * 
+     */
+    public CreateOrderInformation createCreateOrderInformation() {
+        return new CreateOrderInformation();
+    }
+
+    /**
+     * Create an instance of {@link CreateAccountCreditDetails }
+     * 
+     */
+    public CreateAccountCreditDetails createCreateAccountCreditDetails() {
+        return new CreateAccountCreditDetails();
+    }
+
+    /**
+     * Create an instance of {@link CreatePaymentPlanDetails }
+     * 
+     */
+    public CreatePaymentPlanDetails createCreatePaymentPlanDetails() {
+        return new CreatePaymentPlanDetails();
+    }
+
+    /**
+     * Create an instance of {@link CreateOrderResult }
+     * 
+     */
+    public CreateOrderResult createCreateOrderResult() {
+        return new CreateOrderResult();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfInvoicePaidToClientRow }
+     * 
+     */
+    public ArrayOfInvoicePaidToClientRow createArrayOfInvoicePaidToClientRow() {
+        return new ArrayOfInvoicePaidToClientRow();
+    }
+
+    /**
+     * Create an instance of {@link InvoicePaidToClientRow }
+     * 
+     */
+    public InvoicePaidToClientRow createInvoicePaidToClientRow() {
+        return new InvoicePaidToClientRow();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddOrderRowsRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AddOrderRowsRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AddOrderRowsRequest")
     public JAXBElement<AddOrderRowsRequest> createAddOrderRowsRequest(AddOrderRowsRequest value) {
@@ -2600,8 +2595,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BasicRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BasicRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BasicRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "BasicRequest")
     public JAXBElement<BasicRequest> createBasicRequest(BasicRequest value) {
@@ -2609,8 +2608,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Authentication }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Authentication }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Authentication }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "Authentication")
     public JAXBElement<Authentication> createAuthentication(Authentication value) {
@@ -2618,8 +2621,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfSetting }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfSetting }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfSetting }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfSetting")
     public JAXBElement<ArrayOfSetting> createArrayOfSetting(ArrayOfSetting value) {
@@ -2627,8 +2634,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Setting }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Setting }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Setting }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "Setting")
     public JAXBElement<Setting> createSetting(Setting value) {
@@ -2636,17 +2647,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddOrderRowsResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddOrderRowsResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AddOrderRowsResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AddOrderRowsResponse")
-    public JAXBElement<AddOrderRowsResponse> createAddOrderRowsResponse(AddOrderRowsResponse value) {
-        return new JAXBElement<AddOrderRowsResponse>(_AddOrderRowsResponse_QNAME, AddOrderRowsResponse.class, null, value);
+    public JAXBElement<AddOrderRowsResponse2> createAddOrderRowsResponse(AddOrderRowsResponse2 value) {
+        return new JAXBElement<AddOrderRowsResponse2>(_AddOrderRowsResponse_QNAME, AddOrderRowsResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BasicResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BasicResponse }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BasicResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "BasicResponse")
     public JAXBElement<BasicResponse> createBasicResponse(BasicResponse value) {
@@ -2654,8 +2673,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ApproveInvoiceRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ApproveInvoiceRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ApproveInvoiceRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ApproveInvoiceRequest")
     public JAXBElement<ApproveInvoiceRequest> createApproveInvoiceRequest(ApproveInvoiceRequest value) {
@@ -2663,17 +2686,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ApproveInvoiceResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ApproveInvoiceResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ApproveInvoiceResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ApproveInvoiceResponse")
-    public JAXBElement<ApproveInvoiceResponse> createApproveInvoiceResponse(ApproveInvoiceResponse value) {
-        return new JAXBElement<ApproveInvoiceResponse>(_ApproveInvoiceResponse_QNAME, ApproveInvoiceResponse.class, null, value);
+    public JAXBElement<ApproveInvoiceResponse2> createApproveInvoiceResponse(ApproveInvoiceResponse2 value) {
+        return new JAXBElement<ApproveInvoiceResponse2>(_ApproveInvoiceResponse_QNAME, ApproveInvoiceResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfCancellationRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfCancellationRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfCancellationRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfCancellationRow")
     public JAXBElement<ArrayOfCancellationRow> createArrayOfCancellationRow(ArrayOfCancellationRow value) {
@@ -2681,8 +2712,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancellationRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancellationRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancellationRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancellationRow")
     public JAXBElement<CancellationRow> createCancellationRow(CancellationRow value) {
@@ -2690,8 +2725,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelOrderRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelOrderRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelOrderRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancelOrderRequest")
     public JAXBElement<CancelOrderRequest> createCancelOrderRequest(CancelOrderRequest value) {
@@ -2699,17 +2738,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelOrderResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelOrderResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelOrderResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancelOrderResponse")
-    public JAXBElement<CancelOrderResponse> createCancelOrderResponse(CancelOrderResponse value) {
-        return new JAXBElement<CancelOrderResponse>(_CancelOrderResponse_QNAME, CancelOrderResponse.class, null, value);
+    public JAXBElement<CancelOrderResponse2> createCancelOrderResponse(CancelOrderResponse2 value) {
+        return new JAXBElement<CancelOrderResponse2>(_CancelOrderResponse_QNAME, CancelOrderResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelOrderRowsRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelOrderRowsRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelOrderRowsRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancelOrderRowsRequest")
     public JAXBElement<CancelOrderRowsRequest> createCancelOrderRowsRequest(CancelOrderRowsRequest value) {
@@ -2717,17 +2764,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelOrderRowsResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelOrderRowsResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelOrderRowsResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancelOrderRowsResponse")
-    public JAXBElement<CancelOrderRowsResponse> createCancelOrderRowsResponse(CancelOrderRowsResponse value) {
-        return new JAXBElement<CancelOrderRowsResponse>(_CancelOrderRowsResponse_QNAME, CancelOrderRowsResponse.class, null, value);
+    public JAXBElement<CancelOrderRowsResponse2> createCancelOrderRowsResponse(CancelOrderRowsResponse2 value) {
+        return new JAXBElement<CancelOrderRowsResponse2>(_CancelOrderRowsResponse_QNAME, CancelOrderRowsResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanAmountRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanAmountRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanAmountRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancelPaymentPlanAmountRequest")
     public JAXBElement<CancelPaymentPlanAmountRequest> createCancelPaymentPlanAmountRequest(CancelPaymentPlanAmountRequest value) {
@@ -2735,17 +2790,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanAmountResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanAmountResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanAmountResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancelPaymentPlanAmountResponse")
-    public JAXBElement<CancelPaymentPlanAmountResponse> createCancelPaymentPlanAmountResponse(CancelPaymentPlanAmountResponse value) {
-        return new JAXBElement<CancelPaymentPlanAmountResponse>(_CancelPaymentPlanAmountResponse_QNAME, CancelPaymentPlanAmountResponse.class, null, value);
+    public JAXBElement<CancelPaymentPlanAmountResponse2> createCancelPaymentPlanAmountResponse(CancelPaymentPlanAmountResponse2 value) {
+        return new JAXBElement<CancelPaymentPlanAmountResponse2>(_CancelPaymentPlanAmountResponse_QNAME, CancelPaymentPlanAmountResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanRowsRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanRowsRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanRowsRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancelPaymentPlanRowsRequest")
     public JAXBElement<CancelPaymentPlanRowsRequest> createCancelPaymentPlanRowsRequest(CancelPaymentPlanRowsRequest value) {
@@ -2753,17 +2816,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanRowsResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanRowsResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelPaymentPlanRowsResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CancelPaymentPlanRowsResponse")
-    public JAXBElement<CancelPaymentPlanRowsResponse> createCancelPaymentPlanRowsResponse(CancelPaymentPlanRowsResponse value) {
-        return new JAXBElement<CancelPaymentPlanRowsResponse>(_CancelPaymentPlanRowsResponse_QNAME, CancelPaymentPlanRowsResponse.class, null, value);
+    public JAXBElement<CancelPaymentPlanRowsResponse2> createCancelPaymentPlanRowsResponse(CancelPaymentPlanRowsResponse2 value) {
+        return new JAXBElement<CancelPaymentPlanRowsResponse2>(_CancelPaymentPlanRowsResponse_QNAME, CancelPaymentPlanRowsResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreditInvoiceRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreditInvoiceRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreditInvoiceRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CreditInvoiceRequest")
     public JAXBElement<CreditInvoiceRequest> createCreditInvoiceRequest(CreditInvoiceRequest value) {
@@ -2771,8 +2842,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfRowCreditingOption }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfRowCreditingOption }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfRowCreditingOption }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfRowCreditingOption")
     public JAXBElement<ArrayOfRowCreditingOption> createArrayOfRowCreditingOption(ArrayOfRowCreditingOption value) {
@@ -2780,8 +2855,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RowCreditingOption }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RowCreditingOption }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RowCreditingOption }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "RowCreditingOption")
     public JAXBElement<RowCreditingOption> createRowCreditingOption(RowCreditingOption value) {
@@ -2789,8 +2868,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeliveryResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeliveryResponse }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeliveryResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "DeliveryResponse")
     public JAXBElement<DeliveryResponse> createDeliveryResponse(DeliveryResponse value) {
@@ -2798,8 +2881,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfDeliverOrderResult }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfDeliverOrderResult }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfDeliverOrderResult }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfDeliverOrderResult")
     public JAXBElement<ArrayOfDeliverOrderResult> createArrayOfDeliverOrderResult(ArrayOfDeliverOrderResult value) {
@@ -2807,8 +2894,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeliverOrderResult }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeliverOrderResult }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeliverOrderResult }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "DeliverOrderResult")
     public JAXBElement<DeliverOrderResult> createDeliverOrderResult(DeliverOrderResult value) {
@@ -2816,8 +2907,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PartialDeliveryRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PartialDeliveryRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PartialDeliveryRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PartialDeliveryRequest")
     public JAXBElement<PartialDeliveryRequest> createPartialDeliveryRequest(PartialDeliveryRequest value) {
@@ -2825,8 +2920,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeliverOrderInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeliverOrderInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeliverOrderInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "DeliverOrderInformation")
     public JAXBElement<DeliverOrderInformation> createDeliverOrderInformation(DeliverOrderInformation value) {
@@ -2834,8 +2933,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfRowDeliveryOption }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfRowDeliveryOption }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfRowDeliveryOption }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfRowDeliveryOption")
     public JAXBElement<ArrayOfRowDeliveryOption> createArrayOfRowDeliveryOption(ArrayOfRowDeliveryOption value) {
@@ -2843,8 +2946,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RowDeliveryOption }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RowDeliveryOption }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RowDeliveryOption }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "RowDeliveryOption")
     public JAXBElement<RowDeliveryOption> createRowDeliveryOption(RowDeliveryOption value) {
@@ -2852,8 +2959,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ExtendOrderRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ExtendOrderRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ExtendOrderRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ExtendOrderRequest")
     public JAXBElement<ExtendOrderRequest> createExtendOrderRequest(ExtendOrderRequest value) {
@@ -2861,8 +2972,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditRegressReportDataRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditRegressReportDataRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditRegressReportDataRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfAccountCreditRegressReportDataRow")
     public JAXBElement<ArrayOfAccountCreditRegressReportDataRow> createArrayOfAccountCreditRegressReportDataRow(ArrayOfAccountCreditRegressReportDataRow value) {
@@ -2870,8 +2985,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportDataRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportDataRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportDataRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AccountCreditRegressReportDataRow")
     public JAXBElement<AccountCreditRegressReportDataRow> createAccountCreditRegressReportDataRow(AccountCreditRegressReportDataRow value) {
@@ -2879,8 +2998,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingAgreementType25ReportDataRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingAgreementType25ReportDataRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingAgreementType25ReportDataRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfAccountingAgreementType25ReportDataRow")
     public JAXBElement<ArrayOfAccountingAgreementType25ReportDataRow> createArrayOfAccountingAgreementType25ReportDataRow(ArrayOfAccountingAgreementType25ReportDataRow value) {
@@ -2888,8 +3011,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportDataRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportDataRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportDataRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AccountingAgreementType25ReportDataRow")
     public JAXBElement<AccountingAgreementType25ReportDataRow> createAccountingAgreementType25ReportDataRow(AccountingAgreementType25ReportDataRow value) {
@@ -2897,8 +3024,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingAgreementType25Summation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingAgreementType25Summation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingAgreementType25Summation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfAccountingAgreementType25Summation")
     public JAXBElement<ArrayOfAccountingAgreementType25Summation> createArrayOfAccountingAgreementType25Summation(ArrayOfAccountingAgreementType25Summation value) {
@@ -2906,8 +3037,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25Summation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25Summation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25Summation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AccountingAgreementType25Summation")
     public JAXBElement<AccountingAgreementType25Summation> createAccountingAgreementType25Summation(AccountingAgreementType25Summation value) {
@@ -2915,8 +3050,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountingReportRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountingReportRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetAccountingReportRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetAccountingReportRequest")
     public JAXBElement<GetAccountingReportRequest> createGetAccountingReportRequest(GetAccountingReportRequest value) {
@@ -2924,17 +3063,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountingReportResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountingReportResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetAccountingReportResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetAccountingReportResponse")
-    public JAXBElement<GetAccountingReportResponse> createGetAccountingReportResponse(GetAccountingReportResponse value) {
-        return new JAXBElement<GetAccountingReportResponse>(_GetAccountingReportResponse_QNAME, GetAccountingReportResponse.class, null, value);
+    public JAXBElement<GetAccountingReportResponse2> createGetAccountingReportResponse(GetAccountingReportResponse2 value) {
+        return new JAXBElement<GetAccountingReportResponse2>(_GetAccountingReportResponse_QNAME, GetAccountingReportResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountingReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfAccountingReportRow")
     public JAXBElement<ArrayOfAccountingReportRow> createArrayOfAccountingReportRow(ArrayOfAccountingReportRow value) {
@@ -2942,8 +3089,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountingReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AccountingReportRow")
     public JAXBElement<AccountingReportRow> createAccountingReportRow(AccountingReportRow value) {
@@ -2951,8 +3102,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetFinancialReportRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFinancialReportRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetFinancialReportRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetFinancialReportRequest")
     public JAXBElement<GetFinancialReportRequest> createGetFinancialReportRequest(GetFinancialReportRequest value) {
@@ -2960,17 +3115,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetFinancialReportResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFinancialReportResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetFinancialReportResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetFinancialReportResponse")
-    public JAXBElement<GetFinancialReportResponse> createGetFinancialReportResponse(GetFinancialReportResponse value) {
-        return new JAXBElement<GetFinancialReportResponse>(_GetFinancialReportResponse_QNAME, GetFinancialReportResponse.class, null, value);
+    public JAXBElement<GetFinancialReportResponse2> createGetFinancialReportResponse(GetFinancialReportResponse2 value) {
+        return new JAXBElement<GetFinancialReportResponse2>(_GetFinancialReportResponse_QNAME, GetFinancialReportResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FinancialReportHeader }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FinancialReportHeader }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FinancialReportHeader }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "FinancialReportHeader")
     public JAXBElement<FinancialReportHeader> createFinancialReportHeader(FinancialReportHeader value) {
@@ -2978,8 +3141,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfFinancialReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfFinancialReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfFinancialReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfFinancialReportRow")
     public JAXBElement<ArrayOfFinancialReportRow> createArrayOfFinancialReportRow(ArrayOfFinancialReportRow value) {
@@ -2987,8 +3154,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FinancialReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FinancialReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FinancialReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "FinancialReportRow")
     public JAXBElement<FinancialReportRow> createFinancialReportRow(FinancialReportRow value) {
@@ -2996,8 +3167,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceJournalReportRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceJournalReportRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoiceJournalReportRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoiceJournalReportRequest")
     public JAXBElement<GetInvoiceJournalReportRequest> createGetInvoiceJournalReportRequest(GetInvoiceJournalReportRequest value) {
@@ -3005,17 +3180,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceJournalReportResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceJournalReportResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoiceJournalReportResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoiceJournalReportResponse")
-    public JAXBElement<GetInvoiceJournalReportResponse> createGetInvoiceJournalReportResponse(GetInvoiceJournalReportResponse value) {
-        return new JAXBElement<GetInvoiceJournalReportResponse>(_GetInvoiceJournalReportResponse_QNAME, GetInvoiceJournalReportResponse.class, null, value);
+    public JAXBElement<GetInvoiceJournalReportResponse2> createGetInvoiceJournalReportResponse(GetInvoiceJournalReportResponse2 value) {
+        return new JAXBElement<GetInvoiceJournalReportResponse2>(_GetInvoiceJournalReportResponse_QNAME, GetInvoiceJournalReportResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceJournalReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceJournalReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceJournalReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfInvoiceJournalReportRow")
     public JAXBElement<ArrayOfInvoiceJournalReportRow> createArrayOfInvoiceJournalReportRow(ArrayOfInvoiceJournalReportRow value) {
@@ -3023,8 +3206,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceJournalReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceJournalReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoiceJournalReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "InvoiceJournalReportRow")
     public JAXBElement<InvoiceJournalReportRow> createInvoiceJournalReportRow(InvoiceJournalReportRow value) {
@@ -3032,8 +3219,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicePdfLinkRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicePdfLinkRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoicePdfLinkRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoicePdfLinkRequest")
     public JAXBElement<GetInvoicePdfLinkRequest> createGetInvoicePdfLinkRequest(GetInvoicePdfLinkRequest value) {
@@ -3041,8 +3232,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PdfLinkResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PdfLinkResponse }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PdfLinkResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PdfLinkResponse")
     public JAXBElement<PdfLinkResponse> createPdfLinkResponse(PdfLinkResponse value) {
@@ -3050,8 +3245,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceReportRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceReportRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoiceReportRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoiceReportRequest")
     public JAXBElement<GetInvoiceReportRequest> createGetInvoiceReportRequest(GetInvoiceReportRequest value) {
@@ -3059,17 +3258,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceReportResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceReportResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoiceReportResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoiceReportResponse")
-    public JAXBElement<GetInvoiceReportResponse> createGetInvoiceReportResponse(GetInvoiceReportResponse value) {
-        return new JAXBElement<GetInvoiceReportResponse>(_GetInvoiceReportResponse_QNAME, GetInvoiceReportResponse.class, null, value);
+    public JAXBElement<GetInvoiceReportResponse2> createGetInvoiceReportResponse(GetInvoiceReportResponse2 value) {
+        return new JAXBElement<GetInvoiceReportResponse2>(_GetInvoiceReportResponse_QNAME, GetInvoiceReportResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfInvoiceReportRow")
     public JAXBElement<ArrayOfInvoiceReportRow> createArrayOfInvoiceReportRow(ArrayOfInvoiceReportRow value) {
@@ -3077,8 +3284,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoiceReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "InvoiceReportRow")
     public JAXBElement<InvoiceReportRow> createInvoiceReportRow(InvoiceReportRow value) {
@@ -3086,8 +3297,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesWithChangedDueDateRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesWithChangedDueDateRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoicesWithChangedDueDateRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoicesWithChangedDueDateRequest")
     public JAXBElement<GetInvoicesWithChangedDueDateRequest> createGetInvoicesWithChangedDueDateRequest(GetInvoicesWithChangedDueDateRequest value) {
@@ -3095,17 +3310,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesWithChangedDueDateResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesWithChangedDueDateResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoicesWithChangedDueDateResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoicesWithChangedDueDateResponse")
-    public JAXBElement<GetInvoicesWithChangedDueDateResponse> createGetInvoicesWithChangedDueDateResponse(GetInvoicesWithChangedDueDateResponse value) {
-        return new JAXBElement<GetInvoicesWithChangedDueDateResponse>(_GetInvoicesWithChangedDueDateResponse_QNAME, GetInvoicesWithChangedDueDateResponse.class, null, value);
+    public JAXBElement<GetInvoicesWithChangedDueDateResponse2> createGetInvoicesWithChangedDueDateResponse(GetInvoicesWithChangedDueDateResponse2 value) {
+        return new JAXBElement<GetInvoicesWithChangedDueDateResponse2>(_GetInvoicesWithChangedDueDateResponse_QNAME, GetInvoicesWithChangedDueDateResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceWithChangedDueDate }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceWithChangedDueDate }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceWithChangedDueDate }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfInvoiceWithChangedDueDate")
     public JAXBElement<ArrayOfInvoiceWithChangedDueDate> createArrayOfInvoiceWithChangedDueDate(ArrayOfInvoiceWithChangedDueDate value) {
@@ -3113,8 +3336,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceWithChangedDueDate }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceWithChangedDueDate }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoiceWithChangedDueDate }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "InvoiceWithChangedDueDate")
     public JAXBElement<InvoiceWithChangedDueDate> createInvoiceWithChangedDueDate(InvoiceWithChangedDueDate value) {
@@ -3122,8 +3349,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfKickbackReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfKickbackReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfKickbackReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfKickbackReportRow")
     public JAXBElement<ArrayOfKickbackReportRow> createArrayOfKickbackReportRow(ArrayOfKickbackReportRow value) {
@@ -3131,8 +3362,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link KickbackReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link KickbackReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link KickbackReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "KickbackReportRow")
     public JAXBElement<KickbackReportRow> createKickbackReportRow(KickbackReportRow value) {
@@ -3140,8 +3375,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderEventsRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderEventsRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetOrderEventsRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetOrderEventsRequest")
     public JAXBElement<GetOrderEventsRequest> createGetOrderEventsRequest(GetOrderEventsRequest value) {
@@ -3149,8 +3388,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderEventType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderEventType }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderEventType }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "OrderEventType")
     public JAXBElement<OrderEventType> createOrderEventType(OrderEventType value) {
@@ -3158,17 +3401,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderEventsResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderEventsResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetOrderEventsResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetOrderEventsResponse")
-    public JAXBElement<GetOrderEventsResponse> createGetOrderEventsResponse(GetOrderEventsResponse value) {
-        return new JAXBElement<GetOrderEventsResponse>(_GetOrderEventsResponse_QNAME, GetOrderEventsResponse.class, null, value);
+    public JAXBElement<GetOrderEventsResponse2> createGetOrderEventsResponse(GetOrderEventsResponse2 value) {
+        return new JAXBElement<GetOrderEventsResponse2>(_GetOrderEventsResponse_QNAME, GetOrderEventsResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderEvent }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderEvent }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderEvent }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfOrderEvent")
     public JAXBElement<ArrayOfOrderEvent> createArrayOfOrderEvent(ArrayOfOrderEvent value) {
@@ -3176,8 +3427,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderEvent }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderEvent }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderEvent }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "OrderEvent")
     public JAXBElement<OrderEvent> createOrderEvent(OrderEvent value) {
@@ -3185,8 +3440,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PendingEvent }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PendingEvent }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PendingEvent }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PendingEvent")
     public JAXBElement<PendingEvent> createPendingEvent(PendingEvent value) {
@@ -3194,8 +3453,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderPdfLinkRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderPdfLinkRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetOrderPdfLinkRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetOrderPdfLinkRequest")
     public JAXBElement<GetOrderPdfLinkRequest> createGetOrderPdfLinkRequest(GetOrderPdfLinkRequest value) {
@@ -3203,8 +3466,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetPaymentPlanReportRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPaymentPlanReportRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetPaymentPlanReportRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetPaymentPlanReportRequest")
     public JAXBElement<GetPaymentPlanReportRequest> createGetPaymentPlanReportRequest(GetPaymentPlanReportRequest value) {
@@ -3212,17 +3479,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetPaymentPlanReportResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPaymentPlanReportResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetPaymentPlanReportResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetPaymentPlanReportResponse")
-    public JAXBElement<GetPaymentPlanReportResponse> createGetPaymentPlanReportResponse(GetPaymentPlanReportResponse value) {
-        return new JAXBElement<GetPaymentPlanReportResponse>(_GetPaymentPlanReportResponse_QNAME, GetPaymentPlanReportResponse.class, null, value);
+    public JAXBElement<GetPaymentPlanReportResponse2> createGetPaymentPlanReportResponse(GetPaymentPlanReportResponse2 value) {
+        return new JAXBElement<GetPaymentPlanReportResponse2>(_GetPaymentPlanReportResponse_QNAME, GetPaymentPlanReportResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfPaymentPlanReportRow")
     public JAXBElement<ArrayOfPaymentPlanReportRow> createArrayOfPaymentPlanReportRow(ArrayOfPaymentPlanReportRow value) {
@@ -3230,8 +3505,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PaymentPlanReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PaymentPlanReportRow")
     public JAXBElement<PaymentPlanReportRow> createPaymentPlanReportRow(PaymentPlanReportRow value) {
@@ -3239,8 +3518,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPendingReason }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPendingReason }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfPendingReason }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfPendingReason")
     public JAXBElement<ArrayOfPendingReason> createArrayOfPendingReason(ArrayOfPendingReason value) {
@@ -3248,8 +3531,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PendingReason }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PendingReason }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PendingReason }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PendingReason")
     public JAXBElement<PendingReason> createPendingReason(PendingReason value) {
@@ -3257,8 +3544,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetRegressionReportRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetRegressionReportRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetRegressionReportRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetRegressionReportRequest")
     public JAXBElement<GetRegressionReportRequest> createGetRegressionReportRequest(GetRegressionReportRequest value) {
@@ -3266,17 +3557,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetRegressionReportResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetRegressionReportResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetRegressionReportResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetRegressionReportResponse")
-    public JAXBElement<GetRegressionReportResponse> createGetRegressionReportResponse(GetRegressionReportResponse value) {
-        return new JAXBElement<GetRegressionReportResponse>(_GetRegressionReportResponse_QNAME, GetRegressionReportResponse.class, null, value);
+    public JAXBElement<GetRegressionReportResponse2> createGetRegressionReportResponse(GetRegressionReportResponse2 value) {
+        return new JAXBElement<GetRegressionReportResponse2>(_GetRegressionReportResponse_QNAME, GetRegressionReportResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfRegressionReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfRegressionReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfRegressionReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfRegressionReportRow")
     public JAXBElement<ArrayOfRegressionReportRow> createArrayOfRegressionReportRow(ArrayOfRegressionReportRow value) {
@@ -3284,8 +3583,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegressionReportRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegressionReportRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RegressionReportRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "RegressionReportRow")
     public JAXBElement<RegressionReportRow> createRegressionReportRow(RegressionReportRow value) {
@@ -3293,8 +3596,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SpecificationReportType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SpecificationReportType }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SpecificationReportType }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SpecificationReportType")
     public JAXBElement<SpecificationReportType> createSpecificationReportType(SpecificationReportType value) {
@@ -3302,8 +3609,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfSpecificationRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfSpecificationRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfSpecificationRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfSpecificationRow")
     public JAXBElement<ArrayOfSpecificationRow> createArrayOfSpecificationRow(ArrayOfSpecificationRow value) {
@@ -3311,8 +3622,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SpecificationRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SpecificationRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SpecificationRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SpecificationRow")
     public JAXBElement<SpecificationRow> createSpecificationRow(SpecificationRow value) {
@@ -3320,8 +3635,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SpecificationSummation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SpecificationSummation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SpecificationSummation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SpecificationSummation")
     public JAXBElement<SpecificationSummation> createSpecificationSummation(SpecificationSummation value) {
@@ -3329,8 +3648,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReleasePendingRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReleasePendingRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReleasePendingRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ReleasePendingRequest")
     public JAXBElement<ReleasePendingRequest> createReleasePendingRequest(ReleasePendingRequest value) {
@@ -3338,8 +3661,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReleasePendingResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReleasePendingResponse }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReleasePendingResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ReleasePendingResponse")
     public JAXBElement<ReleasePendingResponse> createReleasePendingResponse(ReleasePendingResponse value) {
@@ -3347,8 +3674,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateOrderRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateOrderRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateOrderRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "UpdateOrderRequest")
     public JAXBElement<UpdateOrderRequest> createUpdateOrderRequest(UpdateOrderRequest value) {
@@ -3356,17 +3687,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateOrderResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateOrderResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateOrderResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "UpdateOrderResponse")
-    public JAXBElement<UpdateOrderResponse> createUpdateOrderResponse(UpdateOrderResponse value) {
-        return new JAXBElement<UpdateOrderResponse>(_UpdateOrderResponse_QNAME, UpdateOrderResponse.class, null, value);
+    public JAXBElement<UpdateOrderResponse2> createUpdateOrderResponse(UpdateOrderResponse2 value) {
+        return new JAXBElement<UpdateOrderResponse2>(_UpdateOrderResponse_QNAME, UpdateOrderResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateOrderRowsRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateOrderRowsRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateOrderRowsRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "UpdateOrderRowsRequest")
     public JAXBElement<UpdateOrderRowsRequest> createUpdateOrderRowsRequest(UpdateOrderRowsRequest value) {
@@ -3374,8 +3713,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfNumberedOrderRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfNumberedOrderRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfNumberedOrderRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfNumberedOrderRow")
     public JAXBElement<ArrayOfNumberedOrderRow> createArrayOfNumberedOrderRow(ArrayOfNumberedOrderRow value) {
@@ -3383,8 +3726,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NumberedOrderRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NumberedOrderRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link NumberedOrderRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "NumberedOrderRow")
     public JAXBElement<NumberedOrderRow> createNumberedOrderRow(NumberedOrderRow value) {
@@ -3392,17 +3739,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateOrderRowsResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateOrderRowsResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateOrderRowsResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "UpdateOrderRowsResponse")
-    public JAXBElement<UpdateOrderRowsResponse> createUpdateOrderRowsResponse(UpdateOrderRowsResponse value) {
-        return new JAXBElement<UpdateOrderRowsResponse>(_UpdateOrderRowsResponse_QNAME, UpdateOrderRowsResponse.class, null, value);
+    public JAXBElement<UpdateOrderRowsResponse2> createUpdateOrderRowsResponse(UpdateOrderRowsResponse2 value) {
+        return new JAXBElement<UpdateOrderRowsResponse2>(_UpdateOrderRowsResponse_QNAME, UpdateOrderRowsResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetOrdersRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetOrdersRequest")
     public JAXBElement<GetOrdersRequest> createGetOrdersRequest(GetOrdersRequest value) {
@@ -3410,8 +3765,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfGetOrderInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfGetOrderInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfGetOrderInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfGetOrderInformation")
     public JAXBElement<ArrayOfGetOrderInformation> createArrayOfGetOrderInformation(ArrayOfGetOrderInformation value) {
@@ -3419,8 +3778,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetOrderInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetOrderInformation")
     public JAXBElement<GetOrderInformation> createGetOrderInformation(GetOrderInformation value) {
@@ -3428,17 +3791,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetOrdersResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetOrdersResponse")
-    public JAXBElement<GetOrdersResponse> createGetOrdersResponse(GetOrdersResponse value) {
-        return new JAXBElement<GetOrdersResponse>(_GetOrdersResponse_QNAME, GetOrdersResponse.class, null, value);
+    public JAXBElement<GetOrdersResponse2> createGetOrdersResponse(GetOrdersResponse2 value) {
+        return new JAXBElement<GetOrdersResponse2>(_GetOrdersResponse_QNAME, GetOrdersResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrder }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrder }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfOrder }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfOrder")
     public JAXBElement<ArrayOfOrder> createArrayOfOrder(ArrayOfOrder value) {
@@ -3446,8 +3817,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Order }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Order }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Order }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "Order")
     public JAXBElement<Order> createOrder(Order value) {
@@ -3455,8 +3830,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreditReportStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreditReportStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreditReportStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CreditReportStatus")
     public JAXBElement<CreditReportStatus> createCreditReportStatus(CreditReportStatus value) {
@@ -3464,8 +3843,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanDetails }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanDetails }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PaymentPlanDetails }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PaymentPlanDetails")
     public JAXBElement<PaymentPlanDetails> createPaymentPlanDetails(PaymentPlanDetails value) {
@@ -3473,8 +3856,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeliveryRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeliveryRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeliveryRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "DeliveryRequest")
     public JAXBElement<DeliveryRequest> createDeliveryRequest(DeliveryRequest value) {
@@ -3482,8 +3869,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfDeliverOrderInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfDeliverOrderInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfDeliverOrderInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfDeliverOrderInformation")
     public JAXBElement<ArrayOfDeliverOrderInformation> createArrayOfDeliverOrderInformation(ArrayOfDeliverOrderInformation value) {
@@ -3491,8 +3882,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchOrdersRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchOrdersRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchOrdersRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchOrdersRequest")
     public JAXBElement<SearchOrdersRequest> createSearchOrdersRequest(SearchOrdersRequest value) {
@@ -3500,8 +3895,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchOrderFilter }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchOrderFilter }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchOrderFilter }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchOrderFilter")
     public JAXBElement<SearchOrderFilter> createSearchOrderFilter(SearchOrderFilter value) {
@@ -3509,8 +3908,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderDeliveryStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderDeliveryStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderDeliveryStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfOrderDeliveryStatus")
     public JAXBElement<ArrayOfOrderDeliveryStatus> createArrayOfOrderDeliveryStatus(ArrayOfOrderDeliveryStatus value) {
@@ -3518,8 +3921,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderDeliveryStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderDeliveryStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderDeliveryStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "OrderDeliveryStatus")
     public JAXBElement<OrderDeliveryStatus> createOrderDeliveryStatus(OrderDeliveryStatus value) {
@@ -3527,8 +3934,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchOrderSorting }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchOrderSorting }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchOrderSorting }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchOrderSorting")
     public JAXBElement<SearchOrderSorting> createSearchOrderSorting(SearchOrderSorting value) {
@@ -3536,8 +3947,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SortDirection }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SortDirection }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SortDirection }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SortDirection")
     public JAXBElement<SortDirection> createSortDirection(SortDirection value) {
@@ -3545,8 +3960,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SortOrderProperty }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SortOrderProperty }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SortOrderProperty }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SortOrderProperty")
     public JAXBElement<SortOrderProperty> createSortOrderProperty(SortOrderProperty value) {
@@ -3554,17 +3973,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchOrdersResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchOrdersResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchOrdersResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchOrdersResponse")
-    public JAXBElement<SearchOrdersResponse> createSearchOrdersResponse(SearchOrdersResponse value) {
-        return new JAXBElement<SearchOrdersResponse>(_SearchOrdersResponse_QNAME, SearchOrdersResponse.class, null, value);
+    public JAXBElement<SearchOrdersResponse2> createSearchOrdersResponse(SearchOrdersResponse2 value) {
+        return new JAXBElement<SearchOrdersResponse2>(_SearchOrdersResponse_QNAME, SearchOrdersResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderListItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderListItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderListItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfOrderListItem")
     public JAXBElement<ArrayOfOrderListItem> createArrayOfOrderListItem(ArrayOfOrderListItem value) {
@@ -3572,8 +3999,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderListItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderListItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderListItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "OrderListItem")
     public JAXBElement<OrderListItem> createOrderListItem(OrderListItem value) {
@@ -3581,8 +4012,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchInvoicesRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchInvoicesRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchInvoicesRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchInvoicesRequest")
     public JAXBElement<SearchInvoicesRequest> createSearchInvoicesRequest(SearchInvoicesRequest value) {
@@ -3590,8 +4025,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchInvoiceFilter }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchInvoiceFilter }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchInvoiceFilter }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchInvoiceFilter")
     public JAXBElement<SearchInvoiceFilter> createSearchInvoiceFilter(SearchInvoiceFilter value) {
@@ -3599,8 +4038,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoicePaymentStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoicePaymentStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoicePaymentStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfInvoicePaymentStatus")
     public JAXBElement<ArrayOfInvoicePaymentStatus> createArrayOfInvoicePaymentStatus(ArrayOfInvoicePaymentStatus value) {
@@ -3608,8 +4051,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoicePaymentStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoicePaymentStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoicePaymentStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "InvoicePaymentStatus")
     public JAXBElement<InvoicePaymentStatus> createInvoicePaymentStatus(InvoicePaymentStatus value) {
@@ -3617,8 +4064,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchInvoiceSorting }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchInvoiceSorting }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchInvoiceSorting }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchInvoiceSorting")
     public JAXBElement<SearchInvoiceSorting> createSearchInvoiceSorting(SearchInvoiceSorting value) {
@@ -3626,8 +4077,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SortInvoiceProperty }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SortInvoiceProperty }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SortInvoiceProperty }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SortInvoiceProperty")
     public JAXBElement<SortInvoiceProperty> createSortInvoiceProperty(SortInvoiceProperty value) {
@@ -3635,17 +4090,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchInvoicesResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchInvoicesResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchInvoicesResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchInvoicesResponse")
-    public JAXBElement<SearchInvoicesResponse> createSearchInvoicesResponse(SearchInvoicesResponse value) {
-        return new JAXBElement<SearchInvoicesResponse>(_SearchInvoicesResponse_QNAME, SearchInvoicesResponse.class, null, value);
+    public JAXBElement<SearchInvoicesResponse2> createSearchInvoicesResponse(SearchInvoicesResponse2 value) {
+        return new JAXBElement<SearchInvoicesResponse2>(_SearchInvoicesResponse_QNAME, SearchInvoicesResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceListItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceListItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoiceListItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfInvoiceListItem")
     public JAXBElement<ArrayOfInvoiceListItem> createArrayOfInvoiceListItem(ArrayOfInvoiceListItem value) {
@@ -3653,8 +4116,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceListItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceListItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoiceListItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "InvoiceListItem")
     public JAXBElement<InvoiceListItem> createInvoiceListItem(InvoiceListItem value) {
@@ -3662,8 +4129,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceType }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoiceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "InvoiceType")
     public JAXBElement<InvoiceType> createInvoiceType(InvoiceType value) {
@@ -3671,8 +4142,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoicesRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoicesRequest")
     public JAXBElement<GetInvoicesRequest> createGetInvoicesRequest(GetInvoicesRequest value) {
@@ -3680,8 +4155,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfGetInvoiceInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfGetInvoiceInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfGetInvoiceInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfGetInvoiceInformation")
     public JAXBElement<ArrayOfGetInvoiceInformation> createArrayOfGetInvoiceInformation(ArrayOfGetInvoiceInformation value) {
@@ -3689,8 +4168,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoiceInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoiceInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoiceInformation")
     public JAXBElement<GetInvoiceInformation> createGetInvoiceInformation(GetInvoiceInformation value) {
@@ -3698,17 +4181,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoicesResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetInvoicesResponse")
-    public JAXBElement<GetInvoicesResponse> createGetInvoicesResponse(GetInvoicesResponse value) {
-        return new JAXBElement<GetInvoicesResponse>(_GetInvoicesResponse_QNAME, GetInvoicesResponse.class, null, value);
+    public JAXBElement<GetInvoicesResponse2> createGetInvoicesResponse(GetInvoicesResponse2 value) {
+        return new JAXBElement<GetInvoicesResponse2>(_GetInvoicesResponse_QNAME, GetInvoicesResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoice }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoice }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoice }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfInvoice")
     public JAXBElement<ArrayOfInvoice> createArrayOfInvoice(ArrayOfInvoice value) {
@@ -3716,8 +4207,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Invoice }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Invoice }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Invoice }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "Invoice")
     public JAXBElement<Invoice> createInvoice(Invoice value) {
@@ -3725,8 +4220,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlansRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlansRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlansRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchPaymentPlansRequest")
     public JAXBElement<SearchPaymentPlansRequest> createSearchPaymentPlansRequest(SearchPaymentPlansRequest value) {
@@ -3734,8 +4233,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlanFilter }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlanFilter }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlanFilter }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchPaymentPlanFilter")
     public JAXBElement<SearchPaymentPlanFilter> createSearchPaymentPlanFilter(SearchPaymentPlanFilter value) {
@@ -3743,8 +4246,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfPaymentPlanStatus")
     public JAXBElement<ArrayOfPaymentPlanStatus> createArrayOfPaymentPlanStatus(ArrayOfPaymentPlanStatus value) {
@@ -3752,8 +4259,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PaymentPlanStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PaymentPlanStatus")
     public JAXBElement<PaymentPlanStatus> createPaymentPlanStatus(PaymentPlanStatus value) {
@@ -3761,8 +4272,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlanSorting }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlanSorting }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlanSorting }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchPaymentPlanSorting")
     public JAXBElement<SearchPaymentPlanSorting> createSearchPaymentPlanSorting(SearchPaymentPlanSorting value) {
@@ -3770,8 +4285,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SortPaymentPlanProperty }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SortPaymentPlanProperty }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SortPaymentPlanProperty }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SortPaymentPlanProperty")
     public JAXBElement<SortPaymentPlanProperty> createSortPaymentPlanProperty(SortPaymentPlanProperty value) {
@@ -3779,17 +4298,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlansResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlansResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchPaymentPlansResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchPaymentPlansResponse")
-    public JAXBElement<SearchPaymentPlansResponse> createSearchPaymentPlansResponse(SearchPaymentPlansResponse value) {
-        return new JAXBElement<SearchPaymentPlansResponse>(_SearchPaymentPlansResponse_QNAME, SearchPaymentPlansResponse.class, null, value);
+    public JAXBElement<SearchPaymentPlansResponse2> createSearchPaymentPlansResponse(SearchPaymentPlansResponse2 value) {
+        return new JAXBElement<SearchPaymentPlansResponse2>(_SearchPaymentPlansResponse_QNAME, SearchPaymentPlansResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanListItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanListItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfPaymentPlanListItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfPaymentPlanListItem")
     public JAXBElement<ArrayOfPaymentPlanListItem> createArrayOfPaymentPlanListItem(ArrayOfPaymentPlanListItem value) {
@@ -3797,8 +4324,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanListItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanListItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PaymentPlanListItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PaymentPlanListItem")
     public JAXBElement<PaymentPlanListItem> createPaymentPlanListItem(PaymentPlanListItem value) {
@@ -3806,8 +4337,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SumOfOrderAmountRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SumOfOrderAmountRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SumOfOrderAmountRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SumOfOrderAmountRequest")
     public JAXBElement<SumOfOrderAmountRequest> createSumOfOrderAmountRequest(SumOfOrderAmountRequest value) {
@@ -3815,8 +4350,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SumOfAmountResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SumOfAmountResponse }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SumOfAmountResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SumOfAmountResponse")
     public JAXBElement<SumOfAmountResponse> createSumOfAmountResponse(SumOfAmountResponse value) {
@@ -3824,8 +4363,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SumOfInvoiceAmountRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SumOfInvoiceAmountRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SumOfInvoiceAmountRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SumOfInvoiceAmountRequest")
     public JAXBElement<SumOfInvoiceAmountRequest> createSumOfInvoiceAmountRequest(SumOfInvoiceAmountRequest value) {
@@ -3833,8 +4376,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SumOfPaymentPlanAmountRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SumOfPaymentPlanAmountRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SumOfPaymentPlanAmountRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SumOfPaymentPlanAmountRequest")
     public JAXBElement<SumOfPaymentPlanAmountRequest> createSumOfPaymentPlanAmountRequest(SumOfPaymentPlanAmountRequest value) {
@@ -3842,8 +4389,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateOrderRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateOrderRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreateOrderRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CreateOrderRequest")
     public JAXBElement<CreateOrderRequest> createCreateOrderRequest(CreateOrderRequest value) {
@@ -3851,17 +4402,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateOrderResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateOrderResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreateOrderResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CreateOrderResponse")
-    public JAXBElement<CreateOrderResponse> createCreateOrderResponse(CreateOrderResponse value) {
-        return new JAXBElement<CreateOrderResponse>(_CreateOrderResponse_QNAME, CreateOrderResponse.class, null, value);
+    public JAXBElement<CreateOrderResponse2> createCreateOrderResponse(CreateOrderResponse2 value) {
+        return new JAXBElement<CreateOrderResponse2>(_CreateOrderResponse_QNAME, CreateOrderResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ChangeInvoiceDueDateRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ChangeInvoiceDueDateRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ChangeInvoiceDueDateRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ChangeInvoiceDueDateRequest")
     public JAXBElement<ChangeInvoiceDueDateRequest> createChangeInvoiceDueDateRequest(ChangeInvoiceDueDateRequest value) {
@@ -3869,17 +4428,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ChangeInvoiceDueDateResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ChangeInvoiceDueDateResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ChangeInvoiceDueDateResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ChangeInvoiceDueDateResponse")
-    public JAXBElement<ChangeInvoiceDueDateResponse> createChangeInvoiceDueDateResponse(ChangeInvoiceDueDateResponse value) {
-        return new JAXBElement<ChangeInvoiceDueDateResponse>(_ChangeInvoiceDueDateResponse_QNAME, ChangeInvoiceDueDateResponse.class, null, value);
+    public JAXBElement<ChangeInvoiceDueDateResponse2> createChangeInvoiceDueDateResponse(ChangeInvoiceDueDateResponse2 value) {
+        return new JAXBElement<ChangeInvoiceDueDateResponse2>(_ChangeInvoiceDueDateResponse_QNAME, ChangeInvoiceDueDateResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateApprovedOrderRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateApprovedOrderRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreateApprovedOrderRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CreateApprovedOrderRequest")
     public JAXBElement<CreateApprovedOrderRequest> createCreateApprovedOrderRequest(CreateApprovedOrderRequest value) {
@@ -3887,8 +4454,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CustomerInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CustomerInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CustomerInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CustomerInformation")
     public JAXBElement<CustomerInformation> createCustomerInformation(CustomerInformation value) {
@@ -3896,8 +4467,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeliveryAddress }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeliveryAddress }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DeliveryAddress }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "DeliveryAddress")
     public JAXBElement<DeliveryAddress> createDeliveryAddress(DeliveryAddress value) {
@@ -3905,8 +4480,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceAddress }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceAddress }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoiceAddress }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "InvoiceAddress")
     public JAXBElement<InvoiceAddress> createInvoiceAddress(InvoiceAddress value) {
@@ -3914,8 +4493,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "OrderInformation")
     public JAXBElement<OrderInformation> createOrderInformation(OrderInformation value) {
@@ -3923,8 +4506,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountCreditInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AccountCreditInformation")
     public JAXBElement<AccountCreditInformation> createAccountCreditInformation(AccountCreditInformation value) {
@@ -3932,8 +4519,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoiceInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "InvoiceInformation")
     public JAXBElement<InvoiceInformation> createInvoiceInformation(InvoiceInformation value) {
@@ -3941,8 +4532,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfBillingReference }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfBillingReference }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfBillingReference }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfBillingReference")
     public JAXBElement<ArrayOfBillingReference> createArrayOfBillingReference(ArrayOfBillingReference value) {
@@ -3950,8 +4545,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BillingReference }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BillingReference }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BillingReference }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "BillingReference")
     public JAXBElement<BillingReference> createBillingReference(BillingReference value) {
@@ -3959,8 +4558,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PaymentPlanInformation }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link PaymentPlanInformation }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "PaymentPlanInformation")
     public JAXBElement<PaymentPlanInformation> createPaymentPlanInformation(PaymentPlanInformation value) {
@@ -3968,17 +4571,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateApprovedOrderResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateApprovedOrderResponse2 }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreateApprovedOrderResponse2 }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "CreateApprovedOrderResponse")
-    public JAXBElement<CreateApprovedOrderResponse> createCreateApprovedOrderResponse(CreateApprovedOrderResponse value) {
-        return new JAXBElement<CreateApprovedOrderResponse>(_CreateApprovedOrderResponse_QNAME, CreateApprovedOrderResponse.class, null, value);
+    public JAXBElement<CreateApprovedOrderResponse2> createCreateApprovedOrderResponse(CreateApprovedOrderResponse2 value) {
+        return new JAXBElement<CreateApprovedOrderResponse2>(_CreateApprovedOrderResponse_QNAME, CreateApprovedOrderResponse2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditsRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditsRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditsRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchAccountCreditsRequest")
     public JAXBElement<SearchAccountCreditsRequest> createSearchAccountCreditsRequest(SearchAccountCreditsRequest value) {
@@ -3986,8 +4597,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditFilter }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditFilter }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditFilter }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "SearchAccountCreditFilter")
     public JAXBElement<SearchAccountCreditFilter> createSearchAccountCreditFilter(SearchAccountCreditFilter value) {
@@ -3995,8 +4610,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfAccountCreditStatus")
     public JAXBElement<ArrayOfAccountCreditStatus> createArrayOfAccountCreditStatus(ArrayOfAccountCreditStatus value) {
@@ -4004,8 +4623,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountCreditStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AccountCreditStatus")
     public JAXBElement<AccountCreditStatus> createAccountCreditStatus(AccountCreditStatus value) {
@@ -4013,8 +4636,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditListItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditListItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditListItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfAccountCreditListItem")
     public JAXBElement<ArrayOfAccountCreditListItem> createArrayOfAccountCreditListItem(ArrayOfAccountCreditListItem value) {
@@ -4022,8 +4649,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditListItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditListItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountCreditListItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AccountCreditListItem")
     public JAXBElement<AccountCreditListItem> createAccountCreditListItem(AccountCreditListItem value) {
@@ -4031,8 +4662,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountCreditsRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountCreditsRequest }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetAccountCreditsRequest }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "GetAccountCreditsRequest")
     public JAXBElement<GetAccountCreditsRequest> createGetAccountCreditsRequest(GetAccountCreditsRequest value) {
@@ -4040,8 +4675,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfAccountCreditItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "ArrayOfAccountCreditItem")
     public JAXBElement<ArrayOfAccountCreditItem> createArrayOfAccountCreditItem(ArrayOfAccountCreditItem value) {
@@ -4049,8 +4688,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountCreditItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service", name = "AccountCreditItem")
     public JAXBElement<AccountCreditItem> createAccountCreditItem(AccountCreditItem value) {
@@ -4058,431 +4701,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditDetails }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderRow }{@code >}
      * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "AccountCreditDetails")
-    public JAXBElement<AccountCreditDetails> createAccountCreditDetails(AccountCreditDetails value) {
-        return new JAXBElement<AccountCreditDetails>(_AccountCreditDetails_QNAME, AccountCreditDetails.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditSorting }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "SearchAccountCreditSorting")
-    public JAXBElement<SearchAccountCreditSorting> createSearchAccountCreditSorting(SearchAccountCreditSorting value) {
-        return new JAXBElement<SearchAccountCreditSorting>(_SearchAccountCreditSorting_QNAME, SearchAccountCreditSorting.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SortAccountCreditProperty }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "SortAccountCreditProperty")
-    public JAXBElement<SortAccountCreditProperty> createSortAccountCreditProperty(SortAccountCreditProperty value) {
-        return new JAXBElement<SortAccountCreditProperty>(_SortAccountCreditProperty_QNAME, SortAccountCreditProperty.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfGetAccountCreditInformation }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "ArrayOfGetAccountCreditInformation")
-    public JAXBElement<ArrayOfGetAccountCreditInformation> createArrayOfGetAccountCreditInformation(ArrayOfGetAccountCreditInformation value) {
-        return new JAXBElement<ArrayOfGetAccountCreditInformation>(_ArrayOfGetAccountCreditInformation_QNAME, ArrayOfGetAccountCreditInformation.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountCreditInformation }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "GetAccountCreditInformation")
-    public JAXBElement<GetAccountCreditInformation> createGetAccountCreditInformation(GetAccountCreditInformation value) {
-        return new JAXBElement<GetAccountCreditInformation>(_GetAccountCreditInformation_QNAME, GetAccountCreditInformation.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TextMatchType2 }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.Invoice", name = "TextMatchType")
-    public JAXBElement<TextMatchType2> createSearchInvoice(TextMatchType2 value) {
-        return new JAXBElement<TextMatchType2>(_SearchInvoice_QNAME, TextMatchType2 .class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditAmountRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "CancelAccountCreditAmountRequest")
-    public JAXBElement<CancelAccountCreditAmountRequest> createCancelAccountCreditAmountRequest(CancelAccountCreditAmountRequest value) {
-        return new JAXBElement<CancelAccountCreditAmountRequest>(_CancelAccountCreditAmountRequest_QNAME, CancelAccountCreditAmountRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditRowsRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "CancelAccountCreditRowsRequest")
-    public JAXBElement<CancelAccountCreditRowsRequest> createCancelAccountCreditRowsRequest(CancelAccountCreditRowsRequest value) {
-        return new JAXBElement<CancelAccountCreditRowsRequest>(_CancelAccountCreditRowsRequest_QNAME, CancelAccountCreditRowsRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "AccountCreditRegressReportRequest")
-    public JAXBElement<AccountCreditRegressReportRequest> createAccountCreditRegressReportRequest(AccountCreditRegressReportRequest value) {
-        return new JAXBElement<AccountCreditRegressReportRequest>(_AccountCreditRegressReportRequest_QNAME, AccountCreditRegressReportRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "AccountingAgreementType25ReportRequest")
-    public JAXBElement<AccountingAgreementType25ReportRequest> createAccountingAgreementType25ReportRequest(AccountingAgreementType25ReportRequest value) {
-        return new JAXBElement<AccountingAgreementType25ReportRequest>(_AccountingAgreementType25ReportRequest_QNAME, AccountingAgreementType25ReportRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetDebtInvoicesPaidToClientForReportRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetDebtInvoicesPaidToClientForReportRequest")
-    public JAXBElement<GetDebtInvoicesPaidToClientForReportRequest> createGetDebtInvoicesPaidToClientForReportRequest(GetDebtInvoicesPaidToClientForReportRequest value) {
-        return new JAXBElement<GetDebtInvoicesPaidToClientForReportRequest>(_GetDebtInvoicesPaidToClientForReportRequest_QNAME, GetDebtInvoicesPaidToClientForReportRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesPaidToClientForReportRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetInvoicesPaidToClientForReportRequest")
-    public JAXBElement<GetInvoicesPaidToClientForReportRequest> createGetInvoicesPaidToClientForReportRequest(GetInvoicesPaidToClientForReportRequest value) {
-        return new JAXBElement<GetInvoicesPaidToClientForReportRequest>(_GetInvoicesPaidToClientForReportRequest_QNAME, GetInvoicesPaidToClientForReportRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetKickbackReportRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetKickbackReportRequest")
-    public JAXBElement<GetKickbackReportRequest> createGetKickbackReportRequest(GetKickbackReportRequest value) {
-        return new JAXBElement<GetKickbackReportRequest>(_GetKickbackReportRequest_QNAME, GetKickbackReportRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetPendingReasonsRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetPendingReasonsRequest")
-    public JAXBElement<GetPendingReasonsRequest> createGetPendingReasonsRequest(GetPendingReasonsRequest value) {
-        return new JAXBElement<GetPendingReasonsRequest>(_GetPendingReasonsRequest_QNAME, GetPendingReasonsRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetSpecificationReportRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetSpecificationReportRequest")
-    public JAXBElement<GetSpecificationReportRequest> createGetSpecificationReportRequest(GetSpecificationReportRequest value) {
-        return new JAXBElement<GetSpecificationReportRequest>(_GetSpecificationReportRequest_QNAME, GetSpecificationReportRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetSpecificationReportResponse2 }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetSpecificationReportResponse")
-    public JAXBElement<GetSpecificationReportResponse2> createGetSpecificationReportResponse(GetSpecificationReportResponse2 value) {
-        return new JAXBElement<GetSpecificationReportResponse2>(_GetSpecificationReportResponse_QNAME, GetSpecificationReportResponse2 .class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetClientIdRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetClientIdRequest")
-    public JAXBElement<GetClientIdRequest> createGetClientIdRequest(GetClientIdRequest value) {
-        return new JAXBElement<GetClientIdRequest>(_GetClientIdRequest_QNAME, GetClientIdRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TextMatchType3 }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.PaymentPlan", name = "TextMatchType")
-    public JAXBElement<TextMatchType3> createSearchPaymentPlan(TextMatchType3 value) {
-        return new JAXBElement<TextMatchType3>(_SearchPaymentPlan_QNAME, TextMatchType3 .class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateOrderInformation }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", name = "CreateOrderInformation")
-    public JAXBElement<CreateOrderInformation> createCreateOrderInformation(CreateOrderInformation value) {
-        return new JAXBElement<CreateOrderInformation>(_CreateOrderInformation_QNAME, CreateOrderInformation.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateAccountCreditDetails }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", name = "CreateAccountCreditDetails")
-    public JAXBElement<CreateAccountCreditDetails> createCreateAccountCreditDetails(CreateAccountCreditDetails value) {
-        return new JAXBElement<CreateAccountCreditDetails>(_CreateAccountCreditDetails_QNAME, CreateAccountCreditDetails.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreatePaymentPlanDetails }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", name = "CreatePaymentPlanDetails")
-    public JAXBElement<CreatePaymentPlanDetails> createCreatePaymentPlanDetails(CreatePaymentPlanDetails value) {
-        return new JAXBElement<CreatePaymentPlanDetails>(_CreatePaymentPlanDetails_QNAME, CreatePaymentPlanDetails.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateOrderResult }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", name = "CreateOrderResult")
-    public JAXBElement<CreateOrderResult> createCreateOrderResult(CreateOrderResult value) {
-        return new JAXBElement<CreateOrderResult>(_CreateOrderResult_QNAME, CreateOrderResult.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TextMatchType4 }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.AccountCredit", name = "TextMatchType")
-    public JAXBElement<TextMatchType4> createSearchAccountCredit(TextMatchType4 value) {
-        return new JAXBElement<TextMatchType4>(_SearchAccountCredit_QNAME, TextMatchType4 .class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RowType }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Enums", name = "RowType")
-    public JAXBElement<RowType> createRowType(RowType value) {
-        return new JAXBElement<RowType>(_RowType_QNAME, RowType.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddressSource }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Enums", name = "AddressSource")
-    public JAXBElement<AddressSource> createAddressSource(AddressSource value) {
-        return new JAXBElement<AddressSource>(_AddressSource_QNAME, AddressSource.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BillingReferenceType }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Enums", name = "BillingReferenceType")
-    public JAXBElement<BillingReferenceType> createBillingReferenceType(BillingReferenceType value) {
-        return new JAXBElement<BillingReferenceType>(_BillingReferenceType_QNAME, BillingReferenceType.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "anyType")
-    public JAXBElement<Object> createAnyType(Object value) {
-        return new JAXBElement<Object>(_AnyType_QNAME, Object.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "anyURI")
-    public JAXBElement<String> createAnyURI(String value) {
-        return new JAXBElement<String>(_AnyURI_QNAME, String.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "base64Binary")
-    public JAXBElement<byte[]> createBase64Binary(byte[] value) {
-        return new JAXBElement<byte[]>(_Base64Binary_QNAME, byte[].class, null, ((byte[]) value));
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "boolean")
-    public JAXBElement<Boolean> createBoolean(Boolean value) {
-        return new JAXBElement<Boolean>(_Boolean_QNAME, Boolean.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Byte }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "byte")
-    public JAXBElement<Byte> createByte(Byte value) {
-        return new JAXBElement<Byte>(_Byte_QNAME, Byte.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "dateTime")
-    public JAXBElement<XMLGregorianCalendar> createDateTime(XMLGregorianCalendar value) {
-        return new JAXBElement<XMLGregorianCalendar>(_DateTime_QNAME, XMLGregorianCalendar.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "decimal")
-    public JAXBElement<BigDecimal> createDecimal(BigDecimal value) {
-        return new JAXBElement<BigDecimal>(_Decimal_QNAME, BigDecimal.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "double")
-    public JAXBElement<Double> createDouble(Double value) {
-        return new JAXBElement<Double>(_Double_QNAME, Double.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Float }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "float")
-    public JAXBElement<Float> createFloat(Float value) {
-        return new JAXBElement<Float>(_Float_QNAME, Float.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "int")
-    public JAXBElement<Integer> createInt(Integer value) {
-        return new JAXBElement<Integer>(_Int_QNAME, Integer.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "long")
-    public JAXBElement<Long> createLong(Long value) {
-        return new JAXBElement<Long>(_Long_QNAME, Long.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link QName }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "QName")
-    public JAXBElement<QName> createQName(QName value) {
-        return new JAXBElement<QName>(_QName_QNAME, QName.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Short }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "short")
-    public JAXBElement<Short> createShort(Short value) {
-        return new JAXBElement<Short>(_Short_QNAME, Short.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "string")
-    public JAXBElement<String> createString(String value) {
-        return new JAXBElement<String>(_String_QNAME, String.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Short }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "unsignedByte")
-    public JAXBElement<Short> createUnsignedByte(Short value) {
-        return new JAXBElement<Short>(_UnsignedByte_QNAME, Short.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "unsignedInt")
-    public JAXBElement<Long> createUnsignedInt(Long value) {
-        return new JAXBElement<Long>(_UnsignedInt_QNAME, Long.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "unsignedLong")
-    public JAXBElement<BigInteger> createUnsignedLong(BigInteger value) {
-        return new JAXBElement<BigInteger>(_UnsignedLong_QNAME, BigInteger.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "unsignedShort")
-    public JAXBElement<Integer> createUnsignedShort(Integer value) {
-        return new JAXBElement<Integer>(_UnsignedShort_QNAME, Integer.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "char")
-    public JAXBElement<Integer> createChar(Integer value) {
-        return new JAXBElement<Integer>(_Char_QNAME, Integer.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Duration }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "duration")
-    public JAXBElement<Duration> createDuration(Duration value) {
-        return new JAXBElement<Duration>(_Duration_QNAME, Duration.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "guid")
-    public JAXBElement<String> createGuid(String value) {
-        return new JAXBElement<String>(_Guid_QNAME, String.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderRow }{@code >}}
-     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "ArrayOfOrderRow")
     public JAXBElement<ArrayOfOrderRow> createArrayOfOrderRow(ArrayOfOrderRow value) {
@@ -4490,8 +4714,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderRow }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderRow }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "OrderRow")
     public JAXBElement<OrderRow> createOrderRow(OrderRow value) {
@@ -4499,8 +4727,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderType }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderType }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "OrderType")
     public JAXBElement<OrderType> createOrderType(OrderType value) {
@@ -4508,8 +4740,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderRowReferenceItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderRowReferenceItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderRowReferenceItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "ArrayOfOrderRowReferenceItem")
     public JAXBElement<ArrayOfOrderRowReferenceItem> createArrayOfOrderRowReferenceItem(ArrayOfOrderRowReferenceItem value) {
@@ -4517,8 +4753,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderRowReferenceItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderRowReferenceItem }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderRowReferenceItem }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "OrderRowReferenceItem")
     public JAXBElement<OrderRowReferenceItem> createOrderRowReferenceItem(OrderRowReferenceItem value) {
@@ -4526,8 +4766,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Address }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Address }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Address }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "Address")
     public JAXBElement<Address> createAddress(Address value) {
@@ -4535,8 +4779,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CustomerIdentity }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CustomerIdentity }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CustomerIdentity }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "CustomerIdentity")
     public JAXBElement<CustomerIdentity> createCustomerIdentity(CustomerIdentity value) {
@@ -4544,8 +4792,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CompanyIdentity }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CompanyIdentity }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CompanyIdentity }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "CompanyIdentity")
     public JAXBElement<CompanyIdentity> createCompanyIdentity(CompanyIdentity value) {
@@ -4553,8 +4805,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CustomerType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CustomerType }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CustomerType }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "CustomerType")
     public JAXBElement<CustomerType> createCustomerType(CustomerType value) {
@@ -4562,8 +4818,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link IndividualIdentity }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IndividualIdentity }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link IndividualIdentity }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "IndividualIdentity")
     public JAXBElement<IndividualIdentity> createIndividualIdentity(IndividualIdentity value) {
@@ -4571,8 +4831,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfOrderStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "ArrayOfOrderStatus")
     public JAXBElement<ArrayOfOrderStatus> createArrayOfOrderStatus(ArrayOfOrderStatus value) {
@@ -4580,8 +4844,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrderStatus }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderStatus }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link OrderStatus }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "OrderStatus")
     public JAXBElement<OrderStatus> createOrderStatus(OrderStatus value) {
@@ -4589,8 +4857,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link KycRiskClassification }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link KycRiskClassification }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link KycRiskClassification }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice", name = "KycRiskClassification")
     public JAXBElement<KycRiskClassification> createKycRiskClassification(KycRiskClassification value) {
@@ -4598,143 +4870,324 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceDistributionType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RowType }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RowType }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.DeliverOrder", name = "InvoiceDistributionType")
-    public JAXBElement<InvoiceDistributionType> createInvoiceDistributionType(InvoiceDistributionType value) {
-        return new JAXBElement<InvoiceDistributionType>(_InvoiceDistributionType_QNAME, InvoiceDistributionType.class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Enums", name = "RowType")
+    public JAXBElement<RowType> createRowType(RowType value) {
+        return new JAXBElement<RowType>(_RowType_QNAME, RowType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoicePaidToClientRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddressSource }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AddressSource }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", name = "ArrayOfInvoicePaidToClientRow")
-    public JAXBElement<ArrayOfInvoicePaidToClientRow> createArrayOfInvoicePaidToClientRow(ArrayOfInvoicePaidToClientRow value) {
-        return new JAXBElement<ArrayOfInvoicePaidToClientRow>(_ArrayOfInvoicePaidToClientRow_QNAME, ArrayOfInvoicePaidToClientRow.class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Enums", name = "AddressSource")
+    public JAXBElement<AddressSource> createAddressSource(AddressSource value) {
+        return new JAXBElement<AddressSource>(_AddressSource_QNAME, AddressSource.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InvoicePaidToClientRow }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BillingReferenceType }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BillingReferenceType }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", name = "InvoicePaidToClientRow")
-    public JAXBElement<InvoicePaidToClientRow> createInvoicePaidToClientRow(InvoicePaidToClientRow value) {
-        return new JAXBElement<InvoicePaidToClientRow>(_InvoicePaidToClientRow_QNAME, InvoicePaidToClientRow.class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Enums", name = "BillingReferenceType")
+    public JAXBElement<BillingReferenceType> createBillingReferenceType(BillingReferenceType value) {
+        return new JAXBElement<BillingReferenceType>(_BillingReferenceType_QNAME, BillingReferenceType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditAmountResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "CancelAccountCreditAmountResponse")
-    public JAXBElement<CancelAccountCreditAmountResponse2> createCancelAccountCreditAmountResponse(CancelAccountCreditAmountResponse2 value) {
-        return new JAXBElement<CancelAccountCreditAmountResponse2>(_CancelAccountCreditAmountResponse_QNAME, CancelAccountCreditAmountResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "anyType")
+    public JAXBElement<Object> createAnyType(Object value) {
+        return new JAXBElement<Object>(_AnyType_QNAME, Object.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditRowsResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "CancelAccountCreditRowsResponse")
-    public JAXBElement<CancelAccountCreditRowsResponse2> createCancelAccountCreditRowsResponse(CancelAccountCreditRowsResponse2 value) {
-        return new JAXBElement<CancelAccountCreditRowsResponse2>(_CancelAccountCreditRowsResponse_QNAME, CancelAccountCreditRowsResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "anyURI")
+    public JAXBElement<String> createAnyURI(String value) {
+        return new JAXBElement<String>(_AnyURI_QNAME, String.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ExtendOrderResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "ExtendOrderResponse")
-    public JAXBElement<ExtendOrderResponse2> createExtendOrderResponse(ExtendOrderResponse2 value) {
-        return new JAXBElement<ExtendOrderResponse2>(_ExtendOrderResponse_QNAME, ExtendOrderResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "base64Binary")
+    public JAXBElement<byte[]> createBase64Binary(byte[] value) {
+        return new JAXBElement<byte[]>(_Base64Binary_QNAME, byte[].class, null, ((byte[]) value));
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "AccountCreditRegressReportResponse")
-    public JAXBElement<AccountCreditRegressReportResponse> createAccountCreditRegressReportResponse(AccountCreditRegressReportResponse value) {
-        return new JAXBElement<AccountCreditRegressReportResponse>(_AccountCreditRegressReportResponse_QNAME, AccountCreditRegressReportResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "boolean")
+    public JAXBElement<Boolean> createBoolean(Boolean value) {
+        return new JAXBElement<Boolean>(_Boolean_QNAME, Boolean.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Byte }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Byte }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "AccountingAgreementType25ReportResponse")
-    public JAXBElement<AccountingAgreementType25ReportResponse> createAccountingAgreementType25ReportResponse(AccountingAgreementType25ReportResponse value) {
-        return new JAXBElement<AccountingAgreementType25ReportResponse>(_AccountingAgreementType25ReportResponse_QNAME, AccountingAgreementType25ReportResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "byte")
+    public JAXBElement<Byte> createByte(Byte value) {
+        return new JAXBElement<Byte>(_Byte_QNAME, Byte.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetDebtInvoicesPaidToClientForReportResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetDebtInvoicesPaidToClientForReportResponse")
-    public JAXBElement<GetDebtInvoicesPaidToClientForReportResponse2> createGetDebtInvoicesPaidToClientForReportResponse(GetDebtInvoicesPaidToClientForReportResponse2 value) {
-        return new JAXBElement<GetDebtInvoicesPaidToClientForReportResponse2>(_GetDebtInvoicesPaidToClientForReportResponse_QNAME, GetDebtInvoicesPaidToClientForReportResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "dateTime")
+    public JAXBElement<XMLGregorianCalendar> createDateTime(XMLGregorianCalendar value) {
+        return new JAXBElement<XMLGregorianCalendar>(_DateTime_QNAME, XMLGregorianCalendar.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesPaidToClientForReportResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetInvoicesPaidToClientForReportResponse")
-    public JAXBElement<GetInvoicesPaidToClientForReportResponse2> createGetInvoicesPaidToClientForReportResponse(GetInvoicesPaidToClientForReportResponse2 value) {
-        return new JAXBElement<GetInvoicesPaidToClientForReportResponse2>(_GetInvoicesPaidToClientForReportResponse_QNAME, GetInvoicesPaidToClientForReportResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "decimal")
+    public JAXBElement<BigDecimal> createDecimal(BigDecimal value) {
+        return new JAXBElement<BigDecimal>(_Decimal_QNAME, BigDecimal.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetKickbackReportResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Double }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetKickbackReportResponse")
-    public JAXBElement<GetKickbackReportResponse2> createGetKickbackReportResponse(GetKickbackReportResponse2 value) {
-        return new JAXBElement<GetKickbackReportResponse2>(_GetKickbackReportResponse_QNAME, GetKickbackReportResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "double")
+    public JAXBElement<Double> createDouble(Double value) {
+        return new JAXBElement<Double>(_Double_QNAME, Double.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetPendingReasonsResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Float }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Float }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetPendingReasonsResponse")
-    public JAXBElement<GetPendingReasonsResponse2> createGetPendingReasonsResponse(GetPendingReasonsResponse2 value) {
-        return new JAXBElement<GetPendingReasonsResponse2>(_GetPendingReasonsResponse_QNAME, GetPendingReasonsResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "float")
+    public JAXBElement<Float> createFloat(Float value) {
+        return new JAXBElement<Float>(_Float_QNAME, Float.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditsResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "SearchAccountCreditsResponse")
-    public JAXBElement<SearchAccountCreditsResponse2> createSearchAccountCreditsResponse(SearchAccountCreditsResponse2 value) {
-        return new JAXBElement<SearchAccountCreditsResponse2>(_SearchAccountCreditsResponse_QNAME, SearchAccountCreditsResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "int")
+    public JAXBElement<Integer> createInt(Integer value) {
+        return new JAXBElement<Integer>(_Int_QNAME, Integer.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountCreditsResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Long }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetAccountCreditsResponse")
-    public JAXBElement<GetAccountCreditsResponse2> createGetAccountCreditsResponse(GetAccountCreditsResponse2 value) {
-        return new JAXBElement<GetAccountCreditsResponse2>(_GetAccountCreditsResponse_QNAME, GetAccountCreditsResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "long")
+    public JAXBElement<Long> createLong(Long value) {
+        return new JAXBElement<Long>(_Long_QNAME, Long.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetClientIdResponse2 }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link QName }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link QName }{@code >}
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetClientIdResponse")
-    public JAXBElement<GetClientIdResponse2> createGetClientIdResponse(GetClientIdResponse2 value) {
-        return new JAXBElement<GetClientIdResponse2>(_GetClientIdResponse_QNAME, GetClientIdResponse2 .class, null, value);
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "QName")
+    public JAXBElement<QName> createQName(QName value) {
+        return new JAXBElement<QName>(_QName_QNAME, QName.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOflong }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Short }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Short }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "short")
+    public JAXBElement<Short> createShort(Short value) {
+        return new JAXBElement<Short>(_Short_QNAME, Short.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "string")
+    public JAXBElement<String> createString(String value) {
+        return new JAXBElement<String>(_String_QNAME, String.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Short }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Short }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "unsignedByte")
+    public JAXBElement<Short> createUnsignedByte(Short value) {
+        return new JAXBElement<Short>(_UnsignedByte_QNAME, Short.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Long }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "unsignedInt")
+    public JAXBElement<Long> createUnsignedInt(Long value) {
+        return new JAXBElement<Long>(_UnsignedInt_QNAME, Long.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "unsignedLong")
+    public JAXBElement<BigInteger> createUnsignedLong(BigInteger value) {
+        return new JAXBElement<BigInteger>(_UnsignedLong_QNAME, BigInteger.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "unsignedShort")
+    public JAXBElement<Integer> createUnsignedShort(Integer value) {
+        return new JAXBElement<Integer>(_UnsignedShort_QNAME, Integer.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "char")
+    public JAXBElement<Integer> createChar(Integer value) {
+        return new JAXBElement<Integer>(_Char_QNAME, Integer.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Duration }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Duration }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "duration")
+    public JAXBElement<Duration> createDuration(Duration value) {
+        return new JAXBElement<Duration>(_Duration_QNAME, Duration.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/", name = "guid")
+    public JAXBElement<String> createGuid(String value) {
+        return new JAXBElement<String>(_Guid_QNAME, String.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOflong }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOflong }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/Arrays", name = "ArrayOflong")
     public JAXBElement<ArrayOflong> createArrayOflong(ArrayOflong value) {
@@ -4742,12 +5195,523 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}
      */
     @XmlElementDecl(namespace = "http://schemas.microsoft.com/2003/10/Serialization/Arrays", name = "ArrayOfstring")
     public JAXBElement<ArrayOfstring> createArrayOfstring(ArrayOfstring value) {
         return new JAXBElement<ArrayOfstring>(_ArrayOfstring_QNAME, ArrayOfstring.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoiceDistributionType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoiceDistributionType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.DeliverOrder", name = "InvoiceDistributionType")
+    public JAXBElement<InvoiceDistributionType> createInvoiceDistributionType(InvoiceDistributionType value) {
+        return new JAXBElement<InvoiceDistributionType>(_InvoiceDistributionType_QNAME, InvoiceDistributionType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditDetails }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountCreditDetails }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "AccountCreditDetails")
+    public JAXBElement<AccountCreditDetails> createAccountCreditDetails(AccountCreditDetails value) {
+        return new JAXBElement<AccountCreditDetails>(_AccountCreditDetails_QNAME, AccountCreditDetails.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditSorting }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditSorting }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "SearchAccountCreditSorting")
+    public JAXBElement<SearchAccountCreditSorting> createSearchAccountCreditSorting(SearchAccountCreditSorting value) {
+        return new JAXBElement<SearchAccountCreditSorting>(_SearchAccountCreditSorting_QNAME, SearchAccountCreditSorting.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SortAccountCreditProperty }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SortAccountCreditProperty }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "SortAccountCreditProperty")
+    public JAXBElement<SortAccountCreditProperty> createSortAccountCreditProperty(SortAccountCreditProperty value) {
+        return new JAXBElement<SortAccountCreditProperty>(_SortAccountCreditProperty_QNAME, SortAccountCreditProperty.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfGetAccountCreditInformation }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfGetAccountCreditInformation }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "ArrayOfGetAccountCreditInformation")
+    public JAXBElement<ArrayOfGetAccountCreditInformation> createArrayOfGetAccountCreditInformation(ArrayOfGetAccountCreditInformation value) {
+        return new JAXBElement<ArrayOfGetAccountCreditInformation>(_ArrayOfGetAccountCreditInformation_QNAME, ArrayOfGetAccountCreditInformation.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountCreditInformation }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetAccountCreditInformation }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Account", name = "GetAccountCreditInformation")
+    public JAXBElement<GetAccountCreditInformation> createGetAccountCreditInformation(GetAccountCreditInformation value) {
+        return new JAXBElement<GetAccountCreditInformation>(_GetAccountCreditInformation_QNAME, GetAccountCreditInformation.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TextMatchType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link TextMatchType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.Order", name = "TextMatchType")
+    public JAXBElement<TextMatchType> createSearchOrder(TextMatchType value) {
+        return new JAXBElement<TextMatchType>(_SearchOrder_QNAME, TextMatchType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TextMatchType2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link TextMatchType2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.Invoice", name = "TextMatchType")
+    public JAXBElement<TextMatchType2> createSearchInvoice(TextMatchType2 value) {
+        return new JAXBElement<TextMatchType2>(_SearchInvoice_QNAME, TextMatchType2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TextMatchType3 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link TextMatchType3 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.PaymentPlan", name = "TextMatchType")
+    public JAXBElement<TextMatchType3> createSearchPaymentPlan(TextMatchType3 value) {
+        return new JAXBElement<TextMatchType3>(_SearchPaymentPlan_QNAME, TextMatchType3 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateOrderInformation }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreateOrderInformation }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", name = "CreateOrderInformation")
+    public JAXBElement<CreateOrderInformation> createCreateOrderInformation(CreateOrderInformation value) {
+        return new JAXBElement<CreateOrderInformation>(_CreateOrderInformation_QNAME, CreateOrderInformation.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateAccountCreditDetails }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreateAccountCreditDetails }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", name = "CreateAccountCreditDetails")
+    public JAXBElement<CreateAccountCreditDetails> createCreateAccountCreditDetails(CreateAccountCreditDetails value) {
+        return new JAXBElement<CreateAccountCreditDetails>(_CreateAccountCreditDetails_QNAME, CreateAccountCreditDetails.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreatePaymentPlanDetails }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreatePaymentPlanDetails }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", name = "CreatePaymentPlanDetails")
+    public JAXBElement<CreatePaymentPlanDetails> createCreatePaymentPlanDetails(CreatePaymentPlanDetails value) {
+        return new JAXBElement<CreatePaymentPlanDetails>(_CreatePaymentPlanDetails_QNAME, CreatePaymentPlanDetails.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateOrderResult }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreateOrderResult }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Webservice.CreateOrder", name = "CreateOrderResult")
+    public JAXBElement<CreateOrderResult> createCreateOrderResult(CreateOrderResult value) {
+        return new JAXBElement<CreateOrderResult>(_CreateOrderResult_QNAME, CreateOrderResult.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TextMatchType4 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link TextMatchType4 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Search.AccountCredit", name = "TextMatchType")
+    public JAXBElement<TextMatchType4> createSearchAccountCredit(TextMatchType4 value) {
+        return new JAXBElement<TextMatchType4>(_SearchAccountCredit_QNAME, TextMatchType4 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditAmountRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditAmountRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "CancelAccountCreditAmountRequest")
+    public JAXBElement<CancelAccountCreditAmountRequest> createCancelAccountCreditAmountRequest(CancelAccountCreditAmountRequest value) {
+        return new JAXBElement<CancelAccountCreditAmountRequest>(_CancelAccountCreditAmountRequest_QNAME, CancelAccountCreditAmountRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditRowsRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditRowsRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "CancelAccountCreditRowsRequest")
+    public JAXBElement<CancelAccountCreditRowsRequest> createCancelAccountCreditRowsRequest(CancelAccountCreditRowsRequest value) {
+        return new JAXBElement<CancelAccountCreditRowsRequest>(_CancelAccountCreditRowsRequest_QNAME, CancelAccountCreditRowsRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "AccountCreditRegressReportRequest")
+    public JAXBElement<AccountCreditRegressReportRequest> createAccountCreditRegressReportRequest(AccountCreditRegressReportRequest value) {
+        return new JAXBElement<AccountCreditRegressReportRequest>(_AccountCreditRegressReportRequest_QNAME, AccountCreditRegressReportRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "AccountingAgreementType25ReportRequest")
+    public JAXBElement<AccountingAgreementType25ReportRequest> createAccountingAgreementType25ReportRequest(AccountingAgreementType25ReportRequest value) {
+        return new JAXBElement<AccountingAgreementType25ReportRequest>(_AccountingAgreementType25ReportRequest_QNAME, AccountingAgreementType25ReportRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDebtInvoicesPaidToClientForReportRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetDebtInvoicesPaidToClientForReportRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetDebtInvoicesPaidToClientForReportRequest")
+    public JAXBElement<GetDebtInvoicesPaidToClientForReportRequest> createGetDebtInvoicesPaidToClientForReportRequest(GetDebtInvoicesPaidToClientForReportRequest value) {
+        return new JAXBElement<GetDebtInvoicesPaidToClientForReportRequest>(_GetDebtInvoicesPaidToClientForReportRequest_QNAME, GetDebtInvoicesPaidToClientForReportRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesPaidToClientForReportRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoicesPaidToClientForReportRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetInvoicesPaidToClientForReportRequest")
+    public JAXBElement<GetInvoicesPaidToClientForReportRequest> createGetInvoicesPaidToClientForReportRequest(GetInvoicesPaidToClientForReportRequest value) {
+        return new JAXBElement<GetInvoicesPaidToClientForReportRequest>(_GetInvoicesPaidToClientForReportRequest_QNAME, GetInvoicesPaidToClientForReportRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetKickbackReportRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetKickbackReportRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetKickbackReportRequest")
+    public JAXBElement<GetKickbackReportRequest> createGetKickbackReportRequest(GetKickbackReportRequest value) {
+        return new JAXBElement<GetKickbackReportRequest>(_GetKickbackReportRequest_QNAME, GetKickbackReportRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPendingReasonsRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetPendingReasonsRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetPendingReasonsRequest")
+    public JAXBElement<GetPendingReasonsRequest> createGetPendingReasonsRequest(GetPendingReasonsRequest value) {
+        return new JAXBElement<GetPendingReasonsRequest>(_GetPendingReasonsRequest_QNAME, GetPendingReasonsRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetSpecificationReportRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetSpecificationReportRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetSpecificationReportRequest")
+    public JAXBElement<GetSpecificationReportRequest> createGetSpecificationReportRequest(GetSpecificationReportRequest value) {
+        return new JAXBElement<GetSpecificationReportRequest>(_GetSpecificationReportRequest_QNAME, GetSpecificationReportRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetSpecificationReportResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetSpecificationReportResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetSpecificationReportResponse")
+    public JAXBElement<GetSpecificationReportResponse2> createGetSpecificationReportResponse(GetSpecificationReportResponse2 value) {
+        return new JAXBElement<GetSpecificationReportResponse2>(_GetSpecificationReportResponse_QNAME, GetSpecificationReportResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetClientIdRequest }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetClientIdRequest }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Requests", name = "GetClientIdRequest")
+    public JAXBElement<GetClientIdRequest> createGetClientIdRequest(GetClientIdRequest value) {
+        return new JAXBElement<GetClientIdRequest>(_GetClientIdRequest_QNAME, GetClientIdRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditAmountResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditAmountResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "CancelAccountCreditAmountResponse")
+    public JAXBElement<CancelAccountCreditAmountResponse2> createCancelAccountCreditAmountResponse(CancelAccountCreditAmountResponse2 value) {
+        return new JAXBElement<CancelAccountCreditAmountResponse2>(_CancelAccountCreditAmountResponse_QNAME, CancelAccountCreditAmountResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditRowsResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CancelAccountCreditRowsResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "CancelAccountCreditRowsResponse")
+    public JAXBElement<CancelAccountCreditRowsResponse2> createCancelAccountCreditRowsResponse(CancelAccountCreditRowsResponse2 value) {
+        return new JAXBElement<CancelAccountCreditRowsResponse2>(_CancelAccountCreditRowsResponse_QNAME, CancelAccountCreditRowsResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ExtendOrderResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ExtendOrderResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "ExtendOrderResponse")
+    public JAXBElement<ExtendOrderResponse2> createExtendOrderResponse(ExtendOrderResponse2 value) {
+        return new JAXBElement<ExtendOrderResponse2>(_ExtendOrderResponse_QNAME, ExtendOrderResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountCreditRegressReportResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "AccountCreditRegressReportResponse")
+    public JAXBElement<AccountCreditRegressReportResponse> createAccountCreditRegressReportResponse(AccountCreditRegressReportResponse value) {
+        return new JAXBElement<AccountCreditRegressReportResponse>(_AccountCreditRegressReportResponse_QNAME, AccountCreditRegressReportResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AccountingAgreementType25ReportResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "AccountingAgreementType25ReportResponse")
+    public JAXBElement<AccountingAgreementType25ReportResponse> createAccountingAgreementType25ReportResponse(AccountingAgreementType25ReportResponse value) {
+        return new JAXBElement<AccountingAgreementType25ReportResponse>(_AccountingAgreementType25ReportResponse_QNAME, AccountingAgreementType25ReportResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDebtInvoicesPaidToClientForReportResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetDebtInvoicesPaidToClientForReportResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetDebtInvoicesPaidToClientForReportResponse")
+    public JAXBElement<GetDebtInvoicesPaidToClientForReportResponse2> createGetDebtInvoicesPaidToClientForReportResponse(GetDebtInvoicesPaidToClientForReportResponse2 value) {
+        return new JAXBElement<GetDebtInvoicesPaidToClientForReportResponse2>(_GetDebtInvoicesPaidToClientForReportResponse_QNAME, GetDebtInvoicesPaidToClientForReportResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetInvoicesPaidToClientForReportResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetInvoicesPaidToClientForReportResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetInvoicesPaidToClientForReportResponse")
+    public JAXBElement<GetInvoicesPaidToClientForReportResponse2> createGetInvoicesPaidToClientForReportResponse(GetInvoicesPaidToClientForReportResponse2 value) {
+        return new JAXBElement<GetInvoicesPaidToClientForReportResponse2>(_GetInvoicesPaidToClientForReportResponse_QNAME, GetInvoicesPaidToClientForReportResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetKickbackReportResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetKickbackReportResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetKickbackReportResponse")
+    public JAXBElement<GetKickbackReportResponse2> createGetKickbackReportResponse(GetKickbackReportResponse2 value) {
+        return new JAXBElement<GetKickbackReportResponse2>(_GetKickbackReportResponse_QNAME, GetKickbackReportResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPendingReasonsResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetPendingReasonsResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetPendingReasonsResponse")
+    public JAXBElement<GetPendingReasonsResponse2> createGetPendingReasonsResponse(GetPendingReasonsResponse2 value) {
+        return new JAXBElement<GetPendingReasonsResponse2>(_GetPendingReasonsResponse_QNAME, GetPendingReasonsResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditsResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SearchAccountCreditsResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "SearchAccountCreditsResponse")
+    public JAXBElement<SearchAccountCreditsResponse2> createSearchAccountCreditsResponse(SearchAccountCreditsResponse2 value) {
+        return new JAXBElement<SearchAccountCreditsResponse2>(_SearchAccountCreditsResponse_QNAME, SearchAccountCreditsResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountCreditsResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetAccountCreditsResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetAccountCreditsResponse")
+    public JAXBElement<GetAccountCreditsResponse2> createGetAccountCreditsResponse(GetAccountCreditsResponse2 value) {
+        return new JAXBElement<GetAccountCreditsResponse2>(_GetAccountCreditsResponse_QNAME, GetAccountCreditsResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetClientIdResponse2 }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetClientIdResponse2 }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service.Responses", name = "GetClientIdResponse")
+    public JAXBElement<GetClientIdResponse2> createGetClientIdResponse(GetClientIdResponse2 value) {
+        return new JAXBElement<GetClientIdResponse2>(_GetClientIdResponse_QNAME, GetClientIdResponse2 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoicePaidToClientRow }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayOfInvoicePaidToClientRow }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", name = "ArrayOfInvoicePaidToClientRow")
+    public JAXBElement<ArrayOfInvoicePaidToClientRow> createArrayOfInvoicePaidToClientRow(ArrayOfInvoicePaidToClientRow value) {
+        return new JAXBElement<ArrayOfInvoicePaidToClientRow>(_ArrayOfInvoicePaidToClientRow_QNAME, ArrayOfInvoicePaidToClientRow.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvoicePaidToClientRow }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link InvoicePaidToClientRow }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/DataObjects.Internal.Service.Types", name = "InvoicePaidToClientRow")
+    public JAXBElement<InvoicePaidToClientRow> createInvoicePaidToClientRow(InvoicePaidToClientRow value) {
+        return new JAXBElement<InvoicePaidToClientRow>(_InvoicePaidToClientRow_QNAME, InvoicePaidToClientRow.class, null, value);
     }
 
 }

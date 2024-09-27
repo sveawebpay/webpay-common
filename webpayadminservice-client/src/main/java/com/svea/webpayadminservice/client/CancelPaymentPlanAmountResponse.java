@@ -1,23 +1,26 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for CancelPaymentPlanAmountResponse complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CancelPaymentPlanAmountResponse"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
+ *         &lt;element name="CancelPaymentPlanAmountResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}CancelPaymentPlanAmountResponse" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
+ *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -25,10 +28,37 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CancelPaymentPlanAmountResponse")
-public class CancelPaymentPlanAmountResponse
-    extends BasicResponse
-{
+@XmlType(name = "", propOrder = {
+    "cancelPaymentPlanAmountResult"
+})
+@XmlRootElement(name = "CancelPaymentPlanAmountResponse", namespace = "http://tempuri.org/")
+public class CancelPaymentPlanAmountResponse {
 
+    @XmlElement(name = "CancelPaymentPlanAmountResult", namespace = "http://tempuri.org/", nillable = true)
+    protected CancelPaymentPlanAmountResponse2 cancelPaymentPlanAmountResult;
+
+    /**
+     * Gets the value of the cancelPaymentPlanAmountResult property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CancelPaymentPlanAmountResponse2 }
+     *     
+     */
+    public CancelPaymentPlanAmountResponse2 getCancelPaymentPlanAmountResult() {
+        return cancelPaymentPlanAmountResult;
+    }
+
+    /**
+     * Sets the value of the cancelPaymentPlanAmountResult property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CancelPaymentPlanAmountResponse2 }
+     *     
+     */
+    public void setCancelPaymentPlanAmountResult(CancelPaymentPlanAmountResponse2 value) {
+        this.cancelPaymentPlanAmountResult = value;
+    }
 
 }

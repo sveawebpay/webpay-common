@@ -1,6 +1,6 @@
-@javax.xml.bind.annotation.XmlSchema ( 
+@jakarta.xml.bind.annotation.XmlSchema ( 
 		namespace = "https://github.com/sveawebpay/paymentgw",
-		elementFormDefault=javax.xml.bind.annotation.XmlNsForm.UNQUALIFIED
+		elementFormDefault=jakarta.xml.bind.annotation.XmlNsForm.UNQUALIFIED
 )
 
 package com.svea.webpay.paymentgw.entity;

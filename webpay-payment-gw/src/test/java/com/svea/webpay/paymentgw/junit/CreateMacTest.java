@@ -3,7 +3,7 @@ package com.svea.webpay.paymentgw.junit;
 import java.io.PrintStream;
 import java.io.StringWriter;
 
-import javax.xml.bind.JAXB;
+import jakarta.xml.bind.JAXB;
 
 import org.junit.Before;
 import org.junit.Test;

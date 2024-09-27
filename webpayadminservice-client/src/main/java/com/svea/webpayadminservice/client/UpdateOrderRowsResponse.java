@@ -1,23 +1,26 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for UpdateOrderRowsResponse complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="UpdateOrderRowsResponse"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
+ *         &lt;element name="UpdateOrderRowsResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}UpdateOrderRowsResponse" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
+ *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -25,10 +28,37 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "UpdateOrderRowsResponse")
-public class UpdateOrderRowsResponse
-    extends BasicResponse
-{
+@XmlType(name = "", propOrder = {
+    "updateOrderRowsResult"
+})
+@XmlRootElement(name = "UpdateOrderRowsResponse", namespace = "http://tempuri.org/")
+public class UpdateOrderRowsResponse {
 
+    @XmlElement(name = "UpdateOrderRowsResult", namespace = "http://tempuri.org/", nillable = true)
+    protected UpdateOrderRowsResponse2 updateOrderRowsResult;
+
+    /**
+     * Gets the value of the updateOrderRowsResult property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link UpdateOrderRowsResponse2 }
+     *     
+     */
+    public UpdateOrderRowsResponse2 getUpdateOrderRowsResult() {
+        return updateOrderRowsResult;
+    }
+
+    /**
+     * Sets the value of the updateOrderRowsResult property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link UpdateOrderRowsResponse2 }
+     *     
+     */
+    public void setUpdateOrderRowsResult(UpdateOrderRowsResponse2 value) {
+        this.updateOrderRowsResult = value;
+    }
 
 }

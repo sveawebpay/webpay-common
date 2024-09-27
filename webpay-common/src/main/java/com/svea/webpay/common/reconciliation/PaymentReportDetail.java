@@ -328,7 +328,7 @@ public class PaymentReportDetail {
 	}
 
 	public Double getPaidAmt() {
-		if (paidAmt==null) paidAmt = new Double(0);
+		if (paidAmt==null) paidAmt = Double.valueOf(0);
 		return paidAmt;
 	}
 
@@ -337,7 +337,7 @@ public class PaymentReportDetail {
 	}
 
 	public Double getReceivedAmt() {
-		if (receivedAmt==null) receivedAmt = new Double(0);
+		if (receivedAmt==null) receivedAmt = Double.valueOf(0);
 		return receivedAmt;
 	}
 

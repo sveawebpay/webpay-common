@@ -1,26 +1,25 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for GetOrdersResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="GetOrdersResponse"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="GetOrdersResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}GetOrdersResponse" minOccurs="0"/&gt;
+ *         &lt;element name="Orders" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfOrder" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -28,37 +27,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "getOrdersResult"
+@XmlType(name = "GetOrdersResponse", propOrder = {
+    "orders"
 })
-@XmlRootElement(name = "GetOrdersResponse", namespace = "http://tempuri.org/")
-public class GetOrdersResponse2 {
+public class GetOrdersResponse2
+    extends BasicResponse
+{
 
-    @XmlElement(name = "GetOrdersResult", namespace = "http://tempuri.org/", nillable = true)
-    protected GetOrdersResponse getOrdersResult;
+    @XmlElement(name = "Orders", nillable = true)
+    protected ArrayOfOrder orders;
 
     /**
-     * Gets the value of the getOrdersResult property.
+     * Gets the value of the orders property.
      * 
      * @return
      *     possible object is
-     *     {@link GetOrdersResponse }
+     *     {@link ArrayOfOrder }
      *     
      */
-    public GetOrdersResponse getGetOrdersResult() {
-        return getOrdersResult;
+    public ArrayOfOrder getOrders() {
+        return orders;
     }
 
     /**
-     * Sets the value of the getOrdersResult property.
+     * Sets the value of the orders property.
      * 
      * @param value
      *     allowed object is
-     *     {@link GetOrdersResponse }
+     *     {@link ArrayOfOrder }
      *     
      */
-    public void setGetOrdersResult(GetOrdersResponse value) {
-        this.getOrdersResult = value;
+    public void setOrders(ArrayOfOrder value) {
+        this.orders = value;
     }
 
 }

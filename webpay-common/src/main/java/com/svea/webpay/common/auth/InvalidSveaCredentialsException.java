@@ -13,4 +13,8 @@ public class InvalidSveaCredentialsException extends Exception {
 		this.sc = sc;
 	}
 	
+	public SveaCredential getCredential() {
+		return sc;
+	}
+	
 }

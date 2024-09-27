@@ -1,26 +1,26 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for GetFinancialReportResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="GetFinancialReportResponse"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="GetFinancialReportResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}GetFinancialReportResponse" minOccurs="0"/&gt;
+ *         &lt;element name="ReportHeader" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}FinancialReportHeader" minOccurs="0"/&gt;
+ *         &lt;element name="ReportRows" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfFinancialReportRow" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -28,37 +28,65 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "getFinancialReportResult"
+@XmlType(name = "GetFinancialReportResponse", propOrder = {
+    "reportHeader",
+    "reportRows"
 })
-@XmlRootElement(name = "GetFinancialReportResponse", namespace = "http://tempuri.org/")
-public class GetFinancialReportResponse2 {
+public class GetFinancialReportResponse2
+    extends BasicResponse
+{
 
-    @XmlElement(name = "GetFinancialReportResult", namespace = "http://tempuri.org/", nillable = true)
-    protected GetFinancialReportResponse getFinancialReportResult;
+    @XmlElement(name = "ReportHeader", nillable = true)
+    protected FinancialReportHeader reportHeader;
+    @XmlElement(name = "ReportRows", nillable = true)
+    protected ArrayOfFinancialReportRow reportRows;
 
     /**
-     * Gets the value of the getFinancialReportResult property.
+     * Gets the value of the reportHeader property.
      * 
      * @return
      *     possible object is
-     *     {@link GetFinancialReportResponse }
+     *     {@link FinancialReportHeader }
      *     
      */
-    public GetFinancialReportResponse getGetFinancialReportResult() {
-        return getFinancialReportResult;
+    public FinancialReportHeader getReportHeader() {
+        return reportHeader;
     }
 
     /**
-     * Sets the value of the getFinancialReportResult property.
+     * Sets the value of the reportHeader property.
      * 
      * @param value
      *     allowed object is
-     *     {@link GetFinancialReportResponse }
+     *     {@link FinancialReportHeader }
      *     
      */
-    public void setGetFinancialReportResult(GetFinancialReportResponse value) {
-        this.getFinancialReportResult = value;
+    public void setReportHeader(FinancialReportHeader value) {
+        this.reportHeader = value;
+    }
+
+    /**
+     * Gets the value of the reportRows property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ArrayOfFinancialReportRow }
+     *     
+     */
+    public ArrayOfFinancialReportRow getReportRows() {
+        return reportRows;
+    }
+
+    /**
+     * Sets the value of the reportRows property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ArrayOfFinancialReportRow }
+     *     
+     */
+    public void setReportRows(ArrayOfFinancialReportRow value) {
+        this.reportRows = value;
     }
 
 }

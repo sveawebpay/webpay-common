@@ -250,7 +250,7 @@ public class ListOfSveaCredentials {
 			// Try read as resource
 			url = ClassLoader.getSystemResource(configfile);
 		} else {
-			url = new URL("file://" + cf.getAbsolutePath());
+			url = cf.toURI().toURL();
 		}
 
 		if (url==null) {

@@ -2,6 +2,7 @@ package com.svea.webpay.common.conv;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 import com.svea.webpay.common.auth.SveaCredential;
 import com.svea.webpay.common.reconciliation.FeeDetail;
@@ -33,7 +34,7 @@ public class ReportConverter {
 		
 		if (ii==null) return 0D;
 		BigDecimal bd = BigDecimal.valueOf(ii.longValue());
-		Double result = bd.divide(BigDecimal.valueOf(100), 2, BigDecimal.ROUND_HALF_DOWN).doubleValue();
+		Double result = bd.divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_DOWN).doubleValue();
 		
 		return result;
 		

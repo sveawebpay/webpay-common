@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.svea</groupId>
     <artifactId>webpay-common-pom</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9-SNAPSHOT</version>
   </parent>
   <artifactId>webpay-payment-gw</artifactId>
   <packaging>bundle</packaging>
@@ -18,20 +18,18 @@
 
 	<dependencies>
 
-		<!-- Overrides of libraries included further down -->
 		<dependency>
-		    <groupId>commons-codec</groupId>
-		    <artifactId>commons-codec</artifactId>
-		    <version>1.15</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>ch.qos.reload4j</groupId>
-    		<artifactId>reload4j</artifactId>
-    		<version>1.2.24</version>
+		    <groupId>jakarta.xml.bind</groupId>
+		    <artifactId>jakarta.xml.bind-api</artifactId>
+		    <version>${jakarta-xml-bind-api.version}</version>
 		</dependency>
 
-		<!-- end of override -->
+		<dependency>
+		        <groupId>org.glassfish.jaxb</groupId>
+		        <artifactId>jaxb-runtime</artifactId>
+		        <version>4.0.2</version>
+		        <scope>test</scope>
+	    </dependency>
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -42,25 +40,6 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpmime</artifactId>
 			<version>4.5.14</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.36</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.36</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
-			<scope>test</scope>
 		</dependency>
 		
 	</dependencies>
@@ -77,59 +56,11 @@
 		</resources>
 
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.0.2</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.12.1</version>
-				<configuration>
-					<includes>
-						<include>**/AllTests.java</include>
-					</includes>
-				</configuration>
-			</plugin>
 
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>4.2.0</version>
+				<version>5.1.8</version>
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
@@ -137,15 +68,7 @@
 							org.notima.api.webpay.pmtapi,
 							org.notima.api.webpay.pmtapi.entity
 						</Export-Package>
-						<Import-Package>
-							org.slf4j,
-							javax.xml.ws,
-							javax.xml.namespace,
-							javax.xml.*,
-							javax.net.*
-						</Import-Package>
-						<Embed-Dependency>*;scope=compile|runtime;artifactId=!slf4j-api|slf4j-log4j12|log4j|junit|gson</Embed-Dependency>
-						<Embed-Transitive>true</Embed-Transitive>
+						<Import-Package>*</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -156,7 +79,7 @@
 	
 	<inceptionYear>2020</inceptionYear>
 	<organization>
-		<name>Svea Ekonomi AB</name>
+		<name>Svea Bank AB</name>
 		<url>https://www.svea.com</url>
 	</organization>
 	<scm>
@@ -181,7 +104,7 @@
 		<developer>
 			<name>Daniel Tamm</name>
 			<email>daniel.tamm@sveaekonomi.se</email>
-			<organization>Svea Ekonomi AB</organization>
+			<organization>Svea Bank AB</organization>
 			<organizationUrl>https://www.svea.com</organizationUrl>
 		</developer>
 	</developers>

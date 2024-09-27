@@ -20,7 +20,8 @@ Instructions to regenerate.
 2. Change references to xsd-s to local xsds.
 3. If any of the xsds have changed, download new versions.
 4. Delete the old files in java/com/svea/webpayadminservice/client using system explorer (not from Eclipse).
-5. Regenerate from the modified AdminService.svc.wsdl.
+5. Regenerate from the modified AdminService.svc.wsdl. Use the cxf-codegen-plugin
+6. Move the files from target/generated/cxf back to the folders in step 4.
 6. Update the WSDL-location to relative in AdminService.java 
 7. Remember to change the WSDL to point to https (wdsl:service at the end of the WSDL-file)
 
@@ -63,36 +64,34 @@ public class AdminService extends Service {
 
 -->
 
-<jaxb:bindings version="2.1" 
-xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
-xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
-   <jaxb:globalBindings generateElementProperty="false"/> 
-   
-   <jaxb:bindings schemaLocation="AdminService.xsd11.xsd">
-   	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
-   		<jaxb:factoryMethod name="SearchOrder"/>
-   	</jaxb:bindings>
-   </jaxb:bindings>
-   
-   <jaxb:bindings schemaLocation="AdminService.xsd12.xsd">
-   	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
-   		<jaxb:factoryMethod name="SearchInvoice"/>
-   	</jaxb:bindings>
-   </jaxb:bindings>
+<jaxb:bindings version="3.0" 
+    xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+    <jaxb:globalBindings generateElementProperty="false"/> 
 
-   <jaxb:bindings schemaLocation="AdminService.xsd13.xsd">
-   	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
-   		<jaxb:factoryMethod name="SearchPaymentPlan"/>
-   	</jaxb:bindings>
-   </jaxb:bindings>
-   
-   <jaxb:bindings schemaLocation="AdminService.xsd15.xsd">
-   	<jaxb:bindings node="//xs:element[@name='TextMatchType']">
-   		<jaxb:factoryMethod name="SearchAccountCredit"/>
-   	</jaxb:bindings>
-   </jaxb:bindings>
-   
-   
+    <jaxb:bindings schemaLocation="AdminService.xsd11.xsd">
+        <jaxb:bindings node="//xs:element[@name='TextMatchType']">
+            <jaxb:factoryMethod name="SearchOrder"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="AdminService.xsd12.xsd">
+        <jaxb:bindings node="//xs:element[@name='TextMatchType']">
+            <jaxb:factoryMethod name="SearchInvoice"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="AdminService.xsd13.xsd">
+        <jaxb:bindings node="//xs:element[@name='TextMatchType']">
+            <jaxb:factoryMethod name="SearchPaymentPlan"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="AdminService.xsd15.xsd">
+        <jaxb:bindings node="//xs:element[@name='TextMatchType']">
+            <jaxb:factoryMethod name="SearchAccountCredit"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
 </jaxb:bindings>

@@ -10,6 +10,7 @@ import com.google.gson.FieldAttributes;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.Strictness;
 import com.svea.webpay.common.reconciliation.PaymentReport;
 
 /**
@@ -40,7 +41,7 @@ public class JsonUtil {
 	private void initDefaultGsonBuilder() {
 		gsonBuilder = new GsonBuilder().setPrettyPrinting().setDateFormat(dfmtStr);
 		gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.IDENTITY);
-		gsonBuilder.setLenient();
+		gsonBuilder.setStrictness(Strictness.LENIENT);
 		gsonBuilder.registerTypeAdapter(LocalDate.class, new JsonLocalDateAdapter());
 	}
 

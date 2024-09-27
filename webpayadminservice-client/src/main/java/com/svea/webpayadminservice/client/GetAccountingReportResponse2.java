@@ -1,26 +1,25 @@
 
 package com.svea.webpayadminservice.client;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for GetAccountingReportResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="GetAccountingReportResponse"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;extension base="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}BasicResponse"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="GetAccountingReportResult" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}GetAccountingReportResponse" minOccurs="0"/&gt;
+ *         &lt;element name="ReportRows" type="{http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service}ArrayOfAccountingReportRow" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -28,37 +27,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "getAccountingReportResult"
+@XmlType(name = "GetAccountingReportResponse", propOrder = {
+    "reportRows"
 })
-@XmlRootElement(name = "GetAccountingReportResponse", namespace = "http://tempuri.org/")
-public class GetAccountingReportResponse2 {
+public class GetAccountingReportResponse2
+    extends BasicResponse
+{
 
-    @XmlElement(name = "GetAccountingReportResult", namespace = "http://tempuri.org/", nillable = true)
-    protected GetAccountingReportResponse getAccountingReportResult;
+    @XmlElement(name = "ReportRows", nillable = true)
+    protected ArrayOfAccountingReportRow reportRows;
 
     /**
-     * Gets the value of the getAccountingReportResult property.
+     * Gets the value of the reportRows property.
      * 
      * @return
      *     possible object is
-     *     {@link GetAccountingReportResponse }
+     *     {@link ArrayOfAccountingReportRow }
      *     
      */
-    public GetAccountingReportResponse getGetAccountingReportResult() {
-        return getAccountingReportResult;
+    public ArrayOfAccountingReportRow getReportRows() {
+        return reportRows;
     }
 
     /**
-     * Sets the value of the getAccountingReportResult property.
+     * Sets the value of the reportRows property.
      * 
      * @param value
      *     allowed object is
-     *     {@link GetAccountingReportResponse }
+     *     {@link ArrayOfAccountingReportRow }
      *     
      */
-    public void setGetAccountingReportResult(GetAccountingReportResponse value) {
-        this.getAccountingReportResult = value;
+    public void setReportRows(ArrayOfAccountingReportRow value) {
+        this.reportRows = value;
     }
 
 }

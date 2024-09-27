@@ -7,6 +7,7 @@ import java.util.Date;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.Strictness;
 
 /**
  * A utility class to centralize the Json-formatting options. Mainly the date format and the field naming policy.
@@ -26,7 +27,7 @@ public class ReconciliationReportJsonUtil {
 		builder.setFieldNamingPolicy(FieldNamingPolicy.IDENTITY);
 		builder.setDateFormat(dfmtStr);
 		builder.registerTypeAdapter(Date.class, new DateSerializer());
-		builder.setLenient();
+		builder.setStrictness(Strictness.LENIENT);
 		gson = builder.create();
 		dfmt = new SimpleDateFormat(dfmtStr);
 		

@@ -27,7 +27,7 @@ public class SveaTranslatorImpl implements SveaTranslator {
 	
 	public static Locale[] supportedLocales = {
 			Locale.ENGLISH,
-			new Locale("sv")
+			Locale.forLanguageTag("sv")
 	};
 
 	private Map<String, List<ResourceBundle>> bundles;

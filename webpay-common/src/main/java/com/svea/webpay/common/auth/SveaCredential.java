@@ -739,7 +739,7 @@ s	 * @return	The password for this credential
 			// Try read as resource
 			url = ClassLoader.getSystemResource(configfile);
 		} else {
-			url = new URL("file://" + cf.getAbsolutePath());
+			url = cf.toURI().toURL();
 		}
 
 		if (url==null) {
