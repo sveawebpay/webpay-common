@@ -23,7 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<gson.version>2.11.0</gson.version>
-		<jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
+		<jakarta-xml-bind-api.version>3.0.1</jakarta-xml-bind-api.version>
 		<jax.version>2.3.1</jax.version>
 	</properties>
 
