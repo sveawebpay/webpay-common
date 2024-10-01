@@ -65,8 +65,7 @@
 				<configuration>
 					<instructions>
 						<Export-Package>
-							org.notima.api.webpay.pmtapi,
-							org.notima.api.webpay.pmtapi.entity
+							com.svea.webpay.paymentgw*
 						</Export-Package>
 						<Import-Package>*</Import-Package>
 					</instructions>
