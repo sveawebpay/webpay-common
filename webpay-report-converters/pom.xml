@@ -8,6 +8,7 @@
   </parent>
   
   <artifactId>webpay-report-converters</artifactId>
+  <packaging>bundle</packaging>
   <name>WebPay Report Converters</name>
   <description>A library to convert the common reconciliation format (webpay-common) to other formats.</description>
   
@@ -29,6 +30,21 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>5.1.8</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package>
+							com.svea.webpay.common.reconciliation.conv
+						</Export-Package>
+						<Import-Package>*</Import-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
 
 		</plugins>
 	</build>
@@ -42,17 +58,17 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.17</version>
+			<version>5.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.16</version>
+			<version>5.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml-schemas</artifactId>
-			<version>3.16</version>
+			<version>4.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.notima.bg</groupId>

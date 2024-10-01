@@ -99,7 +99,7 @@ public class ExcelToReconFormat {
 			row = sheet.getRow(r);
 			
 			// Check for blank rows
-			if (row.getCell(1)==null || CellType.BLANK.equals(row.getCell(1).getCellTypeEnum())) {
+			if (row.getCell(1)==null || CellType.BLANK.equals(row.getCell(1).getCellType())) {
 				continue;
 			}
 			
@@ -161,7 +161,7 @@ public class ExcelToReconFormat {
 	
 	private String getCellAsString(Cell c) {
 		if (c==null) return null;
-		CellType ct = c.getCellTypeEnum();
+		CellType ct = c.getCellType();
 		if (ct.equals(CellType.FORMULA)) {
 			CellValue cellValue = evaluator.evaluate(c);
 			if (ct.equals(CellType.NUMERIC)) {
@@ -189,7 +189,7 @@ public class ExcelToReconFormat {
 		Date result = null;
 		
 		// Try string
-		CellType ct = c.getCellTypeEnum();
+		CellType ct = c.getCellType();
 		if (ct.equals(CellType.STRING)) {
 			// Parse date
 			result = df.parse(c.getStringCellValue());
