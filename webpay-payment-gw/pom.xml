@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.svea</groupId>
     <artifactId>webpay-common-pom</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9-SNAPSHOT</version>
   </parent>
   <artifactId>webpay-payment-gw</artifactId>
   <packaging>bundle</packaging>
@@ -134,8 +134,10 @@
 				<configuration>
 					<instructions>
 						<Export-Package>
-							org.notima.api.webpay.pmtapi,
-							org.notima.api.webpay.pmtapi.entity
+							com.svea.webpay.paymentgw,
+							com.svea.webpay.paymentgw.entity,
+							com.svea.webpay.paymentgw.util,
+							com.svea.webpay.paymentgw.xmladapter
 						</Export-Package>
 						<Import-Package>
 							org.slf4j,
