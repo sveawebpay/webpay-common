@@ -29,7 +29,7 @@ public interface PaymentReportCallback {
 	 * @param detail
 	 * @return		False if there's problem with the preProcess.
 	 */
-	public boolean preProcessDetail(int trxId, PaymentReportGroup group, PaymentReportDetail detail);
+	public boolean preProcessDetail(int trxId, PaymentReportGroup group, PaymentReportDetail detail, boolean isDryRun);
 
 	/**
 	 * 
@@ -38,7 +38,7 @@ public interface PaymentReportCallback {
 	 * @param detail
 	 * @return		False if there's problem with the postProcess
 	 */
-	public boolean postProcessDetail(int trxId, PaymentReportGroup group, PaymentReportDetail detail);
+	public boolean postProcessDetail(int trxId, PaymentReportGroup group, PaymentReportDetail detail, boolean isDryRun);
 	
 	public CallbackResult getCallbackDetailResult();
 	
