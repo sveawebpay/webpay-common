@@ -21,6 +21,7 @@ public class ClientReportRow {
 	public static final String ROWTYPE_Order = "Order";
 	public static final String ROWTYPE_Regression = "Regression";
 	
+	public static final String PAYMENTTYPE_Vipps = "Vipps";
 	public static final String PAYMENTTYPE_Swish = "Swish";
 	public static final String PAYMENTTYPE_MobilePay = "MobilePay"; // Denmark?
 	public static final String PAYMENTTYPE_AccountCredit = "AccountCredit";

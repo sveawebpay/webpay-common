@@ -107,6 +107,10 @@ public class ReportConverter {
 			case ClientReportRow.PAYMENTTYPE_Swish:
 				result = SveaCredential.ACCOUNTTYPE_SWISH;
 				break;
+				
+			case ClientReportRow.PAYMENTTYPE_Vipps:
+				result = SveaCredential.ACCOUNTTYPE_VIPPS;
+				break;
 		
 			case ClientReportRow.PAYMENTTYPE_MobilePay:
 				result = SveaCredential.ACCOUNTTYPE_MOBILE_PAY;
