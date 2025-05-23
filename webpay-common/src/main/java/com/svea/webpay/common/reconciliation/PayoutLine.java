@@ -34,6 +34,8 @@ public class PayoutLine {
 	
 	private String	currency;
 	
+	private String	taxDomicile;
+	
 	private boolean	includedInOtherPayout = false;
 	
 	private String	description;
@@ -171,6 +173,12 @@ public class PayoutLine {
 		this.currency = currency;
 	}
 	
+	public String getTaxDomicile() {
+		return taxDomicile;
+	}
+	public void setTaxDomicile(String taxDomicile) {
+		this.taxDomicile = taxDomicile;
+	}
 	/**
 	 * Adds fee specifications from given payment report group.
 	 * 	

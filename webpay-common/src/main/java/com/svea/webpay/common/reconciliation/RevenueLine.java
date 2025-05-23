@@ -16,6 +16,7 @@ public class RevenueLine {
 	private String	paymentTypeReference;
 	private String	description;
 	private String	currency;	
+	private String	taxDomicile;
 	
 	private List<RevenueLineDetail> details;
 	
@@ -93,6 +94,12 @@ public class RevenueLine {
 		this.currency = currency;
 	}
 	
+	public String getTaxDomicile() {
+		return taxDomicile;
+	}
+	public void setTaxDomicile(String taxDomicile) {
+		this.taxDomicile = taxDomicile;
+	}
 	/**
 	 * Adds revenue and tax amount to this revenue line.
 	 * 
