@@ -2,6 +2,7 @@
 <xs:schema elementFormDefault="qualified"
 	targetNamespace="http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/"
 	xmlns:tns="http://schemas.datacontract.org/2004/07/DataObjects.Admin.Service">
 	<xs:import
 		schemaLocation="AdminService.xsd3.xsd"
@@ -2513,6 +2514,8 @@
 			<xs:element minOccurs="0" name="KycRiskClassification"
 				nillable="true" type="q41:KycRiskClassification"
 				xmlns:q41="http://schemas.datacontract.org/2004/07/DataObjects.Webservice" />
+			<xs:element minOccurs="0" name="OrderId" nillable="true"
+				type="ser:guid" />
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="OrderInformation" nillable="true"

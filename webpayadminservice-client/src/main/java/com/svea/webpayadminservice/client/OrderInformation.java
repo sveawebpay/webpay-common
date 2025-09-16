@@ -40,6 +40,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="WillBuy" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *         &lt;element name="KycProductId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="KycRiskClassification" type="{http://schemas.datacontract.org/2004/07/DataObjects.Webservice}KycRiskClassification" minOccurs="0"/&gt;
+ *         &lt;element name="OrderId" type="{http://schemas.microsoft.com/2003/10/Serialization/}guid" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -69,7 +70,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "scoringId",
     "willBuy",
     "kycProductId",
-    "kycRiskClassification"
+    "kycRiskClassification",
+    "orderId"
 })
 public class OrderInformation {
 
@@ -116,6 +118,8 @@ public class OrderInformation {
     @XmlElement(name = "KycRiskClassification", nillable = true)
     @XmlSchemaType(name = "string")
     protected KycRiskClassification kycRiskClassification;
+    @XmlElement(name = "OrderId", nillable = true)
+    protected String orderId;
 
     /**
      * Gets the value of the accountCreditInformation property.
@@ -579,6 +583,30 @@ public class OrderInformation {
      */
     public void setKycRiskClassification(KycRiskClassification value) {
         this.kycRiskClassification = value;
+    }
+
+    /**
+     * Gets the value of the orderId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOrderId() {
+        return orderId;
+    }
+
+    /**
+     * Sets the value of the orderId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOrderId(String value) {
+        this.orderId = value;
     }
 
 }

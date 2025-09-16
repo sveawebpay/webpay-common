@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="Default"/&gt;
  *     &lt;enumeration value="AdjustmentRow"/&gt;
  *     &lt;enumeration value="GiftCard"/&gt;
+ *     &lt;enumeration value="InvoiceFee"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -31,7 +32,9 @@ public enum RowType {
     @XmlEnumValue("AdjustmentRow")
     ADJUSTMENT_ROW("AdjustmentRow"),
     @XmlEnumValue("GiftCard")
-    GIFT_CARD("GiftCard");
+    GIFT_CARD("GiftCard"),
+    @XmlEnumValue("InvoiceFee")
+    INVOICE_FEE("InvoiceFee");
     private final String value;
 
     RowType(String v) {

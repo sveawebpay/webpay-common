@@ -41,6 +41,8 @@
 			<xs:element minOccurs="0" name="Unit" nillable="true"
 				type="xs:string" />
 			<xs:element name="VatPercent" type="xs:decimal" />
+			<xs:element minOccurs="0" name="Reference" nillable="true"
+				type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="OrderRow" nillable="true"

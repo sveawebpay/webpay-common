@@ -209,16 +209,6 @@
 			element="tns:GetAccountingReportResponse" />
 	</wsdl:message>
 	<wsdl:message
-		name="IAdminService_GetClientsByIdentityAccount_InputMessage">
-		<wsdl:part name="parameters"
-			element="tns:GetClientsByIdentityAccount" />
-	</wsdl:message>
-	<wsdl:message
-		name="IAdminService_GetClientsByIdentityAccount_OutputMessage">
-		<wsdl:part name="parameters"
-			element="tns:GetClientsByIdentityAccountResponse" />
-	</wsdl:message>
-	<wsdl:message
 		name="IAdminService_GetDebtInvoicesPaidToClientForReport_InputMessage">
 		<wsdl:part name="parameters"
 			element="tns:GetDebtInvoicesPaidToClientForReport" />
@@ -634,14 +624,6 @@
 				wsaw:Action="http://tempuri.org/IAdminService/GetAccountingReportResponse"
 				message="tns:IAdminService_GetAccountingReport_OutputMessage" />
 		</wsdl:operation>
-		<wsdl:operation name="GetClientsByIdentityAccount">
-			<wsdl:input
-				wsaw:Action="http://tempuri.org/IAdminService/GetClientsByIdentityAccount"
-				message="tns:IAdminService_GetClientsByIdentityAccount_InputMessage" />
-			<wsdl:output
-				wsaw:Action="http://tempuri.org/IAdminService/GetClientsByIdentityAccountResponse"
-				message="tns:IAdminService_GetClientsByIdentityAccount_OutputMessage" />
-		</wsdl:operation>
 		<wsdl:operation
 			name="GetDebtInvoicesPaidToClientForReport">
 			<wsdl:input
@@ -1054,17 +1036,6 @@
 		<wsdl:operation name="GetAccountingReport">
 			<soap12:operation
 				soapAction="http://tempuri.org/IAdminService/GetAccountingReport"
-				style="document" />
-			<wsdl:input>
-				<soap12:body use="literal" />
-			</wsdl:input>
-			<wsdl:output>
-				<soap12:body use="literal" />
-			</wsdl:output>
-		</wsdl:operation>
-		<wsdl:operation name="GetClientsByIdentityAccount">
-			<soap12:operation
-				soapAction="http://tempuri.org/IAdminService/GetClientsByIdentityAccount"
 				style="document" />
 			<wsdl:input>
 				<soap12:body use="literal" />
@@ -1579,17 +1550,6 @@
 		<wsdl:operation name="GetAccountingReport">
 			<soap:operation
 				soapAction="http://tempuri.org/IAdminService/GetAccountingReport"
-				style="document" />
-			<wsdl:input>
-				<soap:body use="literal" />
-			</wsdl:input>
-			<wsdl:output>
-				<soap:body use="literal" />
-			</wsdl:output>
-		</wsdl:operation>
-		<wsdl:operation name="GetClientsByIdentityAccount">
-			<soap:operation
-				soapAction="http://tempuri.org/IAdminService/GetClientsByIdentityAccount"
 				style="document" />
 			<wsdl:input>
 				<soap:body use="literal" />
