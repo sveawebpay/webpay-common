@@ -23,6 +23,7 @@ public class ClientReportRow {
 	
 	public static final String PAYMENTTYPE_Vipps = "Vipps";
 	public static final String PAYMENTTYPE_Swish = "Swish";
+	public static final String PAYMENTTYPE_ApplePay = "ApplePay";
 	public static final String PAYMENTTYPE_MobilePay = "MobilePay"; // Denmark?
 	public static final String PAYMENTTYPE_AccountCredit = "AccountCredit";
 	public static final String PAYMENTTYPE_Card = "Card";

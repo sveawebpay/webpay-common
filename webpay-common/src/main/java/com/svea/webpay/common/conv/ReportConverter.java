@@ -116,6 +116,10 @@ public class ReportConverter {
 				result = SveaCredential.ACCOUNTTYPE_MOBILE_PAY;
 				break;
 				
+			case ClientReportRow.PAYMENTTYPE_ApplePay:
+				result = SveaCredential.ACCOUNTTYPE_APPLE_PAY;
+				break;
+				
 			case ClientReportRow.PAYMENTTYPE_AccountCredit:
 				result = SveaCredential.ACCOUNTTYPE_ACCOUNT_CREDIT;
 				break;
@@ -138,7 +142,10 @@ public class ReportConverter {
 			
 			case ClientReportRow.PAYMENTTYPE_Admin:
 				result = SveaCredential.ACCOUNTTYPE_ADMIN;
+				break;
 				
+			default:
+				result = clientReportPaymentType;
 		}
 		
 		return result;

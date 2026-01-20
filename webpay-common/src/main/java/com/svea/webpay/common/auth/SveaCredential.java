@@ -63,6 +63,7 @@ public class SveaCredential {
 	public static final String ACCOUNTTYPE_SWISH = "swish";
 	public static final String ACCOUNTTYPE_VIPPS = "vipps";
 	public static final String ACCOUNTTYPE_MOBILE_PAY = "mobile-pay";
+	public static final String ACCOUNTTYPE_APPLE_PAY = "apple-pay";
 	public static final String ACCOUNTTYPE_ACCOUNT_CREDIT = "account-credit";
 	public static final String ACCOUNTTYPE_DIRECT_BANK = "direct-bank";
 	
