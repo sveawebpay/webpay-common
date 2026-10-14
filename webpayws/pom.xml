@@ -43,7 +43,9 @@
 		                <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
 		                <wsdlOptions>
 		                    <wsdlOption>
-		                        <wsdl>https://webpayws.svea.com/SveaWebPay.asmx?WSDL</wsdl>
+		                        <!-- Local copy of https://webpayws.svea.com/SveaWebPay.asmx?WSDL (fetched 2026-10-14) for reproducible builds -->
+		                        <wsdl>${basedir}/src/main/resources/SveaWebPay-261014.wsdl</wsdl>
+		                        <wsdlLocation>https://webpayws.svea.com/SveaWebPay.asmx?WSDL</wsdlLocation>
 		                        <extraargs>
 		                        	<extraarg>-p</extraarg>
 		                        	<extraarg>com.svea.webpayws</extraarg>
